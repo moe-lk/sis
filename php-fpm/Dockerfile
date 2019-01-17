@@ -12,6 +12,7 @@ RUN apt-get update \
 # CMD ['php','cake.php','migrations','migrate']
 
 # CMD ['php','cake.php','migrations','seed','--source=../config/Snapshot/3.11.0/Seeds']
+RUN sed -ri 's/^www-data:x:82:82:/www-data:x:1000:50:/' /etc/passwd
 
 WORKDIR "/var/www/myapp"
 
