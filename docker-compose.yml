@@ -6,16 +6,16 @@ services:
     ports:
       - "8125:8025"
   openemis-mysql-3:
-    image: mysql:5.7
+    image: moelk/openemis-mysql:latest
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: openemis
       MYSQL_USER: openuser
       MYSQL_PASSWORD: openpass
     command: --max_allowed_packet=32505856
-    # volumes:
+    volumes:
       # - ./mysql:/var/lib/mysql
-      # - ./mysql/my.cnf:/etc/mysql/my.cnf
+      - ./mysql/my.cnf:/etc/mysql/my.cnf
     ports:
       - "8106:3306"
     restart: always
@@ -31,7 +31,7 @@ services:
       - openemis-php-fpm
     restart: always
   openemis-php-fpm:
-    build: ./php-fpm
+    image: moelk/openemis-php-fpm:latest
     container_name: openemis-php-fpm-2
     volumes:
       - ./php-fpm:/var/www/myapp
