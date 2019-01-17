@@ -9064,3 +9064,571 @@ Stack Trace:
 #26 {main}
 
 
+2019-01-09 07:17:14 Error: [PDOException] SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: Name or service not known
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(47): PDO->__construct('mysql:host=open...', 'root', 'secret', Array)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(104): Cake\Database\Driver\Mysql->_connect('mysql:host=open...', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(322): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(439): Cake\Database\Connection->schemaCollection()
+#8 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#9 /var/www/myapp/plugins/System/src/Model/Table/SystemErrorsTable.php(18): App\Model\Table\AppTable->initialize(Array)
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): System\Model\Table\SystemErrorsTable->initialize(Array)
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('System.SystemEr...', Array)
+#14 /var/www/myapp/webroot/index.php(42): Cake\ORM\TableRegistry::get('System.SystemEr...')
+#15 {main}
+
+
+2019-01-09 07:17:37 Error: [PDOException] SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: Name or service not known
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(47): PDO->__construct('mysql:host=open...', 'root', 'secret', Array)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(104): Cake\Database\Driver\Mysql->_connect('mysql:host=open...', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(322): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(439): Cake\Database\Connection->schemaCollection()
+#8 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#9 /var/www/myapp/plugins/System/src/Model/Table/SystemErrorsTable.php(18): App\Model\Table\AppTable->initialize(Array)
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): System\Model\Table\SystemErrorsTable->initialize(Array)
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('System.SystemEr...', Array)
+#14 /var/www/myapp/webroot/index.php(42): Cake\ORM\TableRegistry::get('System.SystemEr...')
+#15 {main}
+
+
+2019-01-09 07:26:19 Error: [PDOException] SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: Name or service not known
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(47): PDO->__construct('mysql:host=open...', 'root', 'secret', Array)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(104): Cake\Database\Driver\Mysql->_connect('mysql:host=open...', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(322): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(439): Cake\Database\Connection->schemaCollection()
+#8 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#9 /var/www/myapp/plugins/System/src/Model/Table/SystemErrorsTable.php(18): App\Model\Table\AppTable->initialize(Array)
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): System\Model\Table\SystemErrorsTable->initialize(Array)
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('System.SystemEr...', Array)
+#14 /var/www/myapp/webroot/index.php(42): Cake\ORM\TableRegistry::get('System.SystemEr...')
+#15 {main}
+
+
+2019-01-09 07:30:02 Error: [PDOException] SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: Name or service not known
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(47): PDO->__construct('mysql:host=open...', 'root', 'secret', Array)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(104): Cake\Database\Driver\Mysql->_connect('mysql:host=open...', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(322): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(439): Cake\Database\Connection->schemaCollection()
+#8 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#9 /var/www/myapp/plugins/System/src/Model/Table/SystemErrorsTable.php(18): App\Model\Table\AppTable->initialize(Array)
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): System\Model\Table\SystemErrorsTable->initialize(Array)
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('System.SystemEr...', Array)
+#14 /var/www/myapp/webroot/index.php(42): Cake\ORM\TableRegistry::get('System.SystemEr...')
+#15 {main}
+
+
+2019-01-09 07:33:29 Error: [PDOException] SQLSTATE[HY000] [2002] php_network_getaddresses: getaddrinfo failed: Name or service not known
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/PDODriverTrait.php(47): PDO->__construct('mysql:host=open...', 'root', 'secret', Array)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Driver/Mysql.php(104): Cake\Database\Driver\Mysql->_connect('mysql:host=open...', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/BaseSchema.php(45): Cake\Database\Driver\Mysql->connect()
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Dialect/MysqlDialectTrait.php(63): Cake\Database\Schema\BaseSchema->__construct(Object(Cake\Database\Driver\Mysql))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(52): Cake\Database\Driver\Mysql->schemaDialect()
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(42): Cake\Database\Schema\Collection->__construct(Object(Cake\Database\Connection))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(322): Cake\Database\Schema\CachedCollection->__construct(Object(Cake\Database\Connection), true)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(439): Cake\Database\Connection->schemaCollection()
+#8 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#9 /var/www/myapp/plugins/System/src/Model/Table/SystemErrorsTable.php(18): App\Model\Table\AppTable->initialize(Array)
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): System\Model\Table\SystemErrorsTable->initialize(Array)
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('System.SystemEr...', Array)
+#14 /var/www/myapp/webroot/index.php(42): Cake\ORM\TableRegistry::get('System.SystemEr...')
+#15 {main}
+
+
+2019-01-09 07:33:45 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.system_errors' doesn't exist
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'system_errors', Array, Object(Cake\Database\Schema\Table))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('system_errors', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('system_errors')
+#3 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#4 /var/www/myapp/plugins/System/src/Model/Table/SystemErrorsTable.php(18): App\Model\Table\AppTable->initialize(Array)
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): System\Model\Table\SystemErrorsTable->initialize(Array)
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('System.SystemEr...', Array)
+#9 /var/www/myapp/webroot/index.php(42): Cake\ORM\TableRegistry::get('System.SystemEr...')
+#10 {main}
+
+
+2019-01-09 07:35:29 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.system_errors' doesn't exist
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'system_errors', Array, Object(Cake\Database\Schema\Table))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('system_errors', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('system_errors')
+#3 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#4 /var/www/myapp/plugins/System/src/Model/Table/SystemErrorsTable.php(18): App\Model\Table\AppTable->initialize(Array)
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): System\Model\Table\SystemErrorsTable->initialize(Array)
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('System.SystemEr...', Array)
+#9 /var/www/myapp/webroot/index.php(42): Cake\ORM\TableRegistry::get('System.SystemEr...')
+#10 {main}
+
+
+2019-01-09 07:35:34 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.system_errors' doesn't exist
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'system_errors', Array, Object(Cake\Database\Schema\Table))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('system_errors', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('system_errors')
+#3 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#4 /var/www/myapp/plugins/System/src/Model/Table/SystemErrorsTable.php(18): App\Model\Table\AppTable->initialize(Array)
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): System\Model\Table\SystemErrorsTable->initialize(Array)
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('System.SystemEr...', Array)
+#9 /var/www/myapp/webroot/index.php(42): Cake\ORM\TableRegistry::get('System.SystemEr...')
+#10 {main}
+
+
+2019-01-09 07:36:07 Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.themes' doesn't exist in /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php:39
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Log/LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(290): Cake\Database\Log\LoggingStatement->execute()
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(246): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(129): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'themes', Array, Object(Cake\Database\Schema\Table))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('themes', Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('themes')
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(210): Cake\ORM\Table->schema()
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(167): Cake\ORM\Query->addDefaultTypes(Object(Cake\ORM\Table))
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1335): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(Cake\ORM\Table))
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(963): Cake\ORM\Table->query()
+#13 /var/www/myapp/src/Controller/AppController.php(206): Cake\ORM\Table->find()
+#14 /var/www/myapp/src/Controller/AppController.php(117): App\Controller\AppController->getTheme()
+#15 /var/www/myapp/plugins/User/src/Controller/UsersController.php(20): App\Controller\AppController->initialize()
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(262): User\Controller\UsersController->initialize()
+#17 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(79): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#26 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#27 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#28 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#29 {main}
+
+Next Cake\Database\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.themes' doesn't exist in /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php:131
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'themes', Array, Object(Cake\Database\Schema\Table))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('themes', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('themes')
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(210): Cake\ORM\Table->schema()
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(167): Cake\ORM\Query->addDefaultTypes(Object(Cake\ORM\Table))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1335): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(Cake\ORM\Table))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(963): Cake\ORM\Table->query()
+#7 /var/www/myapp/src/Controller/AppController.php(206): Cake\ORM\Table->find()
+#8 /var/www/myapp/src/Controller/AppController.php(117): App\Controller\AppController->getTheme()
+#9 /var/www/myapp/plugins/User/src/Controller/UsersController.php(20): App\Controller\AppController->initialize()
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(262): User\Controller\UsersController->initialize()
+#11 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(79): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#15 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#23 {main}
+2019-01-09 07:36:07 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.themes' doesn't exist
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'themes', Array, Object(Cake\Database\Schema\Table))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('themes', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('themes')
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(210): Cake\ORM\Table->schema()
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(167): Cake\ORM\Query->addDefaultTypes(Object(Cake\ORM\Table))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1335): Cake\ORM\Query->__construct(Object(Cake\Database\Connection), Object(Cake\ORM\Table))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(963): Cake\ORM\Table->query()
+#7 /var/www/myapp/src/Controller/AppController.php(206): Cake\ORM\Table->find()
+#8 /var/www/myapp/src/Controller/AppController.php(117): App\Controller\AppController->getTheme()
+#9 /var/www/myapp/plugins/User/src/Controller/UsersController.php(20): App\Controller\AppController->initialize()
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(262): User\Controller\UsersController->initialize()
+#11 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(79): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#15 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#23 {main}
+
+
+2019-01-09 07:36:14 Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.workflows' doesn't exist in /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php:39
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Log/LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(290): Cake\Database\Log\LoggingStatement->execute()
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(246): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(129): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'workflows', Array, Object(Cake\Database\Schema\Table))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('workflows', Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('workflows')
+#9 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#10 /var/www/myapp/plugins/Workflow/src/Model/Table/WorkflowsTable.php(44): App\Model\Table\AppTable->initialize(Array)
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): Workflow\Model\Table\WorkflowsTable->initialize(Array)
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Association.php(323): Cake\ORM\Locator\TableLocator->get('Workflow.Workfl...', Array)
+#15 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Association.php(689): Cake\ORM\Association->target()
+#16 /var/www/myapp/plugins/Workflow/src/Model/Behavior/TransferBehavior.php(29): Cake\ORM\Association->find()
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Behavior.php(166): Workflow\Model\Behavior\TransferBehavior->initialize(Array)
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/BehaviorRegistry.php(130): Cake\ORM\Behavior->__construct(Object(Workflow\Model\Table\WorkflowStepsTable), Array)
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/Core/ObjectRegistry.php(93): Cake\ORM\BehaviorRegistry->_create('Workflow\\Model\\...', 'Transfer', Array)
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(617): Cake\Core\ObjectRegistry->load('Workflow.Transf...', Array)
+#21 /var/www/myapp/plugins/Workflow/src/Model/Table/WorkflowStepsTable.php(60): Cake\ORM\Table->addBehavior('Workflow.Transf...')
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): Workflow\Model\Table\WorkflowStepsTable->initialize(Array)
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#25 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('Workflow.Workfl...', Array)
+#26 /var/www/myapp/plugins/Workflow/src/Controller/Component/WorkflowComponent.php(31): Cake\ORM\TableRegistry::get('Workflow.Workfl...')
+#27 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Component.php(129): Workflow\Controller\Component\WorkflowComponent->initialize(Array)
+#28 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/ComponentRegistry.php(118): Cake\Controller\Component->__construct(Object(Cake\Controller\ComponentRegistry), Array)
+#29 /var/www/myapp/vendor/cakephp/cakephp/src/Core/ObjectRegistry.php(93): Cake\Controller\ComponentRegistry->_create('Workflow\\Contro...', 'Workflow', Array)
+#30 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(322): Cake\Core\ObjectRegistry->load('Workflow.Workfl...', Array)
+#31 /var/www/myapp/src/Controller/AppController.php(153): Cake\Controller\Controller->loadComponent('Workflow.Workfl...')
+#32 /var/www/myapp/plugins/User/src/Controller/UsersController.php(20): App\Controller\AppController->initialize()
+#33 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(262): User\Controller\UsersController->initialize()
+#34 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#35 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(79): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#36 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#37 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#38 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#39 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#40 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#41 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#42 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#43 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#44 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#45 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#46 {main}
+
+Next Cake\Database\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.workflows' doesn't exist in /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php:131
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'workflows', Array, Object(Cake\Database\Schema\Table))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('workflows', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('workflows')
+#3 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#4 /var/www/myapp/plugins/Workflow/src/Model/Table/WorkflowsTable.php(44): App\Model\Table\AppTable->initialize(Array)
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): Workflow\Model\Table\WorkflowsTable->initialize(Array)
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Association.php(323): Cake\ORM\Locator\TableLocator->get('Workflow.Workfl...', Array)
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Association.php(689): Cake\ORM\Association->target()
+#10 /var/www/myapp/plugins/Workflow/src/Model/Behavior/TransferBehavior.php(29): Cake\ORM\Association->find()
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Behavior.php(166): Workflow\Model\Behavior\TransferBehavior->initialize(Array)
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/BehaviorRegistry.php(130): Cake\ORM\Behavior->__construct(Object(Workflow\Model\Table\WorkflowStepsTable), Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/Core/ObjectRegistry.php(93): Cake\ORM\BehaviorRegistry->_create('Workflow\\Model\\...', 'Transfer', Array)
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(617): Cake\Core\ObjectRegistry->load('Workflow.Transf...', Array)
+#15 /var/www/myapp/plugins/Workflow/src/Model/Table/WorkflowStepsTable.php(60): Cake\ORM\Table->addBehavior('Workflow.Transf...')
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): Workflow\Model\Table\WorkflowStepsTable->initialize(Array)
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('Workflow.Workfl...', Array)
+#20 /var/www/myapp/plugins/Workflow/src/Controller/Component/WorkflowComponent.php(31): Cake\ORM\TableRegistry::get('Workflow.Workfl...')
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Component.php(129): Workflow\Controller\Component\WorkflowComponent->initialize(Array)
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/ComponentRegistry.php(118): Cake\Controller\Component->__construct(Object(Cake\Controller\ComponentRegistry), Array)
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Core/ObjectRegistry.php(93): Cake\Controller\ComponentRegistry->_create('Workflow\\Contro...', 'Workflow', Array)
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(322): Cake\Core\ObjectRegistry->load('Workflow.Workfl...', Array)
+#25 /var/www/myapp/src/Controller/AppController.php(153): Cake\Controller\Controller->loadComponent('Workflow.Workfl...')
+#26 /var/www/myapp/plugins/User/src/Controller/UsersController.php(20): App\Controller\AppController->initialize()
+#27 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(262): User\Controller\UsersController->initialize()
+#28 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#29 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(79): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#30 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#31 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#32 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#33 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#34 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#35 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#36 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#37 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#38 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#39 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#40 {main}
+2019-01-09 07:36:14 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.workflows' doesn't exist
+Request URL: /
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'workflows', Array, Object(Cake\Database\Schema\Table))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('workflows', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('workflows')
+#3 /var/www/myapp/src/Model/Table/AppTable.php(38): Cake\ORM\Table->schema()
+#4 /var/www/myapp/plugins/Workflow/src/Model/Table/WorkflowsTable.php(44): App\Model\Table\AppTable->initialize(Array)
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): Workflow\Model\Table\WorkflowsTable->initialize(Array)
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Association.php(323): Cake\ORM\Locator\TableLocator->get('Workflow.Workfl...', Array)
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Association.php(689): Cake\ORM\Association->target()
+#10 /var/www/myapp/plugins/Workflow/src/Model/Behavior/TransferBehavior.php(29): Cake\ORM\Association->find()
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Behavior.php(166): Workflow\Model\Behavior\TransferBehavior->initialize(Array)
+#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/BehaviorRegistry.php(130): Cake\ORM\Behavior->__construct(Object(Workflow\Model\Table\WorkflowStepsTable), Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/Core/ObjectRegistry.php(93): Cake\ORM\BehaviorRegistry->_create('Workflow\\Model\\...', 'Transfer', Array)
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(617): Cake\Core\ObjectRegistry->load('Workflow.Transf...', Array)
+#15 /var/www/myapp/plugins/Workflow/src/Model/Table/WorkflowStepsTable.php(60): Cake\ORM\Table->addBehavior('Workflow.Transf...')
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): Workflow\Model\Table\WorkflowStepsTable->initialize(Array)
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('Workflow.Workfl...', Array)
+#20 /var/www/myapp/plugins/Workflow/src/Controller/Component/WorkflowComponent.php(31): Cake\ORM\TableRegistry::get('Workflow.Workfl...')
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Component.php(129): Workflow\Controller\Component\WorkflowComponent->initialize(Array)
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/ComponentRegistry.php(118): Cake\Controller\Component->__construct(Object(Cake\Controller\ComponentRegistry), Array)
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Core/ObjectRegistry.php(93): Cake\Controller\ComponentRegistry->_create('Workflow\\Contro...', 'Workflow', Array)
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(322): Cake\Core\ObjectRegistry->load('Workflow.Workfl...', Array)
+#25 /var/www/myapp/src/Controller/AppController.php(153): Cake\Controller\Controller->loadComponent('Workflow.Workfl...')
+#26 /var/www/myapp/plugins/User/src/Controller/UsersController.php(20): App\Controller\AppController->initialize()
+#27 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(262): User\Controller\UsersController->initialize()
+#28 [internal function]: Cake\Controller\Controller->__construct(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#29 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(79): ReflectionClass->newInstance(Object(Cake\Network\Request), Object(Cake\Network\Response), 'Users')
+#30 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#31 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#32 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#33 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#34 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#35 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#36 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#37 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#38 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#39 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#40 {main}
+
+
+2019-01-09 07:37:47 Error: PDOException: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.appraisal_types' doesn't exist in /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php:39
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Log/LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(290): Cake\Database\Log\LoggingStatement->execute()
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(246): Cake\Database\Connection->query('SHOW FULL COLUM...')
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(129): Cake\Database\Connection->execute('SHOW FULL COLUM...', Array)
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'appraisal_types', Array, Object(Cake\Database\Schema\Table))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('appraisal_types', Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('appraisal_types')
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(517): Cake\ORM\Table->schema()
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(390): Cake\ORM\Table->primaryKey()
+#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(367): Cake\ORM\Query->_addAssociationsToTypeMap(Object(Institution\Model\Table\StaffAppraisalsTable), Object(Cake\Database\TypeMap), Array)
+#12 /var/www/myapp/plugins/Institution/src/Model/Table/StaffAppraisalsTable.php(458): Cake\ORM\Query->contain(Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1940): Institution\Model\Table\StaffAppraisalsTable->findWorkbench(Object(Cake\ORM\Query), Array)
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(1039): Cake\ORM\Table->callFinder('workbench', Object(Cake\ORM\Query), Array)
+#15 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV2Component.php(540): Cake\ORM\Query->find('workbench', Array)
+#16 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV2Component.php(830): Restful\Controller\Component\RestfulV2Component->_finder(Object(Cake\ORM\Query), 'workbench', Object(ArrayObject))
+#17 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV2Component.php(278): Restful\Controller\Component\RestfulV2Component->processRequestQueries(Object(Cake\ORM\Query), Object(ArrayObject))
+#18 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/RestfulController.php(94): Restful\Controller\Component\RestfulV2Component->index()
+#19 [internal function]: Restful\Controller\RestfulController->index()
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RestfulController))
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#25 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#26 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#27 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#28 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#29 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#30 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#31 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#32 {main}
+
+Next Cake\Database\Exception: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.appraisal_types' doesn't exist in /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php:131
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'appraisal_types', Array, Object(Cake\Database\Schema\Table))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('appraisal_types', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('appraisal_types')
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(517): Cake\ORM\Table->schema()
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(390): Cake\ORM\Table->primaryKey()
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(367): Cake\ORM\Query->_addAssociationsToTypeMap(Object(Institution\Model\Table\StaffAppraisalsTable), Object(Cake\Database\TypeMap), Array)
+#6 /var/www/myapp/plugins/Institution/src/Model/Table/StaffAppraisalsTable.php(458): Cake\ORM\Query->contain(Array)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1940): Institution\Model\Table\StaffAppraisalsTable->findWorkbench(Object(Cake\ORM\Query), Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(1039): Cake\ORM\Table->callFinder('workbench', Object(Cake\ORM\Query), Array)
+#9 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV2Component.php(540): Cake\ORM\Query->find('workbench', Array)
+#10 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV2Component.php(830): Restful\Controller\Component\RestfulV2Component->_finder(Object(Cake\ORM\Query), 'workbench', Object(ArrayObject))
+#11 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV2Component.php(278): Restful\Controller\Component\RestfulV2Component->processRequestQueries(Object(Cake\ORM\Query), Object(ArrayObject))
+#12 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/RestfulController.php(94): Restful\Controller\Component\RestfulV2Component->index()
+#13 [internal function]: Restful\Controller\RestfulController->index()
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
+#15 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RestfulController))
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#26 {main}
+2019-01-09 07:37:47 Error: [Cake\Database\Exception] SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.appraisal_types' doesn't exist
+Request URL: /restful/v2/Institution-StaffAppraisals.json?_finder=workbench&_limit=1&_page=1
+Referer URL: http://localhost:8180/Dashboard
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/Collection.php(97): Cake\Database\Schema\Collection->_reflect('Column', 'appraisal_types', Array, Object(Cake\Database\Schema\Table))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Schema/CachedCollection.php(63): Cake\Database\Schema\Collection->describe('appraisal_types', Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(440): Cake\Database\Schema\CachedCollection->describe('appraisal_types')
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(517): Cake\ORM\Table->schema()
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(390): Cake\ORM\Table->primaryKey()
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(367): Cake\ORM\Query->_addAssociationsToTypeMap(Object(Institution\Model\Table\StaffAppraisalsTable), Object(Cake\Database\TypeMap), Array)
+#6 /var/www/myapp/plugins/Institution/src/Model/Table/StaffAppraisalsTable.php(458): Cake\ORM\Query->contain(Array)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1940): Institution\Model\Table\StaffAppraisalsTable->findWorkbench(Object(Cake\ORM\Query), Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(1039): Cake\ORM\Table->callFinder('workbench', Object(Cake\ORM\Query), Array)
+#9 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV2Component.php(540): Cake\ORM\Query->find('workbench', Array)
+#10 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV2Component.php(830): Restful\Controller\Component\RestfulV2Component->_finder(Object(Cake\ORM\Query), 'workbench', Object(ArrayObject))
+#11 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV2Component.php(278): Restful\Controller\Component\RestfulV2Component->processRequestQueries(Object(Cake\ORM\Query), Object(ArrayObject))
+#12 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/RestfulController.php(94): Restful\Controller\Component\RestfulV2Component->index()
+#13 [internal function]: Restful\Controller\RestfulController->index()
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
+#15 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RestfulController))
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#26 {main}
+
+
+2019-01-09 07:37:50 Error: PDOException: SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'openemis.Institutions.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by in /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php:39
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Log/LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(957): Cake\Database\Query->execute()
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(905): Cake\ORM\Query->_all()
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(293): Cake\ORM\Query->all()
+#9 /var/www/myapp/plugins/Institution/src/Model/Table/InstitutionsTable.php(635): Cake\ORM\Query->toArray()
+#10 [internal function]: Institution\Model\Table\InstitutionsTable->getNumberOfInstitutionsByModel(Array)
+#11 /var/www/myapp/src/Model/Behavior/HighChartBehavior.php(55): call_user_func_array(Array, Array)
+#12 [internal function]: App\Model\Behavior\HighChartBehavior->getDonutChart('institutions', Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/BehaviorRegistry.php(237): call_user_func_array(Array, Array)
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(2030): Cake\ORM\BehaviorRegistry->call('getdonutchart', Array)
+#15 /var/www/myapp/plugins/Institution/src/Model/Table/InstitutionsTable.php(586): Cake\ORM\Table->__call('getDonutChart', Array)
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(424): Institution\Model\Table\InstitutionsTable->afterAction(Object(Cake\Event\Event), Object(ArrayObject))
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#19 /var/www/myapp/plugins/ControllerAction/src/Model/Traits/ControllerActionV4Trait.php(255): Cake\ORM\Table->dispatchEvent('ControllerActio...', Array, Object(ControllerAction\Controller\Component\ControllerActionComponent))
+#20 /var/www/myapp/plugins/Institution/src/Controller/InstitutionsController.php(199): ControllerAction\Controller\Component\ControllerActionComponent->process(Array)
+#21 [internal function]: Institution\Controller\InstitutionsController->Institutions('index')
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(Institution\Controller\InstitutionsController))
+#25 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#26 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#27 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#28 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#29 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#30 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#31 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#32 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#33 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#34 {main}
+2019-01-09 07:37:50 Error: [PDOException] SQLSTATE[42000]: Syntax error or access violation: 1055 Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'openemis.Institutions.id' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+Request URL: /Institutions/Institutions/index
+Referer URL: http://localhost:8180/Dashboard
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/MysqlStatement.php(39): PDOStatement->execute(NULL)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Statement/StatementDecorator.php(172): Cake\Database\Statement\MysqlStatement->execute(NULL)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Log/LoggingStatement.php(56): Cake\Database\Statement\StatementDecorator->execute(NULL)
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(276): Cake\Database\Log\LoggingStatement->execute()
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Query.php(190): Cake\Database\Connection->run(Object(Cake\ORM\Query))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(957): Cake\Database\Query->execute()
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(276): Cake\ORM\Query->_execute()
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Query.php(905): Cake\ORM\Query->_all()
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Datasource/QueryTrait.php(293): Cake\ORM\Query->all()
+#9 /var/www/myapp/plugins/Institution/src/Model/Table/InstitutionsTable.php(635): Cake\ORM\Query->toArray()
+#10 [internal function]: Institution\Model\Table\InstitutionsTable->getNumberOfInstitutionsByModel(Array)
+#11 /var/www/myapp/src/Model/Behavior/HighChartBehavior.php(55): call_user_func_array(Array, Array)
+#12 [internal function]: App\Model\Behavior\HighChartBehavior->getDonutChart('institutions', Array)
+#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/BehaviorRegistry.php(237): call_user_func_array(Array, Array)
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(2030): Cake\ORM\BehaviorRegistry->call('getdonutchart', Array)
+#15 /var/www/myapp/plugins/Institution/src/Model/Table/InstitutionsTable.php(586): Cake\ORM\Table->__call('getDonutChart', Array)
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(424): Institution\Model\Table\InstitutionsTable->afterAction(Object(Cake\Event\Event), Object(ArrayObject))
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#19 /var/www/myapp/plugins/ControllerAction/src/Model/Traits/ControllerActionV4Trait.php(255): Cake\ORM\Table->dispatchEvent('ControllerActio...', Array, Object(ControllerAction\Controller\Component\ControllerActionComponent))
+#20 /var/www/myapp/plugins/Institution/src/Controller/InstitutionsController.php(199): ControllerAction\Controller\Component\ControllerActionComponent->process(Array)
+#21 [internal function]: Institution\Controller\InstitutionsController->Institutions('index')
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(Institution\Controller\InstitutionsController))
+#25 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#26 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#27 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#28 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#29 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#30 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#31 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#32 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#33 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#34 {main}
+
+
