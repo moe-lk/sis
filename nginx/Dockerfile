@@ -4,6 +4,8 @@ COPY . /src
 
 ADD ./nginx.conf /etc/nginx/conf.d/default.conf
 
+RUN mkdir /var/www/myapp/tmp && mkdri /var/www/myapp/log
+
 RUN rm -rf /var/www/myapp && mv /src /var/www/myapp &&\
     find /var/www/myapp/ -type d -exec chmod 755 {} \; &&\
     find /var/www/myapp/ -type f -exec chmod 644 {} \; &&\
