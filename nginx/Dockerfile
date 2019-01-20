@@ -5,7 +5,7 @@ ADD ./nginx.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /var/www/myapp
 
-RUN rm -rf /var/www/myapp && mv /src /var/www/myapp &&\
+RUN rm -rf /var/www/myapp && mv ./ /var/www/myapp &&\
     find /var/www/myapp/ -type d -exec chmod 755 {} \; &&\
     find /var/www/myapp/ -type f -exec chmod 644 {} \; &&\
     chmod -R 777 /var/www/html/app/cache /var/www/html/app/logs
