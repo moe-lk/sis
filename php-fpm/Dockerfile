@@ -11,7 +11,7 @@ RUN apt-get update \
 
 # CMD ['php','cake.php','migrations','migrate']
 
-COPY . /src
+ADD . /src
 ADD ./php-ini-overrides.ini /etc/php/7.1/fpm/conf.d/99-overrides.ini
 
 
