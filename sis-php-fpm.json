@@ -1,0 +1,72 @@
+{
+  "id": "/hrm-moe/sis-php-fpm",
+  "acceptedResourceRoles": [
+    "slave_public"
+  ],
+  "backoffFactor": 1.15,
+  "backoffSeconds": 1,
+  "container": {
+    "portMappings": [
+      {
+        "containerPort": 9000,
+        "hostPort": 0,
+        "labels": {
+          "VIP_0": "/hrm-moe/sis-php-fpm:9000"
+        },
+        "protocol": "tcp",
+        "servicePort": 10174
+      }
+    ],
+    "type": "DOCKER",
+    "volumes": [],
+    "docker": {
+      "image": "moelk/openemis-php-fpm:latest",
+      "forcePullImage": true,
+      "privileged": false,
+      "parameters": []
+    }
+  },
+  "cpus": 1,
+  "disk": 0,
+  "env": {
+    "DB_NAME": "openemis",
+    "DB_HOST": "hrm-moesis-db.marathon.l4lb.thisdcos.directory:3306",
+    "DB_USER": "openuser",
+    "DB_PASSWRD": "openpass"
+  },
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "maxConsecutiveFailures": 3,
+      "portIndex": 0,
+      "timeoutSeconds": 20,
+      "delaySeconds": 15,
+      "protocol": "TCP"
+    }
+  ],
+  "instances": 1,
+  "labels": {
+    "HAPROXY_GROUP": "internal"
+  },
+  "maxLaunchDelaySeconds": 3600,
+  "mem": 1024,
+  "gpus": 0,
+  "networks": [
+    {
+      "mode": "container/bridge"
+    }
+  ],
+  "requirePorts": false,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 1,
+    "minimumHealthCapacity": 1
+  },
+  "killSelection": "YOUNGEST_FIRST",
+  "unreachableStrategy": {
+    "inactiveAfterSeconds": 0,
+    "expungeAfterSeconds": 0
+  },
+  "fetch": [],
+  "constraints": []
+}
