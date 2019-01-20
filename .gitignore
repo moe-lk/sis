@@ -1,4 +1,2 @@
 php-fpm/tmp/
-php-fpm/logs/
 nginx/tmp/
-nginx/logs/
