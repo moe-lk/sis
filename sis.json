@@ -11,7 +11,7 @@
       "docker": {
         "image": "moelk/openemis-nginx:latest",
         "portMappings": [
-          { "hostPort": 0, "containerPort": 80, "servicePort": 10002 }
+          { "hostPort": 0, "containerPort": 80}
         ],
         "forcePullImage": true,
         "privileged": false,

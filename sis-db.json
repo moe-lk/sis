@@ -1,0 +1,82 @@
+{
+    "id": "/hrm-moe/sis-db",
+    "args": [
+      "--datadir=/mnt/cluster_storage/sis-db/prod",
+      "mysqld --sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION  --max_allowed_packet=32505856"
+    ],
+    "backoffFactor": 1.15,
+    "backoffSeconds": 1,
+    "container": {
+      "portMappings": [
+        {
+          "containerPort": 3306,
+          "hostPort": 0,
+          "labels": {
+            "VIP_0": "/hrm-moe/sis-db:3306"
+          },
+          "protocol": "tcp",
+          "servicePort": 10184,
+          "name": "dbsismoe"
+        }
+      ],
+      "type": "DOCKER",
+      "volumes": [
+        {
+          "persistent": {
+            "type": "root",
+            "size": 1000,
+            "constraints": []
+          },
+          "mode": "RW",
+          "containerPath": "mysqldata"
+        }
+      ],
+      "docker": {
+        "image": "moelk/openemis-mysql:latest",
+        "forcePullImage": false,
+        "privileged": false,
+        "parameters": []
+      }
+    },
+    "cpus": 1,
+    "disk": 0,
+    "env": {
+      "MYSQL_ROOT_PASSWORD": "secret",
+      "MYSQL_USER": "openuser",
+      "MYSQL_PASSWORD": "openpass",
+      "MYSQL_DATABASE": "openemis"
+    },
+    "healthChecks": [
+      {
+        "gracePeriodSeconds": 300,
+        "intervalSeconds": 60,
+        "maxConsecutiveFailures": 3,
+        "portIndex": 0,
+        "timeoutSeconds": 20,
+        "delaySeconds": 15,
+        "protocol": "TCP"
+      }
+    ],
+    "instances": 1,
+    "maxLaunchDelaySeconds": 3600,
+    "mem": 1024,
+    "gpus": 0,
+    "networks": [
+      {
+        "mode": "container/bridge"
+      }
+    ],
+    "residency": {
+      "relaunchEscalationTimeoutSeconds": 10,
+      "taskLostBehavior": "WAIT_FOREVER"
+    },
+    "requirePorts": false,
+    "upgradeStrategy": {
+      "maximumOverCapacity": 0,
+      "minimumHealthCapacity": 0
+    },
+    "killSelection": "YOUNGEST_FIRST",
+    "unreachableStrategy": "disabled",
+    "fetch": [],
+    "constraints": []
+  }

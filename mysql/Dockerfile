@@ -6,4 +6,3 @@ ENV MYSQL_DATABASE openemis
 # All scripts in docker-entrypoint-initdb.d/ are automatically
 # executed during container startup
 COPY ./Dump20190117/ /docker-entrypoint-initdb.d/
-# COPY ./my.cnf /etc/mysql/conf.d/
