@@ -11,8 +11,7 @@ RUN apt-get update \
 
 # CMD ['php','cake.php','migrations','migrate']
 
-# CMD ['php','cake.php','migrations','seed','--source=../config/Snapshot/3.11.0/Seeds']
-ADD . /var/www/myapp
+COPY . /src
 ADD ./php-ini-overrides.ini /etc/php/7.1/fpm/conf.d/99-overrides.ini
 
 
