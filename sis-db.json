@@ -2,7 +2,7 @@
     "id": "/hrm-moe/sis-db",
     "args": [
       "--datadir=/mnt/cluster_storage/sis-db/prod",
-      "mysqld --sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION  --max_allowed_packet=32505856"
+      "--max_allowed_packet=32505856"
     ],
     "backoffFactor": 1.15,
     "backoffSeconds": 1,
