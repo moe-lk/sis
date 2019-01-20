@@ -12,6 +12,9 @@ RUN apt-get update \
 # CMD ['php','cake.php','migrations','migrate']
 
 # CMD ['php','cake.php','migrations','seed','--source=../config/Snapshot/3.11.0/Seeds']
+ADD . /var/www/myapp
+ADD ./php-ini-overrides.ini /etc/php/7.1/fpm/conf.d/99-overrides.ini
+
 RUN sed -ri 's/^www-data:x:82:82:/www-data:x:1000:50:/' /etc/passwd
 
 WORKDIR "/var/www/myapp"

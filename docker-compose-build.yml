@@ -17,11 +17,8 @@ services:
       - "8106:3306"
     restart: always
   openemis-nginx:
-    image: phpdockerio/nginx:latest
+    build: ./nginx
     container_name: openemis-nginx-2
-    volumes:
-        - ./nginx:/var/www/myapp
-        - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
     ports:
     - "8180:80"
     links:
@@ -30,9 +27,6 @@ services:
   openemis-php-fpm:
     build: ./php-fpm
     container_name: openemis-php-fpm-2
-    volumes:
-      - ./php-fpm:/var/www/myapp
-      - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
     links:
       - openemis-mailhog
       - openemis-mysql-3
