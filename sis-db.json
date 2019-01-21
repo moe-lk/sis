@@ -2,7 +2,7 @@
     "id": "/hrm-moe/sis-db",
     "args": [
       "--datadir=/mnt/cluster_storage/sis-db/prod",
-      "--max_allowed_packet=32505856"
+      "--max_allowed_packet=128M"
     ],
     "backoffFactor": 1.15,
     "backoffSeconds": 1,
