@@ -1,4 +1,4 @@
-P<?php
+<?php
 use Migrations\AbstractMigration;
 
 class POCOR4402 extends AbstractMigration

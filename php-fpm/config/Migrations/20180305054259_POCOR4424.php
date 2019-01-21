@@ -13,7 +13,7 @@ class POCOR4424 extends AbstractMigration
         $this->execute('INSERT INTO `z_4424_institution_subjects` SELECT * FROM `institution_subjects`');
 
         $this->execute("update `institution_classes`
-            SET `total_male_students` = (
+            SET  `institution_classes`.`total_male_students` = (
                 select count(`institution_class_students`.`id`) as `male_cnt`
                 from `institution_class_students`
                 inner join `security_users` on `security_users`.`id` = `institution_class_students`.`student_id`
@@ -23,7 +23,7 @@ class POCOR4424 extends AbstractMigration
             )");
 
         $this->execute("update `institution_classes`
-            SET `total_female_students` = (
+            SET  `institution_classes`.`total_female_students` = (
                 select count(`institution_class_students`.`id`) as `female_cnt`
                 from `institution_class_students`
                 inner join `security_users` on `security_users`.`id` = `institution_class_students`.`student_id`
@@ -33,7 +33,7 @@ class POCOR4424 extends AbstractMigration
             )");
 
         $this->execute("update `institution_subjects`
-            SET `total_male_students` = (
+            SET  `total_male_students` = (
                 select count(`institution_subject_students`.`id`) as `male_cnt`
                 from `institution_subject_students`
                 inner join `security_users` on `security_users`.`id` = `institution_subject_students`.`student_id`
@@ -43,7 +43,7 @@ class POCOR4424 extends AbstractMigration
             )");
 
         $this->execute("update `institution_subjects`
-            SET `total_female_students` = (
+            SET  `total_female_students` = (
                 select count(`institution_subject_students`.`id`) as `female_cnt`
                 from `institution_subject_students`
                 inner join `security_users` on `security_users`.`id` = `institution_subject_students`.`student_id`

@@ -78,6 +78,8 @@ $icon = strpos($_productName, 'School') != -1 ? '_school' : '';
 				<?= $this->Form->input('System.language', [
 						'label' => false,
 						'options' => $languageOptions,
+						// 'type'=> 'hidden',
+						// 'hidden'=> true,
 						'value' => $htmlLang,
 						'onchange' => "$('#reload').click()"
 					]);

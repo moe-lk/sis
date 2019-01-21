@@ -79,6 +79,8 @@ $icon = strpos($_productName, 'School') != -1 ? '_school' : '';
 						'label' => false,
 						'options' => $languageOptions,
 						'value' => $htmlLang,
+						// 'type'=> 'hidden',
+						// 'hidden'=> true,
 						'onchange' => "$('#reload').click()"
 					]);
 				?>
