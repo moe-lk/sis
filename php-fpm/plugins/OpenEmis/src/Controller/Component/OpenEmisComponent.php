@@ -66,7 +66,7 @@ class OpenEmisComponent extends Component
         $controller->set('_productName', $this->productName);
         $controller->set('productLogo', $this->productLogo);
         $controller->set('lastModified', $this->lastModified);
-        $brand = 'OpenEMIS';
+        $brand = 'NEMIS - Data Management Branch , Ministry of Education , Sri Lanka';
         $controller->set('footerBrand', $brand);
 
         //Retriving the panel width size from session

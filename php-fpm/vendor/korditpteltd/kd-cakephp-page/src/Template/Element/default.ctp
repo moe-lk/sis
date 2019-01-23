@@ -99,7 +99,7 @@ if (!empty($homeUrl)) {
     </bg-splitter>
 
     <footer>
-        <?= __('Copyright') ?> &copy; <?= date('Y') ?>  OpenEMIS. <?= __('All rights reserved.') ?> | <?= __('Version') . ' ' . $SystemVersion ?>
+        <?= __('Copyright') ?> &copy; <?= date('Y') ?>  Data Management Branch. <?= __('All rights reserved.') ?> | <?= __('Version') . ' ' . $SystemVersion ?>
     </footer>
 
     <?php
