@@ -1861,3 +1861,90 @@ Stack Trace:
 #24 {main}
 
 
+2019-01-23 05:53:11 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Adapter/PdoAdapter.php(389): PDOStatement->execute(Array)
+#1 /var/www/myapp/vendor/cakephp/migrations/src/CakeAdapter.php(379): Phinx\Db\Adapter\PdoAdapter->insert(Object(Phinx\Db\Table), Array)
+#2 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(653): Migrations\CakeAdapter->insert(Object(Phinx\Db\Table), Array)
+#3 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(641): Phinx\Db\Table->saveData()
+#4 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(667): Phinx\Db\Table->update()
+#5 /var/www/myapp/config/Seeds/InstitutionLocalitiesSeed.php(53): Phinx\Db\Table->save()
+#6 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager/Environment.php(152): InstitutionLocalitiesSeed->run()
+#7 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(356): Phinx\Migration\Manager\Environment->executeSeed(Object(InstitutionLocalitiesSeed))
+#8 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(443): Phinx\Migration\Manager->executeSeed('default', Object(InstitutionLocalitiesSeed))
+#9 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Console/Command/SeedRun.php(110): Phinx\Migration\Manager->seed('default')
+#10 /var/www/myapp/vendor/cakephp/migrations/src/ConfigurationTrait.php(165): Phinx\Console\Command\SeedRun->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /var/www/myapp/vendor/cakephp/migrations/src/Command/Seed.php(71): Migrations\Command\Seed->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /var/www/myapp/vendor/symfony/console/Command/Command.php(264): Migrations\Command\Seed->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /var/www/myapp/vendor/symfony/console/Application.php(835): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /var/www/myapp/vendor/symfony/console/Application.php(200): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Seed), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /var/www/myapp/vendor/symfony/console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 [internal function]: Migrations\Shell\MigrationsShell->main('migrations', 'seed')
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Console/Shell.php(472): call_user_func_array(Array, Array)
+#19 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(227): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#23 /var/www/myapp/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#24 {main}
+
+
+2019-01-23 05:53:38 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'name' in 'field list'
+Stack Trace:
+#0 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Adapter/PdoAdapter.php(389): PDOStatement->execute(Array)
+#1 /var/www/myapp/vendor/cakephp/migrations/src/CakeAdapter.php(379): Phinx\Db\Adapter\PdoAdapter->insert(Object(Phinx\Db\Table), Array)
+#2 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(653): Migrations\CakeAdapter->insert(Object(Phinx\Db\Table), Array)
+#3 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(641): Phinx\Db\Table->saveData()
+#4 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(667): Phinx\Db\Table->update()
+#5 /var/www/myapp/config/Seeds/InstitutionNetworkConnectivitiesSeed.php(95): Phinx\Db\Table->save()
+#6 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager/Environment.php(152): InstitutionNetworkConnectivitiesSeed->run()
+#7 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(356): Phinx\Migration\Manager\Environment->executeSeed(Object(InstitutionNetworkConnectivitiesSeed))
+#8 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(443): Phinx\Migration\Manager->executeSeed('default', Object(InstitutionNetworkConnectivitiesSeed))
+#9 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Console/Command/SeedRun.php(110): Phinx\Migration\Manager->seed('default')
+#10 /var/www/myapp/vendor/cakephp/migrations/src/ConfigurationTrait.php(165): Phinx\Console\Command\SeedRun->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /var/www/myapp/vendor/cakephp/migrations/src/Command/Seed.php(71): Migrations\Command\Seed->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /var/www/myapp/vendor/symfony/console/Command/Command.php(264): Migrations\Command\Seed->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /var/www/myapp/vendor/symfony/console/Application.php(835): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /var/www/myapp/vendor/symfony/console/Application.php(200): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Seed), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /var/www/myapp/vendor/symfony/console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 [internal function]: Migrations\Shell\MigrationsShell->main('migrations', 'seed')
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Console/Shell.php(472): call_user_func_array(Array, Array)
+#19 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(227): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#23 /var/www/myapp/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#24 {main}
+
+
+2019-01-23 05:54:02 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Adapter/PdoAdapter.php(389): PDOStatement->execute(Array)
+#1 /var/www/myapp/vendor/cakephp/migrations/src/CakeAdapter.php(379): Phinx\Db\Adapter\PdoAdapter->insert(Object(Phinx\Db\Table), Array)
+#2 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(653): Migrations\CakeAdapter->insert(Object(Phinx\Db\Table), Array)
+#3 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(641): Phinx\Db\Table->saveData()
+#4 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(667): Phinx\Db\Table->update()
+#5 /var/www/myapp/config/Seeds/InstitutionSectorsSeed.php(81): Phinx\Db\Table->save()
+#6 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager/Environment.php(152): InstitutionSectorsSeed->run()
+#7 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(356): Phinx\Migration\Manager\Environment->executeSeed(Object(InstitutionSectorsSeed))
+#8 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(443): Phinx\Migration\Manager->executeSeed('default', Object(InstitutionSectorsSeed))
+#9 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Console/Command/SeedRun.php(110): Phinx\Migration\Manager->seed('default')
+#10 /var/www/myapp/vendor/cakephp/migrations/src/ConfigurationTrait.php(165): Phinx\Console\Command\SeedRun->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /var/www/myapp/vendor/cakephp/migrations/src/Command/Seed.php(71): Migrations\Command\Seed->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /var/www/myapp/vendor/symfony/console/Command/Command.php(264): Migrations\Command\Seed->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /var/www/myapp/vendor/symfony/console/Application.php(835): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /var/www/myapp/vendor/symfony/console/Application.php(200): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Seed), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /var/www/myapp/vendor/symfony/console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 [internal function]: Migrations\Shell\MigrationsShell->main('migrations', 'seed')
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Console/Shell.php(472): call_user_func_array(Array, Array)
+#19 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(227): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#23 /var/www/myapp/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#24 {main}
+
+
