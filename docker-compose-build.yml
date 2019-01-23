@@ -34,9 +34,9 @@ services:
     restart: always
   openemis-php-fpm:
     build: ./php-fpm
-    volumes:
-       - ./php-fpm:/var/www/myapp
-       - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+    # volumes:
+    #    - ./php-fpm/app:/var/www/myapp
+    #    - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
     container_name: openemis-php-fpm-2
     links:
       - openemis-mailhog
