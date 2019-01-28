@@ -79,5 +79,5 @@ return [
         'log' => true,
         'trace' => true,
     ],
-    'debug' =>false,
+    'debug' =>true,
 ];
