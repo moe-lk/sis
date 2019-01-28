@@ -1,24 +1,20 @@
 <?php
 namespace Institution\Model\Table;
 
-use DateTime;
+use App\Model\Table\ControllerActionTable;
+use App\Model\Traits\OptionsTrait;
 use ArrayObject;
-
+use Cake\Core\Configure;
 use Cake\Event\Event;
+use Cake\I18n\Date;
+use Cake\I18n\Time;
+use Cake\Log\Log;
+use Cake\Network\Request;
 use Cake\ORM\Entity;
 use Cake\ORM\Query;
 use Cake\ORM\ResultSet;
 use Cake\ORM\TableRegistry;
-use Cake\Network\Request;
-use Cake\Utility\Text;
 use Cake\Validation\Validator;
-use Cake\Utility\Inflector;
-use Cake\I18n\Date;
-use Cake\I18n\Time;
-use Cake\Log\Log;
-use Cake\Core\Configure;
-use App\Model\Table\ControllerActionTable;
-use App\Model\Traits\OptionsTrait;
 
 class StaffTable extends ControllerActionTable
 {
@@ -49,6 +45,7 @@ class StaffTable extends ControllerActionTable
         $this->belongsTo('StaffTypes', ['className' => 'Staff.StaffTypes']);
         $this->belongsTo('StaffStatuses', ['className' => 'Staff.StaffStatuses']);
         $this->belongsTo('SecurityGroupUsers', ['className' => 'Security.SecurityGroupUsers']);
+        $this->belongsTo('AreaAdministratives', ['className' => 'Area.AreaAdministratives']);
         $this->hasMany('StaffPositionProfiles', ['className' => 'Institution.StaffPositionProfiles', 'foreignKey' => 'institution_staff_id', 'dependent' => true, 'cascadeCallbacks' => true]);
         $this->hasMany('StaffTransferOut', ['className' => 'Institution.StaffTransferOut', 'foreignKey' => 'previous_institution_staff_id', 'dependent' => true, 'cascadeCallbacks' => true]);
 
@@ -60,10 +57,11 @@ class StaffTable extends ControllerActionTable
         $this->addBehavior('User.User');
         $this->addBehavior('User.AdvancedNameSearch');
         $this->addBehavior('AcademicPeriod.AcademicPeriod');
+        $this->addBehavior('Area.Areapicker');
 
         $this->addBehavior('Excel', [
             'excludes' => ['start_year', 'end_year', 'security_group_user_id'],
-            'pages' => ['index']
+            'pages' => ['index'],
         ]);
 
         $this->addBehavior('Restful.RestfulAccessControl', [
@@ -71,7 +69,7 @@ class StaffTable extends ControllerActionTable
             'Staff' => ['index', 'add'],
             'ClassStudents' => ['index'],
             'SubjectStudents' => ['index'],
-            'ReportCardComments' => ['index']
+            'ReportCardComments' => ['index'],
         ]);
 
         $this->addBehavior('HighChart', [
@@ -79,25 +77,25 @@ class StaffTable extends ControllerActionTable
                 '_function' => 'getNumberOfStaffByType',
                 'chart' => ['type' => 'column', 'borderWidth' => 1],
                 'xAxis' => ['title' => ['text' => __('Position Type')]],
-                'yAxis' => ['title' => ['text' => __('Total')]]
+                'yAxis' => ['title' => ['text' => __('Total')]],
             ],
             'number_of_staff_by_position' => [
                 '_function' => 'getNumberOfStaffByPosition',
                 'chart' => ['type' => 'column', 'borderWidth' => 1],
                 'xAxis' => ['title' => ['text' => __('Position Title')]],
-                'yAxis' => ['title' => ['text' => __('Total')]]
+                'yAxis' => ['title' => ['text' => __('Total')]],
             ],
             'number_of_staff_by_year' => [
                 '_function' => 'getNumberOfStaffByYear',
                 'chart' => ['type' => 'column', 'borderWidth' => 1],
                 'xAxis' => ['title' => ['text' => __('Years')]],
-                'yAxis' => ['title' => ['text' => __('Total')]]
+                'yAxis' => ['title' => ['text' => __('Total')]],
             ],
             'institution_staff_gender' => [
-                '_function' => 'getNumberOfStaffsByGender'
+                '_function' => 'getNumberOfStaffsByGender',
             ],
             'institution_staff_qualification' => [
-                '_function' => 'getNumberOfStaffsByQualification'
+                '_function' => 'getNumberOfStaffsByQualification',
             ],
         ]);
 
@@ -108,7 +106,7 @@ class StaffTable extends ControllerActionTable
          */
         $advancedSearchFieldOrder = [
             'first_name', 'middle_name', 'third_name', 'last_name',
-            'contact_number', 'identity_type', 'identity_number'
+            'contact_number', 'identity_type', 'identity_number',
         ];
 
         $this->addBehavior('AdvanceSearch', [
@@ -118,18 +116,18 @@ class StaffTable extends ControllerActionTable
                 'staff_type_id',
                 'staff_status_id',
                 'institution_position_id',
-                'security_group_user_id'
+                'security_group_user_id',
             ],
-            'order' => $advancedSearchFieldOrder
+            'order' => $advancedSearchFieldOrder,
         ]);
         $this->addBehavior('User.AdvancedIdentitySearch', [
-            'associatedKey' => $this->aliasField('staff_id')
+            'associatedKey' => $this->aliasField('staff_id'),
         ]);
         $this->addBehavior('User.AdvancedContactNumberSearch', [
-            'associatedKey' => $this->aliasField('staff_id')
+            'associatedKey' => $this->aliasField('staff_id'),
         ]);
         $this->addBehavior('User.AdvancedSpecificNameTypeSearch', [
-            'modelToSearch' => $this->Users
+            'modelToSearch' => $this->Users,
         ]);
 
         $this->addBehavior('Institution.StaffValidation');
@@ -169,15 +167,15 @@ class StaffTable extends ControllerActionTable
             ->allowEmpty('staff_name')
             ->add('staff_name', 'ruleInstitutionStaffId', [
                 'rule' => ['institutionStaffId'],
-                'on' => 'create'
+                'on' => 'create',
             ])
             ->add('staff_assignment', 'ruleTransferRequestExists', [
                 'rule' => ['checkPendingStaffTransfer'],
-                'on' => 'create'
+                'on' => 'create',
             ])
             ->add('staff_assignment', 'ruleCheckStaffAssignment', [
                 'rule' => ['checkStaffAssignment'],
-                'on' => 'create'
+                'on' => 'create',
             ])
             ->requirePresence('FTE')
             ->requirePresence('position_type')
@@ -190,7 +188,7 @@ class StaffTable extends ControllerActionTable
                         ->find('years')
                         ->select([
                             $AcademicPeriods->aliasField('start_date'),
-                            $AcademicPeriods->aliasField('end_date')
+                            $AcademicPeriods->aliasField('end_date'),
                         ])
                         ->toArray();
 
@@ -207,7 +205,7 @@ class StaffTable extends ControllerActionTable
                 'on' => function ($context) {
                     // check for staff import on create operations - where academic_period_id do not exist in the context data
                     return ($context['newRecord'] && !array_key_exists('academic_period_id', $context['data']));
-                }
+                },
             ])
         ;
     }
@@ -239,7 +237,7 @@ class StaffTable extends ControllerActionTable
             ->select([
                 'openemis_no' => 'Users.openemis_no',
                 'identity_type' => 'IdentityTypes.name',
-                'identity_number' => 'Users.identity_number'
+                'identity_number' => 'Users.identity_number',
             ]);
     }
 
@@ -251,7 +249,7 @@ class StaffTable extends ControllerActionTable
     public function onExcelGetPositionTitleTeaching(Event $event, Entity $entity)
     {
         $yesno = $this->getSelectOptions('general.yesno');
-        return (array_key_exists($entity->position_title_teaching, $yesno))? $yesno[$entity->position_title_teaching]: '';
+        return (array_key_exists($entity->position_title_teaching, $yesno)) ? $yesno[$entity->position_title_teaching] : '';
     }
 
     public function onExcelUpdateFields(Event $event, ArrayObject $settings, ArrayObject $fields)
@@ -263,84 +261,84 @@ class StaffTable extends ControllerActionTable
             'key' => 'Users.openemis_no',
             'field' => 'openemis_no',
             'type' => 'string',
-            'label' => __('OpenEMIS ID')
+            'label' => __('OpenEMIS ID'),
         ];
 
         $extraField[] = [
             'key' => 'Staff.staff_id',
             'field' => 'staff_id',
             'type' => 'integer',
-            'label' => __('Staff')
+            'label' => __('Staff'),
         ];
 
         $extraField[] = [
             'key' => 'Staff.institution_position_id',
             'field' => 'institution_position_id',
             'type' => 'integer',
-            'label' => __('Position')
+            'label' => __('Position'),
         ];
 
         $extraField[] = [
             'key' => 'Staff.staff_type_id',
             'field' => 'staff_type_id',
             'type' => 'integer',
-            'label' => __('Staff Type')
+            'label' => __('Staff Type'),
         ];
 
         $extraField[] = [
             'key' => 'Staff.FTE',
             'field' => 'FTE',
             'type' => 'decimal',
-            'label' => __('FTE')
+            'label' => __('FTE'),
         ];
 
         $extraField[] = [
             'key' => 'Positions.position_title_teaching',
             'field' => 'position_title_teaching',
             'type' => 'string',
-            'label' => __('Teaching')
+            'label' => __('Teaching'),
         ];
 
         $extraField[] = [
             'key' => 'Staff.staff_status_id',
             'field' => 'staff_status_id',
             'type' => 'integer',
-            'label' => __('Staff Status')
+            'label' => __('Staff Status'),
         ];
 
         $extraField[] = [
             'key' => 'Staff.start_date',
             'field' => 'start_date',
             'type' => 'date',
-            'label' => __('Start Date')
+            'label' => __('Start Date'),
         ];
 
         $extraField[] = [
             'key' => 'Staff.end_date',
             'field' => 'end_date',
             'type' => 'date',
-            'label' => __('End Date')
+            'label' => __('End Date'),
         ];
 
         $extraField[] = [
             'key' => 'Staff.institution_id',
             'field' => 'institution_id',
             'type' => 'integer',
-            'label' => __('Institution')
+            'label' => __('Institution'),
         ];
 
         $extraField[] = [
             'key' => 'Users.identity_type',
             'field' => 'identity_type',
             'type' => 'string',
-            'label' => __('Identity Type')
+            'label' => __('Identity Type'),
         ];
 
         $extraField[] = [
             'key' => 'Users.identity_number',
             'field' => 'identity_number',
             'type' => 'string',
-            'label' => __('Identity Number')
+            'label' => __('Identity Number'),
         ];
 
         // $newFields = array_merge($fieldArray, $extraField);
@@ -365,24 +363,24 @@ class StaffTable extends ControllerActionTable
         switch ($selectedStatus) {
             case self::PENDING_PROFILE:
                 $event->stopPropagation();
-                return $this->controller->redirect(['plugin'=>'Institution', 'controller' => 'Institutions', 'action' => 'StaffPositionProfiles']);
+                return $this->controller->redirect(['plugin' => 'Institution', 'controller' => 'Institutions', 'action' => 'StaffPositionProfiles']);
                 break;
             case self::PENDING_TRANSFERIN:
                 $event->stopPropagation();
                 return $this->controller->redirect([
-                    'plugin'=>'Institution',
+                    'plugin' => 'Institution',
                     'institutionId' => $this->paramsEncode(['id' => $institutionId]),
                     'controller' => 'Institutions',
-                    'action' => 'StaffTransferIn'
+                    'action' => 'StaffTransferIn',
                 ]);
                 break;
             case self::PENDING_TRANSFEROUT:
                 $event->stopPropagation();
                 return $this->controller->redirect([
-                    'plugin'=>'Institution',
+                    'plugin' => 'Institution',
                     'institutionId' => $this->paramsEncode(['id' => $institutionId]),
                     'controller' => 'Institutions',
-                    'action' => 'StaffTransferOut'
+                    'action' => 'StaffTransferOut',
                 ]);
                 break;
         }
@@ -418,14 +416,14 @@ class StaffTable extends ControllerActionTable
             ->matching('InstitutionPositions', function ($q) use ($institutionId, $activeStatusId) {
                 $q->where([
                     'InstitutionPositions.institution_id' => $institutionId,
-                    'InstitutionPositions.status_id IN ' => $activeStatusId
+                    'InstitutionPositions.status_id IN ' => $activeStatusId,
                 ]);
                 return $q;
             })
             ->group([$StaffPositionTitles->aliasField($StaffPositionTitles->primaryKey())])
             ->order([$StaffPositionTitles->aliasField('order')])
             ->toArray()
-            ;
+        ;
 
         $positionOptions = [0 => __('All Positions')] + $positionData;
 
@@ -443,7 +441,7 @@ class StaffTable extends ControllerActionTable
                     ->findByInstitutionId($institutionId)
                     ->find('academicPeriod', ['academic_period_id' => $id])
                     ->count();
-            }
+            },
         ]);
 
         // To add the academic_period_id to export
@@ -478,7 +476,7 @@ class StaffTable extends ControllerActionTable
         $staffPositionProfilesRecordCount = $StaffPositionProfilesTable->find()
             ->where([
                 $StaffPositionProfilesTable->aliasField('institution_id') => $institutionId,
-                $StaffPositionProfilesTable->aliasField('status_id'). ' NOT IN ' => $staffPositionProfileStatuses
+                $StaffPositionProfilesTable->aliasField('status_id') . ' NOT IN ' => $staffPositionProfileStatuses,
             ])
             ->count();
 
@@ -491,9 +489,9 @@ class StaffTable extends ControllerActionTable
             ->find('InstitutionStaffTransferOut', ['institution_id' => $institutionId, 'pending_records' => true])
             ->count();
 
-        $statusOptions[self::PENDING_PROFILE] = __('Pending Change in Assignment'). ' - '. $staffPositionProfilesRecordCount;
-        $statusOptions[self::PENDING_TRANSFERIN] = __('Pending Transfer In'). ' - ' . $staffTransferInRecord;
-        $statusOptions[self::PENDING_TRANSFEROUT] = __('Pending Transfer Out'). ' - ' . $staffTransferOutRecord;
+        $statusOptions[self::PENDING_PROFILE] = __('Pending Change in Assignment') . ' - ' . $staffPositionProfilesRecordCount;
+        $statusOptions[self::PENDING_TRANSFERIN] = __('Pending Transfer In') . ' - ' . $staffTransferInRecord;
+        $statusOptions[self::PENDING_TRANSFEROUT] = __('Pending Transfer Out') . ' - ' . $staffTransferOutRecord;
 
         $selectedStatus = $this->queryString('staff_status_id', $statusOptions);
         $this->advancedSelectOptions($statusOptions, $selectedStatus);
@@ -526,7 +524,7 @@ class StaffTable extends ControllerActionTable
 
             $positionEntity = $this->Positions->find()
                 ->where([
-                    $this->Positions->aliasField('id') => $staffEntity->institution_position_id
+                    $this->Positions->aliasField('id') => $staffEntity->institution_position_id,
                 ])
                 ->matching('StaffPositionTitles.SecurityRoles')
                 ->contain(['Institutions'])
@@ -540,7 +538,7 @@ class StaffTable extends ControllerActionTable
                 $securityGroupUsersRecord = [
                     'security_role_id' => $homeroomSecurityRoleId,
                     'security_group_id' => $securityGroupId,
-                    'security_user_id' => $staffEntity->staff_id
+                    'security_user_id' => $staffEntity->staff_id,
                 ];
 
                 $newSecurityGroupEntity = $SecurityGroupUsersTable->newEntity($securityGroupUsersRecord);
@@ -553,7 +551,7 @@ class StaffTable extends ControllerActionTable
             $securityGroupUsersRecord = [
                 'security_role_id' => $securityRoleId,
                 'security_group_id' => $securityGroupId,
-                'security_user_id' => $staffEntity->staff_id
+                'security_user_id' => $staffEntity->staff_id,
             ];
 
             $newSecurityGroupEntity = $SecurityGroupUsersTable->newEntity($securityGroupUsersRecord);
@@ -572,7 +570,7 @@ class StaffTable extends ControllerActionTable
 
         $positionEntity = $this->Positions->find()
             ->where([
-                $this->Positions->aliasField('id') => $staffEntity->institution_position_id
+                $this->Positions->aliasField('id') => $staffEntity->institution_position_id,
             ])
             ->matching('StaffPositionTitles.SecurityRoles')
             ->contain(['Institutions'])
@@ -587,7 +585,7 @@ class StaffTable extends ControllerActionTable
                 ->where([
                     $SecurityGroupUsersTable->aliasField('security_group_id') => $securityGroupId,
                     $SecurityGroupUsersTable->aliasField('security_user_id') => $staffEntity->staff_id,
-                    $SecurityGroupUsersTable->aliasField('security_role_id') => $homeroomSecurityRoleId
+                    $SecurityGroupUsersTable->aliasField('security_role_id') => $homeroomSecurityRoleId,
                 ])
                 ->first();
             if (!empty($deleteEntity)) {
@@ -685,17 +683,17 @@ class StaffTable extends ControllerActionTable
                 unset($entity->user);
                 $newEntity = $this->newEntity($entity->toArray(), ['validate' => 'AllowPositionType']);
                 $this->save($newEntity);
-            // if ($this->save($newEntity)) {
-                // 	$url = [
-                // 		'plugin' => 'Institution',
-                // 		'controller' => 'Institutions',
-                // 		'action' => 'Staff',
-                // 		'0' => 'view',
-                // 		'1' => $newEntity->id
-                // 	];
-                // 	$url = array_merge($url, $this->ControllerAction->params());
-                // 	$event->stopPropagation();
-                // 	return $this->controller->redirect($url);
+                // if ($this->save($newEntity)) {
+                //     $url = [
+                //         'plugin' => 'Institution',
+                //         'controller' => 'Institutions',
+                //         'action' => 'Staff',
+                //         '0' => 'view',
+                //         '1' => $newEntity->id
+                //     ];
+                //     $url = array_merge($url, $this->ControllerAction->params());
+                //     $event->stopPropagation();
+                //     return $this->controller->redirect($url);
                 // }
             } else {
                 if (empty($entity->end_date) || $entity->end_date->isToday() || $entity->end_date->isFuture()) {
@@ -717,7 +715,7 @@ class StaffTable extends ControllerActionTable
 
         $listeners = [
             TableRegistry::get('Institution.InstitutionSubjectStaff'),
-            TableRegistry::get('Institution.StaffUser')
+            TableRegistry::get('Institution.StaffUser'),
         ];
         $this->dispatchEventToModels('Model.Staff.afterSave', [$entity], $this, $listeners);
     }
@@ -744,7 +742,7 @@ class StaffTable extends ControllerActionTable
             'userRole' => 'Staff',
             'action' => $this->action,
             'id' => $entity->id,
-            'userId' => $entity->staff_id
+            'userId' => $entity->staff_id,
         ];
         $tabElements = $this->controller->getCareerTabElements($options);
 
@@ -777,14 +775,14 @@ class StaffTable extends ControllerActionTable
                     'plugin' => 'Institution',
                     'institutionId' => $institutionId,
                     'controller' => 'StaffHistories',
-                    'action' => 'index'
+                    'action' => 'index',
                 ];
 
                 $buttons['history'] = $buttons['view'];
                 $buttons['history']['label'] = $icon . __('History');
                 $buttons['history']['url'] = $this->ControllerAction->setQueryString($url, [
                     'security_user_id' => $userId,
-                    'user_type' => 'Staff'
+                    'user_type' => 'Staff',
                 ]);
             }
             // end POCOR-3125 history button permission
@@ -848,7 +846,6 @@ class StaffTable extends ControllerActionTable
         if ($this->action == 'index') {
             $InstitutionArray = [];
 
-
             $session = $this->Session;
             $institutionId = $session->read('Institution.Institutions.id');
 
@@ -877,10 +874,10 @@ class StaffTable extends ControllerActionTable
             // Revisit here in awhile
             $InstitutionArray[__('Licenses')] = $table->getDonutChart(
                 'institution_staff_licenses',
-                ['query' => $this->dashboardQuery, 'table'=>$this, 'key' => __('Licenses')]
+                ['query' => $this->dashboardQuery, 'table' => $this, 'key' => __('Licenses')]
             );
 
-            $indexElements = (isset($this->controller->viewVars['indexElements']))?$this->controller->viewVars['indexElements'] :[] ;
+            $indexElements = (isset($this->controller->viewVars['indexElements'])) ? $this->controller->viewVars['indexElements'] : [];
             $indexElements[] = ['name' => 'Institution.Staff/controls', 'data' => [], 'options' => [], 'order' => 0];
             $indexDashboard = 'dashboard';
 
@@ -893,13 +890,13 @@ class StaffTable extends ControllerActionTable
                         'modelArray' => $InstitutionArray,
                     ],
                     'options' => [],
-                    'order' => 2
+                    'order' => 2,
                 ];
             }
             foreach ($indexElements as $key => $value) {
-                if ($value['name']=='OpenEmis.ControllerAction/index') {
+                if ($value['name'] == 'OpenEmis.ControllerAction/index') {
                     $indexElements[$key]['order'] = 3;
-                } elseif ($value['name']=='OpenEmis.pagination') {
+                } elseif ($value['name'] == 'OpenEmis.pagination') {
                     $indexElements[$key]['order'] = 4;
                 }
             }
@@ -908,6 +905,13 @@ class StaffTable extends ControllerActionTable
 
             $this->setFieldOrder(['photo_content', 'openemis_no', 'staff_id', 'institution_position_id', 'start_date', 'end_date', 'staff_status_id']);
         }
+    }
+
+    public function beforeAction(Event $event, ArrayObject $extra)
+    {
+        $this->field('area_administrative_id', ['type' => 'areapicker', 'source_model' => 'Area.AreaAdministratives', 'displayCountry' => false]);
+        $this->field('area_id', ['type' => 'areapicker', 'source_model' => 'Area.Areas', 'displayCountry' => false]);
+
     }
 
     public function viewBeforeAction(Event $event)
@@ -934,25 +938,25 @@ class StaffTable extends ControllerActionTable
         $this->field('staff_id', [
             'type' => 'readonly',
             'order' => 10,
-            'attr' => ['value' => $entity->user->name_with_id]
+            'attr' => ['value' => $entity->user->name_with_id],
         ]);
         $this->field('institution_position_id', [
             'type' => 'readonly',
             'order' => 11,
-            'attr' => ['value' => $entity->position->name]
+            'attr' => ['value' => $entity->position->name],
         ]);
 
         if (empty($entity->end_date)) {
             $this->field('FTE', [
                 'type' => 'select',
                 'order' => 12,
-                'options' => ['0.25' => '25%', '0.5' => '50%', '0.75' => '75%', '1' => '100%']
+                'options' => ['0.25' => '25%', '0.5' => '50%', '0.75' => '75%', '1' => '100%'],
             ]);
         } else {
             $this->field('FTE', [
                 'type' => 'readonly',
                 'order' => 12,
-                'attr' => ['value' => $entity->FTE]
+                'attr' => ['value' => $entity->FTE],
             ]);
         }
         $this->Session->write('Staff.Staff.id', $entity->staff_id);
@@ -978,7 +982,7 @@ class StaffTable extends ControllerActionTable
             })
             ->where([
                 $InstitutionStaffTransfers->aliasField('staff_id') => $entity->staff_id,
-                $InstitutionStaffTransfers->aliasField('previous_institution_id') => $entity->institution_id
+                $InstitutionStaffTransfers->aliasField('previous_institution_id') => $entity->institution_id,
             ])
             ->count();
         $extra['associatedRecords'][] = ['model' => 'StaffTransferOut', 'count' => $transferOutRecordsCount];
@@ -987,14 +991,14 @@ class StaffTable extends ControllerActionTable
             'Institution.StaffPositionProfiles' => 'StaffChangeInAssignment',
             'Institution.StaffAbsences' => 'StaffAbsences',
             'Institution.StaffLeave' => 'StaffLeave',
-            'Institution.InstitutionClasses' =>'InstitutionClasses',
-            'Institution.InstitutionSubjectStaff' => 'InstitutionSubjects'
+            'Institution.InstitutionClasses' => 'InstitutionClasses',
+            'Institution.InstitutionSubjectStaff' => 'InstitutionSubjects',
         ];
 
-        if (!Configure::read('schoolMode')) {    
+        if (!Configure::read('schoolMode')) {
             $coreAssociationArray = [
                 'Institution.InstitutionRubrics' => 'InstitutionRubrics',
-                'Quality.InstitutionQualityVisits' => 'InstitutionVisits'
+                'Quality.InstitutionQualityVisits' => 'InstitutionVisits',
             ];
             $associationArray = array_merge($associationArray, $coreAssociationArray);
         }
@@ -1004,7 +1008,7 @@ class StaffTable extends ControllerActionTable
             $recordsCount = $Table->find()
                 ->where([
                     $Table->aliasField('staff_id') => $entity->staff_id,
-                    $Table->aliasField('institution_id') => $entity->institution_id
+                    $Table->aliasField('institution_id') => $entity->institution_id,
                 ])
                 ->count();
             $extra['associatedRecords'][] = ['model' => $model, 'count' => $recordsCount];
@@ -1015,7 +1019,7 @@ class StaffTable extends ControllerActionTable
     {
         $broadcaster = $this;
         $listeners = [
-            TableRegistry::get('Institution.StaffLeave')    // Staff Leave associated to institution must be deleted.
+            TableRegistry::get('Institution.StaffLeave'), // Staff Leave associated to institution must be deleted.
         ];
         $this->dispatchEventToModels('Model.InstitutionStaff.afterDelete', [$entity], $broadcaster, $listeners);
 
@@ -1024,9 +1028,8 @@ class StaffTable extends ControllerActionTable
         $institutionId = $entity->institution_id;
         $staffId = $entity->staff_id;
 
-
-        $startDate = (!empty($entity->start_date))? $entity->start_date->format('Y-m-d'): null;
-        $endDate = (!empty($entity->end_date))? $entity->end_date->format('Y-m-d'): null;
+        $startDate = (!empty($entity->start_date)) ? $entity->start_date->format('Y-m-d') : null;
+        $endDate = (!empty($entity->end_date)) ? $entity->end_date->format('Y-m-d') : null;
 
         $InstitutionClasses = TableRegistry::get('Institution.InstitutionClasses');
 
@@ -1047,7 +1050,7 @@ class StaffTable extends ControllerActionTable
                 }
                 return $q->where($overlapDateCondition);
             })
-            ;
+        ;
         $classArray = [];
         foreach ($classesInPosition as $key => $value) {
             $classArray[] = $value->id;
@@ -1076,7 +1079,7 @@ class StaffTable extends ControllerActionTable
                 }
                 return $q->where($overlapDateCondition);
             })
-            ;
+        ;
         $subjectIdsDuringStaffPeriod = [];
         foreach ($subjectsDuringStaffPeriod as $key => $value) {
             $subjectIdsDuringStaffPeriod[] = $value->id;
@@ -1090,7 +1093,7 @@ class StaffTable extends ControllerActionTable
                 $StaffBehaviours->aliasField('institution_id') => $entity->institution_id,
             ])
             ->toArray()
-            ;
+        ;
         foreach ($staffBehavioursData as $key => $value) {
             $StaffBehaviours->delete($value);
         }
@@ -1103,7 +1106,7 @@ class StaffTable extends ControllerActionTable
                 $StaffAbsences->aliasField('institution_id') => $entity->institution_id,
             ])
             ->toArray()
-            ;
+        ;
         foreach ($staffAbsencesData as $key => $value) {
             $StaffAbsences->delete($value);
         }
@@ -1125,7 +1128,7 @@ class StaffTable extends ControllerActionTable
             $InstitutionSubjectStaff = TableRegistry::get('Institution.InstitutionSubjectStaff');
             $InstitutionSubjectStaff->deleteAll([
                 $InstitutionSubjectStaff->aliasField('staff_id') => $staffId,
-                $InstitutionSubjectStaff->aliasField('institution_subject_id') . ' IN ' => $subjectIdsDuringStaffPeriod
+                $InstitutionSubjectStaff->aliasField('institution_subject_id') . ' IN ' => $subjectIdsDuringStaffPeriod,
             ]);
         }
 
@@ -1147,7 +1150,7 @@ class StaffTable extends ControllerActionTable
             ->matching('Users.Genders')
             ->select([
                 'count' => $InstitutionRecords->func()->count('DISTINCT staff_id'),
-                'gender' => 'Genders.name'
+                'gender' => 'Genders.name',
             ])
             ->group('Users.gender_id');
 
@@ -1170,13 +1173,13 @@ class StaffTable extends ControllerActionTable
         $conditions = isset($params['conditions']) ? $params['conditions'] : [];
         $_conditions = [];
         foreach ($conditions as $key => $value) {
-            $_conditions[$this->alias().'.'.$key] = $value;
+            $_conditions[$this->alias() . '.' . $key] = $value;
         }
 
         $AcademicPeriod = TableRegistry::get('AcademicPeriod.AcademicPeriods');
         $currentYearId = $AcademicPeriod->getCurrent();
         if (!empty($currentYearId)) {
-            $currentYear = $AcademicPeriod->get($currentYearId, ['fields'=>'name'])->name;
+            $currentYear = $AcademicPeriod->get($currentYearId, ['fields' => 'name'])->name;
         } else {
             $currentYear = __('Not Defined');
         }
@@ -1186,18 +1189,18 @@ class StaffTable extends ControllerActionTable
 
         $query = $this->find('all');
         $staffByPositions = $query
-            ->find('AcademicPeriod', ['academic_period_id'=> $currentYearId])
-            ->contain(['Users.Genders','Positions.StaffPositionTitles'])
+            ->find('AcademicPeriod', ['academic_period_id' => $currentYearId])
+            ->contain(['Users.Genders', 'Positions.StaffPositionTitles'])
             ->select([
                 'Positions.id',
                 'StaffPositionTitles.type',
                 'Users.id',
                 'Genders.name',
-                'total' => $query->func()->count('DISTINCT '.$this->aliasField('staff_id'))
+                'total' => $query->func()->count('DISTINCT ' . $this->aliasField('staff_id')),
             ])
             ->where($staffsByPositionConditions)
             ->group([
-                'StaffPositionTitles.type', 'Genders.name'
+                'StaffPositionTitles.type', 'Genders.name',
             ])
             ->order(
                 'StaffPositionTitles.type'
@@ -1206,7 +1209,7 @@ class StaffTable extends ControllerActionTable
 
         $positionTypes = array(
             0 => __('Non-Teaching'),
-            1 => __('Teaching')
+            1 => __('Teaching'),
         );
 
         $genderOptions = $this->Users->Genders->getList();
@@ -1251,13 +1254,13 @@ class StaffTable extends ControllerActionTable
         $conditions = isset($params['conditions']) ? $params['conditions'] : [];
         $_conditions = [];
         foreach ($conditions as $key => $value) {
-            $_conditions[$this->alias().'.'.$key] = $value;
+            $_conditions[$this->alias() . '.' . $key] = $value;
         }
 
         $AcademicPeriod = TableRegistry::get('AcademicPeriod.AcademicPeriods');
         $currentYearId = $AcademicPeriod->getCurrent();
         if (!empty($currentYearId)) {
-            $currentYear = $AcademicPeriod->get($currentYearId, ['fields'=>'name'])->name;
+            $currentYear = $AcademicPeriod->get($currentYearId, ['fields' => 'name'])->name;
         } else {
             $currentYear = __('Not Defined');
         }
@@ -1267,24 +1270,24 @@ class StaffTable extends ControllerActionTable
 
         $query = $this->find('all');
         $staffByPositions = $query
-                ->find('AcademicPeriod', ['academic_period_id'=> $currentYearId])
-                ->contain(['Users.Genders','Positions.StaffPositionTitles'])
-                ->select([
-                    'Positions.id',
-                    'StaffPositionTitles.id',
-                    'StaffPositionTitles.name',
-                    'Users.id',
-                    'Genders.name',
-                    'total' => $query->func()->count('DISTINCT '.$this->aliasField('staff_id'))
-                ])
-                ->where($staffsByPositionConditions)
-                ->group([
-                    'StaffPositionTitles.id', 'Genders.name'
-                ])
-                ->order(
-                    'StaffPositionTitles.id'
-                )
-                ->toArray();
+            ->find('AcademicPeriod', ['academic_period_id' => $currentYearId])
+            ->contain(['Users.Genders', 'Positions.StaffPositionTitles'])
+            ->select([
+                'Positions.id',
+                'StaffPositionTitles.id',
+                'StaffPositionTitles.name',
+                'Users.id',
+                'Genders.name',
+                'total' => $query->func()->count('DISTINCT ' . $this->aliasField('staff_id')),
+            ])
+            ->where($staffsByPositionConditions)
+            ->group([
+                'StaffPositionTitles.id', 'Genders.name',
+            ])
+            ->order(
+                'StaffPositionTitles.id'
+            )
+            ->toArray();
 
         $positionTypes = [];
         foreach ($staffByPositions as $staffPosition) {
@@ -1331,12 +1334,12 @@ class StaffTable extends ControllerActionTable
     }
 
     // For Dashboard (Institution Dashboard and Home Page)
-    public function getNumberOfStaffByYear($params=[])
+    public function getNumberOfStaffByYear($params = [])
     {
         $conditions = isset($params['conditions']) ? $params['conditions'] : [];
         $_conditions = [];
         foreach ($conditions as $key => $value) {
-            $_conditions[$this->alias().'.'.$key] = $value;
+            $_conditions[$this->alias() . '.' . $key] = $value;
         }
 
         $AcademicPeriod = TableRegistry::get('AcademicPeriod.AcademicPeriods');
@@ -1377,15 +1380,15 @@ class StaffTable extends ControllerActionTable
                 $queryCondition = array_merge(['Genders.id' => $genderId], $_conditions);
 
                 $staffByYear = $this->find()
-                    ->find('AcademicPeriod', ['academic_period_id'=> $periodId])
+                    ->find('AcademicPeriod', ['academic_period_id' => $periodId])
                     ->find('list', [
                         'keyField' => 'gender_name',
-                        'valueField' => 'total'
+                        'valueField' => 'total',
                     ])
                     ->matching('Users.Genders')
                     ->select([
                         'gender_name' => 'Genders.name',
-                        'total' => $this->find()->func()->count('DISTINCT '.$this->aliasField('staff_id'))
+                        'total' => $this->find()->func()->count('DISTINCT ' . $this->aliasField('staff_id')),
                     ])
                     ->where($queryCondition)
                     ->group(['gender_name'])
@@ -1405,10 +1408,10 @@ class StaffTable extends ControllerActionTable
 
     // Functions that are migrated over
     /******************************************************************************************************************
-    **
-    ** finders functions to be used with query
-    **
-    ******************************************************************************************************************/
+     **
+     ** finders functions to be used with query
+     **
+     ******************************************************************************************************************/
     /**
      * $options['type'] == 0 > non-teaching
      * $options['type'] == 1 > teaching
@@ -1420,12 +1423,12 @@ class StaffTable extends ControllerActionTable
             $positions = $this->Positions->find('list')
                 ->select([
                     $this->Positions->aliasField('id'),
-                    'StaffPositionTitles.type'
+                    'StaffPositionTitles.type',
                 ])
                 ->contain(['StaffPositionTitles'])
                 ->where([
                     $this->Positions->aliasField('institution_id') => $options['Institutions.id'],
-                    'StaffPositionTitles.type' => $options['type']
+                    'StaffPositionTitles.type' => $options['type'],
                 ])
                 ->toArray();
             $positions = array_keys($positions);
@@ -1494,17 +1497,17 @@ class StaffTable extends ControllerActionTable
 
     public function findStaffRecords(Query $query, array $options)
     {
-        $academicPeriodId = (array_key_exists('academicPeriodId', $options))? $options['academicPeriodId']: null;
-        $positionType = (array_key_exists('positionType', $options))? $options['positionType']: null;
-        $staffId = (array_key_exists('staffId', $options))? $options['staffId']: null;
-        $institutionId = (array_key_exists('institutionId', $options))? $options['institutionId']: null;
-        $isHomeroom = (array_key_exists('isHomeroom', $options))? $options['isHomeroom']: null;
+        $academicPeriodId = (array_key_exists('academicPeriodId', $options)) ? $options['academicPeriodId'] : null;
+        $positionType = (array_key_exists('positionType', $options)) ? $options['positionType'] : null;
+        $staffId = (array_key_exists('staffId', $options)) ? $options['staffId'] : null;
+        $institutionId = (array_key_exists('institutionId', $options)) ? $options['institutionId'] : null;
+        $isHomeroom = (array_key_exists('isHomeroom', $options)) ? $options['isHomeroom'] : null;
 
         if (!is_null($academicPeriodId)) {
             $AcademicPeriods = TableRegistry::get('AcademicPeriod.AcademicPeriods');
             $academicPeriodData = $AcademicPeriods->find()
                 ->select([
-                    $AcademicPeriods->aliasField('start_date'), $AcademicPeriods->aliasField('end_date')
+                    $AcademicPeriods->aliasField('start_date'), $AcademicPeriods->aliasField('end_date'),
                 ])
                 ->where([$AcademicPeriods->aliasField($AcademicPeriods->primaryKey()) => $academicPeriodId])
                 ->first();
@@ -1543,37 +1546,37 @@ class StaffTable extends ControllerActionTable
         $todayDate = Time::now();
 
         return $query
-                ->select([
-                    $this->Users->aliasField('id'),
-                    $this->Users->aliasField('openemis_no'),
-                    $this->Users->aliasField('first_name'),
-                    $this->Users->aliasField('middle_name'),
-                    $this->Users->aliasField('third_name'),
-                    $this->Users->aliasField('last_name'),
-                    $this->Users->aliasField('preferred_name')
-                ])
-                ->contain(['Users'])
-                ->matching('Positions', function ($q) {
-                    return $q->where(['Positions.is_homeroom' => 1]);
-                })
-                ->find('byInstitution', ['Institutions.id' => $institutionId])
-                ->find('AcademicPeriod', ['academic_period_id' => $academicPeriodId])
-                ->where([
-                    $this->aliasField('start_date <= ') => $todayDate,
-                    'OR' => [
-                        [$this->aliasField('end_date >= ') => $todayDate],
-                        [$this->aliasField('end_date IS NULL')]
-                    ]
-                ])
-                ->formatResults(function ($results) {
-                    $returnArr = [];
-                    foreach ($results as $result) {
-                        if ($result->has('Users')) {
-                            $returnArr[] = ['id' => $result->Users->id, 'name' => $result->Users->name_with_id];
-                        }
+            ->select([
+                $this->Users->aliasField('id'),
+                $this->Users->aliasField('openemis_no'),
+                $this->Users->aliasField('first_name'),
+                $this->Users->aliasField('middle_name'),
+                $this->Users->aliasField('third_name'),
+                $this->Users->aliasField('last_name'),
+                $this->Users->aliasField('preferred_name'),
+            ])
+            ->contain(['Users'])
+            ->matching('Positions', function ($q) {
+                return $q->where(['Positions.is_homeroom' => 1]);
+            })
+            ->find('byInstitution', ['Institutions.id' => $institutionId])
+            ->find('AcademicPeriod', ['academic_period_id' => $academicPeriodId])
+            ->where([
+                $this->aliasField('start_date <= ') => $todayDate,
+                'OR' => [
+                    [$this->aliasField('end_date >= ') => $todayDate],
+                    [$this->aliasField('end_date IS NULL')],
+                ],
+            ])
+            ->formatResults(function ($results) {
+                $returnArr = [];
+                foreach ($results as $result) {
+                    if ($result->has('Users')) {
+                        $returnArr[] = ['id' => $result->Users->id, 'name' => $result->Users->name_with_id];
                     }
-                    return $returnArr;
-                });
+                }
+                return $returnArr;
+            });
     }
 
     public function findSubjectStaffOptions(Query $query, array $options)
@@ -1591,7 +1594,7 @@ class StaffTable extends ControllerActionTable
                 'Users.middle_name',
                 'Users.third_name',
                 'Users.last_name',
-                'Users.preferred_name'
+                'Users.preferred_name',
             ])
             ->find('byInstitution', ['Institutions.id' => $institutionId])
             ->find('byPositions', ['Institutions.id' => $institutionId, 'type' => 1])
@@ -1600,9 +1603,9 @@ class StaffTable extends ControllerActionTable
             ->where([
                 $this->aliasField('institution_position_id'),
                 'OR' => [ //check teacher end date
-                    [$this->aliasField('end_date').' > ' => Time::now()],
-                    [$this->aliasField('end_date').' IS NULL']
-                ]
+                    [$this->aliasField('end_date') . ' > ' => Time::now()],
+                    [$this->aliasField('end_date') . ' IS NULL'],
+                ],
             ])
             ->formatResults(function ($results) {
                 $returnArr = [];
@@ -1629,7 +1632,7 @@ class StaffTable extends ControllerActionTable
             ->where([
                 $this->aliasField('institution_id') => $institutionId,
                 $this->aliasField('staff_id') => $staffId,
-                'SecurityGroupUsers.security_role_id' => $principalRoleId
+                'SecurityGroupUsers.security_role_id' => $principalRoleId,
             ]);
     }
 
@@ -1652,18 +1655,18 @@ class StaffTable extends ControllerActionTable
             ->innerJoin([$InstitutionClasses->alias() => $InstitutionClasses->table()], [
                 'OR' => [
                     $InstitutionClasses->aliasField('staff_id = ') . $this->aliasField('staff_id'),
-                    $InstitutionClasses->aliasField('secondary_staff_id = ') . $this->aliasField('staff_id')
-                ]
+                    $InstitutionClasses->aliasField('secondary_staff_id = ') . $this->aliasField('staff_id'),
+                ],
             ])
             ->innerJoin([$SecurityGroupUsers->alias() => $SecurityGroupUsers->table()], [
                 $SecurityGroupUsers->aliasField('security_user_id = ') . $this->aliasField('staff_id'),
                 $SecurityGroupUsers->aliasField('security_group_id') => $securityGroupId,
-                $SecurityGroupUsers->aliasField('security_role_id') => $homeroomRoleId
+                $SecurityGroupUsers->aliasField('security_role_id') => $homeroomRoleId,
             ])
             ->where([
                 $InstitutionClasses->aliasField('id') => $classId,
                 $this->aliasField('institution_id') => $institutionId,
-                $this->aliasField('staff_id') => $staffId
+                $this->aliasField('staff_id') => $staffId,
             ]);
     }
 
@@ -1677,7 +1680,7 @@ class StaffTable extends ControllerActionTable
                 ->where([
                     $this->aliasField('security_group_user_id IS NOT NULL'),
                     $this->aliasField('end_date IS NOT NULL'),
-                    $this->aliasField('staff_status_id') => $this->assigned
+                    $this->aliasField('staff_status_id') => $this->assigned,
                 ])
                 ->where(
                     function ($exp) use ($StaffTable) {
@@ -1686,7 +1689,7 @@ class StaffTable extends ControllerActionTable
                 )
                 ->limit(10)
                 ->page(1)
-                ;
+            ;
 
             $resultSet = $query->all();
 
@@ -1709,7 +1712,7 @@ class StaffTable extends ControllerActionTable
             ->where([
                 $this->aliasField('security_group_user_id IS NOT NULL'),
                 $this->aliasField('end_date IS NOT NULL'),
-                $this->aliasField('staff_id') => $staffId
+                $this->aliasField('staff_id') => $staffId,
             ])
             ->where(
                 function ($exp) use ($StaffTable) {
@@ -1719,7 +1722,7 @@ class StaffTable extends ControllerActionTable
             ->toArray();
         foreach ($institutionStaffRecords as $entity) {
             $SecurityGroupUsers->deleteAll([
-                $SecurityGroupUsers->aliasField($SecurityGroupUsers->primaryKey()) => $entity->security_group_user_id
+                $SecurityGroupUsers->aliasField($SecurityGroupUsers->primaryKey()) => $entity->security_group_user_id,
             ]);
             $this->updateAll(
                 ['security_group_user_id' => null],
@@ -1764,16 +1767,16 @@ class StaffTable extends ControllerActionTable
                 'Users.email',
                 'Users.address',
                 'Users.postal_code',
-                'Users.date_of_birth'
+                'Users.date_of_birth',
             ])
             ->contain(['Users', 'Institutions', 'StaffTypes'])
             ->where([
                 $this->aliasField('staff_type_id') => $thresholdArray['staff_type'],
                 $this->aliasField('end_date') . ' IS NOT NULL',
-                $conditions[$thresholdArray['condition']]
+                $conditions[$thresholdArray['condition']],
             ])
             ->hydrate(false)
-            ;
+        ;
 
         return $licenseData->toArray();
     }

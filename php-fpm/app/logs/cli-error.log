@@ -2006,3 +2006,271 @@ Stack Trace:
 #24 {main}
 
 
+2019-01-26 15:19:30 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Adapter/PdoAdapter.php(389): PDOStatement->execute(Array)
+#1 /var/www/myapp/vendor/cakephp/migrations/src/CakeAdapter.php(379): Phinx\Db\Adapter\PdoAdapter->insert(Object(Phinx\Db\Table), Array)
+#2 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(653): Migrations\CakeAdapter->insert(Object(Phinx\Db\Table), Array)
+#3 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(641): Phinx\Db\Table->saveData()
+#4 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(667): Phinx\Db\Table->update()
+#5 /var/www/myapp/config/Seeds/StaffStatusesSeed.php(35): Phinx\Db\Table->save()
+#6 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager/Environment.php(152): StaffStatusesSeed->run()
+#7 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(356): Phinx\Migration\Manager\Environment->executeSeed(Object(StaffStatusesSeed))
+#8 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(443): Phinx\Migration\Manager->executeSeed('default', Object(StaffStatusesSeed))
+#9 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Console/Command/SeedRun.php(110): Phinx\Migration\Manager->seed('default')
+#10 /var/www/myapp/vendor/cakephp/migrations/src/ConfigurationTrait.php(165): Phinx\Console\Command\SeedRun->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /var/www/myapp/vendor/cakephp/migrations/src/Command/Seed.php(71): Migrations\Command\Seed->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /var/www/myapp/vendor/symfony/console/Command/Command.php(264): Migrations\Command\Seed->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /var/www/myapp/vendor/symfony/console/Application.php(835): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /var/www/myapp/vendor/symfony/console/Application.php(200): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Seed), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /var/www/myapp/vendor/symfony/console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 [internal function]: Migrations\Shell\MigrationsShell->main('migrations', 'seed')
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Console/Shell.php(472): call_user_func_array(Array, Array)
+#19 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(227): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#23 /var/www/myapp/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#24 {main}
+
+
+2019-01-26 16:21:30 Error: [PDOException] SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1' for key 'PRIMARY'
+Stack Trace:
+#0 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Adapter/PdoAdapter.php(389): PDOStatement->execute(Array)
+#1 /var/www/myapp/vendor/cakephp/migrations/src/CakeAdapter.php(379): Phinx\Db\Adapter\PdoAdapter->insert(Object(Phinx\Db\Table), Array)
+#2 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(653): Migrations\CakeAdapter->insert(Object(Phinx\Db\Table), Array)
+#3 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(641): Phinx\Db\Table->saveData()
+#4 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Db/Table.php(667): Phinx\Db\Table->update()
+#5 /var/www/myapp/config/Seeds/CustomFieldTypesSeed.php(168): Phinx\Db\Table->save()
+#6 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager/Environment.php(152): CustomFieldTypesSeed->run()
+#7 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(356): Phinx\Migration\Manager\Environment->executeSeed(Object(CustomFieldTypesSeed))
+#8 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Migration/Manager.php(443): Phinx\Migration\Manager->executeSeed('default', Object(CustomFieldTypesSeed))
+#9 /var/www/myapp/vendor/robmorgan/phinx/src/Phinx/Console/Command/SeedRun.php(110): Phinx\Migration\Manager->seed('default')
+#10 /var/www/myapp/vendor/cakephp/migrations/src/ConfigurationTrait.php(165): Phinx\Console\Command\SeedRun->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#11 /var/www/myapp/vendor/cakephp/migrations/src/Command/Seed.php(71): Migrations\Command\Seed->parentExecute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#12 /var/www/myapp/vendor/symfony/console/Command/Command.php(264): Migrations\Command\Seed->execute(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#13 /var/www/myapp/vendor/symfony/console/Application.php(835): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#14 /var/www/myapp/vendor/symfony/console/Application.php(200): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Seed), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#15 /var/www/myapp/vendor/symfony/console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#16 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#17 [internal function]: Migrations\Shell\MigrationsShell->main('migrations', 'seed')
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Console/Shell.php(472): call_user_func_array(Array, Array)
+#19 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(227): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#23 /var/www/myapp/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#24 {main}
+
+
+2019-01-27 02:50:06 Error: [Cake\Core\Exception\MissingPluginException] Plugin Alert could not be found.
+Exception Attributes: array (
+  'plugin' => 'Alert',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(269): Cake\Core\Plugin::load('Alert', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:50:20 Error: [Cake\Core\Exception\MissingPluginException] Plugin Textbook could not be found.
+Exception Attributes: array (
+  'plugin' => 'Textbook',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(280): Cake\Core\Plugin::load('Textbook', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:50:26 Error: [Cake\Core\Exception\MissingPluginException] Plugin Survey could not be found.
+Exception Attributes: array (
+  'plugin' => 'Survey',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(282): Cake\Core\Plugin::load('Survey', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:50:31 Error: [Cake\Core\Exception\MissingPluginException] Plugin Report could not be found.
+Exception Attributes: array (
+  'plugin' => 'Report',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(284): Cake\Core\Plugin::load('Report', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:50:35 Error: [Cake\Core\Exception\MissingPluginException] Plugin Rubric could not be found.
+Exception Attributes: array (
+  'plugin' => 'Rubric',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(285): Cake\Core\Plugin::load('Rubric', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:50:40 Error: [Cake\Core\Exception\MissingPluginException] Plugin CustomField could not be found.
+Exception Attributes: array (
+  'plugin' => 'CustomField',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(287): Cake\Core\Plugin::load('CustomField', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:50:48 Error: [Cake\Core\Exception\MissingPluginException] Plugin Risk could not be found.
+Exception Attributes: array (
+  'plugin' => 'Risk',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(288): Cake\Core\Plugin::load('Risk', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:50:56 Error: [Cake\Core\Exception\MissingPluginException] Plugin InstitutionCustomField could not be found.
+Exception Attributes: array (
+  'plugin' => 'InstitutionCustomField',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(289): Cake\Core\Plugin::load('InstitutionCust...', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:51:06 Error: [Cake\Core\Exception\MissingPluginException] Plugin StudentCustomField could not be found.
+Exception Attributes: array (
+  'plugin' => 'StudentCustomField',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(290): Cake\Core\Plugin::load('StudentCustomFi...', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:51:12 Error: [Cake\Core\Exception\MissingPluginException] Plugin StaffCustomField could not be found.
+Exception Attributes: array (
+  'plugin' => 'StaffCustomField',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(291): Cake\Core\Plugin::load('StaffCustomFiel...', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:51:18 Error: [Cake\Core\Exception\MissingPluginException] Plugin Training could not be found.
+Exception Attributes: array (
+  'plugin' => 'Training',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(297): Cake\Core\Plugin::load('Training', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:51:25 Error: [Cake\Core\Exception\MissingPluginException] Plugin Map could not be found.
+Exception Attributes: array (
+  'plugin' => 'Map',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(298): Cake\Core\Plugin::load('Map', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:51:32 Error: [Cake\Core\Exception\MissingPluginException] Plugin SSO could not be found.
+Exception Attributes: array (
+  'plugin' => 'SSO',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(303): Cake\Core\Plugin::load('SSO')
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:51:39 Error: [Cake\Core\Exception\MissingPluginException] Plugin Examination could not be found.
+Exception Attributes: array (
+  'plugin' => 'Examination',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(307): Cake\Core\Plugin::load('Examination', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:51:47 Error: [Cake\Core\Exception\MissingPluginException] Plugin ReportCard could not be found.
+Exception Attributes: array (
+  'plugin' => 'ReportCard',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(311): Cake\Core\Plugin::load('ReportCard', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:51:54 Error: [Cake\Core\Exception\MissingPluginException] Plugin Transport could not be found.
+Exception Attributes: array (
+  'plugin' => 'Transport',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(313): Cake\Core\Plugin::load('Transport', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:52:03 Error: [Cake\Core\Exception\MissingPluginException] Plugin Quality could not be found.
+Exception Attributes: array (
+  'plugin' => 'Quality',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(315): Cake\Core\Plugin::load('Quality', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:52:08 Error: [Cake\Core\Exception\MissingPluginException] Plugin Cases could not be found.
+Exception Attributes: array (
+  'plugin' => 'Cases',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(316): Cake\Core\Plugin::load('Cases', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:52:13 Error: [Cake\Core\Exception\MissingPluginException] Plugin Counselling could not be found.
+Exception Attributes: array (
+  'plugin' => 'Counselling',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(317): Cake\Core\Plugin::load('Counselling', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:52:17 Error: [Cake\Core\Exception\MissingPluginException] Plugin Theme could not be found.
+Exception Attributes: array (
+  'plugin' => 'Theme',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(319): Cake\Core\Plugin::load('Theme', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+
+2019-01-27 02:52:21 Error: [Cake\Core\Exception\MissingPluginException] Plugin StaffAppraisal could not be found.
+Exception Attributes: array (
+  'plugin' => 'StaffAppraisal',
+)
+Stack Trace:
+#0 /var/www/myapp/config/bootstrap.php(320): Cake\Core\Plugin::load('StaffAppraisal', Array)
+#1 /var/www/myapp/bin/cake.php(32): include('/var/www/myapp/...')
+#2 {main}
+
+

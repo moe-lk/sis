@@ -63,7 +63,7 @@ class StudentsController extends AppController
             'History'           => ['className' => 'User.UserActivities', 'actions' => ['index']],
             'ImportStudents'    => ['className' => 'Student.ImportStudents', 'actions' => ['index', 'add']],
         ];
-
+        $this->loadComponent('Area.Areapicker');
         $this->loadComponent('User.Image');
         $this->loadComponent('Institution.InstitutionAccessControl');
         $this->attachAngularModules();
@@ -140,7 +140,6 @@ class StudentsController extends AppController
     {
         $this->ControllerAction->process(['alias' => __FUNCTION__, 'className' => 'Student.StudentOutcomes']);
     }
-
     // health
     public function Healths()
     {

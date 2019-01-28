@@ -14,8 +14,8 @@ class ComposerStaticInit72a01c504b78abcca347330aef43d827
         '90236b492da7ca2983a2ad6e33e4152e' => __DIR__ . '/..' . '/cakephp/cakephp/src/I18n/functions.php',
         'b1fc73705e1bec51cd2b20a32cf1c60a' => __DIR__ . '/..' . '/cakephp/cakephp/src/Utility/bootstrap.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
-        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
+        'decc78cc4436b1292c6c0d151b19445c' => __DIR__ . '/..' . '/phpseclib/phpseclib/phpseclib/bootstrap.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -51,7 +51,6 @@ class ComposerStaticInit72a01c504b78abcca347330aef43d827
             'Seld\\PharUtils\\' => 15,
             'Seld\\JsonLint\\' => 14,
             'Seld\\CliPrompt\\' => 15,
-            'SSO\\' => 4,
         ),
         'R' => 
         array (
@@ -191,10 +190,6 @@ class ComposerStaticInit72a01c504b78abcca347330aef43d827
         'Seld\\CliPrompt\\' => 
         array (
             0 => __DIR__ . '/..' . '/seld/cli-prompt/src',
-        ),
-        'SSO\\' => 
-        array (
-            0 => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src',
         ),
         'Restful\\Test\\Fixture\\' => 
         array (
@@ -370,7 +365,6 @@ class ComposerStaticInit72a01c504b78abcca347330aef43d827
     );
 
     public static $classMap = array (
-        'Custom_Auth_OAuth2' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/OAuth/OAuth2.php',
         'File_Iterator' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Iterator.php',
         'File_Iterator_Facade' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Facade.php',
         'File_Iterator_Factory' => __DIR__ . '/..' . '/phpunit/php-file-iterator/src/Factory.php',
@@ -4481,29 +4475,6 @@ class ComposerStaticInit72a01c504b78abcca347330aef43d827
         'PSR2_Sniffs_Methods_MethodDeclarationSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/PSR2/Sniffs/Methods/MethodDeclarationSniff.php',
         'PSR2_Sniffs_Namespaces_NamespaceDeclarationSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/PSR2/Sniffs/Namespaces/NamespaceDeclarationSniff.php',
         'PSR2_Sniffs_Namespaces_UseDeclarationSniff' => __DIR__ . '/..' . '/squizlabs/php_codesniffer/CodeSniffer/Standards/PSR2/Sniffs/Namespaces/UseDeclarationSniff.php',
-        'SSO\\Auth\\GoogleAuthenticate' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Auth/GoogleAuthenticate.php',
-        'SSO\\Auth\\OAuthAuthenticate' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Auth/OAuthAuthenticate.php',
-        'SSO\\Auth\\SamlAuthenticate' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Auth/SamlAuthenticate.php',
-        'SSO\\Controller\\Component\\GoogleAuthComponent' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Controller/Component/GoogleAuthComponent.php',
-        'SSO\\Controller\\Component\\LocalAuthComponent' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Controller/Component/LocalAuthComponent.php',
-        'SSO\\Controller\\Component\\OAuthAuthComponent' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Controller/Component/OAuthAuthComponent.php',
-        'SSO\\Controller\\Component\\SLOComponent' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Controller/Component/SLOComponent.php',
-        'SSO\\Controller\\Component\\SSOComponent' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Controller/Component/SSOComponent.php',
-        'SSO\\Controller\\Component\\SamlAuthComponent' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Controller/Component/SamlAuthComponent.php',
-        'SSO\\Controller\\LoginController' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Controller/LoginController.php',
-        'SSO\\Model\\Table\\AuthenticationTypeAttributesTable' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Model/Table/AuthenticationTypeAttributesTable.php',
-        'SSO\\Model\\Table\\AuthenticationTypesTable' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Model/Table/AuthenticationTypesTable.php',
-        'SSO\\Model\\Table\\IdpGoogleTable' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Model/Table/IdpGoogleTable.php',
-        'SSO\\Model\\Table\\IdpOauthTable' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Model/Table/IdpOAuthTable.php',
-        'SSO\\Model\\Table\\IdpSamlTable' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Model/Table/IdpSamlTable.php',
-        'SSO\\Model\\Table\\SecurityUserLoginsTable' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Model/Table/SecurityUserLoginsTable.php',
-        'SSO\\Model\\Table\\SecurityUserSessionsTable' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Model/Table/SecurityUserSessionsTable.php',
-        'SSO\\Model\\Table\\SingleLogoutTable' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Model/Table/SingleLogoutTable.php',
-        'SSO\\Model\\Table\\SystemAuthenticationsTable' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Model/Table/SystemAuthenticationsTable.php',
-        'SSO\\OAuth\\Custom_Client' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/OAuth/Client.php',
-        'SSO\\ProcessToken' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/ProcessToken.php',
-        'SSO\\Shell\\LoginShell' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Shell/LoginShell.php',
-        'SSO\\Shell\\LogoutShell' => __DIR__ . '/..' . '/korditpteltd/kd-cakephp-sso/src/Shell/LogoutShell.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',

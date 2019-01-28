@@ -11,7 +11,7 @@
 							<?php if ($action != 'reconfirm') { ?>
 							<th class="checkbox-column"><input type="checkbox" class="no-selection-label" kd-checkbox-radio/></th>
 							<?php } ?>
-							<th><?= __('OpenEMIS ID') ?></th>
+							<th><?= __('User ID') ?></th>
 							<th><?= __('Student') ?></th>
 							<th><?= __('Current Grade') ?></th>
 							<th><?= __('Class') ?></th>

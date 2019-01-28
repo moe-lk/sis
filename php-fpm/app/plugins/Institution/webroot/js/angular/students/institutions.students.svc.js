@@ -2,9 +2,9 @@ angular
     .module('institutions.students.svc', ['kd.orm.svc'])
     .service('InstitutionsStudentsSvc', InstitutionsStudentsSvc);
 
-InstitutionsStudentsSvc.$inject = ['$http', '$q', '$filter', 'KdOrmSvc'];
+InstitutionsStudentsSvc.$inject = ['$http', '$q', '$filter', 'KdOrmSvc', 'KdDataSvc'];
 
-function InstitutionsStudentsSvc($http, $q, $filter, KdOrmSvc) {
+function InstitutionsStudentsSvc($http, $q, $filter, KdOrmSvc,KdDataSvc) {
 
     var externalSource = null;
     var externalToken = null;
@@ -52,7 +52,8 @@ function InstitutionsStudentsSvc($http, $q, $filter, KdOrmSvc) {
         getExternalSourceMapping: getExternalSourceMapping,
         generatePassword: generatePassword,
         translate: translate,
-        getStudentTransferReasons: getStudentTransferReasons
+        getStudentTransferReasons: getStudentTransferReasons,
+        getAdminitrativeAreas:getAdminitrativeAreas
     };
 
     var models = {
@@ -97,6 +98,24 @@ function InstitutionsStudentsSvc($http, $q, $filter, KdOrmSvc) {
         };
         return translation.translate(data, {success:success, defer: true});
     }
+
+    function getAdminitrativeAreas(model, userId, displayCountry, selected, recordOnly) {
+        KdDataSvc.controllerAction('SgTree');
+        displayCountry = (displayCountry === undefined)? 0: displayCountry;
+        recordOnly = (recordOnly === undefined)? 0: recordOnly;
+        KdDataSvc.init({area: model});
+        var success = function(response, deferred) {
+            var returnData = response.data.data;
+            console.log(returnData);
+            deferred.resolve(returnData);
+        };
+        return area
+            .select()
+            .find('areaList', {'userId': userId, 'displayCountry': displayCountry, 'selected': selected, 'recordOnly': recordOnly})
+            .ajax({success: success, defer:true});
+    }
+
+  
 
     function resetExternalVariable()
     {
@@ -723,7 +742,7 @@ function InstitutionsStudentsSvc($http, $q, $filter, KdOrmSvc) {
         var columnDefs = [];
 
         columnDefs.push({
-            headerName: "OpenEMIS ID",
+            headerName: "User ID",
             field: "openemis_id",
             filterParams: filterParams
         });

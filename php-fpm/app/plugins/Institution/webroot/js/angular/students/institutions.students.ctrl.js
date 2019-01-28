@@ -2,12 +2,12 @@ angular
     .module('institutions.students.ctrl', ['utils.svc', 'alert.svc', 'aggrid.locale.svc', 'institutions.students.svc'])
     .controller('InstitutionsStudentsCtrl', InstitutionStudentController);
 
-InstitutionStudentController.$inject = ['$location', '$q', '$scope', '$window', '$filter', 'UtilsSvc', 'AlertSvc', 'AggridLocaleSvc', 'InstitutionsStudentsSvc', '$rootScope'];
+InstitutionStudentController.$inject = ['$location', '$q', '$scope', '$window', '$filter', 'UtilsSvc', 'AlertSvc', 'SgTreeSvc', 'AggridLocaleSvc', 'InstitutionsStudentsSvc', '$rootScope'];
 
-function InstitutionStudentController($location, $q, $scope, $window, $filter, UtilsSvc, AlertSvc, AggridLocaleSvc, InstitutionsStudentsSvc, $rootScope) {
+function InstitutionStudentController($location, $q, $scope, $window, $filter, UtilsSvc, AlertSvc, SgTreeSvc, AggridLocaleSvc, InstitutionsStudentsSvc, $rootScope) {
     // ag-grid vars
 
-
+    $scope.outputFlag = false;
     var StudentController = this;
     var test = $scope;
 
@@ -18,9 +18,13 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     StudentController.hasExternalDataSource;
     StudentController.internalGridOptions = null;
     StudentController.externalGridOptions = null;
+    StudentController.outputValue = null;
+    StudentController.displayCountry = 0;
     StudentController.rowsThisPage = [];
     StudentController.createNewStudent = false;
     StudentController.genderOptions = {};
+    StudentController.districtOption = {};
+    StudentController.provinceOption = {};
     StudentController.translatedTexts = {};
     StudentController.academicPeriodOptions = {};
     StudentController.educationGradeOptions = {};
@@ -78,6 +82,9 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     StudentController.setStudentName = setStudentName;
     StudentController.appendName = appendName;
     StudentController.changeGender = changeGender;
+    StudentController.changeDivision = changeDivision;
+    StudentController.changeProvince = changeProvince;
+    StudentController.changeDistrict = changeDistrict;
     StudentController.validateNewUser = validateNewUser;
     StudentController.onExternalSearchClick = onExternalSearchClick;
     StudentController.onAddNewStudentClick = onAddNewStudentClick;
@@ -108,121 +115,153 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         UtilsSvc.isAppendLoader(true);
 
         InstitutionsStudentsSvc.getAcademicPeriods()
-        .then(function(periods) {
-            var promises = [];
-            var selectedPeriod = [];
-            angular.forEach(periods, function(value) {
-                if (value.current == 1) {
-                   this.push(value);
+            .then(function (periods) {
+                var promises = [];
+                var selectedPeriod = [];
+                angular.forEach(periods, function (value) {
+                    if (value.current == 1) {
+                        this.push(value);
+                    }
+                }, selectedPeriod);
+                if (selectedPeriod.length == 0) {
+                    selectedPeriod = periods;
                 }
-            }, selectedPeriod);
-            if (selectedPeriod.length == 0) {
-                selectedPeriod = periods;
-            }
 
-            StudentController.academicPeriodOptions = {
-                availableOptions: periods,
-                selectedOption: selectedPeriod[0]
-            };
+                StudentController.academicPeriodOptions = {
+                    availableOptions: periods,
+                    selectedOption: selectedPeriod[0]
+                };
 
-            if (StudentController.academicPeriodOptions.hasOwnProperty('selectedOption')) {
-                $scope.endDate = InstitutionsStudentsSvc.formatDate(StudentController.academicPeriodOptions.selectedOption.end_date);
-                StudentController.onChangeAcademicPeriod();
-            }
-            promises.push(InstitutionsStudentsSvc.getAddNewStudentConfig());
-
-            return $q.all(promises);
-        }, function(error) {
-            console.log(error);
-            AlertSvc.warning($scope, error);
-            UtilsSvc.isAppendLoader(false);
-        })
-        .then(function(promisesObj) {
-            var promises = [];
-            var addNewStudentConfig = promisesObj[0].data;
-            for(i=0; i < addNewStudentConfig.length; i++) {
-                var code = addNewStudentConfig[i].code;
-                StudentController[code] = addNewStudentConfig[i].value;
-            }
-            if (StudentController.StudentContacts != 2) {
-                promises[2] = InstitutionsStudentsSvc.getUserContactTypes();
-            }
-            if (StudentController.StudentNationalities != 2) {
-                if (StudentController.StudentNationalities == 1) {
-                    StudentController.Student.nationality_class = StudentController.Student.nationality_class + ' required';
+                if (StudentController.academicPeriodOptions.hasOwnProperty('selectedOption')) {
+                    $scope.endDate = InstitutionsStudentsSvc.formatDate(StudentController.academicPeriodOptions.selectedOption.end_date);
+                    StudentController.onChangeAcademicPeriod();
                 }
-                promises[3] = InstitutionsStudentsSvc.getNationalities();
-            }
-            if (StudentController.StudentIdentities != 2) {
-                if (StudentController.StudentIdentities == 1) {
-                    StudentController.Student.identity_class = StudentController.Student.identity_class + ' required';
-                    StudentController.Student.identity_type_class = StudentController.Student.identity_type_class + ' required';
-                }
-                promises[4] = InstitutionsStudentsSvc.getIdentityTypes();
-            }
-            if (StudentController.StudentSpecialNeeds != 2) {
-                promises[5] = InstitutionsStudentsSvc.getSpecialNeedTypes();
-            }
-            promises[0] = InstitutionsStudentsSvc.getGenders();
-            var translateFields = {
-                'openemis_no': 'OpenEMIS ID',
-                'name': 'Name',
-                'gender_name': 'Gender',
-                'date_of_birth': 'Date Of Birth',
-                'nationality_name': 'Nationality',
-                'identity_type_name': 'Identity Type',
-                'identity_number': 'Identity Number'
-            };
-            promises[1] = InstitutionsStudentsSvc.translate(translateFields);
+                promises.push(InstitutionsStudentsSvc.getAddNewStudentConfig());
 
-            return $q.all(promises);
-        }, function(error){
-            console.log(error);
-            AlertSvc.warning($scope, error);
-            UtilsSvc.isAppendLoader(false);
-        })
-        .then(function(promisesObj) {
-            StudentController.genderOptions = promisesObj[0];
-            StudentController.translatedTexts = promisesObj[1];
-            // User Contacts
-            if (promisesObj[2] != undefined && promisesObj[2].hasOwnProperty('data')) {
-                StudentController.StudentContactsOptions = promisesObj[2]['data'];
-            }
-            // User Nationalities
-            if (promisesObj[3] != undefined && promisesObj[3].hasOwnProperty('data')) {
-                StudentController.StudentNationalitiesOptions = promisesObj[3]['data'];
-            }
-            // User Identities
-            if (promisesObj[4] != undefined && promisesObj[4].hasOwnProperty('data')) {
-                StudentController.StudentIdentitiesOptions = promisesObj[4]['data'];
-            }
-            // User Special Needs
-            if (promisesObj[5] != undefined && promisesObj[5].hasOwnProperty('data')) {
-                StudentController.StudentSpecialNeedsOptions = promisesObj[5]['data'];
-            }
-        }, function(error) {
-            console.log(error);
-            UtilsSvc.isAppendLoader(false);
-            AlertSvc.warning($scope, error);
-        })
-        .finally(function(result) {
-            $scope.initGrid();
-            UtilsSvc.isAppendLoader(false);
-            if ($location.search().student_added) {
-                AlertSvc.success($scope, 'The student is added successfully.');
-            } else if ($location.search().student_transfer_added) {
-                AlertSvc.success($scope, 'Student transfer request is added successfully.');
-            }  else if ($location.search().transfer_exists) {
-                AlertSvc.warning($scope, 'There is an existing transfer record for this student.');
-            }
-        });
+                return $q.all(promises);
+            }, function (error) {
+                console.log(error);
+                AlertSvc.warning($scope, error);
+                UtilsSvc.isAppendLoader(false);
+            })
+            .then(function (promisesObj) {
+                var promises = [];
+                var addNewStudentConfig = promisesObj[0].data;
+                for (i = 0; i < addNewStudentConfig.length; i++) {
+                    var code = addNewStudentConfig[i].code;
+                    StudentController[code] = addNewStudentConfig[i].value;
+                }
+                if (StudentController.StudentContacts != 2) {
+                    promises[2] = InstitutionsStudentsSvc.getUserContactTypes();
+                }
+                
+                if (StudentController.StudentNationalities != 2) {
+                    if (StudentController.StudentNationalities == 1) {
+                        StudentController.Student.nationality_class = StudentController.Student.nationality_class + ' required';
+                    }
+                    promises[3] = InstitutionsStudentsSvc.getNationalities();
+                }
+                if (StudentController.StudentIdentities != 2) {
+                    if (StudentController.StudentIdentities == 1) {
+                        StudentController.Student.identity_class = StudentController.Student.identity_class + ' required';
+                        StudentController.Student.identity_type_class = StudentController.Student.identity_type_class + ' required';
+                    }
+                    promises[4] = InstitutionsStudentsSvc.getIdentityTypes();
+                }
+                if (StudentController.StudentSpecialNeeds != 2) {
+                    promises[5] = InstitutionsStudentsSvc.getSpecialNeedTypes();
+                }
+
+                // .then(function (response) {
+                //     debugger;
+                //     if (angular.isDefined(response[1]) && angular.isDefined(response[1].name)) {
+                //         // $scope.textConfig['noSelection'] = response[1].name;
+                //     }
+                //     console.log(response);
+                //     // return InstitutionsStudentsSvc.translate($scope.textConfig);
+                // }, function (error) {
+                //     console.log(error)
+                // })
+                // .then(function (res) {
+                //     // $scope.textConfig = res;
+                //     console.log('document ready res', res);
+                // }, function (error) {
+                //     console.log(error);
+                // });
+                // var userId = JSON.parse(StudentController.Student.userId);
+               
+                
+                promises[0] = InstitutionsStudentsSvc.getGenders();
+                var translateFields = {
+                    'openemis_no': 'User ID',
+                    'name': 'Name',
+                    'gender_name': 'Gender',
+                    'date_of_birth': 'Date Of Birth',
+                    'nationality_name': 'Nationality',
+                    'identity_type_name': 'Identity Type',
+                    'identity_number': 'Identity Number'
+                };
+                promises[1] = InstitutionsStudentsSvc.translate(translateFields);
+                promises[6] = InstitutionsStudentsSvc.getAdminitrativeAreas('Area.AreaAdministratives', 1, StudentController.displayCountry, StudentController.outputValue, 0)
+
+                return $q.all(promises);
+            }, function (error) {
+                console.log(error);
+                AlertSvc.warning($scope, error);
+                debugger;
+                UtilsSvc.isAppendLoader(false);
+            })
+            .then(function (promisesObj) {
+                console.log('checking promisses');
+                debugger;
+                StudentController.genderOptions = promisesObj[0];
+                StudentController.translatedTexts = promisesObj[1];
+                // User BC division
+                if (promisesObj[6] != undefined  && promisesObj[6].hasOwnProperty(0)) {
+                    StudentController.provinceOption = promisesObj[6][1]['children'];
+                }
+                // User Contacts
+                if (promisesObj[2] != undefined && promisesObj[2].hasOwnProperty('data')) {
+                    StudentController.StudentContactsOptions = promisesObj[2]['data'];
+                }
+                // User Nationalities
+                if (promisesObj[3] != undefined && promisesObj[3].hasOwnProperty('data')) {
+                    StudentController.StudentNationalitiesOptions = promisesObj[3]['data'];
+                }
+                // User Identities
+                if (promisesObj[4] != undefined && promisesObj[4].hasOwnProperty('data')) {
+                    StudentController.StudentIdentitiesOptions = promisesObj[4]['data'];
+                }
+                // User Special Needs
+                if (promisesObj[5] != undefined && promisesObj[5].hasOwnProperty('data')) {
+                    StudentController.StudentSpecialNeedsOptions = promisesObj[5]['data'];
+                }
+            }, function (error) {
+                console.log(error);
+                UtilsSvc.isAppendLoader(false);
+                AlertSvc.warning($scope, error);
+                debugger;
+            })
+            .finally(function (result) {
+                $scope.initGrid();
+                UtilsSvc.isAppendLoader(false);
+                if ($location.search().student_added) {
+                    AlertSvc.success($scope, 'The student is added successfully.');
+                } else if ($location.search().student_transfer_added) {
+                    AlertSvc.success($scope, 'Student transfer request is added successfully.');
+                } else if ($location.search().transfer_exists) {
+                    AlertSvc.warning($scope, 'There is an existing transfer record for this student.');
+                }
+            });
+
+           
 
     });
 
     function initNationality() {
         StudentController.Student.nationality_id = '';
         var options = StudentController.StudentNationalitiesOptions;
-        for(var i = 0; i < options.length; i++) {
+        for (var i = 0; i < options.length; i++) {
             if (options[i].default == 1) {
                 StudentController.Student.nationality_id = options[i].id;
                 StudentController.Student.nationality_name = options[i].name;
@@ -236,7 +275,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     function changeNationality() {
         var nationalityId = StudentController.Student.nationality_id;
         var options = StudentController.StudentNationalitiesOptions;
-        for(var i = 0; i < options.length; i++) {
+        for (var i = 0; i < options.length; i++) {
             if (options[i].id == nationalityId) {
                 StudentController.Student.identity_type_id = options[i].identity_type_id;
                 StudentController.Student.nationality_name = options[i].name;
@@ -249,7 +288,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     function changeIdentityType() {
         var identityType = StudentController.Student.identity_type_id;
         var options = StudentController.StudentIdentitiesOptions;
-        for(var i = 0; i < options.length; i++) {
+        for (var i = 0; i < options.length; i++) {
             if (options[i].id == identityType) {
                 StudentController.Student.identity_type_name = options[i].name;
                 break;
@@ -260,7 +299,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     function initIdentityType() {
         if (StudentController.Student.nationality_id == '') {
             var options = StudentController.StudentIdentitiesOptions;
-            for(var i = 0; i < options.length; i++) {
+            for (var i = 0; i < options.length; i++) {
                 if (options[i].default == 1) {
                     StudentController.Student.identity_type_id = options[i].id;
                     StudentController.Student.identity_type_name = options[i].name;
@@ -270,162 +309,162 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         }
     }
 
-    $scope.initGrid = function() {
+    $scope.initGrid = function () {
         AggridLocaleSvc.getTranslatedGridLocale()
-        .then(function(localeText){
-            StudentController.internalGridOptions = {
-                columnDefs: [
-                    {headerName: StudentController.translatedTexts.openemis_no, field: "openemis_no", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.name, field: "name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.gender_name, field: "gender_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.date_of_birth, field: "date_of_birth", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.nationality_name, field: "nationality_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.identity_type_name, field: "identity_type_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.identity_number, field: "identity_number", suppressMenu: true, suppressSorting: true}
-                ],
-                localeText: localeText,
-                enableColResize: false,
-                enableFilter: false,
-                enableServerSideFilter: true,
-                enableServerSideSorting: true,
-                enableSorting: false,
-                headerHeight: 38,
-                rowData: [],
-                rowHeight: 38,
-                rowModelType: 'infinite',
-                // Removed options - Issues in ag-Grid AG-828
-                // suppressCellSelection: true,
+            .then(function (localeText) {
+                StudentController.internalGridOptions = {
+                    columnDefs: [
+                        { headerName: StudentController.translatedTexts.openemis_no, field: "openemis_no", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.name, field: "name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.gender_name, field: "gender_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.date_of_birth, field: "date_of_birth", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.nationality_name, field: "nationality_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.identity_type_name, field: "identity_type_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.identity_number, field: "identity_number", suppressMenu: true, suppressSorting: true }
+                    ],
+                    localeText: localeText,
+                    enableColResize: false,
+                    enableFilter: false,
+                    enableServerSideFilter: true,
+                    enableServerSideSorting: true,
+                    enableSorting: false,
+                    headerHeight: 38,
+                    rowData: [],
+                    rowHeight: 38,
+                    rowModelType: 'infinite',
+                    // Removed options - Issues in ag-Grid AG-828
+                    // suppressCellSelection: true,
 
-                // Added options
-                suppressContextMenu: true,
-                stopEditingWhenGridLosesFocus: true,
-                ensureDomOrder: true,
-                pagination: true,
-                paginationPageSize: 10,
-                maxBlocksInCache: 1,
-                cacheBlockSize: 10,
-                // angularCompileRows: true,
-                onRowSelected: (_e) => {
-                    StudentController.selectStudent(_e.node.data.id);
-                    $scope.$apply();
-                }
-            };
+                    // Added options
+                    suppressContextMenu: true,
+                    stopEditingWhenGridLosesFocus: true,
+                    ensureDomOrder: true,
+                    pagination: true,
+                    paginationPageSize: 10,
+                    maxBlocksInCache: 1,
+                    cacheBlockSize: 10,
+                    // angularCompileRows: true,
+                    onRowSelected: (_e) => {
+                        StudentController.selectStudent(_e.node.data.id);
+                        $scope.$apply();
+                    }
+                };
 
-            StudentController.externalGridOptions = {
-                columnDefs: [
-                    {headerName: StudentController.translatedTexts.name, field: "name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.gender_name, field: "gender_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.date_of_birth, field: "date_of_birth", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.nationality_name, field: "nationality_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.identity_type_name, field: "identity_type_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.identity_number, field: "identity_number", suppressMenu: true, suppressSorting: true}
-                ],
-                localeText: localeText,
-                enableColResize: false,
-                enableFilter: false,
-                enableServerSideFilter: true,
-                enableServerSideSorting: true,
-                enableSorting: false,
-                headerHeight: 38,
-                rowData: [],
-                rowHeight: 38,
-                rowModelType: 'infinite',
-                // Removed options - Issues in ag-Grid AG-828
-                // suppressCellSelection: true,
+                StudentController.externalGridOptions = {
+                    columnDefs: [
+                        { headerName: StudentController.translatedTexts.name, field: "name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.gender_name, field: "gender_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.date_of_birth, field: "date_of_birth", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.nationality_name, field: "nationality_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.identity_type_name, field: "identity_type_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.identity_number, field: "identity_number", suppressMenu: true, suppressSorting: true }
+                    ],
+                    localeText: localeText,
+                    enableColResize: false,
+                    enableFilter: false,
+                    enableServerSideFilter: true,
+                    enableServerSideSorting: true,
+                    enableSorting: false,
+                    headerHeight: 38,
+                    rowData: [],
+                    rowHeight: 38,
+                    rowModelType: 'infinite',
+                    // Removed options - Issues in ag-Grid AG-828
+                    // suppressCellSelection: true,
 
-                // Added options
-                suppressContextMenu: true,
-                stopEditingWhenGridLosesFocus: true,
-                ensureDomOrder: true,
-                pagination: true,
-                paginationPageSize: 10,
-                maxBlocksInCache: 1,
-                cacheBlockSize: 10,
-                // angularCompileRows: true,
-                onRowSelected: (_e) => {
-                    StudentController.selectStudent(_e.node.data.id);
-                    $scope.$apply();
-                }
-            };
-        }, function(error){
-            StudentController.internalGridOptions = {
-                columnDefs: [
-                    {headerName: StudentController.translatedTexts.openemis_no, field: "openemis_no", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.name, field: "name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.gender_name, field: "gender_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.date_of_birth, field: "date_of_birth", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.nationality_name, field: "nationality_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.identity_type_name, field: "identity_type_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.identity_number, field: "identity_number", suppressMenu: true, suppressSorting: true}
-                ],
-                enableColResize: false,
-                enableFilter: false,
-                enableServerSideFilter: true,
-                enableServerSideSorting: true,
-                enableSorting: false,
-                headerHeight: 38,
-                rowData: [],
-                rowHeight: 38,
-                rowModelType: 'infinite',
-                // Removed options - Issues in ag-Grid AG-828
-                // suppressCellSelection: true,
+                    // Added options
+                    suppressContextMenu: true,
+                    stopEditingWhenGridLosesFocus: true,
+                    ensureDomOrder: true,
+                    pagination: true,
+                    paginationPageSize: 10,
+                    maxBlocksInCache: 1,
+                    cacheBlockSize: 10,
+                    // angularCompileRows: true,
+                    onRowSelected: (_e) => {
+                        StudentController.selectStudent(_e.node.data.id);
+                        $scope.$apply();
+                    }
+                };
+            }, function (error) {
+                StudentController.internalGridOptions = {
+                    columnDefs: [
+                        { headerName: StudentController.translatedTexts.openemis_no, field: "openemis_no", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.name, field: "name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.gender_name, field: "gender_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.date_of_birth, field: "date_of_birth", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.nationality_name, field: "nationality_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.identity_type_name, field: "identity_type_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.identity_number, field: "identity_number", suppressMenu: true, suppressSorting: true }
+                    ],
+                    enableColResize: false,
+                    enableFilter: false,
+                    enableServerSideFilter: true,
+                    enableServerSideSorting: true,
+                    enableSorting: false,
+                    headerHeight: 38,
+                    rowData: [],
+                    rowHeight: 38,
+                    rowModelType: 'infinite',
+                    // Removed options - Issues in ag-Grid AG-828
+                    // suppressCellSelection: true,
 
-                // Added options
-                suppressContextMenu: true,
-                stopEditingWhenGridLosesFocus: true,
-                ensureDomOrder: true,
-                pagination: true,
-                paginationPageSize: 10,
-                maxBlocksInCache: 1,
-                cacheBlockSize: 10,
-                // angularCompileRows: true,
-                onRowSelected: (_e) => {
-                    StudentController.selectStudent(_e.node.data.id);
-                    $scope.$apply();
-                }
-            };
+                    // Added options
+                    suppressContextMenu: true,
+                    stopEditingWhenGridLosesFocus: true,
+                    ensureDomOrder: true,
+                    pagination: true,
+                    paginationPageSize: 10,
+                    maxBlocksInCache: 1,
+                    cacheBlockSize: 10,
+                    // angularCompileRows: true,
+                    onRowSelected: (_e) => {
+                        StudentController.selectStudent(_e.node.data.id);
+                        $scope.$apply();
+                    }
+                };
 
-            StudentController.externalGridOptions = {
-                columnDefs: [
-                    {headerName: StudentController.translatedTexts.name, field: "name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.gender_name, field: "gender_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.date_of_birth, field: "date_of_birth", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.nationality_name, field: "nationality_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.identity_type_name, field: "identity_type_name", suppressMenu: true, suppressSorting: true},
-                    {headerName: StudentController.translatedTexts.identity_number, field: "identity_number", suppressMenu: true, suppressSorting: true}
-                ],
-                enableColResize: false,
-                enableFilter: false,
-                enableServerSideFilter: true,
-                enableServerSideSorting: true,
-                enableSorting: false,
-                headerHeight: 38,
-                rowData: [],
-                rowHeight: 38,
-                rowModelType: 'infinite',
-                // Removed options - Issues in ag-Grid AG-828
-                // suppressCellSelection: true,
+                StudentController.externalGridOptions = {
+                    columnDefs: [
+                        { headerName: StudentController.translatedTexts.name, field: "name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.gender_name, field: "gender_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.date_of_birth, field: "date_of_birth", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.nationality_name, field: "nationality_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.identity_type_name, field: "identity_type_name", suppressMenu: true, suppressSorting: true },
+                        { headerName: StudentController.translatedTexts.identity_number, field: "identity_number", suppressMenu: true, suppressSorting: true }
+                    ],
+                    enableColResize: false,
+                    enableFilter: false,
+                    enableServerSideFilter: true,
+                    enableServerSideSorting: true,
+                    enableSorting: false,
+                    headerHeight: 38,
+                    rowData: [],
+                    rowHeight: 38,
+                    rowModelType: 'infinite',
+                    // Removed options - Issues in ag-Grid AG-828
+                    // suppressCellSelection: true,
 
-                // Added options
-                suppressContextMenu: true,
-                stopEditingWhenGridLosesFocus: true,
-                ensureDomOrder: true,
-                pagination: true,
-                paginationPageSize: 10,
-                maxBlocksInCache: 1,
-                cacheBlockSize: 10,
-                // angularCompileRows: true,
-                onRowSelected: (_e) => {
-                    StudentController.selectStudent(_e.node.data.id);
-                    $scope.$apply();
-                }
-            };
-        });
+                    // Added options
+                    suppressContextMenu: true,
+                    stopEditingWhenGridLosesFocus: true,
+                    ensureDomOrder: true,
+                    pagination: true,
+                    paginationPageSize: 10,
+                    maxBlocksInCache: 1,
+                    cacheBlockSize: 10,
+                    // angularCompileRows: true,
+                    onRowSelected: (_e) => {
+                        StudentController.selectStudent(_e.node.data.id);
+                        $scope.$apply();
+                    }
+                };
+            });
     };
 
     function reloadInternalDatasource(withData) {
         if (withData !== false) {
-           StudentController.showExternalSearchButton = true;
+            StudentController.showExternalSearchButton = true;
         }
         InstitutionsStudentsSvc.resetExternalVariable();
         StudentController.createNewInternalDatasource(StudentController.internalGridOptions, withData);
@@ -457,32 +496,32 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
                 AlertSvc.reset($scope);
                 delete StudentController.selectedStudent;
                 if (withData) {
-                   InstitutionsStudentsSvc.getStudentRecords(
-                    {
-                        startRow: params.startRow,
-                        endRow: params.endRow,
-                        conditions: {
-                            openemis_no: StudentController.internalFilterOpenemisNo,
-                            first_name: StudentController.internalFilterFirstName,
-                            last_name: StudentController.internalFilterLastName,
-                            identity_number: StudentController.internalFilterIdentityNumber,
-                            date_of_birth: StudentController.internalFilterDateOfBirth,
+                    InstitutionsStudentsSvc.getStudentRecords(
+                        {
+                            startRow: params.startRow,
+                            endRow: params.endRow,
+                            conditions: {
+                                openemis_no: StudentController.internalFilterOpenemisNo,
+                                first_name: StudentController.internalFilterFirstName,
+                                last_name: StudentController.internalFilterLastName,
+                                identity_number: StudentController.internalFilterIdentityNumber,
+                                date_of_birth: StudentController.internalFilterDateOfBirth,
+                            }
                         }
-                    }
                     )
-                    .then(function(response) {
-                        if (response.conditionsCount == 0) {
-                            StudentController.initialLoad = true;
-                        } else {
-                            StudentController.initialLoad = false;
-                        }
-                        var studentRecords = response.data;
-                        var totalRowCount = response.total;
-                        return StudentController.processStudentRecord(studentRecords, params, totalRowCount);
-                    }, function(error) {
-                        console.log(error);
-                        AlertSvc.warning($scope, error);
-                    });
+                        .then(function (response) {
+                            if (response.conditionsCount == 0) {
+                                StudentController.initialLoad = true;
+                            } else {
+                                StudentController.initialLoad = false;
+                            }
+                            var studentRecords = response.data;
+                            var totalRowCount = response.total;
+                            return StudentController.processStudentRecord(studentRecords, params, totalRowCount);
+                        }, function (error) {
+                            console.log(error);
+                            AlertSvc.warning($scope, error);
+                        });
                 } else {
                     StudentController.rowsThisPage = [];
                     params.successCallback(StudentController.rowsThisPage, 0);
@@ -515,28 +554,28 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
                             }
                         }
                     )
-                    .then(function(response) {
-                        var studentRecords = response.data;
-                        var totalRowCount = response.total;
-                        StudentController.initialLoad = false;
-                        return StudentController.processExternalStudentRecord(studentRecords, params, totalRowCount);
-                    }, function(error) {
-                        console.log(error);
-                        var status = error.status;
-                        if (status == '401') {
-                            var message = 'You have not been authorised to fetch from external data source.';
-                            AlertSvc.warning($scope, message);
-                        } else {
-                            var message = 'External search failed, please contact your administrator to verify the external search attributes';
-                            AlertSvc.warning($scope, message);
-                        }
-                        var studentRecords = [];
-                        InstitutionsStudentsSvc.init(angular.baseUrl);
-                        return StudentController.processExternalStudentRecord(studentRecords, params, 0);
-                    })
-                    .finally(function(res) {
-                        InstitutionsStudentsSvc.init(angular.baseUrl);
-                    });
+                        .then(function (response) {
+                            var studentRecords = response.data;
+                            var totalRowCount = response.total;
+                            StudentController.initialLoad = false;
+                            return StudentController.processExternalStudentRecord(studentRecords, params, totalRowCount);
+                        }, function (error) {
+                            console.log(error);
+                            var status = error.status;
+                            if (status == '401') {
+                                var message = 'You have not been authorised to fetch from external data source.';
+                                AlertSvc.warning($scope, message);
+                            } else {
+                                var message = 'External search failed, please contact your administrator to verify the external search attributes';
+                                AlertSvc.warning($scope, message);
+                            }
+                            var studentRecords = [];
+                            InstitutionsStudentsSvc.init(angular.baseUrl);
+                            return StudentController.processExternalStudentRecord(studentRecords, params, 0);
+                        })
+                        .finally(function (res) {
+                            InstitutionsStudentsSvc.init(angular.baseUrl);
+                        });
                 } else {
                     StudentController.rowsThisPage = [];
                     params.successCallback(StudentController.rowsThisPage, 0);
@@ -549,14 +588,14 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     }
 
     function processExternalStudentRecord(studentRecords, params, totalRowCount) {
-        for(var key in studentRecords) {
+        for (var key in studentRecords) {
             var mapping = InstitutionsStudentsSvc.getExternalSourceMapping();
             studentRecords[key]['institution_name'] = '-';
             studentRecords[key]['academic_period_name'] = '-';
             studentRecords[key]['education_grade_name'] = '-';
             studentRecords[key]['date_of_birth'] = InstitutionsStudentsSvc.formatDate(studentRecords[key][mapping.date_of_birth_mapping]);
             studentRecords[key]['gender_name'] = studentRecords[key][mapping.gender_mapping];
-            studentRecords[key]['gender'] = {'name': studentRecords[key][mapping.gender_mapping]};
+            studentRecords[key]['gender'] = { 'name': studentRecords[key][mapping.gender_mapping] };
             studentRecords[key]['identity_type_name'] = studentRecords[key][mapping.identity_type_mapping];
             studentRecords[key]['identity_number'] = studentRecords[key][mapping.identity_number_mapping];
             studentRecords[key]['nationality_name'] = studentRecords[key][mapping.nationality_mapping];
@@ -582,14 +621,14 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     }
 
     function processStudentRecord(studentRecords, params, totalRowCount) {
-        for(var key in studentRecords) {
+        for (var key in studentRecords) {
             studentRecords[key]['institution_name'] = '-';
             studentRecords[key]['academic_period_name'] = '-';
             studentRecords[key]['education_grade_name'] = '-';
             if ((studentRecords[key].hasOwnProperty('institution_students') && studentRecords[key]['institution_students'].length > 0)) {
-                studentRecords[key]['institution_name'] = ((studentRecords[key].institution_students['0'].hasOwnProperty('institution')))? studentRecords[key].institution_students['0'].institution.name: '-';
-                studentRecords[key]['academic_period_name'] = ((studentRecords[key].institution_students['0'].hasOwnProperty('academic_period')))? studentRecords[key].institution_students['0'].academic_period.name: '-';
-                studentRecords[key]['education_grade_name'] = ((studentRecords[key].institution_students['0'].hasOwnProperty('education_grade')))? studentRecords[key].institution_students['0'].education_grade.name: '-';
+                studentRecords[key]['institution_name'] = ((studentRecords[key].institution_students['0'].hasOwnProperty('institution'))) ? studentRecords[key].institution_students['0'].institution.name : '-';
+                studentRecords[key]['academic_period_name'] = ((studentRecords[key].institution_students['0'].hasOwnProperty('academic_period'))) ? studentRecords[key].institution_students['0'].academic_period.name : '-';
+                studentRecords[key]['education_grade_name'] = ((studentRecords[key].institution_students['0'].hasOwnProperty('education_grade'))) ? studentRecords[key].institution_students['0'].education_grade.name : '-';
             }
 
             studentRecords[key]['date_of_birth'] = InstitutionsStudentsSvc.formatDate(studentRecords[key]['date_of_birth']);
@@ -635,32 +674,32 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         };
 
         InstitutionsStudentsSvc.postEnrolledStudent(data)
-        .then(function(postResponse) {
-            StudentController.postResponse = postResponse.data;
-            UtilsSvc.isAppendLoader(false);
-            if (postResponse.data.error.length === 0) {
-                AlertSvc.success($scope, 'The student is added successfully.');
-                $window.location.href = 'add?student_added=true';
-            } else if (userRecord.hasOwnProperty('institution_students') && userRecord.institution_students.length > 0) {
-                userRecord.date_of_birth = InstitutionsStudentsSvc.formatDate(userRecord.date_of_birth);
-                StudentController.selectedStudentData = userRecord;
-                StudentController.existingStudent = true;
+            .then(function (postResponse) {
+                StudentController.postResponse = postResponse.data;
+                UtilsSvc.isAppendLoader(false);
+                if (postResponse.data.error.length === 0) {
+                    AlertSvc.success($scope, 'The student is added successfully.');
+                    $window.location.href = 'add?student_added=true';
+                } else if (userRecord.hasOwnProperty('institution_students') && userRecord.institution_students.length > 0) {
+                    userRecord.date_of_birth = InstitutionsStudentsSvc.formatDate(userRecord.date_of_birth);
+                    StudentController.selectedStudentData = userRecord;
+                    StudentController.existingStudent = true;
 
-                var schoolId = userRecord['institution_students'][0]['institution_id'];
-                if (StudentController.institutionId != schoolId) {
-                    StudentController.studentTransferable = true;
-                    var schoolName = userRecord['institution_students'][0]['institution']['code_name'];
-                    AlertSvc.warning($scope, 'This student is already allocated to %s', [schoolName]);
+                    var schoolId = userRecord['institution_students'][0]['institution_id'];
+                    if (StudentController.institutionId != schoolId) {
+                        StudentController.studentTransferable = true;
+                        var schoolName = userRecord['institution_students'][0]['institution']['code_name'];
+                        AlertSvc.warning($scope, 'This student is already allocated to %s', [schoolName]);
+                    } else {
+                        AlertSvc.warning($scope, 'This student is already allocated to the current institution');
+                    }
                 } else {
-                    AlertSvc.warning($scope, 'This student is already allocated to the current institution');
+                    AlertSvc.error($scope, 'The record is not added due to errors encountered.');
                 }
-            } else {
-                AlertSvc.error($scope, 'The record is not added due to errors encountered.');
-            }
-        }, function(error) {
-            console.log(error);
-            AlertSvc.warning($scope, error);
-        });
+            }, function (error) {
+                console.log(error);
+                AlertSvc.warning($scope, error);
+            });
     }
 
     function onAddNewStudentClick() {
@@ -720,28 +759,28 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
             academicPeriodId: studentData['institution_students'][0]['academic_period_id'],
             gradeId: studentData['institution_students'][0]['education_grade_id'],
         })
-        .then(function(classes) {
-            StudentController.classOptions = {
-                availableOptions: classes,
-            };
-            return InstitutionsStudentsSvc.getStudentTransferReasons();
-        }, function(error) {
-            console.log(error);
-        })
-        .then(function(response) {
-            if (angular.isDefined(response) && response.hasOwnProperty('data')) {
-                StudentController.transferReasonOptions = {
-                    availableOptions: response.data
+            .then(function (classes) {
+                StudentController.classOptions = {
+                    availableOptions: classes,
                 };
-            }
-        }, function(error) {
-            console.log(error);
-        })
-        .finally(function(result) {
-            angular.element(document.querySelector('#wizard')).wizard('selectedItem', {
-                step: "transferStudent"
+                return InstitutionsStudentsSvc.getStudentTransferReasons();
+            }, function (error) {
+                console.log(error);
+            })
+            .then(function (response) {
+                if (angular.isDefined(response) && response.hasOwnProperty('data')) {
+                    StudentController.transferReasonOptions = {
+                        availableOptions: response.data
+                    };
+                }
+            }, function (error) {
+                console.log(error);
+            })
+            .finally(function (result) {
+                angular.element(document.querySelector('#wizard')).wizard('selectedItem', {
+                    step: "transferStudent"
+                });
             });
-        });
     }
 
     function selectStudent(id) {
@@ -774,11 +813,51 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         return studentObj;
     }
 
+    function changeProvince(){
+        var studentData = StudentController.selectedStudentData;
+        if (studentData.hasOwnProperty('area_administrative_province')) {
+            var provinceOption = StudentController.provinceOption;
+            for (var i = 0; i < provinceOption.length; i++) {
+                if (provinceOption[i].id == studentData.area_administrative_province) {
+                    StudentController.districtOption = provinceOption[i].children;
+                }
+            }
+            // StudentController.selectedStudentData = studentData;
+        }
+    }
+
+    function changeDivision() {
+        var studentData = StudentController.selectedStudentData;
+        if (studentData.hasOwnProperty('area_administrative_id')) {
+            var divisionOption = StudentController.divisionOption;
+            for (var i = 0; i < divisionOption.length; i++) {
+                if (divisionOption[i].id == studentData.changeDivision) {
+                    studentData.area_administrative = {
+                        name: divisionOption[i].name
+                    };
+                }
+            }
+        }
+    }
+
+
+    function changeDistrict() {
+        var studentData = StudentController.selectedStudentData;
+        if (studentData.hasOwnProperty('area_administrative_district')) {
+            var districtOption = StudentController.districtOption;
+            for (var i = 0; i < districtOption.length; i++) {
+                if (districtOption[i].id == studentData.area_administrative_district) {
+                    StudentController.divisionOption =  districtOption[i].children;
+                }
+            }
+        }
+    }
+
     function changeGender() {
         var studentData = StudentController.selectedStudentData;
         if (studentData.hasOwnProperty('gender_id')) {
             var genderOptions = StudentController.genderOptions;
-            for(var i = 0; i < genderOptions.length; i++) {
+            for (var i = 0; i < genderOptions.length; i++) {
                 if (genderOptions[i].id == studentData.gender_id) {
                     studentData.gender = {
                         name: genderOptions[i].name
@@ -791,7 +870,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
 
     function getStudentData() {
         var log = [];
-        angular.forEach(StudentController.rowsThisPage , function(value) {
+        angular.forEach(StudentController.rowsThisPage, function (value) {
             if (value.id == StudentController.selectedStudent) {
                 StudentController.selectedStudentData = value;
             }
@@ -816,14 +895,14 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
             institutionId: StudentController.institutionId,
             academicPeriodId: StudentController.academicPeriodOptions.selectedOption.id
         })
-        .then(function(educationGrades) {
-            StudentController.educationGradeOptions = {
-                availableOptions: educationGrades,
-            };
-        }, function(error) {
-            console.log(error);
-            AlertSvc.warning($scope, error);
-        });
+            .then(function (educationGrades) {
+                StudentController.educationGradeOptions = {
+                    availableOptions: educationGrades,
+                };
+            }, function (error) {
+                console.log(error);
+                AlertSvc.warning($scope, error);
+            });
     }
 
     function onChangeEducationGrade() {
@@ -836,19 +915,19 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
             academicPeriodId: StudentController.academicPeriodOptions.selectedOption.id,
             gradeId: StudentController.educationGradeOptions.selectedOption.education_grade_id
         })
-        .then(function(classes) {
-            StudentController.classOptions = {
-                availableOptions: classes,
-            };
-        }, function(error) {
-            console.log(error);
-            AlertSvc.warning($scope, error);
-        });
+            .then(function (classes) {
+                StudentController.classOptions = {
+                    availableOptions: classes,
+                };
+            }, function (error) {
+                console.log(error);
+                AlertSvc.warning($scope, error);
+            });
     }
 
     function postForm() {
-        var academicPeriodId = (StudentController.academicPeriodOptions.hasOwnProperty('selectedOption'))? StudentController.academicPeriodOptions.selectedOption.id: '';
-        var educationGradeId = (StudentController.educationGradeOptions.hasOwnProperty('selectedOption'))? StudentController.educationGradeOptions.selectedOption.education_grade_id: '';
+        var academicPeriodId = (StudentController.academicPeriodOptions.hasOwnProperty('selectedOption')) ? StudentController.academicPeriodOptions.selectedOption.id : '';
+        var educationGradeId = (StudentController.educationGradeOptions.hasOwnProperty('selectedOption')) ? StudentController.educationGradeOptions.selectedOption.education_grade_id : '';
         if (educationGradeId == undefined) {
             educationGradeId = '';
         }
@@ -859,7 +938,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         var startDate = StudentController.startDate;
         var startDateArr = startDate.split("-");
         startDate = startDateArr[2] + '-' + startDateArr[1] + '-' + startDateArr[0];
-        for(i = 0; i < startDateArr.length; i++) {
+        for (i = 0; i < startDateArr.length; i++) {
             if (startDateArr[i] == undefined || startDateArr[i] == null || startDateArr[i] == '') {
                 startDate = undefined;
             }
@@ -880,8 +959,8 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
             if (StudentController.selectedStudentData != null) {
                 var studentData = {};
                 var log = [];
-                angular.forEach(StudentController.selectedStudentData, function(value, key) {
-                  studentData[key] = value;
+                angular.forEach(StudentController.selectedStudentData, function (value, key) {
+                    studentData[key] = value;
                 }, log);
                 if (studentData.hasOwnProperty('date_of_birth')) {
                     var dateOfBirth = studentData.date_of_birth;
@@ -913,12 +992,12 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     }
 
     function postTransferForm() {
-        var transferReasonId = (StudentController.transferReasonOptions.hasOwnProperty('selectedOption'))? StudentController.transferReasonOptions.selectedOption.id: null;
-        var classId = (StudentController.classOptions.hasOwnProperty('selectedOption'))? StudentController.classOptions.selectedOption.id: null;
+        var transferReasonId = (StudentController.transferReasonOptions.hasOwnProperty('selectedOption')) ? StudentController.transferReasonOptions.selectedOption.id : null;
+        var classId = (StudentController.classOptions.hasOwnProperty('selectedOption')) ? StudentController.classOptions.selectedOption.id : null;
         var startDate = StudentController.startDate;
         var startDateArr = startDate.split("-");
         startDate = startDateArr[2] + '-' + startDateArr[1] + '-' + startDateArr[0];
-        for(i = 0; i < startDateArr.length; i++) {
+        for (i = 0; i < startDateArr.length; i++) {
             if (startDateArr[i] == undefined || startDateArr[i] == null || startDateArr[i] == '') {
                 startDate = undefined;
             }
@@ -943,26 +1022,26 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         };
 
         InstitutionsStudentsSvc.addStudentTransferRequest(data)
-        .then(function(postResponse) {
-            StudentController.postResponse = postResponse.data;
-            var counter = 0;
-            angular.forEach(postResponse.data.error , function(value) {
-                counter++;
-            });
+            .then(function (postResponse) {
+                StudentController.postResponse = postResponse.data;
+                var counter = 0;
+                angular.forEach(postResponse.data.error, function (value) {
+                    counter++;
+                });
 
-            if (counter == 0) {
-                AlertSvc.success($scope, 'Student transfer request is added successfully.');
-                $window.location.href = 'add?student_transfer_added=true';
-            } else if (counter == 1 && postResponse.data.error.hasOwnProperty('student_transfer') && postResponse.data.error.student_transfer.hasOwnProperty('ruleTransferRequestExists')) {
-                AlertSvc.warning($scope, 'There is an existing transfer record for this student.');
-                $window.location.href = postResponse.data.error.student_transfer.ruleTransferRequestExists;
-            } else {
+                if (counter == 0) {
+                    AlertSvc.success($scope, 'Student transfer request is added successfully.');
+                    $window.location.href = 'add?student_transfer_added=true';
+                } else if (counter == 1 && postResponse.data.error.hasOwnProperty('student_transfer') && postResponse.data.error.student_transfer.hasOwnProperty('ruleTransferRequestExists')) {
+                    AlertSvc.warning($scope, 'There is an existing transfer record for this student.');
+                    $window.location.href = postResponse.data.error.student_transfer.ruleTransferRequestExists;
+                } else {
+                    AlertSvc.error($scope, 'There is an error in adding student transfer request.');
+                }
+            }, function (error) {
+                console.log(error);
                 AlertSvc.error($scope, 'There is an error in adding student transfer request.');
-            }
-        }, function(error) {
-            console.log(error);
-            AlertSvc.error($scope, 'There is an error in adding student transfer request.');
-        });
+            });
     }
 
     function addStudentUser(studentData, academicPeriodId, educationGradeId, classId, startDate, endDate) {
@@ -971,32 +1050,34 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         newStudentData['education_grade_id'] = educationGradeId;
         newStudentData['start_date'] = startDate;
         newStudentData['institution_id'] = StudentController.institutionId;
+        newStudentData['identity_number'] = StudentController.identity_number +''+StudentController.Student.area_administrative_province  +''+ StudentController.Student.area_administrative_district + ''+ StudentController.Student.area_administrative_id + '' + StudentController.Student.nationality_id;
+        debugger;
         if (!StudentController.externalSearch) {
             newStudentData['nationality_id'] = StudentController.Student.nationality_id;
             newStudentData['identity_type_id'] = StudentController.Student.identity_type_id;
         }
         InstitutionsStudentsSvc.addUser(newStudentData)
-        .then(function(user){
-            if (user[0].error.length === 0) {
-                var studentId = user[0].data.id;
-                StudentController.insertStudentData(studentId, academicPeriodId, educationGradeId, classId, startDate, endDate, user[1]);
-            } else {
-                StudentController.postResponse = user[0];
-                console.log(user[0]);
-                AlertSvc.error($scope, 'The record is not added due to errors encountered.');
-            }
-        }, function(error){
-            console.log(error);
-            AlertSvc.warning($scope, error);
-        });
+            .then(function (user) {
+                if (user[0].error.length === 0) {
+                    var studentId = user[0].data.id;
+                    StudentController.insertStudentData(studentId, academicPeriodId, educationGradeId, classId, startDate, endDate, user[1]);
+                } else {
+                    StudentController.postResponse = user[0];
+                    console.log(user[0]);
+                    AlertSvc.error($scope, 'The record is not added due to errors encountered.');
+                }
+            }, function (error) {
+                console.log(error);
+                AlertSvc.warning($scope, error);
+            });
     }
 
 
-    angular.element(document.querySelector('#wizard')).on('actionclicked.fu.wizard', function(evt, data) {
+    angular.element(document.querySelector('#wizard')).on('actionclicked.fu.wizard', function (evt, data) {
         // evt.preventDefault();
         AlertSvc.reset($scope);
 
-        if (angular.isDefined(StudentController.postResponse)){
+        if (angular.isDefined(StudentController.postResponse)) {
             delete StudentController.postResponse;
             $scope.$apply();
         }
@@ -1011,7 +1092,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
 
     function validateNewUser() {
         var remain = false;
-        var empty = {'_empty': 'This field cannot be left empty'};
+        var empty = { '_empty': 'This field cannot be left empty' };
         StudentController.postResponse = {};
         StudentController.postResponse.error = {};
         if (StudentController.selectedStudentData.first_name == '') {
@@ -1080,39 +1161,39 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     function getUniqueOpenEmisId() {
         UtilsSvc.isAppendLoader(true);
         InstitutionsStudentsSvc.getUniqueOpenEmisId()
-        .then(function(response) {
-            var username = StudentController.selectedStudentData.username;
-            if (username == StudentController.selectedStudentData.openemis_no || username == '' || typeof username == 'undefined') {
-                StudentController.selectedStudentData.username = response;
-            }
-            StudentController.selectedStudentData.openemis_no = response;
-            UtilsSvc.isAppendLoader(false);
-        }, function(error) {
-            console.log(error);
-            UtilsSvc.isAppendLoader(false);
-        });
+            .then(function (response) {
+                var username = StudentController.selectedStudentData.username;
+                if (username == StudentController.selectedStudentData.openemis_no || username == '' || typeof username == 'undefined') {
+                    StudentController.selectedStudentData.username = response;
+                }
+                StudentController.selectedStudentData.openemis_no = response;
+                UtilsSvc.isAppendLoader(false);
+            }, function (error) {
+                console.log(error);
+                UtilsSvc.isAppendLoader(false);
+            });
     }
 
     function generatePassword() {
         UtilsSvc.isAppendLoader(true);
         InstitutionsStudentsSvc.generatePassword()
-        .then(function(response) {
-            if (StudentController.selectedStudentData.password == '' || typeof StudentController.selectedStudentData.password == 'undefined') {
-                StudentController.selectedStudentData.password = response;
-            }
-            UtilsSvc.isAppendLoader(false);
-        }, function(error) {
-            console.log(error);
-            UtilsSvc.isAppendLoader(false);
-        });
+            .then(function (response) {
+                if (StudentController.selectedStudentData.password == '' || typeof StudentController.selectedStudentData.password == 'undefined') {
+                    StudentController.selectedStudentData.password = response;
+                }
+                UtilsSvc.isAppendLoader(false);
+            }, function (error) {
+                console.log(error);
+                UtilsSvc.isAppendLoader(false);
+            });
     }
 
-    angular.element(document.querySelector('#wizard')).on('finished.fu.wizard', function(evt, data) {
+    angular.element(document.querySelector('#wizard')).on('finished.fu.wizard', function (evt, data) {
         // The last complete step is now transfer staff, add transfer staff logic function call here
         StudentController.postTransferForm();
     });
 
-    angular.element(document.querySelector('#wizard')).on('changed.fu.wizard', function(evt, data) {
+    angular.element(document.querySelector('#wizard')).on('changed.fu.wizard', function (evt, data) {
         StudentController.addStudentButton = false;
         // Step 1 - Internal search
         if (data.step == 1) {
@@ -1177,7 +1258,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         }
 
         // to ensure that the StudentController.step is updated
-        setTimeout(function() {
+        setTimeout(function () {
             $scope.$apply();
         });
     });

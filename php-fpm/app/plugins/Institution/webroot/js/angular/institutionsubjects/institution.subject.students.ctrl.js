@@ -39,7 +39,7 @@ function InstitutionSubjectStudentsController($scope, $q, $http, $window, UtilsS
     };
     Controller.institutionSubjectId = null;
     Controller.colDef = [
-        {headerName: 'OpenEMIS ID', field: 'openemis_no'},
+        {headerName: 'User ID', field: 'openemis_no'},
         {headerName: 'Name', field: 'name'},
         {headerName: 'Class', field: 'institution_class'},
         {headerName: 'Gender', field: 'gender_name'},

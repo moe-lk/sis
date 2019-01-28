@@ -57,9 +57,9 @@ class StudentTransferInTable extends InstitutionStudentTransfersTable
                 ]
             ])
             ->allowEmpty('institution_class_id')
-            ->add('institution_class_id', 'ruleClassMaxLimit', [
-                'rule' => ['checkInstitutionClassMaxLimit']
-            ])
+            // ->add('institution_class_id', 'ruleClassMaxLimit', [
+            //     'rule' => ['checkInstitutionClassMaxLimit']
+            // ])
             ->add('student_transfer', 'ruleTransferRequestExists', [
                 'rule' => ['checkPendingStudentTransfer'],
                 'on' => 'create'

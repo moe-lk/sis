@@ -191,7 +191,7 @@ function InstitutionStaffController($location, $q, $scope, $window, $filter, Uti
             }
             promises[0] = InstitutionsStaffSvc.getGenders();
             var translateFields = {
-                'openemis_no': 'OpenEMIS ID',
+                'openemis_no': 'User ID',
                 'name': 'Name',
                 'gender_name': 'Gender',
                 'date_of_birth': 'Date Of Birth',

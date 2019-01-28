@@ -9,7 +9,7 @@
 					<thead>
 						<tr>
 							<th class="checkbox-column"><input type="checkbox" class="no-selection-label" kd-checkbox-radio/></th>
-							<th><?= __('OpenEMIS ID') ?></th>
+							<th><?= __('User ID') ?></th>
 							<th><?= __('Student') ?></th>
 							<th><?= __('Status') ?></th>
 							<th><?= __('Class') ?></th>

@@ -24,7 +24,6 @@ return array(
     'Seld\\PharUtils\\' => array($vendorDir . '/seld/phar-utils/src'),
     'Seld\\JsonLint\\' => array($vendorDir . '/seld/jsonlint/src/Seld/JsonLint'),
     'Seld\\CliPrompt\\' => array($vendorDir . '/seld/cli-prompt/src'),
-    'SSO\\' => array($vendorDir . '/korditpteltd/kd-cakephp-sso/src'),
     'Restful\\Test\\Fixture\\' => array($vendorDir . '/korditpteltd/kd-cakephp-restful/tests/Fixture'),
     'Restful\\' => array($vendorDir . '/korditpteltd/kd-cakephp-restful/src'),
     'Psy\\' => array($vendorDir . '/psy/psysh/src/Psy'),

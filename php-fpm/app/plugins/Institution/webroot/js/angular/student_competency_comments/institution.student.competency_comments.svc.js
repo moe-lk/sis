@@ -88,7 +88,7 @@ function InstitutionStudentCompetencyCommentsSvc($http, $q, $filter, KdDataSvc) 
         var columnDefs = [];
 
         columnDefs.push({
-            headerName: "OpenEMIS ID",
+            headerName: "User ID",
             field: "openemis_id",
             filterParams: filterParams,
             pinned: direction

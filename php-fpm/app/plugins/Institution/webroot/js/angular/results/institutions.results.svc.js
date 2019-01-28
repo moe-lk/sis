@@ -291,7 +291,7 @@ function InstitutionsResultsSvc($http, $q, $filter, KdDataSvc, KdSessionSvc, KdA
             }
 
             columnDefs.push({
-                headerName: "OpenEMIS ID",
+                headerName: "User ID",
                 field: "openemis_id",
                 filterParams: filterParams,
                 pinned: direction,

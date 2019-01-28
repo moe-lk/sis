@@ -20,7 +20,7 @@ class WorkflowActionsSeed extends AbstractSeed
     {
         $data = [
             [
-                'id' => '1',
+                'xid' => '1',
                 'name' => 'Submit For Approval',
                 'description' => NULL,
                 'action' => '0',
