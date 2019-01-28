@@ -14,7 +14,7 @@ services:
     ports:
       - "8125:8025"
   openemis-mysql:
-    image: moelk/openemis-mysql-dev:latest
+    image: moelk/openemis-mysql:dev
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: openemis
@@ -33,7 +33,7 @@ services:
       - openemis-php-fpm
     restart: always
   openemis-php-fpm:
-    image: moelk/openemis-php-fpm-test:latest
+    image: moelk/openemis-php-fpm:dev
     volumes:
        - ./php-fpm/app:/var/www/myapp
        - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini

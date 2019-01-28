@@ -314,3 +314,68 @@ Stack Trace:
 #1 {main}
 
 
+2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.date_opened.ruleCompare
+2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.code.ruleCustomCode
+2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.postal_code.ruleCustomPostalCode
+2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.telephone.ruleCustomTelephone
+2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.fax.ruleCustomFax
+2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.area_id.ruleConfiguredArea
+2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.area_administrative_id.ruleConfiguredAreaAdministrative
+2019-01-28 11:42:39 Warning: Warning (512): Unable to emit headers. Headers sent in file=/var/www/myapp/vendor/cakephp/cakephp/src/Error/Debugger.php line=754 in [/var/www/myapp/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
+Request URL: /Institution/Institutions/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ/dashboard/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ
+Referer URL: http://localhost:8180/Institutions/Institutions/index
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 116
+[main] - ROOT/webroot/index.php, line 40
+
+
+
+2019-01-28 11:42:39 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/myapp/vendor/cakephp/cakephp/src/Error/Debugger.php:754) in [/var/www/myapp/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 145]
+Request URL: /Institution/Institutions/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ/dashboard/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ
+Referer URL: http://localhost:8180/Institutions/Institutions/index
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitStatusLine() - CORE/src/Http/ResponseEmitter.php, line 145
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 54
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 116
+[main] - ROOT/webroot/index.php, line 40
+
+
+
+2019-01-28 11:42:39 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/myapp/vendor/cakephp/cakephp/src/Error/Debugger.php:754) in [/var/www/myapp/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
+Request URL: /Institution/Institutions/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ/dashboard/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ
+Referer URL: http://localhost:8180/Institutions/Institutions/index
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+header - [internal], line ??
+Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
+Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
+Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 116
+[main] - ROOT/webroot/index.php, line 40
+
+
+
+2019-01-28 11:43:04 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-28 11:43:04 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-28 11:43:04 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-28 11:43:04 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.date_opened.ruleCompare
+2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.code.ruleCustomCode
+2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.postal_code.ruleCustomPostalCode
+2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.telephone.ruleCustomTelephone
+2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.fax.ruleCustomFax
+2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.area_id.ruleConfiguredArea
+2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.area_administrative_id.ruleConfiguredAreaAdministrative
+2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.date_opened.ruleCompare
+2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.code.ruleCustomCode
+2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.postal_code.ruleCustomPostalCode
+2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.telephone.ruleCustomTelephone
+2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.fax.ruleCustomFax
+2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.area_id.ruleConfiguredArea
+2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.area_administrative_id.ruleConfiguredAreaAdministrative
