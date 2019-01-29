@@ -1050,8 +1050,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         newStudentData['education_grade_id'] = educationGradeId;
         newStudentData['start_date'] = startDate;
         newStudentData['institution_id'] = StudentController.institutionId;
-        newStudentData['identity_number'] = studentData.identity_number +''+studentData.area_administrative_province  +''+ studentData.area_administrative_district + ''+ studentData.area_administrative_id;
-        debugger;
+        newStudentData['identity_number'] =  studentData.identity_number +''+studentData.area_administrative_province  +''+ studentData.area_administrative_district + ''+ studentData.area_administrative_id;
         if (!StudentController.externalSearch) {
             newStudentData['nationality_id'] = StudentController.Student.nationality_id;
             newStudentData['identity_type_id'] = StudentController.Student.identity_type_id;

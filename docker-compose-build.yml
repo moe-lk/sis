@@ -33,7 +33,7 @@ services:
       - openemis-php-fpm
     restart: always
   openemis-php-fpm:
-    image: moelk/openemis-php-fpm:dev
+    build: ./php-fpm
     volumes:
        - ./php-fpm/app:/var/www/myapp
        - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini

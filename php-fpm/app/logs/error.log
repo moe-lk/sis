@@ -1,59 +1,345 @@
-2019-01-28 19:58:49 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
-2019-01-28 19:58:49 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
-2019-01-28 19:58:49 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
-2019-01-28 19:58:49 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 19:58:55 Error: MessagesTrait Message Not Found: Institution.InstitutionShifts.start_time.ruleCompareDate
-2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.openemis_no
-2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.name
-2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.gender_id
-2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.openemis_no
-2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.name
-2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.gender_id
-2019-01-28 19:59:08 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
-2019-01-28 19:59:08 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
-2019-01-28 19:59:08 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
-2019-01-28 19:59:08 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
-2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
-2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
-2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
-2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
-2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
-2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
-2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
-2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
-2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 19:59:47 Error: MessagesTrait Message Not Found: Users.openemis_no
-2019-01-28 19:59:47 Error: MessagesTrait Message Not Found: Users.name
-2019-01-28 19:59:47 Error: MessagesTrait Message Not Found: Users.gender_id
-2019-01-28 20:00:01 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
-2019-01-28 20:00:01 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
-2019-01-28 20:00:01 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
-2019-01-28 20:00:01 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
-2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
-2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
-2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
-2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
-2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
-2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
-2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
-2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
-2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
-2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 20:00:39 Error: MessagesTrait Message Not Found: Institution.Staff.staff_assignment.ruleTransferRequestExists
+2019-01-29 07:46:21 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 07:46:21 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 07:46:21 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 07:46:21 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 07:46:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 07:46:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 07:46:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 07:46:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 07:46:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 07:46:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 07:46:45 Error: MessagesTrait Message Not Found: Institution.Staff.staff_assignment.ruleTransferRequestExists
+2019-01-29 07:46:57 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 07:46:57 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 07:46:57 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 07:46:57 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 07:51:03 Error: MessagesTrait Message Not Found: Institution.Institutions.date_opened.ruleCompare
+2019-01-29 07:51:03 Error: MessagesTrait Message Not Found: Institution.Institutions.code.ruleCustomCode
+2019-01-29 07:51:03 Error: MessagesTrait Message Not Found: Institution.Institutions.postal_code.ruleCustomPostalCode
+2019-01-29 07:51:03 Error: MessagesTrait Message Not Found: Institution.Institutions.telephone.ruleCustomTelephone
+2019-01-29 07:51:03 Error: MessagesTrait Message Not Found: Institution.Institutions.fax.ruleCustomFax
+2019-01-29 07:51:03 Error: MessagesTrait Message Not Found: Institution.Institutions.area_id.ruleConfiguredArea
+2019-01-29 07:51:03 Error: MessagesTrait Message Not Found: Institution.Institutions.area_administrative_id.ruleConfiguredAreaAdministrative
+2019-01-29 07:51:12 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 07:51:12 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 07:51:12 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 07:51:12 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotCompletedGrade
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: Institution.StudentUser.class.ruleClassMaxLimit
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: Institution.StudentUser.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: Institution.StudentUser.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: Institution.StudentUser.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: Institution.StudentUser.postal_code.ruleCustomPostalCode
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: User.Nationalities.nationality_id.notBlank
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: User.Nationalities.preferred.ruleValidatePreferredNationality
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: User.Identities.issue_date.ruleCompareDate
+2019-01-29 07:52:30 Error: MessagesTrait Message Not Found: User.Identities.number.ruleCustomIdentityNumber
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 07:52:31 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotCompletedGrade
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: Institution.StudentUser.class.ruleClassMaxLimit
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: Institution.StudentUser.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: Institution.StudentUser.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: Institution.StudentUser.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: Institution.StudentUser.postal_code.ruleCustomPostalCode
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: User.Nationalities.nationality_id.notBlank
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: User.Nationalities.preferred.ruleValidatePreferredNationality
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: User.Identities.issue_date.ruleCompareDate
+2019-01-29 07:53:49 Error: MessagesTrait Message Not Found: User.Identities.number.ruleCustomIdentityNumber
+2019-01-29 07:54:33 Error: MessagesTrait Message Not Found: InstitutionClasses.secondary_staff_id
+2019-01-29 07:57:14 Error: MessagesTrait Message Not Found: InstitutionClasses.secondary_staff_id
+2019-01-29 07:57:22 Error: MessagesTrait Message Not Found: Users.openemis_no
+2019-01-29 07:57:22 Error: MessagesTrait Message Not Found: Users.name
+2019-01-29 07:57:22 Error: MessagesTrait Message Not Found: Users.gender_id
+2019-01-29 08:00:34 Error: MessagesTrait Message Not Found: Institution.Institutions.date_opened.ruleCompare
+2019-01-29 08:00:34 Error: MessagesTrait Message Not Found: Institution.Institutions.code.ruleCustomCode
+2019-01-29 08:00:34 Error: MessagesTrait Message Not Found: Institution.Institutions.postal_code.ruleCustomPostalCode
+2019-01-29 08:00:34 Error: MessagesTrait Message Not Found: Institution.Institutions.telephone.ruleCustomTelephone
+2019-01-29 08:00:34 Error: MessagesTrait Message Not Found: Institution.Institutions.fax.ruleCustomFax
+2019-01-29 08:00:34 Error: MessagesTrait Message Not Found: Institution.Institutions.area_id.ruleConfiguredArea
+2019-01-29 08:00:34 Error: MessagesTrait Message Not Found: Institution.Institutions.area_administrative_id.ruleConfiguredAreaAdministrative
+2019-01-29 08:00:38 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:00:38 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:00:38 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:00:38 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotCompletedGrade
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentUser.class.ruleClassMaxLimit
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentUser.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentUser.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentUser.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentUser.postal_code.ruleCustomPostalCode
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: User.Nationalities.nationality_id.notBlank
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: User.Nationalities.preferred.ruleValidatePreferredNationality
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: User.Identities.issue_date.ruleCompareDate
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: User.Identities.number.ruleCustomIdentityNumber
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:01:23 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:01:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:01:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:01:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:01:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:01:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:01:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:02:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:02:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:02:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:02:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:02:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:02:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:02:24 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:02:24 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:02:24 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:02:24 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:04:13 Error: MessagesTrait Message Not Found: Institution.Institutions.date_opened.ruleCompare
+2019-01-29 08:04:13 Error: MessagesTrait Message Not Found: Institution.Institutions.code.ruleCustomCode
+2019-01-29 08:04:13 Error: MessagesTrait Message Not Found: Institution.Institutions.postal_code.ruleCustomPostalCode
+2019-01-29 08:04:13 Error: MessagesTrait Message Not Found: Institution.Institutions.telephone.ruleCustomTelephone
+2019-01-29 08:04:13 Error: MessagesTrait Message Not Found: Institution.Institutions.fax.ruleCustomFax
+2019-01-29 08:04:13 Error: MessagesTrait Message Not Found: Institution.Institutions.area_id.ruleConfiguredArea
+2019-01-29 08:04:13 Error: MessagesTrait Message Not Found: Institution.Institutions.area_administrative_id.ruleConfiguredAreaAdministrative
+2019-01-29 08:04:31 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:04:31 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:04:31 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:04:31 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:04:44 Error: MessagesTrait Message Not Found: Users.openemis_no
+2019-01-29 08:04:44 Error: MessagesTrait Message Not Found: Users.name
+2019-01-29 08:04:44 Error: MessagesTrait Message Not Found: Users.gender_id
+2019-01-29 08:04:46 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:04:46 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:04:46 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:04:46 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:04:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:04:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:04:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:04:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:04:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:04:50 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:14:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:14:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:14:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:14:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:14:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:14:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:14:34 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:14:34 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:14:34 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:14:34 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotCompletedGrade
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: Institution.StudentUser.class.ruleClassMaxLimit
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: Institution.StudentUser.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: Institution.StudentUser.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: Institution.StudentUser.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: Institution.StudentUser.postal_code.ruleCustomPostalCode
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: User.Nationalities.nationality_id.notBlank
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: User.Nationalities.preferred.ruleValidatePreferredNationality
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: User.Identities.issue_date.ruleCompareDate
+2019-01-29 08:18:18 Error: MessagesTrait Message Not Found: User.Identities.number.ruleCustomIdentityNumber
+2019-01-29 08:18:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:18:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:18:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:18:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:18:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:18:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:18:19 Error: Cake\Datasource\Exception\InvalidPrimaryKeyException: Record not found in table "workflow_steps" with primary key [NULL] in /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php:1197
+Stack trace:
+#0 [internal function]: Cake\ORM\Table->get(Array)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Association.php(988): call_user_func_array(Array, Array)
+#2 /var/www/myapp/plugins/Institution/src/Model/Table/StudentAdmissionTable.php(486): Cake\ORM\Association->__call('get', Array)
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(426): Institution\Model\Table\StudentAdmissionTable->afterSave(Object(Cake\Event\Event), Object(Cake\ORM\Entity), Object(ArrayObject))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1603): Cake\ORM\Table->dispatchEvent('Model.afterSave', Array)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1569): Cake\ORM\Table->_onSaveSuccess(Object(Cake\ORM\Entity), Object(ArrayObject))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1491): Cake\ORM\Table->_processSave(Object(Cake\ORM\Entity), Object(ArrayObject))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\Database\Connection->transactional(Object(Closure))
+#11 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV1Component.php(237): Cake\ORM\Table->save(Object(Cake\ORM\Entity))
+#12 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/RestfulController.php(99): Restful\Controller\Component\RestfulV1Component->add()
+#13 [internal function]: Restful\Controller\RestfulController->add()
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
+#15 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RestfulController))
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#26 {main}
+2019-01-29 08:18:19 Error: [Cake\Datasource\Exception\InvalidPrimaryKeyException] Record not found in table "workflow_steps" with primary key [NULL]
+Request URL: /restful/Institution-StudentAdmission.json?_limit=0
+Referer URL: http://localhost:8180/Institution/Institutions/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImFxbHF2c3FiczB0azdvNHRhcG9oaDRjcWwxIn0.ZjkwMzU2ODk2NzdiMGI1MGJmNDUzZjE1ZGM3YWQ5OTFkMWM5N2JhYzg3ODg4ZGZlMDcyZWM5OGM3NzRjOTFmZQ/Students/add
+Client IP: 192.168.96.1
+Stack Trace:
+#0 [internal function]: Cake\ORM\Table->get(Array)
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Association.php(988): call_user_func_array(Array, Array)
+#2 /var/www/myapp/plugins/Institution/src/Model/Table/StudentAdmissionTable.php(486): Cake\ORM\Association->__call('get', Array)
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(426): Institution\Model\Table\StudentAdmissionTable->afterSave(Object(Cake\Event\Event), Object(Cake\ORM\Entity), Object(ArrayObject))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1603): Cake\ORM\Table->dispatchEvent('Model.afterSave', Array)
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1569): Cake\ORM\Table->_onSaveSuccess(Object(Cake\ORM\Entity), Object(ArrayObject))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1491): Cake\ORM\Table->_processSave(Object(Cake\ORM\Entity), Object(ArrayObject))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\Database\Connection->transactional(Object(Closure))
+#11 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/Component/RestfulV1Component.php(237): Cake\ORM\Table->save(Object(Cake\ORM\Entity))
+#12 /var/www/myapp/vendor/korditpteltd/kd-cakephp-restful/src/Controller/RestfulController.php(99): Restful\Controller\Component\RestfulV1Component->add()
+#13 [internal function]: Restful\Controller\RestfulController->add()
+#14 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
+#15 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
+#16 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\RestfulController))
+#17 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#18 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#19 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#20 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#21 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#22 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#25 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#26 {main}
+
+
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotCompletedGrade
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: Institution.StudentUser.class.ruleClassMaxLimit
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: Institution.StudentUser.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: Institution.StudentUser.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: Institution.StudentUser.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: Institution.StudentUser.postal_code.ruleCustomPostalCode
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: User.Nationalities.nationality_id.notBlank
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: User.Nationalities.preferred.ruleValidatePreferredNationality
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: User.Identities.issue_date.ruleCompareDate
+2019-01-29 08:22:43 Error: MessagesTrait Message Not Found: User.Identities.number.ruleCustomIdentityNumber
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotCompletedGrade
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentUser.class.ruleClassMaxLimit
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentUser.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentUser.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentUser.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentUser.postal_code.ruleCustomPostalCode
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: User.Nationalities.nationality_id.notBlank
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: User.Nationalities.preferred.ruleValidatePreferredNationality
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: User.Identities.issue_date.ruleCompareDate
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: User.Identities.number.ruleCustomIdentityNumber
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:23:40 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:23:55 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:23:55 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:23:55 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:23:55 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:23:58 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:23:58 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:23:58 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:23:58 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:23:58 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:23:58 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:24:21 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:24:21 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:24:21 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:24:21 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:24:21 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:24:21 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:24:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:24:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:24:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:24:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:24:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:24:25 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:24:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:24:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:24:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:24:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:24:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:24:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:24:36 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:24:36 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:24:36 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:24:36 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:24:36 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:24:36 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:24:38 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:24:38 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:24:38 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:24:38 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleStudentNotCompletedGrade
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentUser.student_name.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentUser.class.ruleClassMaxLimit
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentUser.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentUser.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentUser.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentUser.postal_code.ruleCustomPostalCode
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: User.Nationalities.nationality_id.notBlank
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: User.Nationalities.preferred.ruleValidatePreferredNationality
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: User.Identities.issue_date.ruleCompareDate
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: User.Identities.number.ruleCustomIdentityNumber
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:27:05 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:27:11 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-29 08:27:11 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-29 08:27:11 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-29 08:27:11 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:27:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:27:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:27:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:27:14 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:27:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:27:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:27:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:27:29 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-29 08:27:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-29 08:27:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-29 08:27:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-29 08:27:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-29 08:27:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
