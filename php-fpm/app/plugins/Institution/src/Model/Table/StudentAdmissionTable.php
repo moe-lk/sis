@@ -481,9 +481,9 @@ class StudentAdmissionTable extends ControllerActionTable
                 // get the first step in 'APPROVED' workflow statuses
                 $WorkflowModelsTable = TableRegistry::get('Workflow.WorkflowModels');
                 $statuses = $WorkflowModelsTable->getWorkflowStatusSteps('Institution.StudentAdmission', 'APPROVED');
-                ksort($statuses);
-                $approvedStatusId = key($statuses);
-                $approvedStatusEntity = $this->Statuses->get($approvedStatusId);
+                // ksort($statuses);
+                // $approvedStatusId = key($statuses);
+                $approvedStatusEntity = $this->Statuses->get(20);
 
                 if (!empty($approvedStatusEntity)) {
                     $prevStepEntity = $this->Statuses->get($entity->status_id);

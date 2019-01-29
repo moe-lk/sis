@@ -1,381 +1,59 @@
-2019-01-28 05:12:37 Error: Cake\ORM\Exception\MissingBehaviorException: Behavior class SurveyBehavior could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/ORM/BehaviorRegistry.php:111
-Stack trace:
-#0 /var/www/myapp/vendor/cakephp/cakephp/src/Core/ObjectRegistry.php(91): Cake\ORM\BehaviorRegistry->_throwMissingClassError('Survey', 'Survey')
-#1 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(617): Cake\Core\ObjectRegistry->load('Survey', Array)
-#2 /var/www/myapp/plugins/Institution/src/Model/Table/InstitutionSurveysTable.php(45): Cake\ORM\Table->addBehavior('Survey.Survey', Array)
-#3 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): Institution\Model\Table\InstitutionSurveysTable->initialize(Array)
-#4 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
-#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
-#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('Institution.Ins...', Array)
-#7 /var/www/myapp/plugins/Workflow/src/Model/Table/WorkflowStepsTable.php(112): Cake\ORM\TableRegistry::get('Institution.Ins...')
-#8 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(426): Workflow\Model\Table\WorkflowStepsTable->afterSave(Object(Cake\Event\Event), Object(Workflow\Model\Entity\WorkflowStep), Object(ArrayObject))
-#9 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
-#10 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
-#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1603): Cake\ORM\Table->dispatchEvent('Model.afterSave', Array)
-#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1569): Cake\ORM\Table->_onSaveSuccess(Object(Workflow\Model\Entity\WorkflowStep), Object(ArrayObject))
-#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1491): Cake\ORM\Table->_processSave(Object(Workflow\Model\Entity\WorkflowStep), Object(ArrayObject))
-#14 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
-#15 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\Database\Connection->transactional(Object(Closure))
-#16 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(1315): Cake\ORM\Table->save(Object(Workflow\Model\Entity\WorkflowStep))
-#17 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(1329): ControllerAction\Controller\Component\ControllerActionComponent->ControllerAction\Controller\Component\{closure}(Object(Workflow\Model\Table\WorkflowStepsTable), Object(Workflow\Model\Entity\WorkflowStep))
-#18 [internal function]: ControllerAction\Controller\Component\ControllerActionComponent->edit('eyJpZCI6MzIsIjV...')
-#19 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(681): call_user_func_array(Array, Array)
-#20 /var/www/myapp/plugins/ControllerAction/src/Model/Traits/ControllerActionTrait.php(192): ControllerAction\Controller\Component\ControllerActionComponent->processAction()
-#21 [internal function]: App\Controller\AppController->ComponentAction('edit', 'eyJpZCI6MzIsIjV...')
-#22 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
-#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
-#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(Workflow\Controller\WorkflowsController))
-#25 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
-#26 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#27 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#28 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#29 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#30 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#31 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#32 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#33 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
-#34 {main}
-2019-01-28 05:12:37 Error: [Cake\ORM\Exception\MissingBehaviorException] Behavior class SurveyBehavior could not be found.
-Exception Attributes: array (
-  'class' => 'SurveyBehavior',
-  'plugin' => 'Survey',
-)
-Request URL: /Workflows/Steps/edit/eyJpZCI6MzIsIjVjM2EwOWJmMjJlMTI0MTFiNmFmNDhkZmUwYjg1YzJkOWQxMTgxY2QzOTFlMDg5NTc0YzhjZjNjYTFlNWU0YWQiOiJhaHVjYXJ1cGh1ZG5udXZoYWVnam12Z3V2NyJ9.YzNjYjA1NWVmNzVkN2JjYWVkZmI0NmU4NWI0MTYxNjA3ODFiYjViOWY5MDIyNTliZTY1ZTJjOWQwYjA3ZjliMQ?model=8&workflow=7
-Referer URL: http://localhost:8180/Workflows/Steps/edit/eyJpZCI6MzIsIjVjM2EwOWJmMjJlMTI0MTFiNmFmNDhkZmUwYjg1YzJkOWQxMTgxY2QzOTFlMDg5NTc0YzhjZjNjYTFlNWU0YWQiOiJhaHVjYXJ1cGh1ZG5udXZoYWVnam12Z3V2NyJ9.YzNjYjA1NWVmNzVkN2JjYWVkZmI0NmU4NWI0MTYxNjA3ODFiYjViOWY5MDIyNTliZTY1ZTJjOWQwYjA3ZjliMQ?model=8&workflow=7
-Client IP: 192.168.96.1
-Stack Trace:
-#0 /var/www/myapp/vendor/cakephp/cakephp/src/Core/ObjectRegistry.php(91): Cake\ORM\BehaviorRegistry->_throwMissingClassError('Survey', 'Survey')
-#1 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(617): Cake\Core\ObjectRegistry->load('Survey', Array)
-#2 /var/www/myapp/plugins/Institution/src/Model/Table/InstitutionSurveysTable.php(45): Cake\ORM\Table->addBehavior('Survey.Survey', Array)
-#3 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(290): Institution\Model\Table\InstitutionSurveysTable->initialize(Array)
-#4 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(212): Cake\ORM\Table->__construct(Array)
-#5 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Locator/TableLocator.php(179): Cake\ORM\Locator\TableLocator->_create(Array)
-#6 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/TableRegistry.php(110): Cake\ORM\Locator\TableLocator->get('Institution.Ins...', Array)
-#7 /var/www/myapp/plugins/Workflow/src/Model/Table/WorkflowStepsTable.php(112): Cake\ORM\TableRegistry::get('Institution.Ins...')
-#8 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(426): Workflow\Model\Table\WorkflowStepsTable->afterSave(Object(Cake\Event\Event), Object(Workflow\Model\Entity\WorkflowStep), Object(ArrayObject))
-#9 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventManager.php(391): Cake\Event\EventManager->_callListener(Array, Object(Cake\Event\Event))
-#10 /var/www/myapp/vendor/cakephp/cakephp/src/Event/EventDispatcherTrait.php(78): Cake\Event\EventManager->dispatch(Object(Cake\Event\Event))
-#11 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1603): Cake\ORM\Table->dispatchEvent('Model.afterSave', Array)
-#12 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1569): Cake\ORM\Table->_onSaveSuccess(Object(Workflow\Model\Entity\WorkflowStep), Object(ArrayObject))
-#13 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1491): Cake\ORM\Table->_processSave(Object(Workflow\Model\Entity\WorkflowStep), Object(ArrayObject))
-#14 /var/www/myapp/vendor/cakephp/cakephp/src/Database/Connection.php(570): Cake\ORM\Table->Cake\ORM\{closure}(Object(Cake\Database\Connection))
-#15 /var/www/myapp/vendor/cakephp/cakephp/src/ORM/Table.php(1492): Cake\Database\Connection->transactional(Object(Closure))
-#16 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(1315): Cake\ORM\Table->save(Object(Workflow\Model\Entity\WorkflowStep))
-#17 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(1329): ControllerAction\Controller\Component\ControllerActionComponent->ControllerAction\Controller\Component\{closure}(Object(Workflow\Model\Table\WorkflowStepsTable), Object(Workflow\Model\Entity\WorkflowStep))
-#18 [internal function]: ControllerAction\Controller\Component\ControllerActionComponent->edit('eyJpZCI6MzIsIjV...')
-#19 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(681): call_user_func_array(Array, Array)
-#20 /var/www/myapp/plugins/ControllerAction/src/Model/Traits/ControllerActionTrait.php(192): ControllerAction\Controller\Component\ControllerActionComponent->processAction()
-#21 [internal function]: App\Controller\AppController->ComponentAction('edit', 'eyJpZCI6MzIsIjV...')
-#22 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
-#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
-#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(Workflow\Controller\WorkflowsController))
-#25 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
-#26 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#27 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#28 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#29 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#30 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#31 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#32 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#33 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
-#34 {main}
-
-
-2019-01-28 05:16:55 Error: Cake\Routing\Exception\MissingRouteException: A route matching "array (
-  'plugin' => 'Survey',
-  'controller' => 'Surveys',
-  'action' => 'Questions',
-  '_ext' => NULL,
-)" could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Routing/RouteCollection.php:284
-Stack trace:
-#0 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Router.php(651): Cake\Routing\RouteCollection->match(Array, Array)
-#1 /var/www/myapp/vendor/cakephp/cakephp/src/View/Helper/UrlHelper.php(55): Cake\Routing\Router::url(Array, false)
-#2 /var/www/myapp/vendor/cakephp/cakephp/src/View/Helper/HtmlHelper.php(349): Cake\View\Helper\UrlHelper->build(Array)
-#3 /var/www/myapp/plugins/OpenEmis/src/View/Helper/NavigationHelper.php(214): Cake\View\Helper\HtmlHelper->link('Forms', Array, Array)
-#4 /var/www/myapp/plugins/OpenEmis/src/View/Helper/NavigationHelper.php(13): OpenEmis\View\Helper\NavigationHelper->printNavigation(Array)
-#5 /var/www/myapp/plugins/OpenEmis/src/Template/Element/navigation.ctp(15): OpenEmis\View\Helper\NavigationHelper->render(Array)
-#6 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1014): include('/var/www/myapp/...')
-#7 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(973): Cake\View\View->_evaluate('/var/www/myapp/...', Array)
-#8 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1363): Cake\View\View->_render('/var/www/myapp/...', Array)
-#9 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(501): Cake\View\View->_renderElement('/var/www/myapp/...', Array, Array)
-#10 /var/www/myapp/src/Template/Layout/default.ctp(49): Cake\View\View->element('OpenEmis.naviga...')
-#11 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1014): include('/var/www/myapp/...')
-#12 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(973): Cake\View\View->_evaluate('/var/www/myapp/...', Array)
-#13 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(644): Cake\View\View->_render('/var/www/myapp/...')
-#14 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(602): Cake\View\View->renderLayout('', 'default')
-#15 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(617): Cake\View\View->render('/ControllerActi...', NULL)
-#16 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(757): Cake\Controller\Controller->render('/ControllerActi...')
-#17 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(695): ControllerAction\Controller\Component\ControllerActionComponent->render()
-#18 /var/www/myapp/plugins/ControllerAction/src/Model/Traits/ControllerActionTrait.php(192): ControllerAction\Controller\Component\ControllerActionComponent->processAction()
-#19 [internal function]: App\Controller\AppController->ComponentAction('edit', 'eyJpZCI6MzIsIjV...')
-#20 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
-#21 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
-#22 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(Workflow\Controller\WorkflowsController))
-#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
-#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#25 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#26 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#27 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#28 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#29 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#30 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#31 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
-#32 {main}
-2019-01-28 05:16:55 Error: [Cake\Routing\Exception\MissingRouteException] A route matching "array (
-  'plugin' => 'Survey',
-  'controller' => 'Surveys',
-  'action' => 'Questions',
-  '_ext' => NULL,
-)" could not be found.
-Exception Attributes: array (
-  'url' => 'array (
-  \'plugin\' => \'Survey\',
-  \'controller\' => \'Surveys\',
-  \'action\' => \'Questions\',
-  \'_ext\' => NULL,
-)',
-  'context' => 
-  array (
-    '_base' => '',
-    '_port' => '80',
-    '_scheme' => 'http',
-    '_host' => 'localhost:8180',
-    'params' => 
-    array (
-      'action' => 'Steps',
-      'pass' => 
-      array (
-        0 => 'edit',
-        1 => 'eyJpZCI6MzIsIjVjM2EwOWJmMjJlMTI0MTFiNmFmNDhkZmUwYjg1YzJkOWQxMTgxY2QzOTFlMDg5NTc0YzhjZjNjYTFlNWU0YWQiOiJhaHVjYXJ1cGh1ZG5udXZoYWVnam12Z3V2NyJ9.YzNjYjA1NWVmNzVkN2JjYWVkZmI0NmU4NWI0MTYxNjA3ODFiYjViOWY5MDIyNTliZTY1ZTJjOWQwYjA3ZjliMQ',
-      ),
-      'plugin' => 'Workflow',
-      'controller' => 'Workflows',
-      '_matchedRoute' => '/Workflows/:action/*',
-      '_ext' => NULL,
-      '_Token' => 
-      array (
-        'unlockedFields' => 
-        array (
-        ),
-      ),
-      '_csrfToken' => '2c14238cc44f4cab6b6c353b0b62058017b3ccc37cb27c33354c992662a5b94cfe0470c02e81fbc5d9f392159d5560fa9c44877196e0bab365df9cfa79e6c341',
-    ),
-  ),
-)
-Request URL: /Workflows/Steps/edit/eyJpZCI6MzIsIjVjM2EwOWJmMjJlMTI0MTFiNmFmNDhkZmUwYjg1YzJkOWQxMTgxY2QzOTFlMDg5NTc0YzhjZjNjYTFlNWU0YWQiOiJhaHVjYXJ1cGh1ZG5udXZoYWVnam12Z3V2NyJ9.YzNjYjA1NWVmNzVkN2JjYWVkZmI0NmU4NWI0MTYxNjA3ODFiYjViOWY5MDIyNTliZTY1ZTJjOWQwYjA3ZjliMQ?model=8&workflow=7
-Referer URL: http://localhost:8180/Workflows/Steps/view/eyJpZCI6MzIsIjVjM2EwOWJmMjJlMTI0MTFiNmFmNDhkZmUwYjg1YzJkOWQxMTgxY2QzOTFlMDg5NTc0YzhjZjNjYTFlNWU0YWQiOiJhaHVjYXJ1cGh1ZG5udXZoYWVnam12Z3V2NyJ9.YzNjYjA1NWVmNzVkN2JjYWVkZmI0NmU4NWI0MTYxNjA3ODFiYjViOWY5MDIyNTliZTY1ZTJjOWQwYjA3ZjliMQ?model=8&workflow=7
-Client IP: 192.168.96.1
-Stack Trace:
-#0 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Router.php(651): Cake\Routing\RouteCollection->match(Array, Array)
-#1 /var/www/myapp/vendor/cakephp/cakephp/src/View/Helper/UrlHelper.php(55): Cake\Routing\Router::url(Array, false)
-#2 /var/www/myapp/vendor/cakephp/cakephp/src/View/Helper/HtmlHelper.php(349): Cake\View\Helper\UrlHelper->build(Array)
-#3 /var/www/myapp/plugins/OpenEmis/src/View/Helper/NavigationHelper.php(214): Cake\View\Helper\HtmlHelper->link('Forms', Array, Array)
-#4 /var/www/myapp/plugins/OpenEmis/src/View/Helper/NavigationHelper.php(13): OpenEmis\View\Helper\NavigationHelper->printNavigation(Array)
-#5 /var/www/myapp/plugins/OpenEmis/src/Template/Element/navigation.ctp(15): OpenEmis\View\Helper\NavigationHelper->render(Array)
-#6 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1014): include('/var/www/myapp/...')
-#7 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(973): Cake\View\View->_evaluate('/var/www/myapp/...', Array)
-#8 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1363): Cake\View\View->_render('/var/www/myapp/...', Array)
-#9 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(501): Cake\View\View->_renderElement('/var/www/myapp/...', Array, Array)
-#10 /var/www/myapp/src/Template/Layout/default.ctp(49): Cake\View\View->element('OpenEmis.naviga...')
-#11 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1014): include('/var/www/myapp/...')
-#12 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(973): Cake\View\View->_evaluate('/var/www/myapp/...', Array)
-#13 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(644): Cake\View\View->_render('/var/www/myapp/...')
-#14 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(602): Cake\View\View->renderLayout('', 'default')
-#15 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(617): Cake\View\View->render('/ControllerActi...', NULL)
-#16 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(757): Cake\Controller\Controller->render('/ControllerActi...')
-#17 /var/www/myapp/plugins/ControllerAction/src/Controller/Component/ControllerActionComponent.php(695): ControllerAction\Controller\Component\ControllerActionComponent->render()
-#18 /var/www/myapp/plugins/ControllerAction/src/Model/Traits/ControllerActionTrait.php(192): ControllerAction\Controller\Component\ControllerActionComponent->processAction()
-#19 [internal function]: App\Controller\AppController->ComponentAction('edit', 'eyJpZCI6MzIsIjV...')
-#20 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(435): call_user_func_array(Array, Array)
-#21 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(121): Cake\Controller\Controller->invokeAction()
-#22 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(Workflow\Controller\WorkflowsController))
-#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
-#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#25 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#26 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#27 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#28 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#29 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#30 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#31 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
-#32 {main}
-
-
-2019-01-28 05:17:12 Error: Cake\Routing\Exception\MissingRouteException: A route matching "array (
-  'plugin' => 'Survey',
-  'controller' => 'Surveys',
-  'action' => 'Questions',
-  '_ext' => NULL,
-)" could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Routing/RouteCollection.php:284
-Stack trace:
-#0 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Router.php(651): Cake\Routing\RouteCollection->match(Array, Array)
-#1 /var/www/myapp/vendor/cakephp/cakephp/src/View/Helper/UrlHelper.php(55): Cake\Routing\Router::url(Array, false)
-#2 /var/www/myapp/vendor/cakephp/cakephp/src/View/Helper/HtmlHelper.php(349): Cake\View\Helper\UrlHelper->build(Array)
-#3 /var/www/myapp/plugins/OpenEmis/src/View/Helper/NavigationHelper.php(214): Cake\View\Helper\HtmlHelper->link('Forms', Array, Array)
-#4 /var/www/myapp/plugins/OpenEmis/src/View/Helper/NavigationHelper.php(13): OpenEmis\View\Helper\NavigationHelper->printNavigation(Array)
-#5 /var/www/myapp/plugins/OpenEmis/src/Template/Element/navigation.ctp(15): OpenEmis\View\Helper\NavigationHelper->render(Array)
-#6 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1014): include('/var/www/myapp/...')
-#7 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(973): Cake\View\View->_evaluate('/var/www/myapp/...', Array)
-#8 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1363): Cake\View\View->_render('/var/www/myapp/...', Array)
-#9 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(501): Cake\View\View->_renderElement('/var/www/myapp/...', Array, Array)
-#10 /var/www/myapp/src/Template/Layout/default.ctp(49): Cake\View\View->element('OpenEmis.naviga...')
-#11 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1014): include('/var/www/myapp/...')
-#12 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(973): Cake\View\View->_evaluate('/var/www/myapp/...', Array)
-#13 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(644): Cake\View\View->_render('/var/www/myapp/...')
-#14 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(602): Cake\View\View->renderLayout('', 'default')
-#15 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(617): Cake\View\View->render(NULL, NULL)
-#16 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(127): Cake\Controller\Controller->render()
-#17 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\DashboardController))
-#18 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
-#19 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#20 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#21 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#22 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#25 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#26 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
-#27 {main}
-2019-01-28 05:17:12 Error: [Cake\Routing\Exception\MissingRouteException] A route matching "array (
-  'plugin' => 'Survey',
-  'controller' => 'Surveys',
-  'action' => 'Questions',
-  '_ext' => NULL,
-)" could not be found.
-Exception Attributes: array (
-  'url' => 'array (
-  \'plugin\' => \'Survey\',
-  \'controller\' => \'Surveys\',
-  \'action\' => \'Questions\',
-  \'_ext\' => NULL,
-)',
-  'context' => 
-  array (
-    '_base' => '',
-    '_port' => '80',
-    '_scheme' => 'http',
-    '_host' => 'localhost:8180',
-    'params' => 
-    array (
-      'controller' => 'Dashboard',
-      'pass' => 
-      array (
-      ),
-      'action' => 'index',
-      'plugin' => NULL,
-      '_matchedRoute' => '/:controller',
-      '_ext' => NULL,
-      '_Token' => 
-      array (
-        'unlockedFields' => 
-        array (
-        ),
-      ),
-      '_csrfToken' => '2c14238cc44f4cab6b6c353b0b62058017b3ccc37cb27c33354c992662a5b94cfe0470c02e81fbc5d9f392159d5560fa9c44877196e0bab365df9cfa79e6c341',
-    ),
-  ),
-)
-Request URL: /Dashboard
-Client IP: 192.168.96.1
-Stack Trace:
-#0 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Router.php(651): Cake\Routing\RouteCollection->match(Array, Array)
-#1 /var/www/myapp/vendor/cakephp/cakephp/src/View/Helper/UrlHelper.php(55): Cake\Routing\Router::url(Array, false)
-#2 /var/www/myapp/vendor/cakephp/cakephp/src/View/Helper/HtmlHelper.php(349): Cake\View\Helper\UrlHelper->build(Array)
-#3 /var/www/myapp/plugins/OpenEmis/src/View/Helper/NavigationHelper.php(214): Cake\View\Helper\HtmlHelper->link('Forms', Array, Array)
-#4 /var/www/myapp/plugins/OpenEmis/src/View/Helper/NavigationHelper.php(13): OpenEmis\View\Helper\NavigationHelper->printNavigation(Array)
-#5 /var/www/myapp/plugins/OpenEmis/src/Template/Element/navigation.ctp(15): OpenEmis\View\Helper\NavigationHelper->render(Array)
-#6 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1014): include('/var/www/myapp/...')
-#7 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(973): Cake\View\View->_evaluate('/var/www/myapp/...', Array)
-#8 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1363): Cake\View\View->_render('/var/www/myapp/...', Array)
-#9 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(501): Cake\View\View->_renderElement('/var/www/myapp/...', Array, Array)
-#10 /var/www/myapp/src/Template/Layout/default.ctp(49): Cake\View\View->element('OpenEmis.naviga...')
-#11 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(1014): include('/var/www/myapp/...')
-#12 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(973): Cake\View\View->_evaluate('/var/www/myapp/...', Array)
-#13 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(644): Cake\View\View->_render('/var/www/myapp/...')
-#14 /var/www/myapp/vendor/cakephp/cakephp/src/View/View.php(602): Cake\View\View->renderLayout('', 'default')
-#15 /var/www/myapp/vendor/cakephp/cakephp/src/Controller/Controller.php(617): Cake\View\View->render(NULL, NULL)
-#16 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(127): Cake\Controller\Controller->render()
-#17 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(95): Cake\Http\ActionDispatcher->_invoke(Object(App\Controller\DashboardController))
-#18 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
-#19 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#20 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#21 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#22 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(88): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#23 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
-#24 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#25 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
-#26 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
-#27 {main}
-
-
-2019-01-28 05:19:13 Error: [BadMethodCallException] Unknown method "insertError"
-Stack Trace:
-#0 /var/www/myapp/webroot/index.php(43): Cake\ORM\Table->__call('insertError', Array)
-#1 {main}
-
-
-2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.date_opened.ruleCompare
-2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.code.ruleCustomCode
-2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.postal_code.ruleCustomPostalCode
-2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.telephone.ruleCustomTelephone
-2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.fax.ruleCustomFax
-2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.area_id.ruleConfiguredArea
-2019-01-28 11:42:30 Error: MessagesTrait Message Not Found: Institution.Institutions.area_administrative_id.ruleConfiguredAreaAdministrative
-2019-01-28 11:42:39 Warning: Warning (512): Unable to emit headers. Headers sent in file=/var/www/myapp/vendor/cakephp/cakephp/src/Error/Debugger.php line=754 in [/var/www/myapp/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 48]
-Request URL: /Institution/Institutions/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ/dashboard/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ
-Referer URL: http://localhost:8180/Institutions/Institutions/index
-Client IP: 192.168.96.1
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
-Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 48
-Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 116
-[main] - ROOT/webroot/index.php, line 40
-
-
-
-2019-01-28 11:42:39 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/myapp/vendor/cakephp/cakephp/src/Error/Debugger.php:754) in [/var/www/myapp/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 145]
-Request URL: /Institution/Institutions/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ/dashboard/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ
-Referer URL: http://localhost:8180/Institutions/Institutions/index
-Client IP: 192.168.96.1
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
-header - [internal], line ??
-Cake\Http\ResponseEmitter::emitStatusLine() - CORE/src/Http/ResponseEmitter.php, line 145
-Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 54
-Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 116
-[main] - ROOT/webroot/index.php, line 40
-
-
-
-2019-01-28 11:42:39 Warning: Warning (2): Cannot modify header information - headers already sent by (output started at /var/www/myapp/vendor/cakephp/cakephp/src/Error/Debugger.php:754) in [/var/www/myapp/vendor/cakephp/cakephp/src/Http/ResponseEmitter.php, line 173]
-Request URL: /Institution/Institutions/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ/dashboard/eyJpZCI6MiwiNWMzYTA5YmYyMmUxMjQxMWI2YWY0OGRmZTBiODVjMmQ5ZDExODFjZDM5MWUwODk1NzRjOGNmM2NhMWU1ZTRhZCI6ImcwcXNpZTViMmx2Y25haWZnZGp0MGxwNmNvIn0.YTdiOGNkN2YzMGJmNzM5YzBiYWMyNjdmMTgyMWIxNWNhMThiNzc3NzRjMTkwN2ViNDlkZDFiMTY1ZjQzYmFkZQ
-Referer URL: http://localhost:8180/Institutions/Institutions/index
-Client IP: 192.168.96.1
-Trace:
-Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
-header - [internal], line ??
-Cake\Http\ResponseEmitter::emitHeaders() - CORE/src/Http/ResponseEmitter.php, line 173
-Cake\Http\ResponseEmitter::emit() - CORE/src/Http/ResponseEmitter.php, line 55
-Cake\Http\Server::emit() - CORE/src/Http/Server.php, line 116
-[main] - ROOT/webroot/index.php, line 40
-
-
-
-2019-01-28 11:43:04 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
-2019-01-28 11:43:04 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
-2019-01-28 11:43:04 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
-2019-01-28 11:43:04 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
-2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.date_opened.ruleCompare
-2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.code.ruleCustomCode
-2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.postal_code.ruleCustomPostalCode
-2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.telephone.ruleCustomTelephone
-2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.fax.ruleCustomFax
-2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.area_id.ruleConfiguredArea
-2019-01-28 11:44:09 Error: MessagesTrait Message Not Found: Institution.Institutions.area_administrative_id.ruleConfiguredAreaAdministrative
-2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.date_opened.ruleCompare
-2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.code.ruleCustomCode
-2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.postal_code.ruleCustomPostalCode
-2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.telephone.ruleCustomTelephone
-2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.fax.ruleCustomFax
-2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.area_id.ruleConfiguredArea
-2019-01-28 11:50:16 Error: MessagesTrait Message Not Found: Institution.Institutions.area_administrative_id.ruleConfiguredAreaAdministrative
+2019-01-28 19:58:49 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-28 19:58:49 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-28 19:58:49 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-28 19:58:49 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 19:58:55 Error: MessagesTrait Message Not Found: Institution.InstitutionShifts.start_time.ruleCompareDate
+2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.openemis_no
+2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.name
+2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.gender_id
+2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.openemis_no
+2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.name
+2019-01-28 19:59:04 Error: MessagesTrait Message Not Found: Users.gender_id
+2019-01-28 19:59:08 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-28 19:59:08 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-28 19:59:08 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-28 19:59:08 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-28 19:59:11 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-28 19:59:19 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-28 19:59:31 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 19:59:47 Error: MessagesTrait Message Not Found: Users.openemis_no
+2019-01-28 19:59:47 Error: MessagesTrait Message Not Found: Users.name
+2019-01-28 19:59:47 Error: MessagesTrait Message Not Found: Users.gender_id
+2019-01-28 20:00:01 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCompareDate
+2019-01-28 20:00:01 Error: MessagesTrait Message Not Found: Institution.Students.start_date.ruleCheckProgrammeEndDateAgainstStudentStartDate
+2019-01-28 20:00:01 Error: MessagesTrait Message Not Found: Institution.Students.gender_id.rulecompareStudentGenderWithInstitution
+2019-01-28 20:00:01 Error: MessagesTrait Message Not Found: Institution.Students.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-28 20:00:04 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-28 20:00:26 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.start_date.ruleCompareDate
+2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleStudentNotEnrolledInAnyInstitutionAndSameEducationSystem
+2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.student_id.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.date_of_birth.ruleCheckAdmissionAgeWithEducationCycleGrade
+2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.gender_id.ruleCompareStudentGenderWithInstitution
+2019-01-28 20:00:32 Error: MessagesTrait Message Not Found: Institution.StudentAdmission.education_grade_id.ruleCheckProgrammeEndDate
+2019-01-28 20:00:39 Error: MessagesTrait Message Not Found: Institution.Staff.staff_assignment.ruleTransferRequestExists

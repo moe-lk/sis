@@ -41,25 +41,25 @@ class InstitutionSurveysTable extends ControllerActionTable
         $this->belongsTo('SurveyForms', ['className' => 'Survey.SurveyForms']);
         $this->belongsTo('Institutions', ['className' => 'Institution.Institutions', 'foreignKey' => 'institution_id']);
         $this->belongsTo('Assignees', ['className' => 'User.Users']);
-        $this->addBehavior('Survey.Survey', [
-            'module' => $this->module
-        ]);
-        $this->addBehavior('CustomField.Record', [
-            'tabSection' => true,
-            'moduleKey' => null,
-            'fieldKey' => 'survey_question_id',
-            'tableColumnKey' => 'survey_table_column_id',
-            'tableRowKey' => 'survey_table_row_id',
-            'fieldClass' => ['className' => 'Survey.SurveyQuestions', 'foreignKey' => 'survey_question_id'],
-            'formKey' => 'survey_form_id',
-            // 'filterKey' => 'custom_filter_id',
-            'formClass' => ['className' => 'Survey.SurveyForms', 'foreignKey' => 'survey_form_id'],
-            'formFieldClass' => ['className' => 'Survey.SurveyFormsQuestions'],
-            // 'formFilterClass' => ['className' => 'CustomField.CustomFormsFilters'],
-            'recordKey' => 'institution_survey_id',
-            'fieldValueClass' => ['className' => 'Institution.InstitutionSurveyAnswers', 'foreignKey' => 'institution_survey_id', 'dependent' => true, 'cascadeCallbacks' => true],
-            'tableCellClass' => ['className' => 'Institution.InstitutionSurveyTableCells', 'foreignKey' => 'institution_survey_id', 'dependent' => true, 'cascadeCallbacks' => true]
-        ]);
+        // $this->addBehavior('Survey.Survey', [
+        //     'module' => $this->module
+        // ]);
+        // $this->addBehavior('CustomField.Record', [
+        //     'tabSection' => true,
+        //     'moduleKey' => null,
+        //     'fieldKey' => 'survey_question_id',
+        //     'tableColumnKey' => 'survey_table_column_id',
+        //     'tableRowKey' => 'survey_table_row_id',
+        //     'fieldClass' => ['className' => 'Survey.SurveyQuestions', 'foreignKey' => 'survey_question_id'],
+        //     'formKey' => 'survey_form_id',
+        //     // 'filterKey' => 'custom_filter_id',
+        //     'formClass' => ['className' => 'Survey.SurveyForms', 'foreignKey' => 'survey_form_id'],
+        //     'formFieldClass' => ['className' => 'Survey.SurveyFormsQuestions'],
+        //     // 'formFilterClass' => ['className' => 'CustomField.CustomFormsFilters'],
+        //     'recordKey' => 'institution_survey_id',
+        //     'fieldValueClass' => ['className' => 'Institution.InstitutionSurveyAnswers', 'foreignKey' => 'institution_survey_id', 'dependent' => true, 'cascadeCallbacks' => true],
+        //     'tableCellClass' => ['className' => 'Institution.InstitutionSurveyTableCells', 'foreignKey' => 'institution_survey_id', 'dependent' => true, 'cascadeCallbacks' => true]
+        // ]);
         $this->addBehavior('Excel', ['pages' => ['view']]);
         $this->addBehavior('AcademicPeriod.AcademicPeriod');
         $this->addBehavior('Import.ImportLink');
