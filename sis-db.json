@@ -1,5 +1,5 @@
 {
-    "id": "/hrm-moe/sis-db-test2",
+    "id": "/hrm-moe/sis-db",
     "args": [
       "--datadir=/mnt/cluster_storage/sis-db/prod",
       "--max_allowed_packet=128M --sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION"
@@ -12,7 +12,7 @@
           "containerPort": 3306,
           "hostPort": 0,
           "labels": {
-            "VIP_0": "/hrm-moe/sis-db-test2:3306"
+            "VIP_0": "/hrm-moe/sis-db:3306"
           },
           "protocol": "tcp",
           "servicePort": 10184,

@@ -1,5 +1,5 @@
 {
-  "id": "/hrm-moe/sis-php-fpm-test2",
+  "id": "/hrm-moe/sis-php-fpm-test",
   "acceptedResourceRoles": [
     "slave_public"
   ],
