@@ -14,6 +14,7 @@ use Cake\Validation\Validator;
 use Cake\Network\Request;
 use Cake\Collection\Collection;
 use Cake\Datasource\ResultSetInterface;
+use Cake\Log\Log;
 
 use App\Model\Table\ControllerActionTable;
 use App\Model\Traits\OptionsTrait;
@@ -166,16 +167,19 @@ class InstitutionPositionsTable extends ControllerActionTable
             ])
             ->add('status_id', 'ruleCheckStatusIdValid', [
                 'rule' => function ($value, $context) {
+                    Log::error(($context));
                     $Workflows = TableRegistry::get('Workflow.Workflows');
                     $workflowResult = $Workflows
-                        ->find()
+                         ->find()
                         ->matching('WorkflowModels', function ($q) {
+
                             return $q->where(['WorkflowModels.model' => 'Institution.InstitutionPositions']);
                         })
                         ->matching('WorkflowSteps', function ($q) use ($value) {
-                            return $q->where(['WorkflowSteps.id' => $value]);
+                            return  $q->where([$q->aliasField('id') => $value]);
                         })
                         ->all();
+                    
 
                     return !$workflowResult->isEmpty();
                 }

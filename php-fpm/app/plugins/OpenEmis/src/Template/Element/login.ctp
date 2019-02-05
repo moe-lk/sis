@@ -74,17 +74,17 @@ $icon = strpos($_productName, 'School') != -1 ? '_school' : '';
 			<?php
 				if (isset($showLanguage) && $showLanguage) :
 			?>
-				<div class="input-select-wrapper">
+				<!-- <div class="input-select-wrapper">
 				<?= $this->Form->input('System.language', [
 						'label' => false,
 						'options' => $languageOptions,
 						'value' => $htmlLang,
-						// 'type'=> 'hidden',
-						// 'hidden'=> true,
+						'type'=> 'hidden',
+						'hidden'=> true,
 						'onchange' => "$('#reload').click()"
 					]);
 				?>
-				</div>
+				</div> -->
 			<?php endif;?>
 			<div class="form-group">
 				<?php if ($enableLocalLogin) : ?>

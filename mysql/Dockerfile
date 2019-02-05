@@ -6,5 +6,5 @@ ENV MYSQL_DATABASE openemis
 # Add the content of the sql-scripts/ directory to your image
 # All scripts in docker-entrypoint-initdb.d/ are automatically
 # executed during container startup
-COPY ./Dump20190129-1/ /docker-entrypoint-initdb.d/
+COPY ./Dump20190205/ /docker-entrypoint-initdb.d/
 

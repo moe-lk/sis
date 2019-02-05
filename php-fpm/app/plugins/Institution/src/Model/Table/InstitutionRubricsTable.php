@@ -35,7 +35,7 @@ class InstitutionRubricsTable extends AppTable
         $this->hasMany('InstitutionRubricAnswers', ['className' => 'Institution.InstitutionRubricAnswers', 'dependent' => true, 'cascadeCallbacks' => true]);
         $this->addBehavior('Excel', ['excludes' => ['status', 'comment'], 'pages' => ['view']]);
         if (!Configure::read('schoolMode')) {    
-            $this->addBehavior('Report.RubricsReport');
+            // $this->addBehavior('Report.RubricsReport');
         }
     }
 

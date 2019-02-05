@@ -43,6 +43,9 @@ var Reorder = {
 							cache: false,
 							url: url,
 							type: "POST",
+							beforeSend: function(xhr){
+								xhr.setRequestHeader("X-CSRF-Token", $('[name="_csrfToken"]').val());
+							},
 							data: {
 								ids: JSON.stringify(currentOrder)
 							},

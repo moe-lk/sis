@@ -74,7 +74,7 @@ class AppController extends Controller
         $theme = 'core';
         if (Configure::read('schoolMode')) {
             $theme = 'core';
-            $this->productName = 'NEMIS (SIS)';
+            $this->productName = 'NEMIS - SIS';
         }
 
         // don't load ControllerAction component if it is not a PageController
@@ -229,16 +229,16 @@ class AppController extends Controller
             $customPath = ROOT . DS . 'plugins' . DS . 'OpenEmis' . DS . 'webroot' . DS . 'css' . DS . 'themes' . DS . 'custom' . DS;
             $basePath = Router::url(['controller' => false, 'action' => 'index', 'plugin' => false]) === '/' ? '/' : Router::url(['controller' => false, 'action' => 'index', 'plugin' => false]) . '/';
             $loginBackground = $basePath . Configure::read('App.imageBaseUrl') . $themes['login_page_image'];
-            $file = new File($customPath . 'layout.core.template.css');
-            $template = $file->read();
-            $file->close();
-            $template = str_replace('${bgImg}', "'$loginBackground'", $template);
-            $template = str_replace('${secondColor}', $secondaryColour, $template);
-            $template = str_replace('${prodColor}', "#$colour", $template);
-            $customPath = WWW_ROOT . 'css' . DS . 'themes' . DS;
-            $file = new File($customPath . 'layout.min.css', true);
-            $file->write($template);
-            $file->close();
+            // $file = new File($customPath . 'layout.core.template.css');
+            // $template = $file->read();
+            // $file->close();
+            // $template = str_replace('${bgImg}', "'$loginBackground'", $template);
+            // $template = str_replace('${secondColor}', $secondaryColour, $template);
+            // $template = str_replace('${prodColor}', "#$colour", $template);
+            // $customPath = WWW_ROOT . 'css' . DS . 'themes' . DS;
+            // $file = new File($customPath . 'layout.min.css', true);
+            // $file->write($template);
+            // $file->close();
             $themes['timestamp'] = TableRegistry::get('Configuration.ConfigItems')->value('themes');
             Cache::write('themes', $themes);
         }

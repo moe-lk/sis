@@ -14,6 +14,7 @@ use Cake\I18n\Time;
 use Cake\Utility\Hash;
 use Cake\Utility\Inflector;
 use App\Model\Table\ControllerActionTable;
+use Cake\Log\Log;
 
 class StudentAdmissionTable extends ControllerActionTable
 {
@@ -214,8 +215,8 @@ class StudentAdmissionTable extends ControllerActionTable
                 ksort($statuses);
                 $rejectedStatusId = key($statuses);
                 $rejectedStatusEntity = $this->Statuses->get($rejectedStatusId);
-
                 if (!empty($rejectedStatusEntity)) {
+
                     $doneStatus = self::DONE;
                     $pendingAdmissions = $this->find()
                         ->innerJoinWith($this->Statuses->alias(), function ($q) use ($doneStatus) {
@@ -482,9 +483,9 @@ class StudentAdmissionTable extends ControllerActionTable
                 $WorkflowModelsTable = TableRegistry::get('Workflow.WorkflowModels');
                 $statuses = $WorkflowModelsTable->getWorkflowStatusSteps('Institution.StudentAdmission', 'APPROVED');
                 ksort($statuses);
+                Log::error($statuses);
                 $approvedStatusId = key($statuses);
-                $approvedStatusEntity = $this->Statuses->get(20);
-
+                $approvedStatusEntity = $this->Statuses->get($approvedStatusId);
                 if (!empty($approvedStatusEntity)) {
                     $prevStepEntity = $this->Statuses->get($entity->status_id);
 

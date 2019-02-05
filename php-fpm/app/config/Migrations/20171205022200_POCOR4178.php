@@ -40,7 +40,7 @@ class POCOR4178 extends AbstractMigration
         $bgFile = Configure::read('schoolMode') ? 'school-login-bg.jpg' : 'core-login-bg.jpg';
         $loginBackground = new File(WWW_ROOT . 'img' . DS. 'default_images' .DS. $bgFile);
         $favicon = new File(WWW_ROOT . 'img' . DS .'default_images' .DS. 'favicon.ico');
-        $logo = new File(WWW_ROOT . 'img' . DS .'default_images' .DS. 'oe-logo.png');
+        $logo = new File(WWW_ROOT . 'img' . DS .'default_images' .DS. 'nemis-logo.png');
         $productName = 'OpenEMIS Core';
         $color = '6699CC';
         $copyright = '2012 - {{currentYear}} OpenEMIS';

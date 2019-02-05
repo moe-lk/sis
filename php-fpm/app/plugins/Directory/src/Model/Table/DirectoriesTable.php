@@ -115,8 +115,7 @@ class DirectoriesTable extends ControllerActionTable
                 'rule' => ['validateCustomPattern', 'postal_code'],
                 'provider' => 'table',
                 'last' => true
-            ])
-            ;
+            ]);
         $BaseUsers = TableRegistry::get('User.Users');
         return $BaseUsers->setUserValidation($validator, $this);
     }
@@ -360,7 +359,7 @@ class DirectoriesTable extends ControllerActionTable
             $this->field('openemis_no', ['user_type' => $userType]);
             switch ($userType) {
                 case self::STUDENT:
-                    $this->addBehavior('User.Mandatory', ['userRole' => 'Student', 'roleFields' => ['Identities', 'Nationalities', 'Contacts', 'SpecialNeeds']]);
+                    $this->addBehavior('User.Mandatory', ['userRole' => 'Student', 'roleFields' => ['Identities', 'Nationalities', 'Contacts', 'SpecialNeeds','BirthplaceAreas']]);
                     if (!in_array('Custom Fields', (array) Configure::read('School.excludedPlugins'))) {
                         $this->addBehavior('CustomField.Record', [
                             'model' => 'Student.Students',
@@ -557,6 +556,7 @@ class DirectoriesTable extends ControllerActionTable
             $options['associated'] = [
                 'Identities' => ['validate' => false],
                 'Nationalities' => ['validate' => false],
+                'BirthplaceAreas' => ['validate' => false],
                 'SpecialNeeds' => ['validate' => false],
                 'Contacts' => ['validate' => false]
             ];

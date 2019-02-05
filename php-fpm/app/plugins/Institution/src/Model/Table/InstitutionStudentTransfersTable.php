@@ -12,6 +12,7 @@ use Cake\Utility\Inflector;
 use Cake\I18n\Date;
 use Cake\I18n\Time;
 use App\Model\Table\ControllerActionTable;
+use Cake\Log\Log;
 
 // This file serves as an abstract class for StudentTransferIn and StudentTransferOut
 class InstitutionStudentTransfersTable extends ControllerActionTable
@@ -385,9 +386,14 @@ class InstitutionStudentTransfersTable extends ControllerActionTable
             $rejectedStatuses = $WorkflowModelsTable->getWorkflowStatusSteps($registryAlias, 'REJECTED');
             ksort($rejectedStatuses);
             $rejectedStepId = key($rejectedStatuses);
-            $rejectedStepEntity = $this->Statuses->get($rejectedStepId);
+            // $pendingStepId = key($pendingStatuses);
+            Log::error('eroo====================='.json_encode ($rejectedStatuses));
+            // // Log::error('eroo====================='.json_encode ($pendingStepId));
+            // // Log::error($rejectedStepId);
 
-            if (!empty($rejectedStepEntity)) {
+            if (!empty($$rejectedStatuses) ) {
+                $rejectedStepEntity = $this->Statuses->get($rejectedStatuses);
+
                 $doneStatus = self::DONE;
                 $pendingTransfers = $this->find()
                     ->innerJoinWith($this->Statuses->alias(), function ($q) use ($doneStatus) {

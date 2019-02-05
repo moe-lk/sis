@@ -11,6 +11,7 @@ use Cake\I18n\Time;
 use Cake\Utility\Text;
 use App\Model\Table\AppTable;
 use Cake\Datasource\ResultSetInterface;
+use Cake\Log\Log;
 
 class InstitutionClassStudentsTable extends AppTable
 {
@@ -71,6 +72,8 @@ class InstitutionClassStudentsTable extends AppTable
     public function studentsAfterSave(Event $event, $student)
     {
         if ($student->isNew()) {
+            Log::error('err===================');
+            Log::error(json_encode( $this->StudentStatuses->get($student->student_status_id)));
             if ($this->StudentStatuses->get($student->student_status_id)->code == 'CURRENT') {
                 // to automatically add the student into a specific class when the student is successfully added to a school
                 if ($student->has('class') && $student->class > 0) {

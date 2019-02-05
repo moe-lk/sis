@@ -51,6 +51,9 @@ BGIMG='${bgImg}';
 THEMEPATH="css/themes";
 CUSTOMPATH="$THEMEPATH/custom";
 
+PRODUCTPATH="$THEMEPATH/$PRODUCT";
+TEMPLATEPATH="./$CUSTOMPATH/layout.$PRODUCT.template.css";
+
 # Replace functions
 ReplaceSixCharacterColor()
 {
@@ -169,8 +172,7 @@ if [ $# -gt 0 ]; then
     done
 fi
 
-PRODUCTPATH="$THEMEPATH/$PRODUCT";
-TEMPLATEPATH="./$CUSTOMPATH/layout.$PRODUCT.template.css";
+
 
 CheckCustomDir;
 MinifyLayout;

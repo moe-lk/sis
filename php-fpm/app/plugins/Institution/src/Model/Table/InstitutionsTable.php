@@ -1160,7 +1160,7 @@ class InstitutionsTable extends ControllerActionTable
             $this->SecurityGroups->alias(), $this->InstitutionSurveys->alias(), $this->StudentSurveys->alias(),
             $this->StaffPositionProfiles->alias(), $this->InstitutionActivities->alias(), $this->StudentPromotion->alias(),
             $this->StudentAdmission->alias(), $this->StudentWithdraw->alias(), $this->StudentTransferIn->alias(), $this->StudentTransferOut->alias(),
-            $this->CustomFieldValues->alias(), $this->CustomTableCells->alias()
+            // $this->CustomFieldValues->alias(), $this->CustomTableCells->alias()
         ];
     }
 
