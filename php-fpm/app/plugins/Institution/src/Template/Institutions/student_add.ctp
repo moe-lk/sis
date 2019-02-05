@@ -297,7 +297,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     <label><?=__('Birth Registrar Division')?></label>
                     <div class="input-select-wrapper">
                         <select name="Students[area_administrative_id]" class="areapicker" id="area_administrative_id"
-                            ng-options="option.code as option.name for option in InstitutionStudentController.divisionOption"
+                            ng-options="option.id as option.name for option in InstitutionStudentController.divisionOption"
                             ng-model="InstitutionStudentController.selectedStudentData.area_administrative_id"
                             ng-change="InstitutionStudentController.changeDivision()"
                             ng-init="InstitutionStudentController.selectedStudentData.area_administrative_id='';"
