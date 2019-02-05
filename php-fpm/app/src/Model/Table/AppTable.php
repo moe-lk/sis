@@ -284,7 +284,7 @@ class AppTable extends Table
     public function onGetFieldLabel(Event $event, $module, $field, $language, $autoHumanize = true)
     {
         if ($field == 'openemis_no') {
-            return 'OpenEMIS ID';
+            return 'User ID';
         }
         return $this->getFieldLabel($module, $field, $language, $autoHumanize);
     }

@@ -787,7 +787,7 @@ msgstr "Ciclo de educación"
 msgid "Nursery"
 msgstr "Guardería"
 
-msgid "Auto Generated OpenEMIS ID"
+msgid "Auto Generated User ID"
 msgstr "ID OpenEMIS auto generado."
 
 msgid "Custom Validation"
@@ -1003,8 +1003,8 @@ msgstr "Fila %s: %s"
 msgid "Training Result"
 msgstr "Resultado de la Capacitación"
 
-msgid "OpenEMIS ID"
-msgstr "OpenEmis ID"
+msgid "User ID"
+msgstr "User ID"
 
 msgid "(1=Pass/0=Fail)"
 msgstr "(1=Aprobado / 0=Fracaso)"
@@ -1024,11 +1024,11 @@ msgstr "Especialización"
 msgid "Years"
 msgstr "Años"
 
-msgid "Staff with OpenEmis ID %s does not exist."
-msgstr "Personal con OpenEMIS ID %s no existe"
+msgid "Staff with User ID %s does not exist."
+msgstr "Personal con User ID %s no existe"
 
-msgid "Staff with OpenEmis ID %s does not meet the Course requirement."
-msgstr "El Personal con OpenEMIS ID %s no cumple con el requisito del curso."
+msgid "Staff with User ID %s does not meet the Course requirement."
+msgstr "El Personal con User ID %s no cumple con el requisito del curso."
 
 msgid "translations"
 msgstr "Traducciones"
@@ -1327,8 +1327,8 @@ msgstr "Nombre de la clase"
 msgid "Subject Name"
 msgstr "Nombre de la Materia"
 
-msgid "OpenEMIS ID or Name"
-msgstr "OpenEMIS ID o Nombre"
+msgid "User ID or Name"
+msgstr "User ID o Nombre"
 
 msgid "Photo Content"
 msgstr "Contenido de la foto"

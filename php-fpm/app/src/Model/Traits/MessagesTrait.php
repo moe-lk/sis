@@ -591,7 +591,7 @@ trait MessagesTrait
             'error_message' => 'Error Message',
             'invalid_code' => 'Invalid Code',
             'duplicate_code' => 'Duplicate Code Identified',
-            'duplicate_openemis_no' => 'Duplicate OpenEMIS ID Identified',
+            'duplicate_openemis_no' => 'Duplicate User ID Identified',
             'duplicate_unique_key' => 'Duplicate Unique Key on the same sheet',
             'validation_failed' => 'Failed Validation',
             'file_required' => 'File is required',
@@ -1265,8 +1265,8 @@ trait MessagesTrait
                     'ruleCheckIfStringGotNoNumber' => 'Please enter a valid Preferred Name'
                 ],
                 'openemis_no' => [
-                    'ruleNotBlank' => 'Please enter a valid OpenEMIS ID',
-                    'ruleUnique' => 'Please enter a unique OpenEMIS ID'
+                    'ruleNotBlank' => 'Please enter a valid User ID',
+                    'ruleUnique' => 'Please enter a unique User ID'
                 ],
                 'gender_id' => [
                     'ruleNotBlank' => 'Please select a Gender'
@@ -1490,8 +1490,8 @@ trait MessagesTrait
                     'ruleCheckIfStringGotNoNumber' => 'Please enter a valid Preferred Name'
                 ],
                 'openemis_no' => [
-                    'ruleNotBlank' => 'Please enter a valid OpenEMIS ID',
-                    'ruleUnique' => 'Please enter a unique OpenEMIS ID'
+                    'ruleNotBlank' => 'Please enter a valid User ID',
+                    'ruleUnique' => 'Please enter a unique User ID'
                 ],
                 'date_of_birth' => [
                     'ruleNotBlank' => 'Please select a Date of Birth',
@@ -1551,8 +1551,8 @@ trait MessagesTrait
                     'ruleCheckIfStringGotNoNumber' => 'Please enter a valid Preferred Name'
                 ],
                 'openemis_no' => [
-                    'ruleNotBlank' => 'Please enter a valid OpenEMIS ID',
-                    'ruleUnique' => 'Please enter a unique OpenEMIS ID'
+                    'ruleNotBlank' => 'Please enter a valid User ID',
+                    'ruleUnique' => 'Please enter a unique User ID'
                 ],
                 'date_of_birth' => [
                     'ruleNotBlank' => 'Please select a Date of Birth',

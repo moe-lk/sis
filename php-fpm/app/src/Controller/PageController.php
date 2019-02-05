@@ -16,7 +16,7 @@ class PageController extends BaseController
         parent::initialize();
 
         $labels = [
-            'openemis_no' => 'OpenEMIS ID',
+            'openemis_no' => 'User ID',
             'modified' => 'Modified On',
             'modified_user_id' => 'Modified By',
             'created' => 'Created On',

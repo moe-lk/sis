@@ -262,7 +262,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     </div>
                 </div>
                 <div class="input select required error">
-                    <label><?=__('Birth Province')?></label>
+                    <label><?=__('Birth District')?></label>
                     <div class="input-select-wrapper">
                         <select name="Students[area_administrative_province]" class="areapicker" id="area_administrative_province"
                             ng-options="option.id as option.name for option in InstitutionStudentController.provinceOption"
@@ -278,7 +278,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     </div>
                 </div>
                 <div class="input select required error">
-                    <label><?=__('Birth District')?></label>
+                    <label><?=__('Birth Divisional Secretariat')?></label>
                     <div class="input-select-wrapper">
                         <select name="Students[area_administrative_district]" class="areapicker" id="area_administrative_district"
                             ng-options="option.id as option.name for option in InstitutionStudentController.districtOption"
@@ -294,10 +294,10 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     </div>
                 </div>
                 <div class="input select required error">
-                    <label><?=__('Birth Divisional Secretariat')?></label>
+                    <label><?=__('Birth Registrar Division')?></label>
                     <div class="input-select-wrapper">
                         <select name="Students[area_administrative_id]" class="areapicker" id="area_administrative_id"
-                            ng-options="option.id as option.name for option in InstitutionStudentController.divisionOption"
+                            ng-options="option.code as option.name for option in InstitutionStudentController.divisionOption"
                             ng-model="InstitutionStudentController.selectedStudentData.area_administrative_id"
                             ng-change="InstitutionStudentController.changeDivision()"
                             ng-init="InstitutionStudentController.selectedStudentData.area_administrative_id='';"
