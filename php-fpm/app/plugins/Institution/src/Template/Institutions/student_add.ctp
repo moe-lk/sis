@@ -274,7 +274,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                         </select>
                     </div>
                     <div ng-if="InstitutionStudentController.postResponse.error.area_administrative_id" class="error-message">
-                        <p ng-repeat="error in InstitutionStudentController.postResponse.error.area_administrative_id">{{ error }}</p>
+                        <p ng-repeat="error in InstitutionStudentController.postResponse.error.area_administrative_province">{{ error }}</p>
                     </div>
                 </div>
                 <div class="input select required error">
@@ -290,7 +290,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                         </select>
                     </div>
                     <div ng-if="InstitutionStudentController.postResponse.error.area_administrative_id" class="error-message">
-                        <p ng-repeat="error in InstitutionStudentController.postResponse.error.area_administrative_id">{{ error }}</p>
+                        <p ng-repeat="error in InstitutionStudentController.postResponse.error.area_administrative_district">{{ error }}</p>
                     </div>
                 </div>
                 <div class="input select required error">

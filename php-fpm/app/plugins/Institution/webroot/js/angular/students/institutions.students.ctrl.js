@@ -154,7 +154,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
                 if (StudentController.StudentContacts != 2) {
                     promises[2] = InstitutionsStudentsSvc.getUserContactTypes();
                 }
-                
+
                 if (StudentController.StudentNationalities != 2) {
                     if (StudentController.StudentNationalities == 1) {
                         StudentController.Student.nationality_class = StudentController.Student.nationality_class + ' required';
@@ -189,8 +189,8 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
                 //     console.log(error);
                 // });
                 // var userId = JSON.parse(StudentController.Student.userId);
-               
-                
+
+
                 promises[0] = InstitutionsStudentsSvc.getGenders();
                 var translateFields = {
                     'openemis_no': 'User ID',
@@ -217,7 +217,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
                 StudentController.genderOptions = promisesObj[0];
                 StudentController.translatedTexts = promisesObj[1];
                 // User BC division
-                if (promisesObj[6] != undefined  && promisesObj[6].hasOwnProperty(0)) {
+                if (promisesObj[6] != undefined && promisesObj[6].hasOwnProperty(0)) {
                     StudentController.provinceOption = promisesObj[6][1]['children'];
                 }
                 // User Contacts
@@ -254,7 +254,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
                 }
             });
 
-           
+
 
     });
 
@@ -813,7 +813,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         return studentObj;
     }
 
-    function changeProvince(){
+    function changeProvince() {
         var studentData = StudentController.selectedStudentData;
         if (studentData.hasOwnProperty('area_administrative_province')) {
             var provinceOption = StudentController.provinceOption;
@@ -847,7 +847,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
             var districtOption = StudentController.districtOption;
             for (var i = 0; i < districtOption.length; i++) {
                 if (districtOption[i].id == studentData.area_administrative_district) {
-                    StudentController.divisionOption =  districtOption[i].children;
+                    StudentController.divisionOption = districtOption[i].children;
                 }
             }
         }
@@ -1044,40 +1044,35 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
             });
     }
 
-    function formatMonthYear(d)
-    {
-        console.log(d);
-        debugger;
-    //get the month
-    var month = d.getMonth();
-    //get the day
-    //convert day to string
-    var day = d.getDate().toString();
-    //get the year
-    var year = d.getFullYear();
-    
-    //pull the last two digits of the year
-    year = year.toString().substr(-2);
-    
-    //increment month by 1 since it is 0 indexed
-    //converts month to a string
-    month = (month + 1).toString();
+    function formatMonthYear(d) {
+        //get the month
+        var month = d.getMonth();
+        //get the day
+        //convert day to string
+        var day = d.getDate().toString();
+        //get the year
+        var year = d.getFullYear();
 
-    //if month is 1-9 pad right with a 0 for two digits
-    if (month.length === 1)
-    {
-        month = "0" + month;
+        //pull the last two digits of the year
+        year = year.toString().substr(-2);
+
+        //increment month by 1 since it is 0 indexed
+        //converts month to a string
+        month = (month + 1).toString();
+
+        //if month is 1-9 pad right with a 0 for two digits
+        if (month.length === 1) {
+            month = "0" + month;
+        }
+
+        //if day is between 1-9 pad right with a 0 for two digits
+        if (day.length === 1) {
+            day = "0" + day;
+        }
+
+        //return the string "MMddyy"
+        return year + month;
     }
-
-    //if day is between 1-9 pad right with a 0 for two digits
-    if (day.length === 1)
-    {
-        day = "0" + day;
-    }
-
-    //return the string "MMddyy"
-    return year + month;
-}
 
     function addStudentUser(studentData, academicPeriodId, educationGradeId, classId, startDate, endDate) {
         var newStudentData = studentData;
@@ -1085,7 +1080,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         newStudentData['education_grade_id'] = educationGradeId;
         newStudentData['start_date'] = startDate;
         newStudentData['institution_id'] = StudentController.institutionId;
-        newStudentData['identity_number'] =  studentData['area_administrative_id'] +''+ studentData.identity_number +''+ formatMonthYear(new Date(studentData.date_of_birth));
+        newStudentData['identity_number'] = studentData['area_administrative_id'] + '' + studentData.identity_number + '' + formatMonthYear(new Date(studentData.date_of_birth));
         if (!StudentController.externalSearch) {
             newStudentData['nationality_id'] = StudentController.Student.nationality_id;
             newStudentData['identity_type_id'] = StudentController.Student.identity_type_id;
@@ -1101,7 +1096,6 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
                     AlertSvc.error($scope, 'The record is not added due to errors encountered.');
                 }
             }, function (error) {
-                console.log(error);
                 AlertSvc.warning($scope, error);
             });
     }
@@ -1136,6 +1130,18 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
 
         if (StudentController.selectedStudentData.last_name == '') {
             StudentController.postResponse.error.last_name = empty;
+            remain = true;
+        }
+        if (StudentController.selectedStudentData.area_administrative_province == "" || StudentController.selectedStudentData.area_administrative_province == null) {
+            StudentController.postResponse.error.area_administrative_province = empty;
+            remain = true;
+        }
+        if (StudentController.selectedStudentData.area_administrative_id == "" || StudentController.selectedStudentData.area_administrative_id == null) {
+            StudentController.postResponse.error.area_administrative_id = empty;
+            remain = true;
+        }
+        if (StudentController.selectedStudentData.area_administrative_district == "" || StudentController.selectedStudentData.area_administrative_district == null) {
+            StudentController.postResponse.error.area_administrative_district = empty;
             remain = true;
         }
         if (StudentController.selectedStudentData.gender_id == '' || StudentController.selectedStudentData.gender_id == null) {
