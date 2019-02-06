@@ -104,7 +104,15 @@ class StudentAdmissionTable extends ControllerActionTable
                 'on' => 'create'
             ])
 
-            ->add('date_of_birth', 'ruleNotBlank', [
+            ->add('area_administrative_province', 'ruleNotBlank', [
+                'rule' => ['notBlank'],
+                'on' => 'create'
+            ])
+            ->add('area_administrative_district', 'ruleNotBlank', [
+                'rule' => ['notBlank'],
+                'on' => 'create'
+            ])
+            ->add('area_administrative_id', 'ruleNotBlank', [
                 'rule' => ['notBlank'],
                 'on' => 'create'
             ])

@@ -25,6 +25,7 @@ use Cake\Utility\Inflector;
 use Cake\Cache\Cache;
 use Cake\Filesystem\File;
 use Cake\Filesystem\Folder;
+use Cake\Log\Log;
 
 /**
  * Application Controller
@@ -71,11 +72,11 @@ class AppController extends Controller
         }
 
         parent::initialize();
-        $theme = 'core';
-        if (Configure::read('schoolMode')) {
-            $theme = 'core';
-            $this->productName = 'NEMIS - SIS';
-        }
+        $theme = $this->getTheme();
+        // if (Configure::read('schoolMode')) {
+        //     $theme = 'core';
+        //     $this->productName = 'NEMIS - SIS';
+        // }
 
         // don't load ControllerAction component if it is not a PageController
         if ($this instanceof \Page\Controller\PageController == false) {
@@ -115,6 +116,7 @@ class AppController extends Controller
         // Custom Components
         $this->loadComponent('Navigation');
         $this->productName = $this->getTheme()['application_name'];
+        Log::error($this->getTheme());
         $this->loadComponent('Localization.Localization', [
             'productName' => $this->productName
         ]);
@@ -129,7 +131,7 @@ class AppController extends Controller
                 ]
             ],
             'productName' => $this->productName,
-            'productLogo' => $this->getTheme()['logo'],
+            'productLogo' =>  '/img/default_images/oe-logo_2.png',//$this->getTheme()['logo'],
             'footerText' => $this->getTheme()['copyright_notice_in_footer'],
             'theme' => $theme,
             'lastModified' => $this->getTheme()['timestamp']
@@ -199,8 +201,10 @@ class AppController extends Controller
     public function getTheme()
     {
         Cache::clear();
-        $themes = Cache::read('themes');
-        if (!$themes) {
+        $themes = null;
+        Log::error( $themes);
+        Log::error('themes');
+        if (!$themes || $theme == null) {
             $folder = new Folder();
             $folder->delete(WWW_ROOT . 'img' . DS . 'themes');
             $themes = TableRegistry::get('Themes')->find()
@@ -227,18 +231,20 @@ class AppController extends Controller
             $colour = $themes['colour'];
             $secondaryColour = $this->darkenColour($colour);
             $customPath = ROOT . DS . 'plugins' . DS . 'OpenEmis' . DS . 'webroot' . DS . 'css' . DS . 'themes' . DS . 'custom' . DS;
+            Log::error($customPath);
             $basePath = Router::url(['controller' => false, 'action' => 'index', 'plugin' => false]) === '/' ? '/' : Router::url(['controller' => false, 'action' => 'index', 'plugin' => false]) . '/';
             $loginBackground = $basePath . Configure::read('App.imageBaseUrl') . $themes['login_page_image'];
-            // $file = new File($customPath . 'layout.core.template.css');
-            // $template = $file->read();
-            // $file->close();
-            // $template = str_replace('${bgImg}', "'$loginBackground'", $template);
-            // $template = str_replace('${secondColor}', $secondaryColour, $template);
-            // $template = str_replace('${prodColor}', "#$colour", $template);
-            // $customPath = WWW_ROOT . 'css' . DS . 'themes' . DS;
-            // $file = new File($customPath . 'layout.min.css', true);
-            // $file->write($template);
-            // $file->close();
+            $file = new File($customPath . 'layout.core.template.css');
+            $template = $file->read();
+            $file->close();
+            $template = str_replace('${bgImg}', "'$loginBackground'", $template);
+            $template = str_replace('${secondColor}', $secondaryColour, $template);
+            $template = str_replace('${prodColor}', "#f6b03e", $template);
+            $customPath = WWW_ROOT . 'css' . DS . 'themes' . DS;
+            Log::error($customPath);
+            $file = new File($customPath . 'layout.min.css', true);
+            $file->write($template);
+            $file->close();
             $themes['timestamp'] = TableRegistry::get('Configuration.ConfigItems')->value('themes');
             Cache::write('themes', $themes);
         }

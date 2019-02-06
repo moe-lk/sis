@@ -8,6 +8,8 @@
     z-index: 1;
 }
 
+/* .body-wrapper{background-image:url(../../../img/dashboard-login-bg.jpg)!important} */
+
 .navbar {
     display: flex;
     justify-content: center;

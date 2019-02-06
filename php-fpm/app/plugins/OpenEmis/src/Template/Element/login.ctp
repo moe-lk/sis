@@ -10,7 +10,7 @@ $icon = strpos($_productName, 'School') != -1 ? '_school' : '';
 	<title><?= $description ?></title>
 	<?php
 		echo $this->Html->meta(['name' => 'viewport', 'content' => 'width=320, initial-scale=1']);
-		echo $this->Html->meta('favicon', 'favicon'.$icon.'.ico', ['type' => 'icon']);
+		echo $this->Html->meta('favicon', 'favicon.ico', ['type' => 'icon']);
 		echo $this->fetch('meta');
 
 		echo $this->Html->css('OpenEmis.../plugins/bootstrap/css/bootstrap.min', ['media' => 'screen']);
@@ -44,13 +44,12 @@ $icon = strpos($_productName, 'School') != -1 ? '_school' : '';
 <?php echo $this->element('OpenEmis.analytics') ?>
 
 <body onload="$('input[type=text]:first').focus()" class="login">
-	<div class="body-wrapper">
-
+	<div class="body">
 		<div class="login-box">
 			<div class="title">
 				<span class="title-wrapper">
 					<?php if (!$productLogo) : ?>
-					<i class="kd-openemis"></i>
+					<!-- <i class="kd-openemis"></i> -->
 					<?php else: ?>
 					<?= $this->Html->image($productLogo, [
 						'style' => 'max-height: 45px; vertical-align: top'
