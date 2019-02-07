@@ -1,65 +1,73 @@
 {
-    "id": "/hrm-moe/sis",
-    "acceptedResourceRoles": [
-      "slave_public"
-    ],
-    "backoffFactor": 1.15,
-    "backoffSeconds": 1,
-    "container": {  
-      "type": "DOCKER",
-      "volumes": [],
-      "docker": {
-        "image": "moelk/openemis-nginx:latest",
-        "portMappings": [
-          { "hostPort": 0, "containerPort": 80}
-        ],
-        "forcePullImage": true,
-        "privileged": false,
-        "parameters": []
-      }
-    },
-    "labels":{
-      "HAPROXY_0_VHOST":"sis.moe.gov.lk",
-      "HAPROXY_GROUP":"external"
-    },
-    "cpus": 1,
-    "disk": 0,
-    "env": {
-      "DB_HOST": "hrm-moesis-db.marathon.l4lb.thisdcos.directory:3306",
-      "DB_USER": "openuser",
-      "DB_PASSWORD": "openpass",
-      "DB_NAME": "openemis"
-    },
-    "instances": 1,
-    "maxLaunchDelaySeconds": 3600,
-    "mem": 1024,
-    "gpus": 0,
-    "networks": [
+  "id": "/hrm-moe/letsencrypt-dcos",
+  "backoffFactor": 1.15,
+  "backoffSeconds": 5,
+  "container": {
+    "portMappings": [
       {
-        "mode": "container/bridge"
+        "containerPort": 80,
+        "hostPort": 0,
+        "protocol": "tcp",
+        "servicePort": 10000
       }
     ],
-    "requirePorts": false,
-    "upgradeStrategy": {
-      "maximumOverCapacity": 1,
-      "minimumHealthCapacity": 1
-    },
-    "killSelection": "YOUNGEST_FIRST",
-    "unreachableStrategy": {
-      "inactiveAfterSeconds": 0,
-      "expungeAfterSeconds": 0
-    },
-    "healthChecks": [
-        {
-          "gracePeriodSeconds": 300,
-          "intervalSeconds": 60,
-          "maxConsecutiveFailures": 3,
-          "portIndex": 0,
-          "timeoutSeconds": 20,
-          "delaySeconds": 15,
-          "protocol": "TCP"
-        }
-      ],
-    "fetch": [],
-    "constraints": []
-  }
+    "type": "DOCKER",
+    "volumes": [
+      {
+        "containerPath": "/etc/letsencrypt",
+        "hostPath": "data",
+        "mode": "RW"
+      },
+      {
+        "persistent": {
+          "type": "root",
+          "size": 500,
+          "constraints": []
+        },
+        "mode": "RW",
+        "containerPath": "data"
+      }
+    ],
+    "docker": {
+      "image": "mesosphere/letsencrypt-dcos:v1.0.3",
+      "forcePullImage": false,
+      "privileged": false,
+      "parameters": []
+    }
+  },
+  "cpus": 0.05,
+  "disk": 0,
+  "env": {
+    "LETSENCRYPT_EMAIL": "sis.moe@gmail.com",
+    "MARATHON_LB_ID": "marathon-l4lb",
+    "MARATHON_URL": "http://hrm-moesis-nginx.marathon.l4lb.thisdcos.directory:80"
+  },
+  "instances": 1,
+  "labels": {
+    "HAPROXY_GROUP": "external",
+    "HAPROXY_0_VHOST": "sis.moe.gov.lk",
+    "HAPROXY_0_PATH": "/.well-known/acme-challenge"
+  },
+  "maxLaunchDelaySeconds": 3600,
+  "mem": 512,
+  "gpus": 0,
+  "networks": [
+    {
+      "mode": "container/bridge"
+    }
+  ],
+  "residency": {
+    "relaunchEscalationTimeoutSeconds": 3600,
+    "taskLostBehavior": "WAIT_FOREVER"
+  },
+  "requirePorts": false,
+  "upgradeStrategy": {
+    "maximumOverCapacity": 0,
+    "minimumHealthCapacity": 0.5
+  },
+  "killSelection": "YOUNGEST_FIRST",
+  "unreachableStrategy": "disabled",
+  "healthChecks": [],
+  "fetch": [],
+  "constraints": []
+}

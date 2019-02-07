@@ -21,7 +21,7 @@ RUN rm -rf /var/www/myapp && mv /src /var/www/myapp &&\
     find /var/www/myapp/ -type d -exec chmod 777 {} \; &&\
     find /var/www/myapp/ -type f -exec chmod 644 {} \; &&\
     find /var/www/myapp/tmp -type d -exec chmod 777 {} \; &&\
-    find /var/www/myapp/logs -type d -exec chmod 777 {} \;
+    find /var/www/myapp/logs -type d -exec chmod 777 {} \; 
 
 
 WORKDIR "/var/www/myapp"

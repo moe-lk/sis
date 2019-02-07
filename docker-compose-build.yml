@@ -14,7 +14,7 @@ services:
     ports:
       - "8125:8025"
   openemis-mysql:
-    image: moelk/openemis-mysql:dev
+    build: ./mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: openemis

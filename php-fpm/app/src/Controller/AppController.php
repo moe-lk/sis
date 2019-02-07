@@ -131,7 +131,7 @@ class AppController extends Controller
                 ]
             ],
             'productName' => $this->productName,
-            'productLogo' =>  '/img/default_images/oe-logo_2.png',//$this->getTheme()['logo'],
+            // 'productLogo' =>  '/img/default_images/ne-logo.png',//$this->getTheme()['logo'],
             'footerText' => $this->getTheme()['copyright_notice_in_footer'],
             'theme' => $theme,
             'lastModified' => $this->getTheme()['timestamp']
