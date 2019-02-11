@@ -38,14 +38,14 @@
   "cpus": 0.05,
   "disk": 0,
   "env": {
-    "LETSENCRYPT_EMAIL": "sis.moe@gmail.com",
-    "MARATHON_LB_ID": "marathon-l4lb",
-    "MARATHON_URL": "http://hrm-moesis-nginx.marathon.l4lb.thisdcos.directory:80"
+    "LETSENCRYPT_EMAIL": "nsis.moe@gmail.com",
+    "MARATHON_LB_ID": "marathon-lb",
+    "MARATHON_URL": "http://mesop.lgc.gov.lk:8080"
   },
   "instances": 1,
   "labels": {
     "HAPROXY_GROUP": "external",
-    "HAPROXY_0_VHOST": "sis.moe.gov.lk",
+    "HAPROXY_0_VHOST": "demo.sis.moe.gov.lk,sis.moe.gov.lk",
     "HAPROXY_0_PATH": "/.well-known/acme-challenge"
   },
   "maxLaunchDelaySeconds": 3600,
@@ -67,7 +67,17 @@
   },
   "killSelection": "YOUNGEST_FIRST",
   "unreachableStrategy": "disabled",
-  "healthChecks": [],
+  "healthChecks": [
+    {
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "maxConsecutiveFailures": 3,
+      "portIndex": 0,
+      "timeoutSeconds": 20,
+      "delaySeconds": 15,
+      "protocol": "TCP"
+    }
+  ],
   "fetch": [],
   "constraints": []
 }
