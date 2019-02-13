@@ -536,7 +536,7 @@ class ImportBehavior extends Behavior
         $modelName = $this->config('model');
         $modelName = str_replace(' ', '_', Inflector::humanize(Inflector::tableize($modelName)));
         // Do not lcalize file name as certain non-latin characters might cause issue
-        $excelFile = sprintf('OpenEMIS_Core_Import_%s_Template.xlsx', $modelName);
+        $excelFile = sprintf('NEMIS_SIS_Import_%s_Template.xlsx', $modelName);
         $excelPath = $folder . DS . $excelFile;
 
         $mapping = $this->getMapping();
@@ -763,7 +763,7 @@ class ImportBehavior extends Behavior
             if (strlen($modelArr['sheetName'])<50) {
                 $objPHPExcel->getActiveSheet()->getColumnDimension($this->getExcelColumnAlpha($firstColumn))->setAutoSize(true);
             } else {
-                // $objPHPExcel->getActiveSheet()->getColumnDimension( $this->getExcelColumnAlpha($firstColumn) )->setWidth(35);
+                $objPHPExcel->getActiveSheet()->getColumnDimension( $this->getExcelColumnAlpha($firstColumn) )->setWidth(35);
                 $currentRowHeight = $this->suggestRowHeight(strlen($modelArr['sheetName']), $currentRowHeight);
                 $objPHPExcel->getActiveSheet()->getRowDimension(2)->setRowHeight($currentRowHeight);
                 $objPHPExcel->getActiveSheet()->getStyle($this->getExcelColumnAlpha($firstColumn) . "2")->getAlignment()->setWrapText(true);

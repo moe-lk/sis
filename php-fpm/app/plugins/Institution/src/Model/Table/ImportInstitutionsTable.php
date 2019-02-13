@@ -31,7 +31,7 @@ class ImportInstitutionsTable extends AppTable
             'Model.import.onImportPopulateAreasData' => 'onImportPopulateAreasData',
             'Model.import.onImportPopulateAreaAdministrativesData' => 'onImportPopulateAreaAdministrativesData',
             'Model.import.onImportModelSpecificValidation' => 'onImportModelSpecificValidation',
-            'Model.custom.onUpdateToolbarButtons' => 'onUpdateToolbarButtons'
+            // 'Model.custom.onUpdateToolbarButtons' => 'onUpdateToolbarButtons'
         ];
         $events = array_merge($events, $newEvent);
         return $events;

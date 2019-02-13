@@ -242,9 +242,9 @@ class AppController extends Controller
             $template = str_replace('${prodColor}', "#f6b03e", $template);
             $customPath = WWW_ROOT . 'css' . DS . 'themes' . DS;
             Log::error($customPath);
-            $file = new File($customPath . 'layout.min.css', true);
-            $file->write($template);
-            $file->close();
+            // $file = new File($customPath . 'layout.min.css', true);
+            // $file->write($template);
+            // $file->close();
             $themes['timestamp'] = TableRegistry::get('Configuration.ConfigItems')->value('themes');
             Cache::write('themes', $themes);
         }

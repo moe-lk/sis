@@ -2274,3 +2274,60 @@ Stack Trace:
 #2 {main}
 
 
+2019-02-13 08:48:32 Warning: Warning (2): file_put_contents(/var/www/myapp/logs/cli-debug.log): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Log/Engine/FileLog.php, line 133]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+file_put_contents - [internal], line ??
+Cake\Log\Engine\FileLog::log() - CORE/src/Log/Engine/FileLog.php, line 133
+Cake\Log\Log::write() - CORE/src/Log/Log.php, line 393
+Cake\Database\Log\QueryLogger::_log() - CORE/src/Database/Log/QueryLogger.php, line 51
+Cake\Database\Log\QueryLogger::log() - CORE/src/Database/Log/QueryLogger.php, line 39
+Cake\Database\Log\LoggingStatement::_log() - CORE/src/Database/Log/LoggingStatement.php, line 84
+Cake\Database\Log\LoggingStatement::execute() - CORE/src/Database/Log/LoggingStatement.php, line 65
+Cake\Database\Connection::run() - CORE/src/Database/Connection.php, line 276
+Cake\Database\Query::execute() - CORE/src/Database/Query.php, line 190
+Cake\ORM\Query::_execute() - CORE/src/ORM/Query.php, line 957
+Cake\ORM\Query::_all() - CORE/src/Datasource/QueryTrait.php, line 276
+Cake\ORM\Query::all() - CORE/src/ORM/Query.php, line 905
+Cake\ORM\Query::toArray() - CORE/src/Datasource/QueryTrait.php, line 293
+Staff\Model\Table\StaffStatusesTable::findCodeList() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 15
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-13 08:48:32 Warning: Warning (2): file_put_contents(/var/www/myapp/logs/cli-debug.log): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Log/Engine/FileLog.php, line 133]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+file_put_contents - [internal], line ??
+Cake\Log\Engine\FileLog::log() - CORE/src/Log/Engine/FileLog.php, line 133
+Cake\Log\Log::write() - CORE/src/Log/Log.php, line 393
+Cake\Database\Log\QueryLogger::_log() - CORE/src/Database/Log/QueryLogger.php, line 51
+Cake\Database\Log\QueryLogger::log() - CORE/src/Database/Log/QueryLogger.php, line 39
+Cake\Database\Log\LoggingStatement::_log() - CORE/src/Database/Log/LoggingStatement.php, line 84
+Cake\Database\Log\LoggingStatement::execute() - CORE/src/Database/Log/LoggingStatement.php, line 65
+Cake\Database\Connection::run() - CORE/src/Database/Connection.php, line 276
+Cake\Database\Query::execute() - CORE/src/Database/Query.php, line 190
+Cake\ORM\Query::_execute() - CORE/src/ORM/Query.php, line 957
+Cake\ORM\Query::_all() - CORE/src/Datasource/QueryTrait.php, line 276
+Cake\ORM\Query::all() - CORE/src/ORM/Query.php, line 905
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1694
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
