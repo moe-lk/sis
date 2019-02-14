@@ -2413,3 +2413,12 @@ PHP : 7.1.26-1+ubuntu16.04.1+deb.sury.org+1
 ---------------------------------------------------------------
 Initialize Inactive Role Removal Shell ...
 End Processing Inactive Role Removal
+
+Welcome to CakePHP v3.3.16 Console
+---------------------------------------------------------------
+App : src
+Path: /var/www/myapp/src/
+PHP : 7.1.26-1+ubuntu16.04.1+deb.sury.org+1
+---------------------------------------------------------------
+Initialize Inactive Role Removal Shell ...
+End Processing Inactive Role Removal

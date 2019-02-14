@@ -38061,3 +38061,2256 @@ Stack Trace:
 #15 {main}
 
 
+2019-02-14 10:48:05 Error: 
+2019-02-14 10:48:05 Error: themes
+2019-02-14 10:48:05 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:05 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:05 Error: 
+2019-02-14 10:48:05 Error: themes
+2019-02-14 10:48:05 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:05 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:05 Error: 
+2019-02-14 10:48:05 Error: themes
+2019-02-14 10:48:05 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:05 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:05 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:05 Error: 
+2019-02-14 10:48:05 Error: themes
+2019-02-14 10:48:05 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:05 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:05 Error: 
+2019-02-14 10:48:05 Error: themes
+2019-02-14 10:48:05 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:05 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:05 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 10:48:05 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css
+Referer URL: http://localhost:8180/
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:05 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css
+Referer URL: http://localhost:8180/
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:06 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css
+Referer URL: http://localhost:8180/
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:06 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css
+Referer URL: http://localhost:8180/
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 10:48:06 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css
+Referer URL: http://localhost:8180/
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:06 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css
+Referer URL: http://localhost:8180/
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:06 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css
+Referer URL: http://localhost:8180/
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:06 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css
+Referer URL: http://localhost:8180/
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: Cake\Routing\Exception\MissingControllerException: Controller class img could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 10:48:06 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /img/default_images/core-login-bg.jpg
+Referer URL: http://localhost:8180/css/themes/layout.min.css?timestamp=
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:06 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /img/default_images/core-login-bg.jpg
+Referer URL: http://localhost:8180/css/themes/layout.min.css?timestamp=
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:06 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /img/default_images/core-login-bg.jpg
+Referer URL: http://localhost:8180/css/themes/layout.min.css?timestamp=
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:06 Error: [Cake\Routing\Exception\MissingControllerException] Controller class img could not be found.
+Request URL: /img/default_images/core-login-bg.jpg
+Referer URL: http://localhost:8180/css/themes/layout.min.css?timestamp=
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:06 Error: 
+2019-02-14 10:48:06 Error: themes
+2019-02-14 10:48:06 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:06 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 10:48:11 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Dashboard
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:11 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Dashboard
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:11 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Dashboard
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:11 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Dashboard
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:11 Error: 
+2019-02-14 10:48:11 Error: themes
+2019-02-14 10:48:11 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:11 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 10:48:15 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:15 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:15 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:15 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:15 Error: 
+2019-02-14 10:48:15 Error: themes
+2019-02-14 10:48:15 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:15 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 10:48:17 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:17 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:17 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:17 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:17 Error: 
+2019-02-14 10:48:17 Error: themes
+2019-02-14 10:48:17 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:17 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:24 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 10:48:24 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:24 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:24 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:24 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 10:48:24 Error: 
+2019-02-14 10:48:24 Error: themes
+2019-02-14 10:48:24 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:24 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:24 Error: 
+2019-02-14 10:48:24 Error: themes
+2019-02-14 10:48:24 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:24 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:24 Error: 
+2019-02-14 10:48:24 Error: themes
+2019-02-14 10:48:24 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:24 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:24 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:24 Error: 
+2019-02-14 10:48:24 Error: themes
+2019-02-14 10:48:24 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:24 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:24 Error: 
+2019-02-14 10:48:24 Error: themes
+2019-02-14 10:48:24 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:24 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 10:48:26 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:26 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:26 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 10:48:26 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 10:48:26 Error: 
+2019-02-14 10:48:26 Error: themes
+2019-02-14 10:48:26 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 10:48:26 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: MessagesTrait Message Not Found: Directory.Directories.postal_code.ruleCustomPostalCode
+2019-02-14 11:06:28 Error: MessagesTrait Message Not Found: User.Identities.issue_date.ruleCompareDate
+2019-02-14 11:06:28 Error: MessagesTrait Message Not Found: User.Identities.number.ruleCustomIdentityNumber
+2019-02-14 11:06:28 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 11:06:28 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Directory/Directories/Directories/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:06:28 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Directory/Directories/Directories/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:06:28 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Directory/Directories/Directories/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:06:28 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Directory/Directories/Directories/add
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:28 Error: 
+2019-02-14 11:06:28 Error: themes
+2019-02-14 11:06:28 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:28 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 11:06:35 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:06:35 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:06:35 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:06:35 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:35 Error: 
+2019-02-14 11:06:35 Error: themes
+2019-02-14 11:06:35 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:35 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 11:06:37 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:06:37 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:06:37 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:06:37 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:06:37 Error: 
+2019-02-14 11:06:37 Error: themes
+2019-02-14 11:06:37 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:06:37 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: Cake\Routing\Exception\MissingControllerException: Controller class open_emis could not be found. in /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php:91
+Stack trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+2019-02-14 11:07:14 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 18
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:07:14 Warning: Warning (512): Method App\View\Helper\ResourceHelper::css does not exist in [/var/www/myapp/vendor/cakephp/cakephp/src/View/Helper.php, line 139]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\View\Helper::__call() - CORE/src/View/Helper.php, line 139
+include - ROOT/plugins/OpenEmis/src/Template/Element/styles.ctp, line 27
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Element/styles.ctp, line 3
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 29
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:07:14 Warning: Warning (2): in_array() expects parameter 2 to be array, null given in [/var/www/myapp/plugins/Angular/src/Template/Element/app.ctp, line 8]
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+in_array - [internal], line ??
+include - ROOT/plugins/Angular/src/Template/Element/app.ctp, line 8
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::_renderElement() - CORE/src/View/View.php, line 1363
+Cake\View\View::element() - CORE/src/View/View.php, line 501
+include - APP/Template/Layout/default.ctp, line 35
+Cake\View\View::_evaluate() - CORE/src/View/View.php, line 1014
+Cake\View\View::_render() - CORE/src/View/View.php, line 973
+Cake\View\View::renderLayout() - CORE/src/View/View.php, line 644
+Cake\View\View::render() - CORE/src/View/View.php, line 602
+Cake\Controller\Controller::render() - CORE/src/Controller/Controller.php, line 617
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 319
+Cake\Error\ExceptionRenderer::_outputMessage() - CORE/src/Error/ExceptionRenderer.php, line 328
+Cake\Error\ExceptionRenderer::render() - CORE/src/Error/ExceptionRenderer.php, line 194
+Cake\Error\ErrorHandler::_displayException() - CORE/src/Error/ErrorHandler.php, line 144
+App\Error\AppError::_displayException() - APP/Error/AppError.php, line 10
+Cake\Error\BaseErrorHandler::handleException() - CORE/src/Error/BaseErrorHandler.php, line 180
+Cake\Error\BaseErrorHandler::wrapAndHandleException() - CORE/src/Error/BaseErrorHandler.php, line 164
+[main] - [internal], line ??
+
+
+
+2019-02-14 11:07:14 Error: [Cake\Routing\Exception\MissingControllerException] Controller class open_emis could not be found.
+Request URL: /open_emis/css/themes/Array/layout.min.css?v=3.27.0
+Referer URL: http://localhost:8180/Securities/UserGroups/add
+Client IP: 192.168.96.1
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ControllerFactory.php(67): Cake\Http\ControllerFactory->missingController(Object(Cake\Network\Request))
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Http/ActionDispatcher.php(92): Cake\Http\ControllerFactory->create(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Http/BaseApplication.php(83): Cake\Http\ActionDispatcher->dispatch(Object(Cake\Network\Request), Object(Cake\Network\Response))
+#3 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Http\BaseApplication->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#4 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/RoutingMiddleware.php(62): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#5 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\RoutingMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Routing/Middleware/AssetMiddleware.php(93): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#7 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(65): Cake\Routing\Middleware\AssetMiddleware->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response), Object(Cake\Http\Runner))
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Runner.php(51): Cake\Http\Runner->__invoke(Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Http/Server.php(90): Cake\Http\Runner->run(Object(Cake\Http\MiddlewareQueue), Object(Zend\Diactoros\ServerRequest), Object(Zend\Diactoros\Response))
+#10 /var/www/myapp/webroot/index.php(40): Cake\Http\Server->run()
+#11 {main}
+
+
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: Array
+(
+    [application_name] => NEMIS - SIS
+    [login_page_image] => default_images/school_children.jpg
+    [logo] => 
+    [colour] => f6b03e
+    [copyright_notice_in_footer] => 
+    [timestamp] => 
+)
+
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
+2019-02-14 11:07:14 Error: 
+2019-02-14 11:07:14 Error: themes
+2019-02-14 11:07:14 Error: /var/www/myapp/plugins/OpenEmis/webroot/css/themes/custom/
+2019-02-14 11:07:14 Error: /var/www/myapp/webroot/css/themes/
