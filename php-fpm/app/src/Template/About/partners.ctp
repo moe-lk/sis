@@ -12,7 +12,7 @@ $this->start('panelBody');
 					<?php 
 						$src = $value->file_content;
 						$src = base64_encode(stream_get_contents($src));
-						echo '<div class="partner-logo"><img src="data:image/jpeg;base64,'.$src.'" /></div>';
+						// echo '<div class="partner-logo"><img src="data:image/jpeg;base64,'.$src.'" /></div>';
 					 ?>
 				<?php endforeach ?>
 			</div>

@@ -40,7 +40,7 @@ class InstitutionsTable extends ControllerActionTable
     const ACADEMIC = 1;
     const NON_ACADEMIC = 2;
 
-    private $defaultLogoView = "<div class='profile-image'><i class='fa kd-institutions'></i></div>";
+    private $defaultLogoView = "<div class='profile-image'><i class='fa kd-institution'></i></div>";
     private $defaultImgIndexClass = "logo-thumbnail";
     private $defaultImgViewClass= "logo-image";
     private $photoMessage = 'Advisable logo dimension %width by %height';
@@ -514,10 +514,10 @@ class InstitutionsTable extends ControllerActionTable
         $language = I18n::locale();
         $field = 'area_id';
         $areaLabel = $this->onGetFieldLabel($event, $this->alias(), $field, $language, true);
-        $this->field('area_section', ['type' => 'section', 'title' => $areaLabel]);
+        $this->field('area_section', ['type' => 'section', 'title' => $areaLabel . ' (Educational Zone)']);
         $field = 'area_administrative_id';
         $areaAdministrativesLabel = $this->onGetFieldLabel($event, $this->alias(), $field, $language, true);
-        $this->field('area_administrative_section', ['type' => 'section', 'title' => $areaAdministrativesLabel]);
+        $this->field('area_administrative_section', ['type' => 'section', 'title' => $areaAdministrativesLabel . ' (District)']);
         $this->field('contact_section', ['type' => 'section', 'title' => __('Contact'), 'after' => $field]);
         $this->field('other_information_section', ['type' => 'section', 'title' => __('Other Information'), 'after' => 'website', 'visible' => ['index' => false, 'view' => true, 'edit' => true, 'add' => true]]);
         $this->field('map_section', ['type' => 'section', 'title' => __('Map'), 'visible' => ['view'=>true]]);
