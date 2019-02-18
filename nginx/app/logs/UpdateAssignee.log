@@ -1,0 +1,132 @@
+
+Welcome to CakePHP v3.3.16 Console
+---------------------------------------------------------------
+App : src
+Path: /var/www/myapp/src/
+PHP : 7.1.26-1+ubuntu16.04.1+deb.sury.org+1
+---------------------------------------------------------------
+Initialize Update Assignee Shell of Staff > Career > Leave
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Update Assignee Shell Exception : 
+Behavior class SurveyBehavior could not be found.
+Initialize Update Assignee Shell of Administration > Training > Courses
+Update Assignee Shell Exception : 
+TrainingCourses is not associated with Assignees
+Initialize Update Assignee Shell of Administration > Training > Sessions
+Update Assignee Shell Exception : 
+TrainingSessions is not associated with Assignees
+Initialize Update Assignee Shell of Administration > Training > Results
+Update Assignee Shell Exception : 
+TrainingSessionResults is not associated with Assignees
+Initialize Update Assignee Shell of Staff > Training > Needs
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Positions
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Staff > Change in Assignment
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Visits > Requests
+Update Assignee Shell Exception : 
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.visit_requests' doesn't exist
+Initialize Update Assignee Shell of Administration > Training > Applications
+Update Assignee Shell Exception : 
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.training_applications' doesn't exist
+Initialize Update Assignee Shell of Staff > Professional Development > Licenses
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Cases
+Update Assignee Shell Exception : 
+InstitutionCases is not associated with Assignees
+Initialize Update Assignee Shell of Institutions > Staff Transfer > Receiving
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Staff Transfer > Sending
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Students > Student Withdraw
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Students > Student Admission
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Student Transfer > Receiving
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Student Transfer > Sending
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Staff > Career > Appraisals
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Administration > Scholarships > Applications
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+
+Welcome to CakePHP v3.3.16 Console
+---------------------------------------------------------------
+App : src
+Path: /var/www/myapp/src/
+PHP : 7.1.26-1+ubuntu16.04.1+deb.sury.org+1
+---------------------------------------------------------------
+Initialize Update Assignee Shell of Staff > Career > Leave
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Update Assignee Shell Exception : 
+Behavior class SurveyBehavior could not be found.
+Initialize Update Assignee Shell of Administration > Training > Courses
+Update Assignee Shell Exception : 
+TrainingCourses is not associated with Assignees
+Initialize Update Assignee Shell of Administration > Training > Sessions
+Update Assignee Shell Exception : 
+TrainingSessions is not associated with Assignees
+Initialize Update Assignee Shell of Administration > Training > Results
+Update Assignee Shell Exception : 
+TrainingSessionResults is not associated with Assignees
+Initialize Update Assignee Shell of Staff > Training > Needs
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Positions
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Staff > Change in Assignment
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Visits > Requests
+Update Assignee Shell Exception : 
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.visit_requests' doesn't exist
+Initialize Update Assignee Shell of Administration > Training > Applications
+Update Assignee Shell Exception : 
+SQLSTATE[42S02]: Base table or view not found: 1146 Table 'openemis.training_applications' doesn't exist
+Initialize Update Assignee Shell of Staff > Professional Development > Licenses
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Cases
+Update Assignee Shell Exception : 
+InstitutionCases is not associated with Assignees
+Initialize Update Assignee Shell of Institutions > Staff Transfer > Receiving
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Staff Transfer > Sending
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Students > Student Withdraw
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Students > Student Admission
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Student Transfer > Receiving
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Institutions > Student Transfer > Sending
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Staff > Career > Appraisals
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'
+Initialize Update Assignee Shell of Administration > Scholarships > Applications
+Update Assignee Shell Exception : 
+SQLSTATE[42S22]: Column not found: 1054 Unknown column 'Statuses.category' in 'on clause'

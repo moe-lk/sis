@@ -1,0 +1,54 @@
+-- MySQL dump 10.13  Distrib 5.7.25, for Linux (x86_64)
+--
+-- Host: 127.0.0.1    Database: openemis
+-- ------------------------------------------------------
+-- Server version	5.7.25
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `security_group_institution_sites`
+--
+
+DROP TABLE IF EXISTS `security_group_institution_sites`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `security_group_institution_sites` (
+  `id` char(36) NOT NULL,
+  `security_group_id` int(11) NOT NULL,
+  `institution_site_id` int(11) NOT NULL,
+  `created_user_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `security_group_institution_sites`
+--
+
+LOCK TABLES `security_group_institution_sites` WRITE;
+/*!40000 ALTER TABLE `security_group_institution_sites` DISABLE KEYS */;
+INSERT INTO `security_group_institution_sites` VALUES ('1-2',2,1,2,'0000-00-00 00:00:00'),('10-11',11,10,2,'0000-00-00 00:00:00'),('11-12',12,11,2,'0000-00-00 00:00:00'),('12-13',13,12,2,'0000-00-00 00:00:00'),('13-14',14,13,2,'0000-00-00 00:00:00'),('14-15',15,14,2,'0000-00-00 00:00:00'),('15-16',16,15,2,'0000-00-00 00:00:00'),('16-17',17,16,2,'0000-00-00 00:00:00'),('17-18',18,17,2,'0000-00-00 00:00:00'),('18-19',19,18,2,'0000-00-00 00:00:00'),('19-20',20,19,2,'0000-00-00 00:00:00'),('2-3',3,2,2,'0000-00-00 00:00:00'),('20-21',21,20,2,'0000-00-00 00:00:00'),('21-22',22,21,2,'0000-00-00 00:00:00'),('22-23',23,22,2,'0000-00-00 00:00:00'),('23-24',24,23,2,'0000-00-00 00:00:00'),('24-25',25,24,2,'0000-00-00 00:00:00'),('25-26',26,25,2,'0000-00-00 00:00:00'),('26-27',27,26,2,'0000-00-00 00:00:00'),('27-28',28,27,2,'0000-00-00 00:00:00'),('28-29',29,28,2,'0000-00-00 00:00:00'),('29-30',30,29,2,'0000-00-00 00:00:00'),('3-4',4,3,2,'0000-00-00 00:00:00'),('30-31',31,30,2,'0000-00-00 00:00:00'),('31-32',32,31,2,'0000-00-00 00:00:00'),('32-33',33,32,2,'0000-00-00 00:00:00'),('33-34',34,33,2,'0000-00-00 00:00:00'),('34-35',35,34,2,'0000-00-00 00:00:00'),('35-36',36,35,2,'0000-00-00 00:00:00'),('36-37',37,36,2,'0000-00-00 00:00:00'),('37-38',38,37,2,'0000-00-00 00:00:00'),('38-39',39,38,2,'0000-00-00 00:00:00'),('39-40',40,39,2,'0000-00-00 00:00:00'),('4-5',5,4,2,'0000-00-00 00:00:00'),('40-41',41,40,2,'0000-00-00 00:00:00'),('41-42',42,41,2,'0000-00-00 00:00:00'),('42-43',43,42,2,'0000-00-00 00:00:00'),('43-44',44,43,2,'0000-00-00 00:00:00'),('44-45',45,44,2,'0000-00-00 00:00:00'),('45-46',46,45,2,'0000-00-00 00:00:00'),('5-6',6,5,2,'0000-00-00 00:00:00'),('6-7',7,6,2,'0000-00-00 00:00:00'),('7-8',8,7,2,'0000-00-00 00:00:00'),('8-9',9,8,2,'0000-00-00 00:00:00'),('9-10',10,9,2,'0000-00-00 00:00:00');
+/*!40000 ALTER TABLE `security_group_institution_sites` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2019-02-05 10:02:19

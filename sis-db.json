@@ -32,7 +32,7 @@
         }
       ],
       "docker": {
-        "image": "moelk/openemis-mysql:latest",
+        "image": "moelk/openemis-mysql:dev",
         "forcePullImage": true,
         "privileged": false,
         "parameters": []

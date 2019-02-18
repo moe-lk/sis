@@ -1,6 +1,6 @@
 FROM phpearth/php:7.2-nginx
 
-ADD . /var/www/myapp
+ADD ./app /var/www/myapp
 
 ADD ./nginx.conf /etc/nginx/conf.d/default.conf
 

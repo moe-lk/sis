@@ -1,5 +1,5 @@
 {
-  "id": "/hrm-moe/sis-php-fpm",
+  "id": "/hrm-moe/sis-php-fpm-test",
   "acceptedResourceRoles": [
     "slave_public"
   ],
@@ -11,7 +11,7 @@
         "containerPort": 9000,
         "hostPort": 0,
         "labels": {
-          "VIP_0": "/hrm-moe/sis-php-fpm:9000"
+          "VIP_0": "/hrm-moe/sis-php-fpm-test:9000"
         },
         "protocol": "tcp",
         "servicePort": 10174
@@ -20,7 +20,7 @@
     "type": "DOCKER",
     "volumes": [],
     "docker": {
-      "image": "moelk/openemis-php-fpm:latest",
+      "image": "moelk/openemis-php-fpm:dev",
       "forcePullImage": true,
       "privileged": false,
       "parameters": []
@@ -30,7 +30,7 @@
   "disk": 0,
   "env": {
     "DB_NAME": "openemis",
-    "DB_HOST": "hrm-moesis-db.marathon.l4lb.thisdcos.directory:3306",
+    "DB_HOST": "hrm-moesis-db-test.marathon.l4lb.thisdcos.directory:3306",
     "DB_USER": "openuser",
     "DB_PASSWRD": "openpass"
   },
