@@ -30177,3 +30177,99 @@
             WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'security_group_users' AND rc.TABLE_NAME = 'security_group_users'
 2019-02-20 08:03:28 Debug: duration=2 rows=1 SHOW TABLE STATUS WHERE Name = 'security_group_users'
 2019-02-20 08:03:28 Debug: duration=1 rows=0 SELECT `Staff`.`id` AS `Staff__id`, `Staff`.`FTE` AS `Staff__FTE`, `Staff`.`start_date` AS `Staff__start_date`, `Staff`.`start_year` AS `Staff__start_year`, `Staff`.`end_date` AS `Staff__end_date`, `Staff`.`end_year` AS `Staff__end_year`, `Staff`.`staff_id` AS `Staff__staff_id`, `Staff`.`staff_type_id` AS `Staff__staff_type_id`, `Staff`.`staff_status_id` AS `Staff__staff_status_id`, `Staff`.`institution_id` AS `Staff__institution_id`, `Staff`.`institution_position_id` AS `Staff__institution_position_id`, `Staff`.`security_group_user_id` AS `Staff__security_group_user_id`, `Staff`.`modified_user_id` AS `Staff__modified_user_id`, `Staff`.`modified` AS `Staff__modified`, `Staff`.`created_user_id` AS `Staff__created_user_id`, `Staff`.`created` AS `Staff__created`, `Staff`.`area_administrative_id` AS `Staff__area_administrative_id` FROM `institution_staff` `Staff` WHERE (Staff.security_group_user_id IS NOT NULL AND Staff.end_date IS NOT NULL AND `Staff`.`staff_status_id` = 1 AND `Staff`.`end_date` < (CURRENT_DATE())) LIMIT 10 OFFSET 0
+2019-02-20 11:39:27 Debug: duration=4 rows=17 SHOW FULL COLUMNS FROM `institution_staff`
+2019-02-20 11:39:27 Debug: duration=1 rows=11 SHOW INDEXES FROM `institution_staff`
+2019-02-20 11:39:27 Debug: duration=1 rows=0 SELECT * FROM information_schema.key_column_usage AS kcu
+            INNER JOIN information_schema.referential_constraints AS rc
+            ON (
+                kcu.CONSTRAINT_NAME = rc.CONSTRAINT_NAME
+                AND kcu.CONSTRAINT_SCHEMA = rc.CONSTRAINT_SCHEMA
+            )
+            WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'institution_staff' AND rc.TABLE_NAME = 'institution_staff'
+2019-02-20 11:39:27 Debug: duration=4 rows=1 SHOW TABLE STATUS WHERE Name = 'institution_staff'
+2019-02-20 11:39:27 Debug: duration=1 rows=3 SHOW FULL COLUMNS FROM `staff_statuses`
+2019-02-20 11:39:27 Debug: duration=0 rows=1 SHOW INDEXES FROM `staff_statuses`
+2019-02-20 11:39:27 Debug: duration=1 rows=0 SELECT * FROM information_schema.key_column_usage AS kcu
+            INNER JOIN information_schema.referential_constraints AS rc
+            ON (
+                kcu.CONSTRAINT_NAME = rc.CONSTRAINT_NAME
+                AND kcu.CONSTRAINT_SCHEMA = rc.CONSTRAINT_SCHEMA
+            )
+            WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'staff_statuses' AND rc.TABLE_NAME = 'staff_statuses'
+2019-02-20 11:39:27 Debug: duration=4 rows=1 SHOW TABLE STATUS WHERE Name = 'staff_statuses'
+2019-02-20 11:39:27 Debug: duration=1 rows=2 SELECT `StaffStatuses`.`code` AS `StaffStatuses__code`, `StaffStatuses`.`id` AS `StaffStatuses__id` FROM `staff_statuses` `StaffStatuses`
+2019-02-20 11:39:27 Debug: duration=1 rows=6 SHOW FULL COLUMNS FROM `security_group_users`
+2019-02-20 11:39:27 Debug: duration=0 rows=4 SHOW INDEXES FROM `security_group_users`
+2019-02-20 11:39:27 Debug: duration=1 rows=0 SELECT * FROM information_schema.key_column_usage AS kcu
+            INNER JOIN information_schema.referential_constraints AS rc
+            ON (
+                kcu.CONSTRAINT_NAME = rc.CONSTRAINT_NAME
+                AND kcu.CONSTRAINT_SCHEMA = rc.CONSTRAINT_SCHEMA
+            )
+            WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'security_group_users' AND rc.TABLE_NAME = 'security_group_users'
+2019-02-20 11:39:27 Debug: duration=4 rows=1 SHOW TABLE STATUS WHERE Name = 'security_group_users'
+2019-02-20 11:39:27 Debug: duration=1 rows=0 SELECT `Staff`.`id` AS `Staff__id`, `Staff`.`FTE` AS `Staff__FTE`, `Staff`.`start_date` AS `Staff__start_date`, `Staff`.`start_year` AS `Staff__start_year`, `Staff`.`end_date` AS `Staff__end_date`, `Staff`.`end_year` AS `Staff__end_year`, `Staff`.`staff_id` AS `Staff__staff_id`, `Staff`.`staff_type_id` AS `Staff__staff_type_id`, `Staff`.`staff_status_id` AS `Staff__staff_status_id`, `Staff`.`institution_id` AS `Staff__institution_id`, `Staff`.`institution_position_id` AS `Staff__institution_position_id`, `Staff`.`security_group_user_id` AS `Staff__security_group_user_id`, `Staff`.`modified_user_id` AS `Staff__modified_user_id`, `Staff`.`modified` AS `Staff__modified`, `Staff`.`created_user_id` AS `Staff__created_user_id`, `Staff`.`created` AS `Staff__created`, `Staff`.`area_administrative_id` AS `Staff__area_administrative_id` FROM `institution_staff` `Staff` WHERE (Staff.security_group_user_id IS NOT NULL AND Staff.end_date IS NOT NULL AND `Staff`.`staff_status_id` = 1 AND `Staff`.`end_date` < (CURRENT_DATE())) LIMIT 10 OFFSET 0
+2019-02-21 08:41:26 Debug: duration=1 rows=17 SHOW FULL COLUMNS FROM `institution_staff`
+2019-02-21 08:41:26 Debug: duration=0 rows=11 SHOW INDEXES FROM `institution_staff`
+2019-02-21 08:41:26 Debug: duration=1 rows=0 SELECT * FROM information_schema.key_column_usage AS kcu
+            INNER JOIN information_schema.referential_constraints AS rc
+            ON (
+                kcu.CONSTRAINT_NAME = rc.CONSTRAINT_NAME
+                AND kcu.CONSTRAINT_SCHEMA = rc.CONSTRAINT_SCHEMA
+            )
+            WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'institution_staff' AND rc.TABLE_NAME = 'institution_staff'
+2019-02-21 08:41:26 Debug: duration=3 rows=1 SHOW TABLE STATUS WHERE Name = 'institution_staff'
+2019-02-21 08:41:26 Debug: duration=1 rows=3 SHOW FULL COLUMNS FROM `staff_statuses`
+2019-02-21 08:41:26 Debug: duration=0 rows=1 SHOW INDEXES FROM `staff_statuses`
+2019-02-21 08:41:26 Debug: duration=1 rows=0 SELECT * FROM information_schema.key_column_usage AS kcu
+            INNER JOIN information_schema.referential_constraints AS rc
+            ON (
+                kcu.CONSTRAINT_NAME = rc.CONSTRAINT_NAME
+                AND kcu.CONSTRAINT_SCHEMA = rc.CONSTRAINT_SCHEMA
+            )
+            WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'staff_statuses' AND rc.TABLE_NAME = 'staff_statuses'
+2019-02-21 08:41:26 Debug: duration=3 rows=1 SHOW TABLE STATUS WHERE Name = 'staff_statuses'
+2019-02-21 08:41:26 Debug: duration=0 rows=2 SELECT `StaffStatuses`.`code` AS `StaffStatuses__code`, `StaffStatuses`.`id` AS `StaffStatuses__id` FROM `staff_statuses` `StaffStatuses`
+2019-02-21 08:41:26 Debug: duration=1 rows=6 SHOW FULL COLUMNS FROM `security_group_users`
+2019-02-21 08:41:26 Debug: duration=0 rows=4 SHOW INDEXES FROM `security_group_users`
+2019-02-21 08:41:26 Debug: duration=1 rows=0 SELECT * FROM information_schema.key_column_usage AS kcu
+            INNER JOIN information_schema.referential_constraints AS rc
+            ON (
+                kcu.CONSTRAINT_NAME = rc.CONSTRAINT_NAME
+                AND kcu.CONSTRAINT_SCHEMA = rc.CONSTRAINT_SCHEMA
+            )
+            WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'security_group_users' AND rc.TABLE_NAME = 'security_group_users'
+2019-02-21 08:41:26 Debug: duration=3 rows=1 SHOW TABLE STATUS WHERE Name = 'security_group_users'
+2019-02-21 08:41:26 Debug: duration=1 rows=0 SELECT `Staff`.`id` AS `Staff__id`, `Staff`.`FTE` AS `Staff__FTE`, `Staff`.`start_date` AS `Staff__start_date`, `Staff`.`start_year` AS `Staff__start_year`, `Staff`.`end_date` AS `Staff__end_date`, `Staff`.`end_year` AS `Staff__end_year`, `Staff`.`staff_id` AS `Staff__staff_id`, `Staff`.`staff_type_id` AS `Staff__staff_type_id`, `Staff`.`staff_status_id` AS `Staff__staff_status_id`, `Staff`.`institution_id` AS `Staff__institution_id`, `Staff`.`institution_position_id` AS `Staff__institution_position_id`, `Staff`.`security_group_user_id` AS `Staff__security_group_user_id`, `Staff`.`modified_user_id` AS `Staff__modified_user_id`, `Staff`.`modified` AS `Staff__modified`, `Staff`.`created_user_id` AS `Staff__created_user_id`, `Staff`.`created` AS `Staff__created`, `Staff`.`area_administrative_id` AS `Staff__area_administrative_id` FROM `institution_staff` `Staff` WHERE (Staff.security_group_user_id IS NOT NULL AND Staff.end_date IS NOT NULL AND `Staff`.`staff_status_id` = 1 AND `Staff`.`end_date` < (CURRENT_DATE())) LIMIT 10 OFFSET 0
+2019-02-21 11:06:42 Debug: duration=1 rows=17 SHOW FULL COLUMNS FROM `institution_staff`
+2019-02-21 11:06:42 Debug: duration=0 rows=11 SHOW INDEXES FROM `institution_staff`
+2019-02-21 11:06:42 Debug: duration=1 rows=0 SELECT * FROM information_schema.key_column_usage AS kcu
+            INNER JOIN information_schema.referential_constraints AS rc
+            ON (
+                kcu.CONSTRAINT_NAME = rc.CONSTRAINT_NAME
+                AND kcu.CONSTRAINT_SCHEMA = rc.CONSTRAINT_SCHEMA
+            )
+            WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'institution_staff' AND rc.TABLE_NAME = 'institution_staff'
+2019-02-21 11:06:42 Debug: duration=2 rows=1 SHOW TABLE STATUS WHERE Name = 'institution_staff'
+2019-02-21 11:06:42 Debug: duration=1 rows=3 SHOW FULL COLUMNS FROM `staff_statuses`
+2019-02-21 11:06:42 Debug: duration=0 rows=1 SHOW INDEXES FROM `staff_statuses`
+2019-02-21 11:06:42 Debug: duration=1 rows=0 SELECT * FROM information_schema.key_column_usage AS kcu
+            INNER JOIN information_schema.referential_constraints AS rc
+            ON (
+                kcu.CONSTRAINT_NAME = rc.CONSTRAINT_NAME
+                AND kcu.CONSTRAINT_SCHEMA = rc.CONSTRAINT_SCHEMA
+            )
+            WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'staff_statuses' AND rc.TABLE_NAME = 'staff_statuses'
+2019-02-21 11:06:42 Debug: duration=2 rows=1 SHOW TABLE STATUS WHERE Name = 'staff_statuses'
+2019-02-21 11:06:42 Debug: duration=0 rows=2 SELECT `StaffStatuses`.`code` AS `StaffStatuses__code`, `StaffStatuses`.`id` AS `StaffStatuses__id` FROM `staff_statuses` `StaffStatuses`
+2019-02-21 11:06:42 Debug: duration=3 rows=6 SHOW FULL COLUMNS FROM `security_group_users`
+2019-02-21 11:06:42 Debug: duration=1 rows=4 SHOW INDEXES FROM `security_group_users`
+2019-02-21 11:06:42 Debug: duration=1 rows=0 SELECT * FROM information_schema.key_column_usage AS kcu
+            INNER JOIN information_schema.referential_constraints AS rc
+            ON (
+                kcu.CONSTRAINT_NAME = rc.CONSTRAINT_NAME
+                AND kcu.CONSTRAINT_SCHEMA = rc.CONSTRAINT_SCHEMA
+            )
+            WHERE kcu.TABLE_SCHEMA = 'openemis' AND kcu.TABLE_NAME = 'security_group_users' AND rc.TABLE_NAME = 'security_group_users'
+2019-02-21 11:06:42 Debug: duration=3 rows=1 SHOW TABLE STATUS WHERE Name = 'security_group_users'
+2019-02-21 11:06:42 Debug: duration=0 rows=0 SELECT `Staff`.`id` AS `Staff__id`, `Staff`.`FTE` AS `Staff__FTE`, `Staff`.`start_date` AS `Staff__start_date`, `Staff`.`start_year` AS `Staff__start_year`, `Staff`.`end_date` AS `Staff__end_date`, `Staff`.`end_year` AS `Staff__end_year`, `Staff`.`staff_id` AS `Staff__staff_id`, `Staff`.`staff_type_id` AS `Staff__staff_type_id`, `Staff`.`staff_status_id` AS `Staff__staff_status_id`, `Staff`.`institution_id` AS `Staff__institution_id`, `Staff`.`institution_position_id` AS `Staff__institution_position_id`, `Staff`.`security_group_user_id` AS `Staff__security_group_user_id`, `Staff`.`modified_user_id` AS `Staff__modified_user_id`, `Staff`.`modified` AS `Staff__modified`, `Staff`.`created_user_id` AS `Staff__created_user_id`, `Staff`.`created` AS `Staff__created`, `Staff`.`area_administrative_id` AS `Staff__area_administrative_id` FROM `institution_staff` `Staff` WHERE (Staff.security_group_user_id IS NOT NULL AND Staff.end_date IS NOT NULL AND `Staff`.`staff_status_id` = 1 AND `Staff`.`end_date` < (CURRENT_DATE())) LIMIT 10 OFFSET 0

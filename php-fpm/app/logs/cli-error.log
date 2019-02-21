@@ -10309,3 +10309,879 @@ Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line
 
 
 
+2019-02-20 11:39:27 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_institution_staff): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\Cache\Cache::read() - CORE/src/Cache/Cache.php, line 320
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 57
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 40
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_institution_staff): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 239
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 40
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): _cake_model_ cache was unable to write 'default_institution_staff' to Cake\Cache\Engine\FileEngine cache in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Cache.php, line 248]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 248
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 40
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 102
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 146
+__ - CORE/src/I18n/functions.php, line 34
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 79
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 105
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 146
+__ - CORE/src/I18n/functions.php, line 34
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 79
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_staff_statuses): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\Cache\Cache::read() - CORE/src/Cache/Cache.php, line 320
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 57
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Staff\Model\Table\StaffStatusesTable::initialize() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 10
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\Association::target() - CORE/src/ORM/Association.php, line 323
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_staff_statuses): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 239
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Staff\Model\Table\StaffStatusesTable::initialize() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 10
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\Association::target() - CORE/src/ORM/Association.php, line 323
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): _cake_model_ cache was unable to write 'default_staff_statuses' to Cake\Cache\Engine\FileEngine cache in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Cache.php, line 248]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 248
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Staff\Model\Table\StaffStatusesTable::initialize() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 10
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\Association::target() - CORE/src/ORM/Association.php, line 323
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_security_group_users): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\Cache\Cache::read() - CORE/src/Cache/Cache.php, line 320
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 57
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+Security\Model\Table\SecurityGroupUsersTable::initialize() - ROOT/plugins/Security/src/Model/Table/SecurityGroupUsersTable.php, line 19
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1675
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_security_group_users): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 239
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+Security\Model\Table\SecurityGroupUsersTable::initialize() - ROOT/plugins/Security/src/Model/Table/SecurityGroupUsersTable.php, line 19
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1675
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-20 11:39:27 Warning: Warning (512): _cake_model_ cache was unable to write 'default_security_group_users' to Cake\Cache\Engine\FileEngine cache in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Cache.php, line 248]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 248
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+Security\Model\Table\SecurityGroupUsersTable::initialize() - ROOT/plugins/Security/src/Model/Table/SecurityGroupUsersTable.php, line 19
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1675
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_institution_staff): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\Cache\Cache::read() - CORE/src/Cache/Cache.php, line 320
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 57
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 40
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_institution_staff): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 239
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 40
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): _cake_model_ cache was unable to write 'default_institution_staff' to Cake\Cache\Engine\FileEngine cache in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Cache.php, line 248]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 248
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 40
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 102
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 146
+__ - CORE/src/I18n/functions.php, line 34
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 79
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 105
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 146
+__ - CORE/src/I18n/functions.php, line 34
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 79
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_staff_statuses): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\Cache\Cache::read() - CORE/src/Cache/Cache.php, line 320
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 57
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Staff\Model\Table\StaffStatusesTable::initialize() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 10
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\Association::target() - CORE/src/ORM/Association.php, line 323
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_staff_statuses): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 239
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Staff\Model\Table\StaffStatusesTable::initialize() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 10
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\Association::target() - CORE/src/ORM/Association.php, line 323
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): _cake_model_ cache was unable to write 'default_staff_statuses' to Cake\Cache\Engine\FileEngine cache in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Cache.php, line 248]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 248
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Staff\Model\Table\StaffStatusesTable::initialize() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 10
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\Association::target() - CORE/src/ORM/Association.php, line 323
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_security_group_users): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\Cache\Cache::read() - CORE/src/Cache/Cache.php, line 320
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 57
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+Security\Model\Table\SecurityGroupUsersTable::initialize() - ROOT/plugins/Security/src/Model/Table/SecurityGroupUsersTable.php, line 19
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1675
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_security_group_users): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 239
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+Security\Model\Table\SecurityGroupUsersTable::initialize() - ROOT/plugins/Security/src/Model/Table/SecurityGroupUsersTable.php, line 19
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1675
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 08:41:26 Warning: Warning (512): _cake_model_ cache was unable to write 'default_security_group_users' to Cake\Cache\Engine\FileEngine cache in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Cache.php, line 248]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 248
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+Security\Model\Table\SecurityGroupUsersTable::initialize() - ROOT/plugins/Security/src/Model/Table/SecurityGroupUsersTable.php, line 19
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1675
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_institution_staff): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\Cache\Cache::read() - CORE/src/Cache/Cache.php, line 320
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 57
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 40
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_institution_staff): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 239
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 40
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): _cake_model_ cache was unable to write 'default_institution_staff' to Cake\Cache\Engine\FileEngine cache in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Cache.php, line 248]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 248
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 40
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 102
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 146
+__ - CORE/src/I18n/functions.php, line 34
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 79
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/persistent/myapp_cake_core_translations_default_en__u_s): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\I18n\TranslatorRegistry::get() - CORE/src/I18n/TranslatorRegistry.php, line 105
+Cake\I18n\I18n::translator() - CORE/src/I18n/I18n.php, line 146
+__ - CORE/src/I18n/functions.php, line 34
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 79
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_staff_statuses): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\Cache\Cache::read() - CORE/src/Cache/Cache.php, line 320
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 57
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Staff\Model\Table\StaffStatusesTable::initialize() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 10
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\Association::target() - CORE/src/ORM/Association.php, line 323
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_staff_statuses): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 239
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Staff\Model\Table\StaffStatusesTable::initialize() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 10
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\Association::target() - CORE/src/ORM/Association.php, line 323
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): _cake_model_ cache was unable to write 'default_staff_statuses' to Cake\Cache\Engine\FileEngine cache in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Cache.php, line 248]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 248
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+App\Model\Table\ControllerActionTable::initialize() - APP/Model/Table/ControllerActionTable.php, line 11
+Staff\Model\Table\StaffStatusesTable::initialize() - ROOT/plugins/Staff/src/Model/Table/StaffStatusesTable.php, line 10
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\Association::target() - CORE/src/ORM/Association.php, line 323
+Cake\ORM\Association::__call() - CORE/src/ORM/Association.php, line 988
+Institution\Model\Table\StaffTable::initialize() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 138
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 18
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_security_group_users): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::read() - CORE/src/Cache/Engine/FileEngine.php, line 184
+Cake\Cache\Cache::read() - CORE/src/Cache/Cache.php, line 320
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 57
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+Security\Model\Table\SecurityGroupUsersTable::initialize() - ROOT/plugins/Security/src/Model/Table/SecurityGroupUsersTable.php, line 19
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1675
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): SplFileInfo::openFile(/var/www/myapp/tmp/cache/models/myapp_cake_model_default_security_group_users): failed to open stream: Permission denied in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Engine/FileEngine.php, line 398]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Engine\FileEngine::_setKey() - CORE/src/Cache/Engine/FileEngine.php, line 398
+Cake\Cache\Engine\FileEngine::write() - CORE/src/Cache/Engine/FileEngine.php, line 134
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 239
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+Security\Model\Table\SecurityGroupUsersTable::initialize() - ROOT/plugins/Security/src/Model/Table/SecurityGroupUsersTable.php, line 19
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1675
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:06:42 Warning: Warning (512): _cake_model_ cache was unable to write 'default_security_group_users' to Cake\Cache\Engine\FileEngine cache in [/var/www/myapp/vendor/cakephp/cakephp/src/Cache/Cache.php, line 248]
+Trace:
+Cake\Error\BaseErrorHandler::handleError() - CORE/src/Error/BaseErrorHandler.php, line 146
+Cake\Cache\Cache::write() - CORE/src/Cache/Cache.php, line 248
+Cake\Database\Schema\CachedCollection::describe() - CORE/src/Database/Schema/CachedCollection.php, line 66
+Cake\ORM\Table::schema() - CORE/src/ORM/Table.php, line 440
+App\Model\Table\AppTable::initialize() - APP/Model/Table/AppTable.php, line 38
+Security\Model\Table\SecurityGroupUsersTable::initialize() - ROOT/plugins/Security/src/Model/Table/SecurityGroupUsersTable.php, line 19
+Cake\ORM\Table::__construct() - CORE/src/ORM/Table.php, line 290
+Cake\ORM\Locator\TableLocator::_create() - CORE/src/ORM/Locator/TableLocator.php, line 212
+Cake\ORM\Locator\TableLocator::get() - CORE/src/ORM/Locator/TableLocator.php, line 179
+Cake\ORM\TableRegistry::get() - CORE/src/ORM/TableRegistry.php, line 110
+Institution\Model\Table\StaffTable::removeInactiveStaffSecurityRole() - ROOT/plugins/Institution/src/Model/Table/StaffTable.php, line 1675
+App\Shell\InactiveRoleRemovalShell::main() - APP/Shell/InactiveRoleRemovalShell.php, line 19
+Cake\Console\Shell::runCommand() - CORE/src/Console/Shell.php, line 472
+Cake\Console\ShellDispatcher::_dispatch() - CORE/src/Console/ShellDispatcher.php, line 227
+Cake\Console\ShellDispatcher::dispatch() - CORE/src/Console/ShellDispatcher.php, line 182
+Cake\Console\ShellDispatcher::run() - CORE/src/Console/ShellDispatcher.php, line 128
+[main] - ROOT/bin/cake.php, line 34
+
+
+
+2019-02-21 11:15:14 Error: [Symfony\Component\Console\Exception\RuntimeException] Not enough arguments (missing: "name").
+Stack Trace:
+#0 /var/www/myapp/vendor/symfony/console/Command/Command.php(259): Symfony\Component\Console\Input\Input->validate()
+#1 /var/www/myapp/vendor/symfony/console/Application.php(835): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/myapp/vendor/symfony/console/Application.php(200): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/myapp/vendor/symfony/console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 [internal function]: Migrations\Shell\MigrationsShell->main('migrations', 'create')
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Console/Shell.php(472): call_user_func_array(Array, Array)
+#7 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(227): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#11 /var/www/myapp/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#12 {main}
+
+
+2019-02-21 11:15:32 Error: [Cake\Console\Exception\MissingShellException] Shell class for "Migration" could not be found.
+Stack Trace:
+#0 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(223): Cake\Console\ShellDispatcher->findShell('Migration')
+#1 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#2 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#3 /var/www/myapp/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#4 {main}
+
+
+2019-02-21 11:15:52 Error: [Symfony\Component\Console\Exception\RuntimeException] Not enough arguments (missing: "name").
+Stack Trace:
+#0 /var/www/myapp/vendor/symfony/console/Command/Command.php(259): Symfony\Component\Console\Input\Input->validate()
+#1 /var/www/myapp/vendor/symfony/console/Application.php(835): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/myapp/vendor/symfony/console/Application.php(200): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/myapp/vendor/symfony/console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 [internal function]: Migrations\Shell\MigrationsShell->main('migrations', 'create')
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Console/Shell.php(472): call_user_func_array(Array, Array)
+#7 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(227): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#11 /var/www/myapp/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#12 {main}
+
+
+2019-02-21 11:16:18 Error: [Symfony\Component\Console\Exception\RuntimeException] Not enough arguments (missing: "name").
+Stack Trace:
+#0 /var/www/myapp/vendor/symfony/console/Command/Command.php(259): Symfony\Component\Console\Input\Input->validate()
+#1 /var/www/myapp/vendor/symfony/console/Application.php(835): Symfony\Component\Console\Command\Command->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#2 /var/www/myapp/vendor/symfony/console/Application.php(200): Symfony\Component\Console\Application->doRunCommand(Object(Migrations\Command\Create), Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#3 /var/www/myapp/vendor/symfony/console/Application.php(124): Symfony\Component\Console\Application->doRun(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#4 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(101): Symfony\Component\Console\Application->run(Object(Symfony\Component\Console\Input\ArgvInput), Object(Symfony\Component\Console\Output\ConsoleOutput))
+#5 [internal function]: Migrations\Shell\MigrationsShell->main('migrations', 'create')
+#6 /var/www/myapp/vendor/cakephp/cakephp/src/Console/Shell.php(472): call_user_func_array(Array, Array)
+#7 /var/www/myapp/vendor/cakephp/migrations/src/Shell/MigrationsShell.php(156): Cake\Console\Shell->runCommand(Array, true, Array)
+#8 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(227): Migrations\Shell\MigrationsShell->runCommand(Array, true, Array)
+#9 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(182): Cake\Console\ShellDispatcher->_dispatch(Array)
+#10 /var/www/myapp/vendor/cakephp/cakephp/src/Console/ShellDispatcher.php(128): Cake\Console\ShellDispatcher->dispatch(Array)
+#11 /var/www/myapp/bin/cake.php(34): Cake\Console\ShellDispatcher::run(Array)
+#12 {main}
+
+
