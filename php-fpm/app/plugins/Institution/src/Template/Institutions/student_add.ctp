@@ -437,6 +437,20 @@ __('Password') . '&nbsp&nbsp;<i class="fa fa-info-circle fa-lg table-tooltip ico
                     </div>
                 </div>
                 <div class="input select required" ng-model="InstitutionStudentController.postResponse" ng-show="!InstitutionStudentController.existingStudent">
+                    <label><?=__('Is Pre School Attended')?></label>
+                    <div class="input-select-wrapper">
+                        <select name="Students[is_attended_pre_school]"   ng-model="InstitutionStudentController.isAttendedPreSchool.selectedOption"  id="students-is-attended-pre-school"
+                        >
+                        <option>-- Select -- </option>
+                        <option value="0">No</option>
+                        <option value="1">Yes</option>
+                        </select>
+                    </div>
+                    <div ng-if="InstitutionStudentController.postResponse.error.academic_period_id" class="error-message">
+                        <p ng-repeat="error in InstitutionStudentController.postResponse.error.academic_period_id">{{ error }}</p>
+                    </div>
+                </div>
+                <div class="input select required" ng-model="InstitutionStudentController.postResponse" ng-show="!InstitutionStudentController.existingStudent">
                     <label><?=__('Academic Period')?></label>
                     <div class="input-select-wrapper">
                         <select name="Students[academic_period_id]" id="students-academic-period-id"
@@ -450,6 +464,7 @@ __('Password') . '&nbsp&nbsp;<i class="fa fa-info-circle fa-lg table-tooltip ico
                         <p ng-repeat="error in InstitutionStudentController.postResponse.error.academic_period_id">{{ error }}</p>
                     </div>
                 </div>
+               
                 <div class="input select required error" ng-model="InstitutionStudentController.postResponse" ng-show="!InstitutionStudentController.existingStudent">
                     <label><?=__('Education Grade')?></label>
                     <div class="input-select-wrapper">

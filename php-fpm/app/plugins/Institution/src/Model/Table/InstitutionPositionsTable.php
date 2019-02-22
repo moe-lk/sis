@@ -243,7 +243,7 @@ class InstitutionPositionsTable extends ControllerActionTable
 
     public function beforeAction(Event $event, ArrayObject $extra)
     {
-        $this->field('position_no', ['visible' => true]);
+        // $this->field('position_no', ['visible' => true]);
         $this->field('staff_position_title_id', [
             'visible' => true,
             'type' => 'select'
@@ -348,7 +348,7 @@ class InstitutionPositionsTable extends ControllerActionTable
             'type' => 'select',
             'entity' => $entity
         ]);
-        $this->field('is_homeroom', ['entity' => $entity]);
+        $this->field('is_homeroom', ['entity' => $entity,'label' => 'Is Classroom']);
 
         // POCOR-3003 - [...] decision is to make Position Title not editable on the position edit page
         if ($entity->has('staff_position_title_id')) {
@@ -478,7 +478,7 @@ class InstitutionPositionsTable extends ControllerActionTable
 ******************************************************************************************************************/
     public function indexBeforeAction(Event $event, ArrayObject $extra)
     {
-        $this->field('is_homeroom');
+        $this->field('is_homeroom',[ 'label' => 'Is Classroom']);
 
         $this->field('created', [
             'visible' => true,
@@ -575,6 +575,7 @@ class InstitutionPositionsTable extends ControllerActionTable
     {
         $this->fields['current_staff_list']['visible'] = false;
         $this->fields['past_staff_list']['visible'] = false;
+        // $this->field('is_homeroom',[ 'label' => 'Is Classroom']);
 
         $this->setFieldOrder([
             'position_no', 'staff_position_title_id',
@@ -588,7 +589,7 @@ class InstitutionPositionsTable extends ControllerActionTable
             'type' => 'select',
             'entity' => $entity
         ]);
-        $this->field('is_homeroom');
+        $this->field('is_homeroom',[ 'label' => 'Is Classroom']);
     }
 
 /******************************************************************************************************************
@@ -599,7 +600,7 @@ class InstitutionPositionsTable extends ControllerActionTable
 
     public function viewBeforeAction(Event $event)
     {
-        $this->field('is_homeroom');
+        $this->field('is_homeroom',['label' => 'Is Classroom']);
 
         $this->setFieldOrder([
             'staff_position_grade_id',

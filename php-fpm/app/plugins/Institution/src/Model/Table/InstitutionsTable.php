@@ -802,7 +802,7 @@ class InstitutionsTable extends ControllerActionTable
     ******************************************************************************************************************/
     public function viewBeforeAction(Event $event, ArrayObject $extra)
     {
-          $this->field('is_special_education_unit_operating', ['type' => 'select' ,  'options' => ['No','Yes']]);
+        $this->field('is_special_education_unit_operating', ['type' => 'check' ,  'options' => ['No','Yes']]);
         $this->setFieldOrder([
             'information_section',
             'logo_content',
