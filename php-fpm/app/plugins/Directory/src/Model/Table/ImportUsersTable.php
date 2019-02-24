@@ -1,13 +1,14 @@
 <?php
 namespace Directory\Model\Table;
 
+use App\Model\Table\AppTable;
 use ArrayObject;
-use PHPExcel_Worksheet;
+use Cake\Collection\Collection;
 use Cake\Event\Event;
 use Cake\ORM\Entity;
 use Cake\ORM\TableRegistry;
-use Cake\Collection\Collection;
-use App\Model\Table\AppTable;
+use PHPExcel_Worksheet;
+use Cake\Log\Log;
 
 class ImportUsersTable extends AppTable
 {
@@ -16,7 +17,7 @@ class ImportUsersTable extends AppTable
         $this->table('import_mapping');
         parent::initialize($config);
 
-        $this->addBehavior('Import.Import', ['plugin'=>'User', 'model'=>'Users']);
+        $this->addBehavior('Import.Import', ['plugin' => 'User', 'model' => 'Users']);
 
         // register table once
         $this->Users = TableRegistry::get('User.Users');
@@ -27,7 +28,7 @@ class ImportUsersTable extends AppTable
 
         $prefix = $this->ConfigItems->value('openemis_id_prefix');
         $prefix = explode(",", $prefix);
-        $prefix = (isset($prefix[1]) && $prefix[1]>0) ? $prefix[0] : '';
+        $prefix = (isset($prefix[1]) && $prefix[1] > 0) ? $prefix[0] : '';
 
         $this->accountTypes = [
             'is_student' => [
@@ -57,7 +58,7 @@ class ImportUsersTable extends AppTable
                 'name' => __('Others'),
                 'model' => '',
                 'prefix' => $prefix,
-            ]
+            ],
         ];
     }
 
@@ -99,19 +100,28 @@ class ImportUsersTable extends AppTable
         $accountTypeIndex = key($accountType->toArray());
         $accountType = $sheet->getCellByColumnAndRow($accountTypeIndex, $row)->getValue();
         $tempRow['account_type'] = $this->getAccountTypeId($accountType);
+
         if (empty($tempRow['account_type'])) {
             $tempRow['duplicates'] = __('Account type cannot be empty');
             $rowInvalidCodeCols['account_type'] = $tempRow['duplicates'];
             $tempRow['openemis_no'] = $this->getNewOpenEmisNo($importedUniqueCodes, $row, 'others');
-            $tempRow['username'] = $tempRow['openemis_no'];
+           
             return false;
         }
 
-        $user = $this->Users->find()->where(['openemis_no'=>$openemisNo])->first();
+        $username = $columns->filter(function ($value, $key, $iterator) {
+            return $value == 'username';
+        });
+
+        $usernameTypeIndex = key($username->toArray());
+        $username = $sheet->getCellByColumnAndRow($usernameTypeIndex, $row)->getValue();
+        $user = $this->Users->find()->where(['openemis_no' => $openemisNo])->first();
         if (!$user) {
             $tempRow['entity'] = $this->Users->newEntity();
             $tempRow['openemis_no'] = $this->getNewOpenEmisNo($importedUniqueCodes, $row, $tempRow['account_type']);
-            $tempRow['username'] = $tempRow['openemis_no'];
+            if(empty($username)){
+                $tempRow['username'] =  $tempRow['openemis_no'];
+            }
         } else {
             $tempRow['entity'] = $user;
         }
@@ -120,6 +130,8 @@ class ImportUsersTable extends AppTable
             // setting is_student = 1, or is_staff = 1, or is_guardian = 1
             $tempRow[$tempRow['account_type']] = 1;
         }
+
+       
     }
 
     public function onImportUpdateUniqueKeys(Event $event, ArrayObject $importedUniqueCodes, Entity $entity)
@@ -136,7 +148,7 @@ class ImportUsersTable extends AppTable
     {
         $name = '';
         foreach ($this->accountTypes as $key => $type) {
-            if ($type['code']==$value) {
+            if ($type['code'] == $value) {
                 $name = $type['name'];
                 break;
             }
@@ -153,7 +165,7 @@ class ImportUsersTable extends AppTable
         foreach ($modelData as $row) {
             $data[$columnOrder]['data'][] = [
                 $row['name'],
-                $row[$lookupColumn]
+                $row[$lookupColumn],
             ];
         }
     }
@@ -162,9 +174,9 @@ class ImportUsersTable extends AppTable
     {
         $lookedUpTable = TableRegistry::get($lookupPlugin . '.' . $lookupModel);
         $modelData = $lookedUpTable->find('all')
-                                ->select(['name', $lookupColumn])
-                                ->order($lookupModel.'.area_administrative_level_id', $lookupModel.'.order')
-                                ;
+            ->select(['name', $lookupColumn])
+            ->order($lookupModel . '.area_administrative_level_id', $lookupModel . '.order')
+        ;
 
         $translatedReadableCol = $this->getExcelLabel($lookedUpTable, 'name');
         $data[$columnOrder]['lookupColumn'] = 2;
@@ -173,7 +185,7 @@ class ImportUsersTable extends AppTable
             foreach ($modelData->toArray() as $row) {
                 $data[$columnOrder]['data'][] = [
                     $row->name,
-                    $row->{$lookupColumn}
+                    $row->{$lookupColumn},
                 ];
             }
         }
@@ -183,9 +195,9 @@ class ImportUsersTable extends AppTable
     {
         $lookedUpTable = TableRegistry::get($lookupPlugin . '.' . $lookupModel);
         $modelData = $lookedUpTable->find('all')
-                                ->select(['name', $lookupColumn])
-                                ->order([$lookupModel.'.order'])
-                                ;
+            ->select(['name', $lookupColumn])
+            ->order([$lookupModel . '.order'])
+        ;
 
         $translatedReadableCol = $this->getExcelLabel($lookedUpTable, 'name');
         $data[$columnOrder]['lookupColumn'] = 2;
@@ -194,7 +206,7 @@ class ImportUsersTable extends AppTable
             foreach ($modelData->toArray() as $row) {
                 $data[$columnOrder]['data'][] = [
                     $row->name,
-                    $row->{$lookupColumn}
+                    $row->{$lookupColumn},
                 ];
             }
         }
@@ -206,12 +218,12 @@ class ImportUsersTable extends AppTable
         if ($tempRow->offsetExists('nationality_id') && !empty($tempRow['nationality_id'])) {
             if ($tempRow->offsetExists('identity_type_id') && !empty($tempRow['identity_type_id'])) {
                 $query = $this->Nationalities
-                        ->find()
-                        ->contain('IdentityTypes')
-                        ->where([
-                            $this->Nationalities->aliasField('id') => $tempRow['nationality_id'],
-                        ])
-                        ->first();
+                    ->find()
+                    ->contain('IdentityTypes')
+                    ->where([
+                        $this->Nationalities->aliasField('id') => $tempRow['nationality_id'],
+                    ])
+                    ->first();
 
                 $identityTypeId = $query->identity_type_id;
                 $identityTypeName = $query->identity_type->name;
@@ -239,13 +251,13 @@ class ImportUsersTable extends AppTable
             } else {
                 // check whether same identity number exist for the selected identity type
                 $query = $this->UserIdentities
-                        ->find()
-                        ->contain('IdentityTypes')
-                        ->where([
-                            $this->UserIdentities->aliasField('number') => $tempRow['identity_number'],
-                            $this->UserIdentities->aliasField('identity_type_id') => $tempRow['identity_type_id']
-                        ])
-                        ->first();
+                    ->find()
+                    ->contain('IdentityTypes')
+                    ->where([
+                        $this->UserIdentities->aliasField('number') => $tempRow['identity_number'],
+                        $this->UserIdentities->aliasField('identity_type_id') => $tempRow['identity_type_id'],
+                    ])
+                    ->first();
                 if (!empty($query)) {
                     $identityTypeName = $query->identity_type->name;
                     $rowInvalidCodeCols['identity_number'] = $this->getMessage('Import.identity_number_exist', ['sprintf' => [$identityTypeName]]);
@@ -253,10 +265,10 @@ class ImportUsersTable extends AppTable
                 } else {
                     // following validation pattern.
                     $query = $this->IdentityTypes->find()
-                            ->where([
-                                $this->IdentityTypes->aliasField('id') => $tempRow['identity_type_id']
-                            ])
-                            ->first();
+                        ->where([
+                            $this->IdentityTypes->aliasField('id') => $tempRow['identity_type_id'],
+                        ])
+                        ->first();
                     $validationPattern = $query->validation_pattern;
                     if (!empty($validationPattern)) {
                         $validationPattern = '/' . $validationPattern . '/';
@@ -279,13 +291,13 @@ class ImportUsersTable extends AppTable
         $lookedUpTable = TableRegistry::get($lookupPlugin . '.' . $lookupModel);
 
         $modelData = $lookedUpTable->find()
-                    ->contain('IdentityTypes')
-                    ->select([
-                        $lookedUpTable->aliasField($lookupColumn),
-                        $lookedUpTable->aliasField('name'),
-                        'IdentityTypes.name'
-                    ])
-                    ->order($lookedUpTable->aliasField('order'));
+            ->contain('IdentityTypes')
+            ->select([
+                $lookedUpTable->aliasField($lookupColumn),
+                $lookedUpTable->aliasField('name'),
+                'IdentityTypes.name',
+            ])
+            ->order($lookedUpTable->aliasField('order'));
 
         $translatedReadableCol = $this->getExcelLabel($lookedUpTable, 'name');
 
@@ -297,7 +309,7 @@ class ImportUsersTable extends AppTable
                 $data[$columnOrder]['data'][] = [
                     $row->name,
                     $row->{$lookupColumn},
-                    $identityTypeName
+                    $identityTypeName,
                 ];
             }
         }
@@ -310,7 +322,7 @@ class ImportUsersTable extends AppTable
         while ($notUnique) {
             $user = $this->Users->find()->select(['id'])->where([
                 $this->Users->aliasField('openemis_no') => $val,
-                $this->Users->aliasField('username') => $val
+                // $this->Users->aliasField('username') => $val
             ])->first();
             if ($user) {
                 $val = $this->Users->getUniqueOpenemisId();
@@ -325,7 +337,7 @@ class ImportUsersTable extends AppTable
     {
         $accountType = '';
         foreach ($this->accountTypes as $key => $type) {
-            if ($type['code']==$cellValue) {
+            if ($type['code'] == $cellValue) {
                 $accountType = $type['id'];
                 break;
             }
@@ -350,7 +362,7 @@ class ImportUsersTable extends AppTable
                 $customTableRecords = $customTable
                     ->find()
                     ->where([
-                        $customTable->aliasField('default') => 1
+                        $customTable->aliasField('default') => 1,
                     ])
                     ->toArray();
 
@@ -397,11 +409,11 @@ class ImportUsersTable extends AppTable
                 if ($defaultIdentityType) { //if has default identity
 
                     $countIdentity = $userIdentitiesTable->find()
-                                        ->where([
-                                            'number'=>$cellValue,
-                                            'identity_type_id'=>$defaultIdentityType
-                                        ])
-                                        ->count(); //get the record which has same identity number and type
+                        ->where([
+                            'number' => $cellValue,
+                            'identity_type_id' => $defaultIdentityType,
+                        ])
+                        ->count(); //get the record which has same identity number and type
 
                     if ($countIdentity) {
                         $result = "Identity number must be unique";

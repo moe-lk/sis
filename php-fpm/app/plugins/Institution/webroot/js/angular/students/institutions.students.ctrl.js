@@ -661,11 +661,12 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         return studentRecords;
     }
 
-    function insertStudentData(studentId, academicPeriodId, educationGradeId, classId, startDate, endDate, userRecord) {
+    function insertStudentData(studentId, academicPeriodId, educationGradeId, classId, startDate, endDate, userRecord,insertStudentData) {
         UtilsSvc.isAppendLoader(true);
         AlertSvc.reset($scope);
         var data = {
             student_id: studentId,
+            is_attended_pre_school:insertStudentData,
             academic_period_id: academicPeriodId,
             education_grade_id: educationGradeId,
             start_date: startDate,
@@ -926,6 +927,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
     }
 
     function postForm() {
+        var isAttendedPreSchool = (StudentController.isAttendedPreSchool.hasOwnProperty('selectedOption')) ? StudentController.isAttendedPreSchool.selectedOption.id : '';
         var academicPeriodId = (StudentController.academicPeriodOptions.hasOwnProperty('selectedOption')) ? StudentController.academicPeriodOptions.selectedOption.id : '';
         var educationGradeId = (StudentController.educationGradeOptions.hasOwnProperty('selectedOption')) ? StudentController.educationGradeOptions.selectedOption.education_grade_id : '';
         if (educationGradeId == undefined) {
@@ -950,10 +952,10 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
                 var studentData = StudentController.selectedStudentData;
                 var amendedStudentData = Object.assign({}, studentData);
                 amendedStudentData.date_of_birth = InstitutionsStudentsSvc.formatDate(amendedStudentData.date_of_birth);
-                StudentController.addStudentUser(amendedStudentData, academicPeriodId, educationGradeId, classId, startDate, endDate);
+                StudentController.addStudentUser(amendedStudentData, academicPeriodId, educationGradeId, classId, startDate, endDate,isAttendedPreSchool);
             } else {
                 var studentId = StudentController.selectedStudent;
-                StudentController.insertStudentData(studentId, academicPeriodId, educationGradeId, classId, startDate, endDate, {});
+                StudentController.insertStudentData(studentId, academicPeriodId, educationGradeId, classId, startDate, endDate, {},isAttendedPreSchool);
             }
         } else {
             if (StudentController.selectedStudentData != null) {
@@ -1074,7 +1076,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
         return year + month;
     }
 
-    function addStudentUser(studentData, academicPeriodId, educationGradeId, classId, startDate, endDate) {
+    function addStudentUser(studentData, academicPeriodId, educationGradeId, classId, startDate, endDate,insertStudentData) {
         var newStudentData = studentData;
         newStudentData['academic_period_id'] = academicPeriodId;
         newStudentData['education_grade_id'] = educationGradeId;
@@ -1089,7 +1091,7 @@ function InstitutionStudentController($location, $q, $scope, $window, $filter, U
             .then(function (user) {
                 if (user[0].error.length === 0) {
                     var studentId = user[0].data.id;
-                    StudentController.insertStudentData(studentId, academicPeriodId, educationGradeId, classId, startDate, endDate, user[1]);
+                    StudentController.insertStudentData(studentId, academicPeriodId, educationGradeId, classId, startDate, endDate, user[1],insertStudentData);
                 } else {
                     StudentController.postResponse = user[0];
                     console.log(user[0]);

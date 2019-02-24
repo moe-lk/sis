@@ -44,7 +44,7 @@ $icon = strpos($_productName, 'School') != -1 ? '_school' : '';
 <?php echo $this->element('OpenEmis.analytics') ?>
 
 <body onload="$('input[type=text]:first').focus()" class="login">
-	<div class="body-wrapper">
+	<div  id="body-wrappers">
 		<div class="login-box">
 			<div class="title">
 				<span class="title-wrapper">
