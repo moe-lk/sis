@@ -63,7 +63,7 @@ class DirectoriesTable extends ControllerActionTable
         ];
         $this->addBehavior('AdvanceSearch', [
             'include' =>[
-                'openemis_no'
+                'openemis_no',
             ],
             'order' => $advancedSearchFieldOrder,
             'showOnLoad' => 1,
@@ -356,7 +356,7 @@ class DirectoriesTable extends ControllerActionTable
                 $this->request->query['user_type'] = self::GUARDIAN;
             }
             $userType = isset($this->request->data[$this->alias()]['user_type']) ? $this->request->data[$this->alias()]['user_type'] : $this->request->query('user_type');
-            $this->field('openemis_no', ['user_type' => $userType]);
+            $this->field('openemis_no', ['user_type' => $userType],['attr' => ['label' => __('Is Classroom')]]);
             switch ($userType) {
                 case self::STUDENT:
                     $this->addBehavior('User.Mandatory', ['userRole' => 'Student', 'roleFields' => ['Identities', 'Nationalities', 'Contacts', 'SpecialNeeds','BirthplaceAreas']]);
@@ -444,6 +444,7 @@ class DirectoriesTable extends ControllerActionTable
 
         $this->fields['openemis_no']['value'] = $openemisNo;
         $this->fields['openemis_no']['attr']['value'] = $openemisNo;
+         $this->fields['openemis_no']['attr']['label'] = 'User ID';
         // pr($this->request->data[$this->alias()]['username']);
         if (!isset($this->request->data[$this->alias()]['username'])) {
             $this->request->data[$this->alias()]['username'] = $openemisNo;
