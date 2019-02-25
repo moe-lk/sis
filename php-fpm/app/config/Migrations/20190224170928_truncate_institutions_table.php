@@ -1,6 +1,6 @@
 <?php
 use Phinx\Migration\AbstractMigration;
-class TruncateInstitutionsTable extends AbstractMigration
+class TruncateInstitutionsTables extends AbstractMigration
 {
     /**
      * Change Method.
