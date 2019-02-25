@@ -12,6 +12,7 @@ use App\Model\Table\AppTable;
 use App\Model\Traits\MessagesTrait;
 use App\Model\Traits\HtmlTrait;
 use App\Model\Table\ControllerActionTable;
+use Cake\Log\Log;
 
 class UserGroupsTable extends ControllerActionTable
 {
@@ -169,6 +170,8 @@ class UserGroupsTable extends ControllerActionTable
         $this->controller->set('tabElements', $tabElements);
         $this->controller->set('selectedAction', $this->alias());
 
+        Log::error(json_encode('tabElements'));
+        Log::error(json_encode($tabElements));
         $this->field('areas', [
             'type' => 'area_table',
             'valueClass' => 'table-full-width',
@@ -387,7 +390,7 @@ class UserGroupsTable extends ControllerActionTable
 
     public function onGetUserTableElement(Event $event, $action, $entity, $attr, $options = [])
     {
-        $tableHeaders = [__('OpenEMIS ID'), __('Name'), __('Role')];
+        $tableHeaders = [__('ID'), __('Name'), __('Role')];
         $tableCells = [];
         $alias = $this->alias();
         $key = 'users';

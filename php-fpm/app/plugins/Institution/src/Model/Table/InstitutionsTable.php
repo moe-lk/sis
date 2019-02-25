@@ -40,7 +40,7 @@ class InstitutionsTable extends ControllerActionTable
     const ACADEMIC = 1;
     const NON_ACADEMIC = 2;
 
-    private $defaultLogoView = "<div class='profile-image'><i class='fa kd-institutions'></i></div>";
+    private $defaultLogoView = "<div class='profile-image'><i class='fa kd-institution'></i></div>";
     private $defaultImgIndexClass = "logo-thumbnail";
     private $defaultImgViewClass= "logo-image";
     private $photoMessage = 'Advisable logo dimension %width by %height';
@@ -149,6 +149,7 @@ class InstitutionsTable extends ControllerActionTable
             ]);
         }
         $this->addBehavior('Year', ['date_opened' => 'year_opened', 'date_closed' => 'year_closed']);
+        // $this->addBehavior('SpecialEducationUnit', ['date_opened' => 'year_opened', 'date_closed' => 'year_closed']);
         $this->addBehavior('TrackActivity', ['target' => 'Institution.InstitutionActivities', 'key' => 'institution_id', 'session' => 'Institution.Institutions.id']);
 
         // specify order of advanced search fields
@@ -279,9 +280,6 @@ class InstitutionsTable extends ControllerActionTable
 
             ->add('area_id', 'ruleAuthorisedArea', [
                     'rule' => ['checkAuthorisedArea']
-                ])
-            ->add('area_id', 'ruleConfiguredArea', [
-                    'rule' => ['checkConfiguredArea']
                 ])
             ->allowEmpty('area_administrative_id')
             ->add('area_administrative_id', 'ruleConfiguredAreaAdministrative', [
@@ -514,10 +512,10 @@ class InstitutionsTable extends ControllerActionTable
         $language = I18n::locale();
         $field = 'area_id';
         $areaLabel = $this->onGetFieldLabel($event, $this->alias(), $field, $language, true);
-        $this->field('area_section', ['type' => 'section', 'title' => $areaLabel]);
+        $this->field('area_section', ['type' => 'section', 'title' => $areaLabel . ' (Educational Zone)']);
         $field = 'area_administrative_id';
         $areaAdministrativesLabel = $this->onGetFieldLabel($event, $this->alias(), $field, $language, true);
-        $this->field('area_administrative_section', ['type' => 'section', 'title' => $areaAdministrativesLabel]);
+        $this->field('area_administrative_section', ['type' => 'section', 'title' => $areaAdministrativesLabel . ' (District)']);
         $this->field('contact_section', ['type' => 'section', 'title' => __('Contact'), 'after' => $field]);
         $this->field('other_information_section', ['type' => 'section', 'title' => __('Other Information'), 'after' => 'website', 'visible' => ['index' => false, 'view' => true, 'edit' => true, 'add' => true]]);
         $this->field('map_section', ['type' => 'section', 'title' => __('Map'), 'visible' => ['view'=>true]]);
@@ -804,10 +802,11 @@ class InstitutionsTable extends ControllerActionTable
     ******************************************************************************************************************/
     public function viewBeforeAction(Event $event, ArrayObject $extra)
     {
+        $this->field('is_special_education_unit_operating', ['type' => 'check' ,  'options' => ['No','Yes']]);
         $this->setFieldOrder([
             'information_section',
             'logo_content',
-            'name', 'alternative_name', 'code', 'classification', 'institution_sector_id', 'institution_provider_id', 'institution_type_id',
+            'name', 'alternative_name', 'code', 'classification','', 'institution_sector_id', 'institution_provider_id','is_special_education_unit_operating', 'institution_type_id',
             'institution_ownership_id', 'institution_gender_id', 'date_opened', 'date_closed', 'institution_status_id',
 
             'shift_section',
@@ -883,13 +882,14 @@ class InstitutionsTable extends ControllerActionTable
     public function addEditAfterAction(Event $event, Entity $entity, ArrayObject $extra)
     {
         $this->field('institution_type_id', ['type' => 'select']);
+        $this->field('is_special_education_unit_operating', ['type' => 'select' ,  'options' => ['No','Yes']]);
         $this->field('institution_provider_id', ['type' => 'select', 'sectorId' => $entity->institution_sector_id]);
         $this->field('classification', ['type' => 'select', 'options' => [], 'entity' => $entity, 'after' => 'code']);
 
         $this->setFieldOrder([
             'information_section',
             'logo_content',
-            'name', 'alternative_name', 'code', 'classification', 'institution_sector_id', 'institution_provider_id', 'institution_type_id',
+            'name', 'alternative_name', 'code', 'classification', 'institution_sector_id', 'institution_provider_id','is_special_education_unit_operating', 'institution_type_id',
             'institution_ownership_id', 'institution_gender_id', 'date_opened', 'date_closed', 'institution_status_id',
 
             'location_section',
