@@ -2,7 +2,7 @@
 
 use Phinx\Migration\AbstractMigration;
 
-class TruncateInstitutionsTable extends AbstractMigration
+class TruncateUnwantedData extends AbstractMigration
 {
     /**
      * Change Method.
@@ -25,13 +25,15 @@ class TruncateInstitutionsTable extends AbstractMigration
      * Remember to call "create()" or "update()" and NOT "save()" when working
      * with the Table class.
      */
-    public function up()
+   public function up()
     {
         $this->execute("TRUNCATE `openemis`.`institution_student_admission`;");
         $this->execute("TRUNCATE `openemis`.`institution_students`;");
         $this->execute("TRUNCATE `openemis`.`institution_class_grades`;");
         $this->execute("TRUNCATE `openemis`.`institution_class_students`;");
         $this->execute("TRUNCATE `openemis`.`institution_class_subjects`;");
+        $this->execute("TRUNCATE `openemis`.`institutions`;");
         $this->execute("TRUNCATE `openemis`.`institution_history`;");
     }
+    
 }
