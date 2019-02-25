@@ -27,11 +27,11 @@ class TruncateInstitutionsTable extends AbstractMigration
      */
     public function up()
     {
-        $this->execute("TRUNCATE `openemis`.`institution_student_admission`;");
-        $this->execute("TRUNCATE `openemis`.`institution_students`;");
-        $this->execute("TRUNCATE `openemis`.`institution_class_grades`;");
-        $this->execute("TRUNCATE `openemis`.`institution_class_students`;");
-        $this->execute("TRUNCATE `openemis`.`institution_class_subjects`;");
-        $this->execute("TRUNCATE `openemis`.`institution_history`;");
+        $this->execute("TRUNCATE `institution_student_admission`;");
+        $this->execute("TRUNCATE `institution_students`;");
+        $this->execute("TRUNCATE `institution_class_grades`;");
+        $this->execute("TRUNCATE `institution_class_students`;");
+        $this->execute("TRUNCATE `institution_class_subjects`;");
+        $this->execute("TRUNCATE `institution_history`;");
     }
 }
