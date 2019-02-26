@@ -397,6 +397,7 @@ class StudentAdmissionTable extends ControllerActionTable
         $this->field('institution_id', ['type' => 'readonly', 'attr' => ['value' => $this->Institutions->get($entity->institution_id)->code_name]]);
         $this->field('academic_period_id', ['type' => 'readonly', 'attr' => ['value' => $this->AcademicPeriods->get($entity->academic_period_id)->name]]);
         $this->field('education_grade_id', ['type' => 'readonly', 'attr' => ['value' => $this->EducationGrades->get($entity->education_grade_id)->programme_grade_name]]);
+        $this->field('is_attended_pre_school', ['type' => 'select', 'option' => ['No','Yes']]);
         $this->field('institution_class_id', ['entity' => $entity]);
         $this->field('start_date', ['entity' => $entity]);
         $this->field('end_date', ['entity' => $entity]);

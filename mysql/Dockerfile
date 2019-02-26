@@ -8,4 +8,5 @@ ENV MYSQL_DATABASE openemis
 # executed during container startup
 COPY ./Dump20190205-1/ /docker-entrypoint-initdb.d/
 COPY ./fix-institution-import /docker-entrypoint-initdb.d/
+COPY ./add-areas /docker-entrypoint-initdb.d/
 
