@@ -172,6 +172,8 @@ class UserGroupsTable extends ControllerActionTable
 
         Log::error(json_encode('tabElements'));
         Log::error(json_encode($tabElements));
+        $securityGroupId = $this->request->data[$this->alias()]['security_group_id'];
+
         $this->field('areas', [
             'type' => 'area_table',
             'valueClass' => 'table-full-width',
