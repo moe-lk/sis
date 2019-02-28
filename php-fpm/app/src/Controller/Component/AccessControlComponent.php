@@ -1,11 +1,9 @@
 <?php
 namespace App\Controller\Component;
 
-use Cake\I18n\Time;
 use Cake\Controller\Component;
 use Cake\Event\Event;
 use Cake\ORM\TableRegistry;
-use Cake\Log\Log;
 
 class AccessControlComponent extends Component
 {
@@ -17,7 +15,7 @@ class AccessControlComponent extends Component
     protected $_defaultConfig = [
         'operations' => ['_view', '_add', '_edit', '_delete', '_execute'],
         'ignoreList' => [],
-        'separator' => '|'
+        'separator' => '|',
     ];
 
     public $components = ['Auth', 'Page.Page'];
@@ -108,11 +106,11 @@ class AccessControlComponent extends Component
         $selectedColumns = [
             'modified' => '(
 				CASE
-					WHEN '.$SecurityRoleFunctions->aliasField('modified').' > '.$SecurityRoleFunctions->aliasField('created').'
-					THEN '.$SecurityRoleFunctions->aliasField('modified').'
-					ELSE '.$SecurityRoleFunctions->aliasField('created').'
+					WHEN ' . $SecurityRoleFunctions->aliasField('modified') . ' > ' . $SecurityRoleFunctions->aliasField('created') . '
+					THEN ' . $SecurityRoleFunctions->aliasField('modified') . '
+					ELSE ' . $SecurityRoleFunctions->aliasField('created') . '
 					END
-				)'
+				)',
         ];
 
         if ($roles->all()->count() > 0) {
@@ -148,7 +146,7 @@ class AccessControlComponent extends Component
         $SecurityRoleFunctions = TableRegistry::get('Security.SecurityRoleFunctions');
         $roles = $GroupRoles->find()
             ->where([
-                $GroupRoles->aliasField('security_user_id').'='.$userId
+                $GroupRoles->aliasField('security_user_id') . '=' . $userId,
             ])
             ->group([$GroupRoles->aliasField('security_role_id')])
             ->select(['security_role_id' => $GroupRoles->aliasField('security_role_id')]);
@@ -156,11 +154,11 @@ class AccessControlComponent extends Component
         $selectedColumns = [
             'modified' => '(
 				CASE
-					WHEN '.$SecurityRoleFunctions->aliasField('modified').' > '.$SecurityRoleFunctions->aliasField('created').'
-					THEN '.$SecurityRoleFunctions->aliasField('modified').'
-					ELSE '.$SecurityRoleFunctions->aliasField('created').'
+					WHEN ' . $SecurityRoleFunctions->aliasField('modified') . ' > ' . $SecurityRoleFunctions->aliasField('created') . '
+					THEN ' . $SecurityRoleFunctions->aliasField('modified') . '
+					ELSE ' . $SecurityRoleFunctions->aliasField('created') . '
 					END
-				)'
+				)',
         ];
 
         if ($roles->all()->count() > 0) {
@@ -395,6 +393,46 @@ class AccessControlComponent extends Component
         return $superAdmin == 1;
     }
 
+    public function isPrincipal()
+    {
+
+        $role = $this->getRolesByUser();
+        $separator = $this->config('separator');
+        $userId = $this->Auth->user('id');
+        $GroupRoles = TableRegistry::get('Security.SecurityGroupUsers');
+
+        $userRole = $GroupRoles
+            ->find()
+            ->contain('SecurityRoles')
+            ->order(['SecurityRoles.order'])
+            ->where([
+                $GroupRoles->aliasField('security_user_id') => $userId,
+                'SecurityRoles.code' => 'PRINCIPAL',
+            ])
+            ->first();
+        return $userRole->security_role->code == 'PRINCIPAL';
+
+    }
+
+    public function isZonalCoordinator()
+    {
+        $role = $this->getRolesByUser();
+        $separator = $this->config('separator');
+        $userId = $this->Auth->user('id');
+        $GroupRoles = TableRegistry::get('Security.SecurityGroupUsers');
+
+        $userRole = $GroupRoles
+            ->find()
+            ->contain('SecurityRoles')
+            ->order(['SecurityRoles.order'])
+            ->where([
+                $GroupRoles->aliasField('security_user_id') => $userId,
+                'SecurityRoles.code' => 'ZONAL_COORDINATOR',
+            ])
+            ->first();
+        return $userRole->security_role->code == 'ZONAL_COORDINATOR';
+    }
+
     public function getRolesByUser($userId = null)
     {
         if (is_null($userId)) {
@@ -425,42 +463,42 @@ class AccessControlComponent extends Component
 
         return $institutionIds;
         /*
-        if (is_null($userId)) {
-            $userId = $this->Auth->user('id');
-        }
+    if (is_null($userId)) {
+    $userId = $this->Auth->user('id');
+    }
 
-        $SecurityGroupUsers = TableRegistry::get('Security.SecurityGroupUsers');
-        $groupIds = $SecurityGroupUsers
-        ->find('list', ['keyField' => 'id', 'valueField' => 'security_group_id'])
-        ->where([$SecurityGroupUsers->aliasField('security_user_id') => $userId])
-        ->toArray();
+    $SecurityGroupUsers = TableRegistry::get('Security.SecurityGroupUsers');
+    $groupIds = $SecurityGroupUsers
+    ->find('list', ['keyField' => 'id', 'valueField' => 'security_group_id'])
+    ->where([$SecurityGroupUsers->aliasField('security_user_id') => $userId])
+    ->toArray();
 
-        if (!empty($groupIds)) {
-            $SecurityGroupInstitutions = TableRegistry::get('Security.SecurityGroupInstitutions');
-            $institutionIds = $SecurityGroupInstitutions
-            ->find('list', ['keyField' => 'institution_id', 'valueField' => 'institution_id'])
-            ->where([$SecurityGroupInstitutions->aliasField('security_group_id') . ' IN ' => $groupIds])
-            ->toArray();
+    if (!empty($groupIds)) {
+    $SecurityGroupInstitutions = TableRegistry::get('Security.SecurityGroupInstitutions');
+    $institutionIds = $SecurityGroupInstitutions
+    ->find('list', ['keyField' => 'institution_id', 'valueField' => 'institution_id'])
+    ->where([$SecurityGroupInstitutions->aliasField('security_group_id') . ' IN ' => $groupIds])
+    ->toArray();
 
-            $SecurityGroupAreas = TableRegistry::get('Security.SecurityGroupAreas');
-            $areaInstitutions = $SecurityGroupAreas
-            ->find('list', ['keyField' => 'Institutions.id', 'valueField' => 'Institutions.id'])
-            ->select(['Institutions.id'])
-            ->innerJoin(['AreaAll' => 'areas'], ['AreaAll.id = SecurityGroupAreas.area_id'])
-            ->innerJoin(['Areas' => 'areas'], [
-                'Areas.lft >= AreaAll.lft',
-                'Areas.rght <= AreaAll.rght'
-            ])
-            ->innerJoin(['Institutions' => 'institutions'], ['Institutions.area_id = Areas.id'])
-            ->where([$SecurityGroupAreas->aliasField('security_group_id') . ' IN ' => $groupIds])
-            ->toArray();
+    $SecurityGroupAreas = TableRegistry::get('Security.SecurityGroupAreas');
+    $areaInstitutions = $SecurityGroupAreas
+    ->find('list', ['keyField' => 'Institutions.id', 'valueField' => 'Institutions.id'])
+    ->select(['Institutions.id'])
+    ->innerJoin(['AreaAll' => 'areas'], ['AreaAll.id = SecurityGroupAreas.area_id'])
+    ->innerJoin(['Areas' => 'areas'], [
+    'Areas.lft >= AreaAll.lft',
+    'Areas.rght <= AreaAll.rght'
+    ])
+    ->innerJoin(['Institutions' => 'institutions'], ['Institutions.area_id = Areas.id'])
+    ->where([$SecurityGroupAreas->aliasField('security_group_id') . ' IN ' => $groupIds])
+    ->toArray();
 
-            $institutionIds = $institutionIds + $areaInstitutions;
-            return $institutionIds;
-        } else {
-            return [];
-        }
-        */
+    $institutionIds = $institutionIds + $areaInstitutions;
+    return $institutionIds;
+    } else {
+    return [];
+    }
+     */
     }
 
     public function getAreasByUser($userId = null)
