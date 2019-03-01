@@ -8,36 +8,36 @@ services:
   #   environment:
   #     STAGE: local
   #     DOMAINS: 'sis.moe.gov.com -> http://openemis-nginx:80' # saml.moe.gov.com -> http://saml-moe:443, apim.moe.gov.com -> http://api-manager:9443
-  nsis-mailhog:
+  openemis-mailhog:
     image: phpdockerio/mailhog:latest
-    container_name: nsis-mailhog-2
+    container_name: openemis-mailhog-2
     ports:
       - "8125:8025"
-  nsis-mysql:
+  openemis-mysql:
     build: ./mysql
     environment:
       MYSQL_ROOT_PASSWORD: secret
-      MYSQL_DATABASE: nsisdb
-      MYSQL_USER: nsisuser
-      MYSQL_PASSWORD: nsispass
+      MYSQL_DATABASE: openemis
+      MYSQL_USER: openeuser
+      MYSQL_PASSWORD: openepass
     command:  '--sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION --max_allowed_packet=32505856'
     ports:
       - "8106:3306"
     restart: always
-  nsis-nginx:
+  openemis-nginx:
     build: ./nginx
-    container_name: nsis-nginx-2
+    container_name: openemis-nginx-2
     ports:
     - "8180:80"
     links:
-      - nsis-php-fpm
+      - openemis-php-fpm
     restart: always
-  nsis-php-fpm:
+  openemis-php-fpm:
     build: ./php-fpm
     volumes:
        - ./php-fpm/app:/var/www/myapp
        - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
     container_name: openemis-php-fpm-2
     links:
-      - nsis-mailhog
-      - nsis-mysql
+      - openemis-mailhog
+      - openemis-mysql

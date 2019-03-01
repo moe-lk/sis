@@ -111,11 +111,11 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     <input ng-model="InstitutionStudentController.internalFilterOpenemisNo" ng-keyup="$event.keyCode == 13 ? InstitutionStudentController.reloadInternalDatasource(true) : null" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
-                    <label><?=__('First Name')?></label>
+                    <label><?=__('Full Name')?></label>
                     <input ng-model="InstitutionStudentController.internalFilterFirstName" ng-keyup="$event.keyCode == 13 ? InstitutionStudentController.reloadInternalDatasource(true) : null" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
-                    <label><?=__('Last Name')?></label>
+                    <label><?=__('Name with initials')?></label>
                     <input ng-model="InstitutionStudentController.internalFilterLastName" ng-keyup="$event.keyCode == 13 ? InstitutionStudentController.reloadInternalDatasource(true) : null" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
@@ -154,11 +154,11 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     <label><?=__('Filter')?></label>
                 </div>
                 <div class="text">
-                    <label><?=__('First Name')?></label>
+                    <label><?=__('Full Name')?></label>
                     <input ng-model="InstitutionStudentController.internalFilterFirstName" ng-disabled="true" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
-                    <label><?=__('Last Name')?></label>
+                    <label><?=__('Name with initials')?></label>
                     <input ng-model="InstitutionStudentController.internalFilterLastName" ng-disabled="true" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
@@ -192,30 +192,19 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     </div>
                 </div>
                 <div class="input string required">
-                    <label><?=__('First Name')?></label>
+                    <label><?=__('Full Name')?></label>
                     <input ng-model="InstitutionStudentController.selectedStudentData.first_name" ng-change="InstitutionStudentController.setStudentName()" type="string" ng-init="InstitutionStudentController.selectedStudentData.first_name='';">
                     <div ng-if="InstitutionStudentController.postResponse.error.first_name" class="error-message">
                         <p ng-repeat="error in InstitutionStudentController.postResponse.error.first_name">{{ error }}</p>
                     </div>
                 </div>
-                <div class="input string">
-                    <label><?=__('Middle Name')?></label>
-                    <input ng-model="InstitutionStudentController.selectedStudentData.middle_name" ng-change="InstitutionStudentController.setStudentName()" type="string">
-                </div>
-                <div class="input string">
-                    <label><?=__('Third Name')?></label>
-                    <input ng-model="InstitutionStudentController.selectedStudentData.third_name" ng-change="InstitutionStudentController.setStudentName()" type="string">
-                </div>
+                
                 <div class="input string required">
-                    <label><?=__('Last Name')?></label>
+                    <label><?=__('Name with initials')?></label>
                     <input ng-model="InstitutionStudentController.selectedStudentData.last_name" ng-change="InstitutionStudentController.setStudentName()" type="string" ng-init="InstitutionStudentController.selectedStudentData.last_name='';">
                     <div ng-if="InstitutionStudentController.postResponse.error.last_name" class="error-message">
                         <p ng-repeat="error in InstitutionStudentController.postResponse.error.last_name">{{ error }}</p>
                     </div>
-                </div>
-                <div class="input string">
-                    <label><?=__('Preferred Name')?></label>
-                    <input ng-model="InstitutionStudentController.selectedStudentData.preferred_name" type="string">
                 </div>
                 <div class="input select required error">
                     <label><?=__('Gender')?></label>
@@ -349,18 +338,14 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     </div>
                 </div>
                 <div class="input string required">
-                    <label><?=__('Username')?></label>
-                    <input ng-model="InstitutionStudentController.selectedStudentData.username" type="string" ng-init="InstitutionStudentController.selectedStudentData.username='';">
+                    <input ng-model="InstitutionStudentController.selectedStudentData.username" type="hidden" ng-init="InstitutionStudentController.selectedStudentData.username='';">
                     <div ng-if="InstitutionStudentController.postResponse.error.username" class="error-message">
                         <p ng-repeat="error in InstitutionStudentController.postResponse.error.username">{{ error }}</p>
                     </div>
                 </div>
 
                 <div class="input password required">
-                    <label><?=
-__('Password') . '&nbsp&nbsp;<i class="fa fa-info-circle fa-lg table-tooltip icon-blue" data-placement="right" data-toggle="tooltip" data-animation="false" data-container="body" title="" data-html="true" data-original-title="' . $tooltipMessage . '"></i>'
-?></label>
-                    <input ng-model="InstitutionStudentController.selectedStudentData.password" type="string" ng-init="InstitutionStudentController.selectedStudentData.password='';">
+                    <input ng-model="InstitutionStudentController.selectedStudentData.password" type="hidden" ng-init="InstitutionStudentController.selectedStudentData.password='';">
                     <div ng-if="InstitutionStudentController.postResponse.error.password" class="error-message">
                         <p ng-repeat="error in InstitutionStudentController.postResponse.error.password">{{ error }}</p>
                     </div>
@@ -422,34 +407,33 @@ __('Password') . '&nbsp&nbsp;<i class="fa fa-info-circle fa-lg table-tooltip ico
                     </div>
                 </div>
                 <div class="input string required">
-                    <label><?=__('Username')?></label>
-                    <input ng-model="InstitutionStudentController.selectedStudentData.username" type="string" disabled="disabled">
+                    <input ng-model="InstitutionStudentController.selectedStudentData.username" type="hidden" disabled="disabled">
                     <div ng-if="InstitutionStudentController.postResponse.error.username" class="error-message">
                         <p ng-repeat="error in InstitutionStudentController.postResponse.error.username">{{ error }}</p>
                     </div>
                 </div>
 
                 <div class="input password required" ng-show="!InstitutionStudentController.existingStudent">
-                    <label><?=__('Password')?></label>
-                    <input ng-model="InstitutionStudentController.selectedStudentData.password" type="string" disabled="disabled">
+                    <input ng-model="InstitutionStudentController.selectedStudentData.password" type="hidden" disabled="disabled">
                     <div ng-if="InstitutionStudentController.postResponse.error.password" class="error-message">
                         <p ng-repeat="error in InstitutionStudentController.postResponse.error.password">{{ error }}</p>
                     </div>
                 </div>
-                <div class="input select required" ng-model="InstitutionStudentController.postResponse" ng-show="!InstitutionStudentController.existingStudent">
-                    <label><?=__('Is Pre School Attended')?></label>
+                <!-- <div class="input select " ng-model="InstitutionStudentController.postResponse" ng-show="!InstitutionStudentController.existingStudent">
+                    <label>('Has Attended  Pre School')</label>
                     <div class="input-select-wrapper">
-                        <select name="Students[is_attended_pre_school]"   ng-model="InstitutionStudentController.isAttendedPreSchool.selectedOption"  id="students-is-attended-pre-school"
+                        <select name="Students[is_attended_pre_school]"  
+                         ng-model="InstitutionStudentController.isAttendedPreSchoolOptions.selectedOption"  
+                         ng-options="option.name for option in InstitutionStudentController.isAttendedPreSchoolOptions.availableOptions track by option.id"
+                         ng-init="InstitutionStudentController.isAttendedPreSchoolOptions.selectedOption.id=''"
+                         id="students-is-attended-pre-school"
                         >
-                        <option>-- Select -- </option>
-                        <option value="0">No</option>
-                        <option value="1">Yes</option>
                         </select>
                     </div>
                     <div ng-if="InstitutionStudentController.postResponse.error.academic_period_id" class="error-message">
                         <p ng-repeat="error in InstitutionStudentController.postResponse.error.academic_period_id">{{ error }}</p>
                     </div>
-                </div>
+                </div> -->
                 <div class="input select required" ng-model="InstitutionStudentController.postResponse" ng-show="!InstitutionStudentController.existingStudent">
                     <label><?=__('Academic Period')?></label>
                     <div class="input-select-wrapper">

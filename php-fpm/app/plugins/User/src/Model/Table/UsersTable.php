@@ -1,20 +1,20 @@
 <?php
 namespace User\Model\Table;
 
-use ArrayObject;
-use Cake\ORM\Query;
-use Cake\ORM\Entity;
-use Cake\ORM\TableRegistry;
-use Cake\Event\Event;
-use Cake\Network\Request;
-use Cake\Utility\Inflector;
-use Cake\Validation\Validator;
 use App\Model\Table\AppTable;
 use App\Model\Traits\OptionsTrait;
 use App\Model\Traits\UserTrait;
-use Cake\I18n\Time;
-use Cake\Network\Session;
+use ArrayObject;
 use Cake\Datasource\ConnectionManager;
+use Cake\Event\Event;
+use Cake\I18n\Time;
+use Cake\Network\Request;
+use Cake\Network\Session;
+use Cake\ORM\Entity;
+use Cake\ORM\Query;
+use Cake\ORM\TableRegistry;
+use Cake\Utility\Inflector;
+use Cake\Validation\Validator;
 
 class UsersTable extends AppTable
 {
@@ -34,9 +34,8 @@ class UsersTable extends AppTable
     private $defaultGuardianProfileView = "<div class='profile-image'><i class='fa fa-user'></i></div>";
     private $defaultUserProfileView = "<div class='profile-image'><i class='fa fa-user'></i></div>";
 
-
     private $defaultImgIndexClass = "profile-image-thumbnail";
-    private $defaultImgViewClass= "profile-image";
+    private $defaultImgViewClass = "profile-image";
     private $photoMessage = 'Advisable photo dimension %width by %height';
     private $formatSupport = 'Format Supported: %s';
     private $defaultImgMsg = "<p>* %s <br>* %s</p>";
@@ -52,7 +51,7 @@ class UsersTable extends AppTable
         self::handleAssociations($this);
 
         $this->fieldOrder1 = new ArrayObject(['photo_content', 'openemis_no', 'first_name', 'middle_name', 'third_name', 'last_name', 'preferred_name', 'gender_id', 'date_of_birth', 'address', 'postal_code']);
-        $this->fieldOrder2 = new ArrayObject(['status','modified_user_id','modified','created_user_id','created']);
+        $this->fieldOrder2 = new ArrayObject(['status', 'modified_user_id', 'modified', 'created_user_id', 'created']);
 
         $this->addBehavior('ControllerAction.FileUpload', [
             'name' => 'photo_name',
@@ -60,7 +59,7 @@ class UsersTable extends AppTable
             'size' => '2MB',
             'contentEditable' => true,
             'allowable_file_types' => 'image',
-            'useDefaultName' => true
+            'useDefaultName' => true,
         ]);
 
         $this->addBehavior('Area.Areapicker');
@@ -68,7 +67,7 @@ class UsersTable extends AppTable
         $this->addBehavior('Restful.RestfulAccessControl', [
             'StaffRoom' => ['index', 'add'],
             'ClassStudents' => ['index'],
-            'OpenEMIS_Classroom' => ['view', 'edit']
+            'OpenEMIS_Classroom' => ['view', 'edit'],
         ]);
 
         $this->displayField('first_name');
@@ -84,7 +83,7 @@ class UsersTable extends AppTable
             'Model.UserNationalities.onChange' => 'onChangeUserNationalities',
             'Model.UserIdentities.onChange' => 'onChangeUserIdentities',
             'Model.Nationalities.onChange' => 'onChangeNationalities',
-            'Model.UserContacts.onChange' => 'onChangeUserContacts'
+            'Model.UserContacts.onChange' => 'onChangeUserContacts',
         ];
 
         $events = array_merge($events, $newEvent);
@@ -115,7 +114,7 @@ class UsersTable extends AppTable
         }
         $this->updateAll([
             'last_login' => $lastLogin,
-            'preferred_language' => $preferredLanguage
+            'preferred_language' => $preferredLanguage,
         ], ['id' => $user['id']]);
     }
 
@@ -144,7 +143,6 @@ class UsersTable extends AppTable
         } else {
             $dateOfBirth = Time::createFromFormat('Y-m-d', '1970-01-01');
         }
-
 
         $date = Time::now();
         $data = [
@@ -175,24 +173,24 @@ class UsersTable extends AppTable
         $model->belongsTo('BirthplaceAreas', ['className' => 'Area.AreaAdministratives', 'foreignKey' => 'birthplace_area_id']);
         $model->belongsTo('MainNationalities', ['className' => 'FieldOption.Nationalities', 'foreignKey' => 'nationality_id']);
         $model->belongsTo('MainIdentityTypes', ['className' => 'FieldOption.IdentityTypes', 'foreignKey' => 'identity_type_id']);
-        $model->hasMany('Identities', ['className' => 'User.Identities',        'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $model->hasMany('Nationalities', ['className' => 'User.UserNationalities',    'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $model->hasMany('SpecialNeeds', ['className' => 'User.SpecialNeeds',    'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $model->hasMany('Contacts', ['className' => 'User.Contacts',        'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $model->hasMany('Attachments', ['className' => 'User.Attachments',        'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $model->hasMany('BankAccounts', ['className' => 'User.BankAccounts',    'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $model->hasMany('Comments', ['className' => 'User.Comments',        'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $model->hasMany('Languages', ['className' => 'User.UserLanguages',    'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $model->hasMany('Awards', ['className' => 'User.Awards',            'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $model->hasMany('Identities', ['className' => 'User.Identities', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $model->hasMany('Nationalities', ['className' => 'User.UserNationalities', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $model->hasMany('SpecialNeeds', ['className' => 'User.SpecialNeeds', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $model->hasMany('Contacts', ['className' => 'User.Contacts', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $model->hasMany('Attachments', ['className' => 'User.Attachments', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $model->hasMany('BankAccounts', ['className' => 'User.BankAccounts', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $model->hasMany('Comments', ['className' => 'User.Comments', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $model->hasMany('Languages', ['className' => 'User.UserLanguages', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $model->hasMany('Awards', ['className' => 'User.Awards', 'foreignKey' => 'security_user_id', 'dependent' => true]);
         $model->hasMany('ExaminationItemResults', ['className' => 'Examination.ExaminationItemResults', 'foreignKey' => 'student_id', 'dependent' => true, 'cascadeCallbacks' => true]);
-        $model->hasMany('InstitutionStudents', ['className' => 'Institution.Students',    'foreignKey' => 'student_id', 'dependent' => true, 'cascadeCallbacks' => true]);
+        $model->hasMany('InstitutionStudents', ['className' => 'Institution.Students', 'foreignKey' => 'student_id', 'dependent' => true, 'cascadeCallbacks' => true]);
         $model->hasMany('InstitutionStaff', ['className' => 'Institution.Staff', 'foreignKey' => 'staff_id', 'dependent' => true, 'cascadeCallbacks' => true]);
         $model->belongsToMany('SecurityRoles', [
             'className' => 'Security.SecurityRoles',
             'foreignKey' => 'security_role_id',
             'targetForeignKey' => 'security_user_id',
             'through' => 'Security.SecurityGroupUsers',
-            'dependent' => true
+            'dependent' => true,
         ]);
         $model->hasMany('InstitutionClassStudents', ['className' => 'Institution.InstitutionClassStudents', 'foreignKey' => 'student_id', 'dependent' => true, 'cascadeCallbacks' => true]);
         $model->hasMany('InstitutionSubjectStudents', ['className' => 'Institution.InstitutionSubjectStudents', 'foreignKey' => 'student_id', 'dependent' => true, 'cascadeCallbacks' => true]);
@@ -214,7 +212,7 @@ class UsersTable extends AppTable
             'date_of_birth',
             [
                 'date_options' => [
-                    'endDate' => date('d-m-Y', strtotime("-2 year"))
+                    'endDate' => date('d-m-Y', strtotime("-2 year")),
                 ],
                 'default_date' => false,
             ]
@@ -260,7 +258,7 @@ class UsersTable extends AppTable
             ->leftJoinWith('InstitutionClassStudents', function ($q) use ($academicPeriodId, $institutionId) {
                 return $q->where([
                     'InstitutionClassStudents.academic_period_id' => $academicPeriodId,
-                    'InstitutionClassStudents.institution_id' => $institutionId
+                    'InstitutionClassStudents.institution_id' => $institutionId,
                 ]);
             })
             ->innerJoinWith('InstitutionStudents.StudentStatuses')
@@ -272,7 +270,7 @@ class UsersTable extends AppTable
                 'InstitutionStudents.education_grade_id IN ' => $educationGradeIds,
                 'InstitutionStudents.student_status_id' => $enrolledStatus,
                 'InstitutionStudents.academic_period_id' => $academicPeriodId,
-                'InstitutionClassStudents.id IS NULL'
+                'InstitutionClassStudents.id IS NULL',
             ])
             ->select([
                 'academic_period_id' => 'InstitutionStudents.academic_period_id',
@@ -288,7 +286,7 @@ class UsersTable extends AppTable
                 $this->aliasField('middle_name'),
                 $this->aliasField('third_name'),
                 $this->aliasField('last_name'),
-                $this->aliasField('preferred_name')
+                $this->aliasField('preferred_name'),
             ])
             ->group([$this->aliasField('id')])
             ->order([$this->aliasField('first_name', 'last_name')]) // POCOR-2547 sort list of staff and student by name
@@ -307,7 +305,7 @@ class UsersTable extends AppTable
                         'gender_id' => $result->gender_id,
                         'gender_name' => __($result->gender_name),
                         'institution_id' => $institutionId,
-                        'institution_class_id' => $institutionClassId
+                        'institution_class_id' => $institutionClassId,
                     ];
                 }
                 return $arrReturn;
@@ -327,7 +325,7 @@ class UsersTable extends AppTable
         $action = $this->ControllerAction->url('view');
         $id = $action[0];
 
-        if ($id=='view' || $id=='edit') {
+        if ($id == 'view' || $id == 'edit') {
             if (isset($this->ControllerAction->buttons['view']['url'][1])) {
                 $id = $this->ControllerAction->buttons['view']['url'][1];
             }
@@ -336,18 +334,18 @@ class UsersTable extends AppTable
         $tabElements = [
             $this->alias => [
                 'url' => ['plugin' => $plugin, 'controller' => $name, 'action' => 'view', $this->paramsEncode(['id' => $id])],
-                'text' => __('Details')
+                'text' => __('Details'),
             ],
             'Accounts' => [
                 'url' => ['plugin' => $plugin, 'controller' => $name, 'action' => 'Accounts', 'view', $this->paramsEncode(['id' => $id])],
-                'text' => __('Account')
-            ]
+                'text' => __('Account'),
+            ],
         ];
 
         if (!in_array($this->controller->name, ['Students', 'Staff', 'Guardians'])) {
             $tabElements[$this->alias] = [
                 'url' => ['plugin' => Inflector::singularize($this->controller->name), 'controller' => $this->controller->name, 'action' => $this->alias(), 'view', $this->paramsEncode(['id' => $id])],
-                'text' => __('Details')
+                'text' => __('Details'),
             ];
         }
         $tabElements = $this->controller->TabPermission->checkTabPermission($tabElements);
@@ -408,10 +406,10 @@ class UsersTable extends AppTable
         $separator = ", ";
         $keys = $this->getNameKeys();
         foreach ($keys as $k => $v) {
-            if (!is_null($this->aliasField($k))&&$v) {
-                if ($k!='last_name') {
-                    if ($k=='preferred_name') {
-                        $name .= $separator . '('. $this->aliasField($k) .')';
+            if (!is_null($this->aliasField($k)) && $v) {
+                if ($k != 'last_name') {
+                    if ($k == 'preferred_name') {
+                        $name .= $separator . '(' . $this->aliasField($k) . ')';
                     } else {
                         $name .= $this->aliasField($k) . $separator;
                     }
@@ -425,21 +423,21 @@ class UsersTable extends AppTable
 
         return $query
             ->join([
-                    'table' => 'security_users',
-                    'alias' => 'inner_users',
-                    'type'  => 'left',
-                    'select' => 'CONCAT('.$name.') AS inner_name',
-                    'conditions' => ['inner_users.id' => $this->aliasField('id')],
-                    'order' => ['inner_users.inner_name' => $options['direction']]
-                ])
+                'table' => 'security_users',
+                'alias' => 'inner_users',
+                'type' => 'left',
+                'select' => 'CONCAT(' . $name . ') AS inner_name',
+                'conditions' => ['inner_users.id' => $this->aliasField('id')],
+                'order' => ['inner_users.inner_name' => $options['direction']],
+            ])
             ->order([$this->aliasField('first_name') => $options['direction']]);
 
         // return $query
-        // 		->order([$this->aliasField('first_name') => $options['direction'],
-        // 				$this->aliasField('middle_name') => $options['direction'],
-        // 				$this->aliasField('third_name') => $options['direction'],
-        // 				$this->aliasField('last_name') => $options['direction']
-        // 			]);
+        //         ->order([$this->aliasField('first_name') => $options['direction'],
+        //                 $this->aliasField('middle_name') => $options['direction'],
+        //                 $this->aliasField('third_name') => $options['direction'],
+        //                 $this->aliasField('last_name') => $options['direction']
+        //             ]);
     }
 
     public function findWithDefaultIdentityType(Query $query, array $options)
@@ -453,25 +451,26 @@ class UsersTable extends AppTable
                     'type' => 'left',
                     'group by' => ['Identities.number'],
                     'conditions' => [
-                        'Identities.security_user_id' => $this->aliasField('id')
-                    ]
-                ]
+                        'Identities.security_user_id' => $this->aliasField('id'),
+                    ],
+                ],
             ])
             ->contain([
-                    'Identities' => function ($q) {
-                        return $q
-                            ->select(['IdentityTypes.id'])
-                            ->contain(['IdentityTypes'])
-                            ->where(['IdentityTypes.default' => 1, 'Identities.identity_type_id' => 'IdentityTypes.id'])
-                            ->order(['IdentityTypes.default DESC']);
-                    }
-                ])
+                'Identities' => function ($q) {
+                    return $q
+                        ->select(['IdentityTypes.id'])
+                        ->contain(['IdentityTypes'])
+                        ->where(['IdentityTypes.default' => 1, 'Identities.identity_type_id' => 'IdentityTypes.id'])
+                        ->order(['IdentityTypes.default DESC']);
+                },
+            ])
             ->group(['Identities.number'])
             ->order(['Identities.number' => $options['direction']]);
     }
 
     public function viewBeforeAction(Event $event)
     {
+
         if ($this->alias() == 'Users') {
             // means that this originates from a controller
             $roleName = $this->controller->name;
@@ -480,24 +479,30 @@ class UsersTable extends AppTable
             }
         } else {
             // originates from a model
-            $roleName = $this->controller->name.'.'.$this->alias();
+            $roleName = $this->controller->name . '.' . $this->alias();
             if (array_key_exists('pass', $this->request->params)) {
                 $id = $this->request->params['pass'][1];
             }
         }
 
         if (isset($id)) {
-            $this->Session->write($roleName.'.security_user_id', $id);
+            $this->Session->write($roleName . '.security_user_id', $id);
         } else {
-            $id = $this->Session->read($roleName.'.security_user_id');
+            $id = $this->Session->read($roleName . '.security_user_id');
         }
 
         $fieldOrder = array_merge($this->fieldOrder1->getArrayCopy(), $this->fieldOrder2->getArrayCopy());
         $this->ControllerAction->setFieldOrder($fieldOrder);
     }
+    
+    public function editBeforeAction(Event $event) {
+        $this->field('preferred_name', ['visible' => true, 'attr' => ['label' => 'Name with Initial']]);
+
+    }
 
     public function addEditBeforeAction(Event $event)
     {
+        $this->field('preferred_name', ['visible' => true, 'attr' => ['label' => 'Name with Initial']]);
         $this->fields['openemis_no']['attr']['readonly'] = true;
         $this->fields['photo_content']['type'] = 'image';
         $this->fields['super_admin']['type'] = 'hidden';
@@ -516,10 +521,10 @@ class UsersTable extends AppTable
 
         $prefix = TableRegistry::get('Configuration.ConfigItems')->value('openemis_id_prefix');
         $prefix = explode(",", $prefix);
-        $prefix = ($prefix[1] > 0)? $prefix[0]: '';
+        $prefix = ($prefix[1] > 0) ? $prefix[0] : '';
 
         $latest = $this->find()
-            ->order($this->aliasField('id').' DESC')
+            ->order($this->aliasField('id') . ' DESC')
             ->first();
 
         if (is_array($latest)) {
@@ -540,7 +545,7 @@ class UsersTable extends AppTable
             $newStamp = $currentStamp;
         }
 
-        return $prefix.$newStamp;
+        return $prefix . $newStamp;
     }
 
     public function validationDefault(Validator $validator)
@@ -549,31 +554,31 @@ class UsersTable extends AppTable
 
         $validator
             ->add('first_name', [
-                    'ruleCheckIfStringGotNoNumber' => [
-                        'rule' => 'checkIfStringGotNoNumber',
-                    ],
-                    'ruleNotBlank' => [
-                        'rule' => 'notBlank',
-                    ]
-                ])
+                'ruleCheckIfStringGotNoNumber' => [
+                    'rule' => 'checkIfStringGotNoNumber',
+                ],
+                'ruleNotBlank' => [
+                    'rule' => 'notBlank',
+                ],
+            ])
             ->allowEmpty('middle_name')
             ->allowEmpty('third_name')
             ->add('last_name', [
-                    'ruleCheckIfStringGotNoNumber' => [
-                        'rule' => 'checkIfStringGotNoNumber',
-                    ]
-                ])
+                'ruleCheckIfStringGotNoNumber' => [
+                    'rule' => 'checkIfStringGotNoNumber',
+                ],
+            ])
             ->allowEmpty('preferred_name')
             ->add('openemis_no', [
-                    'ruleUnique' => [
-                        'rule' => 'validateUnique',
-                        'provider' => 'table',
-                    ]
-                ])
+                'ruleUnique' => [
+                    'rule' => 'validateUnique',
+                    'provider' => 'table',
+                ],
+            ])
             ->requirePresence('username', 'create')
             ->add('username', [
                 'ruleMinLength' => [
-                    'rule' => ['minLength', 6]
+                    'rule' => ['minLength', 6],
                 ],
                 'ruleUnique' => [
                     'rule' => 'validateUnique',
@@ -582,12 +587,12 @@ class UsersTable extends AppTable
                 'ruleCheckUsername' => [
                     'rule' => 'checkUsername',
                     'provider' => 'table',
-                ]
+                ],
             ])
             ->allowEmpty('username', 'update')
             // password validation now in behavior
             ->allowEmpty('photo_content')
-            ;
+        ;
         return $validator;
     }
 
@@ -673,27 +678,27 @@ class UsersTable extends AppTable
     {
         $validator
             ->add('first_name', [
-                    'ruleCheckIfStringGotNoNumber' => [
-                        'rule' => 'checkIfStringGotNoNumber',
-                    ],
-                    'ruleNotBlank' => [
-                        'rule' => 'notBlank',
-                    ]
-                ])
+                'ruleCheckIfStringGotNoNumber' => [
+                    'rule' => 'checkIfStringGotNoNumber',
+                ],
+                'ruleNotBlank' => [
+                    'rule' => 'notBlank',
+                ],
+            ])
             ->add('last_name', [
-                    'ruleCheckIfStringGotNoNumber' => [
-                        'rule' => 'checkIfStringGotNoNumber',
-                    ]
-                ])
+                'ruleCheckIfStringGotNoNumber' => [
+                    'rule' => 'checkIfStringGotNoNumber',
+                ],
+            ])
             ->add('openemis_no', [
-                    'ruleUnique' => [
-                        'rule' => 'validateUnique',
-                        'provider' => 'table',
-                    ]
-                ])
+                'ruleUnique' => [
+                    'rule' => 'validateUnique',
+                    'provider' => 'table',
+                ],
+            ])
             ->add('username', [
                 'ruleMinLength' => [
-                    'rule' => ['minLength', 6]
+                    'rule' => ['minLength', 6],
                 ],
                 'ruleUnique' => [
                     'rule' => 'validateUnique',
@@ -702,15 +707,15 @@ class UsersTable extends AppTable
                 'ruleCheckUsername' => [
                     'rule' => 'checkUsername',
                     'provider' => 'table',
-                ]
+                ],
             ])
             ->requirePresence('username', 'create')
             ->allowEmpty('username', 'update')
             // password validation now in behavior
             ->allowEmpty('photo_content')
-            ;
+        ;
 
-        $thisModel = ($thisModel == null)? $this: $thisModel;
+        $thisModel = ($thisModel == null) ? $this : $thisModel;
         $thisModel->setValidationCode('first_name.ruleCheckIfStringGotNoNumber', 'User.Users');
         $thisModel->setValidationCode('first_name.ruleNotBlank', 'User.Users');
         $thisModel->setValidationCode('last_name.ruleCheckIfStringGotNoNumber', 'User.Users');
@@ -748,7 +753,7 @@ class UsersTable extends AppTable
                 $value = $this->defaultUserProfileView;
             }
         } else {
-            $value = base64_encode(stream_get_contents($fileContent));//$fileContent;
+            $value = base64_encode(stream_get_contents($fileContent)); //$fileContent;
         }
 
         return $value;
@@ -857,11 +862,11 @@ class UsersTable extends AppTable
                     $this->aliasField('third_name'),
                     $this->aliasField('last_name'),
                     $this->aliasField('preferred_name'),
-                    $this->aliasField('id')
+                    $this->aliasField('id'),
                 ])
                 ->order([
                     $this->aliasField('first_name'),
-                    $this->aliasField('last_name')
+                    $this->aliasField('last_name'),
                 ])
                 ->group([$this->aliasField('id')])
                 ->limit(100);
@@ -878,7 +883,7 @@ class UsersTable extends AppTable
             foreach ($list as $obj) {
                 $data[] = [
                     'label' => sprintf('%s - %s', $obj->openemis_no, $obj->name),
-                    'value' => $obj->id
+                    'value' => $obj->id,
                 ];
             }
         }
@@ -904,10 +909,10 @@ class UsersTable extends AppTable
                 'preferred_language',
                 'is_student',
                 'is_staff',
-                'is_guardian'
+                'is_guardian',
             ])
             ->where([
-                'status' => 1
+                'status' => 1,
             ]);
 
         return $query;
@@ -929,8 +934,8 @@ class UsersTable extends AppTable
                     $this->aliasField('is_staff') => 0,
                     $this->aliasField('is_student') => 0,
                     $this->aliasField('is_guardian') => 0,
-                ]
-            ]
+                ],
+            ],
         ]);
     }
 
@@ -949,7 +954,7 @@ class UsersTable extends AppTable
                             $userIdentityData = $userIdentitiesTable->newEntity([
                                 'identity_type_id' => $defaultValue,
                                 'number' => $value,
-                                'security_user_id' => $entity->id
+                                'security_user_id' => $entity->id,
                             ]);
                             $userIdentitiesTable->save($userIdentityData);
                         }
@@ -963,7 +968,7 @@ class UsersTable extends AppTable
             if ($entity->record_source == 'import_user') {
                 $listeners = [
                     TableRegistry::get('User.UserNationalities'),
-                    TableRegistry::get('User.Identities')
+                    TableRegistry::get('User.Identities'),
                 ];
                 $this->dispatchEventToModels('Model.Users.afterSave', [$entity], $this, $listeners);
             }
@@ -977,21 +982,21 @@ class UsersTable extends AppTable
 
         // to find out the default identity type linked to this nationality
         $nationality = $Nationalities
-                        ->find()
-                        ->where([
-                            $Nationalities->aliasField($Nationalities->primaryKey()) => $nationalityId
-                        ])
-                        ->first();
+            ->find()
+            ->where([
+                $Nationalities->aliasField($Nationalities->primaryKey()) => $nationalityId,
+            ])
+            ->first();
 
         // to get the identity record for the user based on the default identity type linked to this nationality
         $UserIdentities = TableRegistry::get('User.Identities');
         $latestIdentity = $UserIdentities->find()
-        ->where([
-            $UserIdentities->aliasField('security_user_id') => $entity->security_user_id,
-            $UserIdentities->aliasField('identity_type_id') => $nationality->identity_type_id,
-        ])
-        ->order([$UserIdentities->aliasField('created') => 'desc'])
-        ->first();
+            ->where([
+                $UserIdentities->aliasField('security_user_id') => $entity->security_user_id,
+                $UserIdentities->aliasField('identity_type_id') => $nationality->identity_type_id,
+            ])
+            ->order([$UserIdentities->aliasField('created') => 'desc'])
+            ->first();
 
         // if there is an existing user identity record
         $identityNumber = null;
@@ -1003,7 +1008,7 @@ class UsersTable extends AppTable
             [
                 'nationality_id' => $nationalityId,
                 'identity_type_id' => $nationality->identity_type_id,
-                'identity_number' => $identityNumber
+                'identity_number' => $identityNumber,
             ],
             ['id' => $entity->security_user_id]
         );
@@ -1015,26 +1020,26 @@ class UsersTable extends AppTable
 
         //check whether identity number / type is tied to preferred nationality.
         $isPreferredNationality = $UserNationalityTable
-                                ->find()
-                                ->matching('NationalitiesLookUp')
-                                ->select(['nationality_id', 'identityTypeId' => 'NationalitiesLookUp.identity_type_id'])
-                                ->where([
-                                    'NationalitiesLookUp.identity_type_id' => $entity->identity_type_id,
-                                    $UserNationalityTable->aliasField('security_user_id') => $entity->security_user_id,
-                                    $UserNationalityTable->aliasField('preferred') => 1
-                                ]);
+            ->find()
+            ->matching('NationalitiesLookUp')
+            ->select(['nationality_id', 'identityTypeId' => 'NationalitiesLookUp.identity_type_id'])
+            ->where([
+                'NationalitiesLookUp.identity_type_id' => $entity->identity_type_id,
+                $UserNationalityTable->aliasField('security_user_id') => $entity->security_user_id,
+                $UserNationalityTable->aliasField('preferred') => 1,
+            ]);
 
         if ($isPreferredNationality->count()) {
             $preferredNationality = $isPreferredNationality->first();
             // to get the identity record for the user based on the default identity type linked to this nationality
             $UserIdentities = TableRegistry::get('User.Identities');
             $latestIdentity = $UserIdentities->find()
-            ->where([
-                $UserIdentities->aliasField('security_user_id') => $entity->security_user_id,
-                $UserIdentities->aliasField('identity_type_id') => $preferredNationality->identityTypeId,
-            ])
-            ->order([$UserIdentities->aliasField('created') => 'desc'])
-            ->first();
+                ->where([
+                    $UserIdentities->aliasField('security_user_id') => $entity->security_user_id,
+                    $UserIdentities->aliasField('identity_type_id') => $preferredNationality->identityTypeId,
+                ])
+                ->order([$UserIdentities->aliasField('created') => 'desc'])
+                ->first();
 
             // if there is an existing user identity record
             $identityNumber = null;
@@ -1046,7 +1051,7 @@ class UsersTable extends AppTable
                 [
                     'nationality_id' => $preferredNationality->nationality_id,
                     'identity_type_id' => $preferredNationality->identityTypeId,
-                    'identity_number' => $identityNumber
+                    'identity_number' => $identityNumber,
                 ],
                 ['id' => $entity->security_user_id]
             );
@@ -1081,8 +1086,8 @@ class UsersTable extends AppTable
             SET
                 `SU`.`identity_type_id` = ?,
                 `SU`.`identity_number` = `UI`.`number`',
-            [$nationalityId,$identityTypeId,$identityTypeId],
-            ['integer','integer','integer']
+            [$nationalityId, $identityTypeId, $identityTypeId],
+            ['integer', 'integer', 'integer']
         );
     }
 

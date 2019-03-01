@@ -203,6 +203,14 @@ class StudentUserTable extends ControllerActionTable
     public function beforeAction(Event $event, ArrayObject $extra)
     {
         $this->field('username', ['visible' => false]);
+        $this->field('first_name', ['attr' => ['label'=> 'Full Name']]);
+        $this->field('last_name', ['attr' => ['label' => 'Name with initials']]);
+        $this->field('username', ['visible' => false]);
+        $this->field('middle_name', ['visible' => false]);
+        $this->field('third_name', ['visible' => false]);
+        $this->field('preferred_name', ['visible' => false]);
+
+
         $toolbarButtons = $extra['toolbarButtons'];
 
         // Back button does not contain the pass
