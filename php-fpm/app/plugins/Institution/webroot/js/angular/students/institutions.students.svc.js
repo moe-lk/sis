@@ -613,6 +613,7 @@ function InstitutionsStudentsSvc($http, $q, $filter, KdOrmSvc,KdDataSvc) {
     };
 
     function postEnrolledStudent(data) {
+        debugger;
         var institutionId = this.getInstitutionId();
         data['start_date'] = this.formatDateForSaving(data['start_date']);
         data['end_date'] = this.formatDateForSaving(data['end_date']);

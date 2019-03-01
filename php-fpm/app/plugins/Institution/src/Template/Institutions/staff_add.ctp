@@ -78,6 +78,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
             ng-if="(InstitutionStaffController.step=='add_staff')"
             ng-click="InstitutionStaffController.onAddStaffCompleteClick()"
             type="button" class="btn btn-default"><?= __('Complete') ?>
+            
         </button>
         <button type="button" class="btn btn-default btn-next"
             ng-model="InstitutionStaffController.selectedStaff"
@@ -99,11 +100,11 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     <input ng-model="InstitutionStaffController.internalFilterOpenemisNo" ng-keyup="$event.keyCode == 13 ? InstitutionStaffController.reloadInternalDatasource(true) : null" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
-                    <label><?= __('First Name') ?></label>
+                    <label><?= __('Full Name') ?></label>
                     <input ng-model="InstitutionStaffController.internalFilterFirstName" ng-keyup="$event.keyCode == 13 ? InstitutionStaffController.reloadInternalDatasource(true) : null" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
-                    <label><?= __('Last Name') ?></label>
+                    <label><?= __('Name with initials') ?></label>
                     <input ng-model="InstitutionStaffController.internalFilterLastName" ng-keyup="$event.keyCode == 13 ? InstitutionStaffController.reloadInternalDatasource(true) : null" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
@@ -141,11 +142,11 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     <label><?= __('Filter') ?></label>
                 </div>
                 <div class="text">
-                    <label><?= __('First Name') ?></label>
+                    <label><?= __('Full Name') ?></label>
                     <input ng-model="InstitutionStaffController.internalFilterFirstName" ng-disabled="true" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
-                    <label><?= __('Last Name') ?></label>
+                    <label><?= __('Name with initials') ?></label>
                     <input ng-model="InstitutionStaffController.internalFilterLastName" ng-disabled="true" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
@@ -178,30 +179,18 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     </div>
                 </div>
                 <div class="input string required">
-                    <label><?= __('First Name') ?></label>
+                    <label><?= __('Full Name') ?></label>
                     <input ng-model="InstitutionStaffController.selectedStaffData.first_name" ng-change="InstitutionStaffController.setStaffName()" type="string" ng-init="InstitutionStaffController.selectedStaffData.first_name='';">
                     <div ng-if="InstitutionStaffController.postResponse.error.first_name" class="error-message">
                         <p ng-repeat="error in InstitutionStaffController.postResponse.error.first_name">{{ error }}</p>
                     </div>
                 </div>
-                <div class="input string">
-                    <label><?= __('Middle Name') ?></label>
-                    <input ng-model="InstitutionStaffController.selectedStaffData.middle_name" ng-change="InstitutionStaffController.setStaffName()" type="string">
-                </div>
-                <div class="input string">
-                    <label><?= __('Third Name') ?></label>
-                    <input ng-model="InstitutionStaffController.selectedStaffData.third_name" ng-change="InstitutionStaffController.setStaffName()" type="string">
-                </div>
                 <div class="input string required">
-                    <label><?= __('Last Name') ?></label>
+                    <label><?= __('Name with Initials') ?></label>
                     <input ng-model="InstitutionStaffController.selectedStaffData.last_name" ng-change="InstitutionStaffController.setStaffName()" type="string" ng-init="InstitutionStaffController.selectedStaffData.last_name='';">
                     <div ng-if="InstitutionStaffController.postResponse.error.last_name" class="error-message">
                         <p ng-repeat="error in InstitutionStaffController.postResponse.error.last_name">{{ error }}</p>
                     </div>
-                </div>
-                <div class="input string">
-                    <label><?= __('Preferred Name') ?></label>
-                    <input ng-model="InstitutionStaffController.selectedStaffData.preferred_name" type="string">
                 </div>
                 <div class="input select required error">
                     <label><?= __('Gender') ?></label>
@@ -301,9 +290,6 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     <input ng-model="InstitutionStaffController.selectedStaffData.name" type="string" disabled="disabled">
                     <div ng-if="InstitutionStaffController.postResponse.error.first_name" class="error-message">
                         <p ng-repeat="error in InstitutionStaffController.postResponse.error.first_name">{{ error }}</p>
-                    </div>
-                    <div ng-if="InstitutionStaffController.postResponse.error.last_name" class="error-message">
-                        <p ng-repeat="error in InstitutionStaffController.postResponse.error.last_name">{{ error }}</p>
                     </div>
                 </div>
                 <div class="input string" ng-show="InstitutionStaffController.StaffNationalities != 2 && StaffController.createNewStaff == true">

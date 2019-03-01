@@ -57,7 +57,7 @@ class DirectoriesTable extends ControllerActionTable
 
         //specify order of advanced search fields
         $advancedSearchFieldOrder = [
-            'user_type', 'first_name', 'middle_name', 'third_name', 'last_name',
+            'user_type', 'first_name', 'last_name',
             'openemis_no', 'gender_id', 'contact_number', 'birthplace_area_id', 'address_area_id', 'position',
             'identity_type', 'identity_number'
         ];
@@ -349,6 +349,12 @@ class DirectoriesTable extends ControllerActionTable
 
     public function beforeAction(Event $event, ArrayObject $extra)
     {
+        $this->field('first_name', ['attr' => ['label' => 'Full Name']]);
+        $this->field('last_name', ['attr' => ['label' => 'Name with initials']]);
+        $this->field('middle_name', ['visible' => false]);
+        $this->field('third_name', ['visible' => false]);
+        $this->field('preferred_name', ['visible' => false]);
+
         if ($this->action == 'add') {
             if ($this->controller->name != 'Students') {
                 $this->field('user_type', ['type' => 'select', 'after' => 'photo_content']);

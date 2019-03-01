@@ -1,18 +1,17 @@
 <?php
 namespace Security\Model\Table;
 
-use ArrayObject;
-use Cake\Event\Event;
-use Cake\ORM\Query;
-use Cake\ORM\Entity;
-use Cake\ORM\TableRegistry;
-use Cake\Network\Request;
-use Cake\Datasource\Exception\RecordNotFoundException;
-use App\Model\Table\AppTable;
-use App\Model\Traits\MessagesTrait;
-use App\Model\Traits\HtmlTrait;
 use App\Model\Table\ControllerActionTable;
+use App\Model\Traits\HtmlTrait;
+use App\Model\Traits\MessagesTrait;
+use ArrayObject;
+use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\Event\Event;
 use Cake\Log\Log;
+use Cake\Network\Request;
+use Cake\ORM\Entity;
+use Cake\ORM\Query;
+use Cake\ORM\TableRegistry;
 
 class UserGroupsTable extends ControllerActionTable
 {
@@ -30,7 +29,7 @@ class UserGroupsTable extends ControllerActionTable
             'foreignKey' => 'security_group_id',
             'targetForeignKey' => 'security_user_id',
             'through' => 'Security.SecurityGroupUsers',
-            'dependent' => true
+            'dependent' => true,
         ]);
 
         $this->belongsToMany('Areas', [
@@ -39,7 +38,7 @@ class UserGroupsTable extends ControllerActionTable
             'foreignKey' => 'security_group_id',
             'targetForeignKey' => 'area_id',
             'through' => 'Security.SecurityGroupAreas',
-            'dependent' => true
+            'dependent' => true,
         ]);
 
         $this->belongsToMany('Institutions', [
@@ -48,7 +47,7 @@ class UserGroupsTable extends ControllerActionTable
             'foreignKey' => 'security_group_id',
             'targetForeignKey' => 'institution_id',
             'through' => 'Security.SecurityGroupInstitutions',
-            'dependent' => true
+            'dependent' => true,
         ]);
 
         $this->belongsToMany('Roles', [
@@ -57,7 +56,7 @@ class UserGroupsTable extends ControllerActionTable
             'foreignKey' => 'security_group_id',
             'targetForeignKey' => 'security_role_id',
             'through' => 'Security.SecurityGroupUsers',
-            'dependent' => true
+            'dependent' => true,
         ]);
 
         $this->setDeleteStrategy('restrict');
@@ -70,7 +69,7 @@ class UserGroupsTable extends ControllerActionTable
             $events['ControllerAction.Model.ajaxAreaAutocomplete'] = 'ajaxAreaAutocomplete',
             $events['ControllerAction.Model.ajaxInstitutionAutocomplete'] = 'ajaxInstitutionAutocomplete',
             $events['ControllerAction.Model.ajaxUserAutocomplete'] = 'ajaxUserAutocomplete',
-            $events['ControllerAction.Model.getAssociatedRecordConditions'] = 'getAssociatedRecordConditions'
+            $events['ControllerAction.Model.getAssociatedRecordConditions'] = 'getAssociatedRecordConditions',
         ];
         $events = array_merge($events, $newEvent);
         return $events;
@@ -82,7 +81,7 @@ class UserGroupsTable extends ControllerActionTable
             $includes['autocomplete'] = [
                 'include' => true,
                 'css' => ['OpenEmis.../plugins/autocomplete/css/autocomplete'],
-                'js' => ['OpenEmis.../plugins/autocomplete/js/autocomplete']
+                'js' => ['OpenEmis.../plugins/autocomplete/js/autocomplete'],
             ];
         }
     }
@@ -112,7 +111,7 @@ class UserGroupsTable extends ControllerActionTable
         return $buttons;
     }
 
-    public function onGetFieldLabel(Event $event, $module, $field, $language, $autoHumanize=true)
+    public function onGetFieldLabel(Event $event, $module, $field, $language, $autoHumanize = true)
     {
         if ($field == 'areas') {
             return __('Areas (Education)');
@@ -120,7 +119,7 @@ class UserGroupsTable extends ControllerActionTable
             return parent::onGetFieldLabel($event, $module, $field, $language, $autoHumanize);
         }
     }
-    
+
     public function viewAfterAction(Event $event, Entity $entity, ArrayObject $extra)
     {
         $this->request->data[$this->alias()]['security_group_id'] = $entity->id;
@@ -159,30 +158,33 @@ class UserGroupsTable extends ControllerActionTable
         $tabElements = [
             $this->alias() => [
                 'url' => ['plugin' => $controller->plugin, 'controller' => $controller->name, 'action' => $this->alias()],
-                'text' => $this->getMessage($this->aliasField('tabTitle'))
+                'text' => $this->getMessage($this->aliasField('tabTitle')),
             ],
             'SystemGroups' => [
                 'url' => ['plugin' => $controller->plugin, 'controller' => $controller->name, 'action' => 'SystemGroups'],
-                'text' => $this->getMessage('SystemGroups.tabTitle')
-            ]
+                'text' => $this->getMessage('SystemGroups.tabTitle'),
+            ],
         ];
         $tabElements = $this->controller->TabPermission->checkTabPermission($tabElements);
         $this->controller->set('tabElements', $tabElements);
         $this->controller->set('selectedAction', $this->alias());
 
         Log::error(json_encode('tabElements'));
-        Log::error(json_encode($tabElements));
+
         $securityGroupId = $this->request->data[$this->alias()]['security_group_id'];
 
-        $this->field('areas', [
-            'type' => 'area_table',
-            'valueClass' => 'table-full-width',
-            'visible' => ['index' => false, 'view' => true, 'edit' => true]
-        ]);
+        if (!$this->AccessControl->isZonalCoordinator()) {
+            $this->field('areas', [
+                'type' => 'area_table',
+                'valueClass' => 'table-full-width',
+                'visible' => ['index' => false, 'view' => true, 'edit' => true],
+            ]);
+
+        }
         $this->field('institutions', [
             'type' => 'institution_table',
             'valueClass' => 'table-full-width',
-            'visible' => ['index' => false, 'view' => true, 'edit' => true]
+            'visible' => ['index' => false, 'view' => true, 'edit' => true],
         ]);
 
         $roleOptions = $this->Roles->find('list')->toArray();
@@ -190,11 +192,11 @@ class UserGroupsTable extends ControllerActionTable
             'type' => 'user_table',
             'valueClass' => 'table-full-width',
             'roleOptions' => $roleOptions,
-            'visible' => ['index' => false, 'view' => true, 'edit' => true]
+            'visible' => ['index' => false, 'view' => true, 'edit' => true],
         ]);
 
         $this->setFieldOrder([
-            'name', 'areas', 'institutions', 'users'
+            'name', 'areas', 'institutions', 'users',
         ]);
     }
 
@@ -240,7 +242,7 @@ class UserGroupsTable extends ControllerActionTable
                     foreach ($associated[$key] as $i => $obj) {
                         $this->request->data[$alias][$key][] = [
                             'id' => $obj->id,
-                            '_joinData' => ['level' => $obj->area_level->name, 'code' => $obj->code, 'area_id' => $obj->id, 'name' => $obj->name]
+                            '_joinData' => ['level' => $obj->area_level->name, 'code' => $obj->code, 'area_id' => $obj->id, 'name' => $obj->name],
                         ];
                     }
                 }
@@ -291,7 +293,7 @@ class UserGroupsTable extends ControllerActionTable
                 }
                 $data[$alias]['areas'][] = [
                     'id' => $obj->id,
-                    '_joinData' => ['level' => $obj->area_level->name, 'code' => $obj->code, 'area_id' => $obj->id, 'name' => $obj->name]
+                    '_joinData' => ['level' => $obj->area_level->name, 'code' => $obj->code, 'area_id' => $obj->id, 'name' => $obj->name],
                 ];
             } catch (RecordNotFoundException $ex) {
                 $this->log(__METHOD__ . ': Record not found for id: ' . $id, 'debug');
@@ -334,7 +336,7 @@ class UserGroupsTable extends ControllerActionTable
                     foreach ($associated[$key] as $i => $obj) {
                         $this->request->data[$alias][$key][] = [
                             'id' => $obj->id,
-                            '_joinData' => ['code' => $obj->code, 'institution_id' => $obj->id, 'name' => $obj->name]
+                            '_joinData' => ['code' => $obj->code, 'institution_id' => $obj->id, 'name' => $obj->name],
                         ];
                     }
                 }
@@ -382,7 +384,7 @@ class UserGroupsTable extends ControllerActionTable
                 }
                 $data[$alias]['institutions'][] = [
                     'id' => $obj->id,
-                    '_joinData' => ['code' => $obj->code, 'institution_id' => $obj->id, 'name' => $obj->name]
+                    '_joinData' => ['code' => $obj->code, 'institution_id' => $obj->id, 'name' => $obj->name],
                 ];
             } catch (RecordNotFoundException $ex) {
                 $this->log(__METHOD__ . ': Record not found for id: ' . $id, 'debug');
@@ -410,7 +412,7 @@ class UserGroupsTable extends ControllerActionTable
                         'controller' => 'Directories',
                         'action' => 'Directories',
                         'view',
-                        $this->paramsEncode(['id' => $obj->id])
+                        $this->paramsEncode(['id' => $obj->id]),
                     ]);
                     $rowData[] = $obj->name;
                     $roleId = $obj->_joinData->security_role_id;
@@ -453,8 +455,8 @@ class UserGroupsTable extends ControllerActionTable
                                 'security_user_id' => $obj->id,
                                 'name' => $obj->name,
                                 'security_role_id' => $obj->_joinData->security_role_id,
-                                'security_role_id_order' => $entity->roles[$i]->order //adding role order for checking during edit
-                            ]
+                                'security_role_id_order' => $entity->roles[$i]->order, //adding role order for checking during edit
+                            ],
                         ];
                         $entity->users[$i]->security_role_id_order = $entity->roles[$i]->order; //adding role order for checking during edit
 
@@ -475,8 +477,8 @@ class UserGroupsTable extends ControllerActionTable
                                     'openemis_no' => $user->openemis_no,
                                     'security_user_id' => $userId,
                                     'name' => $user->name,
-                                    'security_role_id' => $groupAdmin->id
-                                ]
+                                    'security_role_id' => $groupAdmin->id,
+                                ],
                             ];
                         }
                     }
@@ -504,10 +506,10 @@ class UserGroupsTable extends ControllerActionTable
                             // To revisit this part again due to a bug when user add itself in
                             if (isset($obj->_joinData->security_role_id)) {
                                 $securityRoleName = $this->Roles->get($obj->_joinData->security_role_id)->name;
-                                $this->Session->write($this->registryAlias().'.security_role_id', $securityRoleName);
+                                $this->Session->write($this->registryAlias() . '.security_role_id', $securityRoleName);
                                 $rowData[] = $securityRoleName;
                             } else {
-                                $securityRoleName = $this->Session->read($this->registryAlias().'.security_role_id');
+                                $securityRoleName = $this->Session->read($this->registryAlias() . '.security_role_id');
                                 $rowData[] = $securityRoleName;
                             }
 
@@ -529,7 +531,6 @@ class UserGroupsTable extends ControllerActionTable
                     }
                 }
             }
-
 
             // refer to addEditOnAddUser for http post
             if ($this->request->data("$alias.$key")) {
@@ -601,7 +602,7 @@ class UserGroupsTable extends ControllerActionTable
                 }
                 $data[$alias]['users'][] = [
                     'id' => $obj->id,
-                    '_joinData' => ['openemis_no' => $obj->openemis_no, 'security_user_id' => $obj->id, 'name' => $obj->name, 'security_role_id_order' => '']
+                    '_joinData' => ['openemis_no' => $obj->openemis_no, 'security_user_id' => $obj->id, 'name' => $obj->name, 'security_role_id_order' => ''],
                 ];
             } catch (RecordNotFoundException $ex) {
                 $this->log(__METHOD__ . ': Record not found for id: ' . $id, 'debug');
@@ -627,8 +628,8 @@ class UserGroupsTable extends ControllerActionTable
             $query->where([
                 'OR' => [
                     'EXISTS (SELECT `id` FROM `security_group_users` WHERE `security_group_users`.`security_group_id` = `UserGroups`.`id` AND `security_group_users`.`security_user_id` = ' . $userId . ')',
-                    'UserGroups.created_user_id' => $userId
-                ]
+                    'UserGroups.created_user_id' => $userId,
+                ],
             ]);
         }
         $extra['order'] = [$this->aliasField('name') => 'asc'];
@@ -647,39 +648,39 @@ class UserGroupsTable extends ControllerActionTable
         if (array_key_exists('search', $options)) {
             $search = $options['search'];
             $query
-            ->join([
-                [
-                    'table' => 'security_group_institutions', 'alias' => 'SecurityGroupInstitutions', 'type' => 'LEFT',
-                    'conditions' => ['SecurityGroupInstitutions.security_group_id = ' . $this->aliasField('id')]
-                ],
-                [
-                    'table' => 'institutions', 'alias' => 'Institutions', 'type' => 'LEFT',
-                    'conditions' => [
-                        'Institutions.id = ' . 'SecurityGroupInstitutions.institution_id',
-                    ]
-                ],
-                [
-                    'table' => 'security_group_areas', 'alias' => 'SecurityGroupAreas', 'type' => 'LEFT',
-                    'conditions' => ['SecurityGroupAreas.security_group_id = ' . $this->aliasField('id')]
-                ],
-                [
-                    'table' => 'areas', 'alias' => 'Areas', 'type' => 'LEFT',
-                    'conditions' => [
-                        'Areas.id = ' . 'SecurityGroupAreas.area_id',
-                    ]
-                ],
-            ])
-            ->where([
+                ->join([
+                    [
+                        'table' => 'security_group_institutions', 'alias' => 'SecurityGroupInstitutions', 'type' => 'LEFT',
+                        'conditions' => ['SecurityGroupInstitutions.security_group_id = ' . $this->aliasField('id')],
+                    ],
+                    [
+                        'table' => 'institutions', 'alias' => 'Institutions', 'type' => 'LEFT',
+                        'conditions' => [
+                            'Institutions.id = ' . 'SecurityGroupInstitutions.institution_id',
+                        ],
+                    ],
+                    [
+                        'table' => 'security_group_areas', 'alias' => 'SecurityGroupAreas', 'type' => 'LEFT',
+                        'conditions' => ['SecurityGroupAreas.security_group_id = ' . $this->aliasField('id')],
+                    ],
+                    [
+                        'table' => 'areas', 'alias' => 'Areas', 'type' => 'LEFT',
+                        'conditions' => [
+                            'Areas.id = ' . 'SecurityGroupAreas.area_id',
+                        ],
+                    ],
+                ])
+                ->where([
                     'OR' => [
                         ['Institutions.code LIKE' => '%' . $search . '%'],
                         ['Institutions.name LIKE' => '%' . $search . '%'],
                         ['Areas.code LIKE' => '%' . $search . '%'],
                         ['Areas.name LIKE' => '%' . $search . '%'],
-                        [$this->aliasField('name').' LIKE' => '%'.$search.'%']
-                    ]
+                        [$this->aliasField('name') . ' LIKE' => '%' . $search . '%'],
+                    ],
                 ]
-            )
-            ->group($this->aliasField('id'))
+                )
+                ->group($this->aliasField('id'))
             ;
         }
 
@@ -689,7 +690,7 @@ class UserGroupsTable extends ControllerActionTable
     public function findNotInInstitutions(Query $query, array $options)
     {
         $query->where([
-            'NOT EXISTS (SELECT `id` FROM `institutions` WHERE `security_group_id` = `UserGroups`.`id`)'
+            'NOT EXISTS (SELECT `id` FROM `institutions` WHERE `security_group_id` = `UserGroups`.`id`)',
         ]);
         return $query;
     }
@@ -716,12 +717,12 @@ class UserGroupsTable extends ControllerActionTable
         $newOptions = [];
         $newOptions['associated'] = [
             'Areas' => [
-                'validate' => false
+                'validate' => false,
             ],
             'Institutions' => [
-                'validate' => false
+                'validate' => false,
             ],
-            'Users'
+            'Users',
         ];
 
         $arrayOptions = $options->getArrayCopy();
@@ -735,7 +736,7 @@ class UserGroupsTable extends ControllerActionTable
             $this->Areas->alias(),
             $this->Institutions->alias(),
             $this->Roles->alias(),
-            'SecurityGroupUsers'
+            'SecurityGroupUsers',
         ];
     }
 
@@ -774,21 +775,21 @@ class UserGroupsTable extends ControllerActionTable
         $alias = $this->alias();
 
         $query
-        ->join([
-            [
-                'table' => 'security_group_users',
-                'alias' => 'SecurityGroupUsers',
-                'type' => 'LEFT',
-                'conditions' => ["SecurityGroupUsers.security_group_id = $alias.id"]
-            ]
-        ])
-        ->where([
-            'OR' => [
-                "$alias.created_user_id" => $userId,
-                'SecurityGroupUsers.security_user_id' => $userId
-            ]
-        ])
-        ->group([$this->aliasField('id')]);
+            ->join([
+                [
+                    'table' => 'security_group_users',
+                    'alias' => 'SecurityGroupUsers',
+                    'type' => 'LEFT',
+                    'conditions' => ["SecurityGroupUsers.security_group_id = $alias.id"],
+                ],
+            ])
+            ->where([
+                'OR' => [
+                    "$alias.created_user_id" => $userId,
+                    'SecurityGroupUsers.security_user_id' => $userId,
+                ],
+            ])
+            ->group([$this->aliasField('id')]);
         return $query;
     }
 
