@@ -12,7 +12,7 @@ return [
             'className' => 'Cake\Database\Connection',
             'driver' => 'Cake\Database\Driver\Mysql',
             'persistent' => false,
-            'host' =>  'hrm-moesis-db-prod.marathon.l4lb.thisdcos.directory:3306', // 'hrm-moesis-db-test.marathon.l4lb.thisdcos.directory:3306',// 'hrm-moesis-php-fpm.marathon.l4lb.thisdcos.directory:9000',
+            'host' =>  'hrm-moesis-db.marathon.l4lb.thisdcos.directory:3306', // 'hrm-moesis-db-test.marathon.l4lb.thisdcos.directory:3306',// 'hrm-moesis-php-fpm.marathon.l4lb.thisdcos.directory:9000',
             /**
              * CakePHP will use the default DB port based on the driver selected
              * MySQL on MAMP uses port 8889, MAMP users will want to uncomment
