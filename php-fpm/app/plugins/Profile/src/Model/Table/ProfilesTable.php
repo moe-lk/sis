@@ -1,18 +1,14 @@
 <?php
 namespace Profile\Model\Table;
 
+use App\Model\Table\ControllerActionTable;
 use ArrayObject;
-
 use Cake\Event\Event;
+use Cake\Network\Request;
 use Cake\ORM\Entity;
 use Cake\ORM\Query;
 use Cake\ORM\TableRegistry;
-use Cake\ORM\ResultSet;
-use Cake\Network\Request;
-use Cake\Utility\Inflector;
 use Cake\Validation\Validator;
-
-use App\Model\Table\ControllerActionTable;
 
 class ProfilesTable extends ControllerActionTable
 {
@@ -30,7 +26,8 @@ class ProfilesTable extends ControllerActionTable
 
     private $dashboardQuery;
 
-    public function initialize(array $config) {
+    public function initialize(array $config)
+    {
         $this->table('security_users');
         $this->entityClass('User.User');
         parent::initialize($config);
@@ -38,10 +35,10 @@ class ProfilesTable extends ControllerActionTable
         $this->belongsTo('Genders', ['className' => 'User.Genders']);
         $this->belongsTo('AddressAreas', ['className' => 'Area.AreaAdministratives', 'foreignKey' => 'address_area_id']);
         $this->belongsTo('BirthplaceAreas', ['className' => 'Area.AreaAdministratives', 'foreignKey' => 'birthplace_area_id']);
-        $this->hasMany('Identities',        ['className' => 'User.Identities',      'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('Nationalities',     ['className' => 'User.UserNationalities',   'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('SpecialNeeds',      ['className' => 'User.SpecialNeeds', 'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('Contacts',          ['className' => 'User.Contacts', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Identities', ['className' => 'User.Identities', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Nationalities', ['className' => 'User.UserNationalities', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('SpecialNeeds', ['className' => 'User.SpecialNeeds', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Contacts', ['className' => 'User.Contacts', 'foreignKey' => 'security_user_id', 'dependent' => true]);
         $this->belongsTo('MainNationalities', ['className' => 'FieldOption.Nationalities', 'foreignKey' => 'nationality_id']);
         $this->belongsTo('MainIdentityTypes', ['className' => 'FieldOption.IdentityTypes', 'foreignKey' => 'identity_type_id']);
 
@@ -54,18 +51,29 @@ class ProfilesTable extends ControllerActionTable
         $this->toggle('remove', false);
     }
 
-    public function validationDefault(Validator $validator) {
+    public function validationDefault(Validator $validator)
+    {
         $validator = parent::validationDefault($validator);
         $validator
             ->allowEmpty('postal_code')
             ->add('postal_code', 'ruleCustomPostalCode', [
                 'rule' => ['validateCustomPattern', 'postal_code'],
                 'provider' => 'table',
-                'last' => true
+                'last' => true,
             ])
-            ;
+        ;
         $BaseUsers = TableRegistry::get('User.Users');
         return $BaseUsers->setUserValidation($validator, $this);
+    }
+
+    public function beforeAction(Event $event)
+    {
+        $this->field('first_name', ['attr' => ['label' => 'Full Name']]);
+        $this->field('last_name', ['attr' => ['label' => 'Name with initials']]);
+        $this->field('username', ['visible' => false]);
+        $this->field('middle_name', ['visible' => false]);
+        $this->field('third_name', ['visible' => false]);
+        $this->field('preferred_name', ['visible' => false]);
     }
 
     public function viewEditBeforeQuery(Event $event, Query $query, ArrayObject $extra)
@@ -73,7 +81,7 @@ class ProfilesTable extends ControllerActionTable
         $query->contain([
             'MainNationalities',
             'MainIdentityTypes',
-            'Genders'
+            'Genders',
         ]);
     }
 
@@ -117,7 +125,8 @@ class ProfilesTable extends ControllerActionTable
         $this->fields['identity_number']['type'] = 'readonly'; //cant edit identity_number field value as its value is auto updated.
     }
 
-    private function setupTabElements($entity) {
+    private function setupTabElements($entity)
+    {
         $id = !is_null($this->request->query('id')) ? $this->request->query('id') : 0;
 
         $options = [

@@ -1,7 +1,7 @@
 <?php
 $session = $this->request->session();
-$firstName = $session->check('Auth.User.first_name') ? $session->read('Auth.User.first_name') : 'System';
-$lastName = $session->check('Auth.User.last_name') ? $session->read('Auth.User.last_name') : 'Administrator';
+$firstName = $session->check('Auth.User.first_name') ? $session->read('Auth.User.first_name') : 'System Administrator';
+// $lastName = $session->check('Auth.User.last_name') ? $session->read('Auth.User.last_name') : 'Administrator';
 
 if (!isset($headerMenu)) {
 	$headerMenu = [];

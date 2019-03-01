@@ -289,7 +289,7 @@ class SecurityGroupUsersTable extends AppTable {
                         $schoolBasedAssigneeQuery = $SecurityGroupUsers
                             ->find('userList', ['where' => $where]);
 
-                        Log::write('debug', 'School based assignee query:');
+                        Log::write('debug', 'School based assignee query:'.$schoolBasedAssigneeQuery);
                         Log::write('debug', $schoolBasedAssigneeQuery->sql());
 
                         $schoolBasedAssigneeOptions = $schoolBasedAssigneeQuery->toArray();

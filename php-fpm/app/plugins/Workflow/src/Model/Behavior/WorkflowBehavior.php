@@ -1134,7 +1134,7 @@ class WorkflowBehavior extends Behavior
             }
             // End
 
-            if ($model->AccessControl->isPrincipal()) {
+            if ($model->AccessControl->isAdmin()) {
                 // super admin allow to see the full list of action buttons
                 $query = $this->WorkflowSteps
                     ->find()

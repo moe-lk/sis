@@ -198,6 +198,12 @@ class UsersTable extends AppTable
 
     public function beforeAction(Event $event)
     {
+        $this->field('first_name', ['attr' => ['label' => 'Full Name']]);
+        $this->field('last_name', ['attr' => ['label' => 'Name with initials']]);
+        $this->field('username', ['visible' => false]);
+        $this->field('middle_name', ['visible' => false]);
+        $this->field('third_name', ['visible' => false]);
+        $this->field('preferred_name', ['visible' => false]);
         $this->ControllerAction->field('username', ['visible' => false]);
         $this->ControllerAction->field('super_admin', ['visible' => false]);
         $this->ControllerAction->field('photo_name', ['visible' => false]);
@@ -494,8 +500,9 @@ class UsersTable extends AppTable
         $fieldOrder = array_merge($this->fieldOrder1->getArrayCopy(), $this->fieldOrder2->getArrayCopy());
         $this->ControllerAction->setFieldOrder($fieldOrder);
     }
-    
-    public function editBeforeAction(Event $event) {
+
+    public function editBeforeAction(Event $event)
+    {
         $this->field('preferred_name', ['visible' => true, 'attr' => ['label' => 'Name with Initial']]);
 
     }
