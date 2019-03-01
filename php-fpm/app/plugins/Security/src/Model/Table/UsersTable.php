@@ -1,17 +1,16 @@
 <?php
 namespace Security\Model\Table;
 
+use App\Model\Table\AppTable;
+use App\Model\Traits\OptionsTrait;
 use ArrayObject;
-use Cake\Validation\Validator;
 use Cake\Event\Event;
+use Cake\Network\Request;
 use Cake\ORM\Entity;
 use Cake\ORM\Query;
 use Cake\ORM\TableRegistry;
-use Cake\Network\Request;
 use Cake\Utility\Inflector;
-use App\Model\Table\AppTable;
-
-use App\Model\Traits\OptionsTrait;
+use Cake\Validation\Validator;
 
 class UsersTable extends AppTable
 {
@@ -34,29 +33,29 @@ class UsersTable extends AppTable
             'foreignKey' => 'security_user_id',
             'targetForeignKey' => 'security_role_id',
             'through' => 'Security.SecurityGroupUsers',
-            'dependent' => true
+            'dependent' => true,
         ]);
 
-        $this->hasMany('Identities', ['className' => 'User.Identities',      'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('Nationalities', ['className' => 'User.UserNationalities',   'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('SpecialNeeds', ['className' => 'User.SpecialNeeds',    'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('Contacts', ['className' => 'User.Contacts',        'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('Attachments', ['className' => 'User.Attachments',         'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('BankAccounts', ['className' => 'User.BankAccounts',    'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('Comments', ['className' => 'User.Comments',        'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('Languages', ['className' => 'User.UserLanguages',   'foreignKey' => 'security_user_id', 'dependent' => true]);
-        $this->hasMany('Awards', ['className' => 'User.Awards',          'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Identities', ['className' => 'User.Identities', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Nationalities', ['className' => 'User.UserNationalities', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('SpecialNeeds', ['className' => 'User.SpecialNeeds', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Contacts', ['className' => 'User.Contacts', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Attachments', ['className' => 'User.Attachments', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('BankAccounts', ['className' => 'User.BankAccounts', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Comments', ['className' => 'User.Comments', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Languages', ['className' => 'User.UserLanguages', 'foreignKey' => 'security_user_id', 'dependent' => true]);
+        $this->hasMany('Awards', ['className' => 'User.Awards', 'foreignKey' => 'security_user_id', 'dependent' => true]);
         $this->hasMany('Logins', ['className' => 'SSO.SecurityUserLogins', 'foreignKey' => 'security_user_id', 'dependent' => true, 'cascadeCallbacks' => true]);
         $this->hasMany('Counsellings', ['className' => 'Counselling.Counsellings', 'foreignKey' => 'counselor_id', 'dependent' => true, 'cascadeCallbacks' => true]);
         $this->hasMany('BodyMasses', ['className' => 'User.UserBodyMasses', 'foreignKey' => 'security_user_id', 'dependent' => true, 'cascadeCallbacks' => true]);
         $this->hasMany('Insurances', ['className' => 'User.UserInsurances', 'foreignKey' => 'security_user_id', 'dependent' => true, 'cascadeCallbacks' => true]);
-        
+
         $this->hasMany('ScholarshipApplications', ['className' => 'Scholarship.ScholarshipApplications', 'foreignKey' => 'applicant_id', 'dependent' => true, 'cascadeCallbacks' => true]);
         $this->hasMany('ApplicationAttachments', ['className' => 'Scholarship.ApplicationAttachments', 'dependent' => true, 'cascadeCallbacks' => true]);
         $this->hasMany('ScholarshipHistories', ['className' => 'Scholarship.ScholarshipHistories', 'foreignKey' => 'applicant_id', 'dependent' => true, 'cascadeCallbacks' => true]);
         $this->hasMany('ApplicationInstitutionChoices', ['className' => 'Scholarship.ApplicationInstitutionChoices', 'foreignKey' => 'applicant_id', 'dependent' => true, 'cascadeCallbacks' => true]);
-         $this->hasMany('ApplicationAttachments', ['className' => 'Scholarship.ApplicationAttachments', 'foreignKey' => 'applicant_id', 'dependent' => true, 'cascadeCallbacks' => true]);
-      
+        $this->hasMany('ApplicationAttachments', ['className' => 'Scholarship.ApplicationAttachments', 'foreignKey' => 'applicant_id', 'dependent' => true, 'cascadeCallbacks' => true]);
+
         $this->addBehavior('User.User');
         $this->addBehavior('User.AdvancedNameSearch');
         $this->addBehavior('Security.UserCascade'); // for cascade delete on user related tables
@@ -106,11 +105,11 @@ class UsersTable extends AppTable
                     $this->aliasField('third_name'),
                     $this->aliasField('last_name'),
                     $this->aliasField('preferred_name'),
-                    $this->aliasField('id')
+                    $this->aliasField('id'),
                 ])
                 ->order([
                     $this->aliasField('first_name'),
-                    $this->aliasField('last_name')
+                    $this->aliasField('last_name'),
                 ])
                 ->limit(100);
 
@@ -121,7 +120,7 @@ class UsersTable extends AppTable
             foreach ($list as $obj) {
                 $data[] = [
                     'label' => sprintf('%s - %s', $obj->openemis_no, $obj->name),
-                    'value' => $obj->id
+                    'value' => $obj->id,
                 ];
             }
         }
@@ -137,6 +136,12 @@ class UsersTable extends AppTable
         $this->fields['birthplace_area_id']['visible'] = false;
         $this->fields['nationality_id']['type'] = 'readonly';
         $this->fields['identity_type_id']['type'] = 'readonly';
+        $this->field('first_name', ['attr' => ['label' => 'Full Name']]);
+        $this->field('last_name', ['attr' => ['label' => 'Name with initials']]);
+        $this->field('username', ['visible' => false]);
+        $this->field('middle_name', ['visible' => false]);
+        $this->field('third_name', ['visible' => false]);
+        $this->field('preferred_name', ['visible' => false]);
 
         if ($this->action == 'edit') {
             $this->fields['last_login']['visible'] = false;
@@ -144,7 +149,7 @@ class UsersTable extends AppTable
 
         $this->ControllerAction->field('status', ['visible' => true, 'options' => $this->getSelectOptions('general.active')]);
         $this->ControllerAction->setFieldOrder([
-            'openemis_no', 'first_name', 'middle_name', 'third_name', 'last_name', 'preferred_name', 'gender_id', 'date_of_birth', 'status', 'username', 'password'
+            'openemis_no', 'first_name', 'middle_name', 'third_name', 'last_name', 'preferred_name', 'gender_id', 'date_of_birth', 'status', 'username', 'password',
         ]);
     }
 
@@ -197,7 +202,7 @@ class UsersTable extends AppTable
             'type' => 'role_table',
             'order' => 69,
             'valueClass' => 'table-full-width',
-            'visible' => ['index' => false, 'view' => true, 'edit' => false]
+            'visible' => ['index' => false, 'view' => true, 'edit' => false],
         ]);
     }
 
@@ -239,7 +244,7 @@ class UsersTable extends AppTable
                 ->where([$GroupUsers->aliasField('security_user_id') => $entity->id])
                 ->group([
                     $GroupUsers->aliasField('security_group_id'),
-                    $GroupUsers->aliasField('security_role_id')
+                    $GroupUsers->aliasField('security_role_id'),
                 ])
                 ->select(['group_name' => 'SecurityGroups.name', 'role_name' => 'SecurityRoles.name', 'group_id' => 'SecurityGroups.id'])
                 ->all();
@@ -249,7 +254,7 @@ class UsersTable extends AppTable
                     'plugin' => $this->controller->plugin,
                     'controller' => $this->controller->name,
                     'view',
-                    $this->paramsEncode(['id' => $obj->group_id])
+                    $this->paramsEncode(['id' => $obj->group_id]),
                 ];
                 if (!empty($groupEntity->institution)) {
                     $url['action'] = 'SystemGroups';
@@ -271,7 +276,7 @@ class UsersTable extends AppTable
     public function addAfterAction(Event $event, Entity $entity)
     {
         $ConfigItems = TableRegistry::get('Configuration.ConfigItems');
-        $uniqueOpenemisId = $this->getUniqueOpenemisId(['model'=>Inflector::singularize('User')]);
+        $uniqueOpenemisId = $this->getUniqueOpenemisId(['model' => Inflector::singularize('User')]);
 
         // first value is for the hidden field value, the second value is for the readonly value
         $this->ControllerAction->field('openemis_no', ['type' => 'readonly', 'value' => $uniqueOpenemisId, 'attr' => ['value' => $uniqueOpenemisId]]);
@@ -292,7 +297,7 @@ class UsersTable extends AppTable
         $this->fields['password']['attr']['autocomplete'] = 'off';
 
         // setting the tooltip message on password
-        $tooltipMessagePassword = $this->getMessage($this->alias().'.tooltip_message_password');
+        $tooltipMessagePassword = $this->getMessage($this->alias() . '.tooltip_message_password');
         $this->fields['password']['attr']['label']['escape'] = false; //disable the htmlentities (on LabelWidget) so can show html on label.
         $this->fields['password']['attr']['label']['class'] = 'tooltip-desc'; //css class for label
         $this->fields['password']['attr']['label']['text'] = __(Inflector::humanize($this->fields['password']['field'])) . $this->tooltipMessage($tooltipMessagePassword);
@@ -351,11 +356,11 @@ class UsersTable extends AppTable
             ])
             ->where([
                 $this->aliasField('date_of_birth') . ' IS NOT NULL',
-                $conditions[$thresholdArray['condition']]
+                $conditions[$thresholdArray['condition']],
             ])
 
             ->hydrate(false)
-            ;
+        ;
 
         return $licenseData->toArray();
     }

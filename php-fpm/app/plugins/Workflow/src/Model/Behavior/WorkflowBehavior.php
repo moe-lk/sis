@@ -1,22 +1,21 @@
 <?php
 namespace Workflow\Model\Behavior;
 
+use App\Model\Traits\OptionsTrait;
 use ArrayObject;
-use Cake\I18n\Time;
-use Cake\ORM\Behavior;
-use Cake\ORM\Query;
-use Cake\ORM\TableRegistry;
-use Cake\ORM\Entity;
-use Cake\Network\Request;
-use Cake\Event\Event;
-use Cake\Utility\Inflector;
-use Cake\Network\Session;
 use Cake\Datasource\EntityInterface;
 use Cake\Datasource\Exception\RecordNotFoundException;
+use Cake\Event\Event;
 use Cake\Log\Log;
+use Cake\Network\Request;
+use Cake\Network\Session;
+use Cake\ORM\Behavior;
+use Cake\ORM\Entity;
+use Cake\ORM\Query;
+use Cake\ORM\TableRegistry;
 use Cake\Routing\Router;
+use Cake\Utility\Inflector;
 use Cake\Validation\Validator;
-use App\Model\Traits\OptionsTrait;
 use Workflow\Model\Table\WorkflowStepsTable as WorkflowSteps;
 
 class WorkflowBehavior extends Behavior
@@ -38,14 +37,14 @@ class WorkflowBehavior extends Behavior
             'WorkflowActions' => 'Workflow.WorkflowActions',
             'WorkflowComments' => 'Workflow.WorkflowComments',
             'WorkflowTransitions' => 'Workflow.WorkflowTransitions',
-            'WorkflowStepsParams' => 'Workflow.WorkflowStepsParams'
+            'WorkflowStepsParams' => 'Workflow.WorkflowStepsParams',
         ],
         'actions' => [
             'add' => true,
             'edit' => true,
-            'remove' => true
+            'remove' => true,
         ],
-        'disableWorkflow' => false
+        'disableWorkflow' => false,
 
     ];
 
@@ -54,16 +53,22 @@ class WorkflowBehavior extends Behavior
             'value' => 'Workflow.onAssignBack',
             'text' => 'Assign Back to Creator',
             'description' => 'Performing this action will assign the current record back to creator.',
-            'method' => 'onAssignBack'
-        ]
+            'method' => 'onAssignBack',
+        ],
+        [
+            'value' => 'Workflow.onAssignPrincipal',
+            'text' => 'Assign  to Principal',
+            'description' => 'Performing this action will assign the current record back to Principal.',
+            'method' => 'onAssignPrincipal',
+        ],
     ];
 
     private $controller;
     private $model = null;
     private $currentAction;
 
-    private $attachWorkflow = false;    // indicate whether which action require workflow
-    private $hasWorkflow = false;   // indicate whether workflow is setup
+    private $attachWorkflow = false; // indicate whether which action require workflow
+    private $hasWorkflow = false; // indicate whether workflow is setup
     private $workflowIds = null;
 
     private $workflowSetup = null;
@@ -79,7 +84,7 @@ class WorkflowBehavior extends Behavior
         foreach ($models as $key => $model) {
             if (!is_null($model)) {
                 $this->{$key} = TableRegistry::get($model);
-                $this->{lcfirst($key).'Key'} = Inflector::underscore(Inflector::singularize($this->{$key}->alias())) . '_id';
+                $this->{lcfirst($key) . 'Key'} = Inflector::underscore(Inflector::singularize($this->{$key}->alias())) . '_id';
             } else {
                 $this->{$key} = null;
             }
@@ -96,7 +101,7 @@ class WorkflowBehavior extends Behavior
 
     private function isCAv4()
     {
-        return isset($this->_table->CAVersion) && $this->_table->CAVersion=='4.0';
+        return isset($this->_table->CAVersion) && $this->_table->CAVersion == '4.0';
     }
 
     public function implementedEvents()
@@ -105,23 +110,23 @@ class WorkflowBehavior extends Behavior
         $events = parent::implementedEvents();
         // priority has to be set at 1000 so that method(s) in model will be triggered first
         // priority of indexBeforeAction and indexBeforePaginate is set to 1 for it to run first before the event in model
-        $events['ControllerAction.Model.beforeAction']          = ['callable' => 'beforeAction', 'priority' => 1000];
-        $events['ControllerAction.Model.afterAction']           = ['callable' => 'afterAction', 'priority' => 1];
-        $events['ControllerAction.Model.index.beforeAction']    = ['callable' => 'indexBeforeAction', 'priority' => 1];
+        $events['ControllerAction.Model.beforeAction'] = ['callable' => 'beforeAction', 'priority' => 1000];
+        $events['ControllerAction.Model.afterAction'] = ['callable' => 'afterAction', 'priority' => 1];
+        $events['ControllerAction.Model.index.beforeAction'] = ['callable' => 'indexBeforeAction', 'priority' => 1];
         if ($this->isCAv4()) {
-            $events['ControllerAction.Model.index.beforeQuery']     = ['callable' => 'indexBeforeQuery', 'priority' => 1];
-            $events['ControllerAction.Model.processWorkflow']       = ['callable' => 'processWorkflow', 'priority' => 5];
-            $events['ControllerAction.Model.processReassign']       = ['callable' => 'processReassign', 'priority' => 5];
+            $events['ControllerAction.Model.index.beforeQuery'] = ['callable' => 'indexBeforeQuery', 'priority' => 1];
+            $events['ControllerAction.Model.processWorkflow'] = ['callable' => 'processWorkflow', 'priority' => 5];
+            $events['ControllerAction.Model.processReassign'] = ['callable' => 'processReassign', 'priority' => 5];
         } else {
-            $events['ControllerAction.Model.index.beforePaginate']  = ['callable' => 'indexBeforePaginate', 'priority' => 1];
+            $events['ControllerAction.Model.index.beforePaginate'] = ['callable' => 'indexBeforePaginate', 'priority' => 1];
         }
-        $events['ControllerAction.Model.index.afterAction']     = ['callable' => 'indexAfterAction', 'priority' => 1000];
-        $events['ControllerAction.Model.view.afterAction']      = ['callable' => 'viewAfterAction', 'priority' => 1000];
-        $events['ControllerAction.Model.addEdit.afterAction']   = ['callable' => 'addEditAfterAction', 'priority' => 1000];
-        $events['ControllerAction.Model.addEdit.beforeAction']  = ['callable' => 'addEditBeforeAction', 'priority' => 1];
-        $events['ControllerAction.Model.edit.beforePatch']      = ['callable' => 'editBeforePatch', 'priority' => 1];
-        $events['Model.custom.onUpdateToolbarButtons']          = ['callable' => 'onUpdateToolbarButtons', 'priority' => 1000];
-        $events['Model.custom.onUpdateActionButtons']           = ['callable' => 'onUpdateActionButtons', 'priority' => 1000];
+        $events['ControllerAction.Model.index.afterAction'] = ['callable' => 'indexAfterAction', 'priority' => 1000];
+        $events['ControllerAction.Model.view.afterAction'] = ['callable' => 'viewAfterAction', 'priority' => 1000];
+        $events['ControllerAction.Model.addEdit.afterAction'] = ['callable' => 'addEditAfterAction', 'priority' => 1000];
+        $events['ControllerAction.Model.addEdit.beforeAction'] = ['callable' => 'addEditBeforeAction', 'priority' => 1];
+        $events['ControllerAction.Model.edit.beforePatch'] = ['callable' => 'editBeforePatch', 'priority' => 1];
+        $events['Model.custom.onUpdateToolbarButtons'] = ['callable' => 'onUpdateToolbarButtons', 'priority' => 1000];
+        $events['Model.custom.onUpdateActionButtons'] = ['callable' => 'onUpdateActionButtons', 'priority' => 1000];
         $events['Workflow.afterTransition'] = 'workflowAfterTransition';
         $events['Workflow.getEvents'] = 'getWorkflowEvents';
         foreach ($this->workflowEvents as $event) {
@@ -187,16 +192,32 @@ class WorkflowBehavior extends Behavior
         }
     }
 
+    public function onAssignPrincipal(Event $event, $id, Entity $workflowTransitionEntity)
+    {
+        $model = $this->_table;
+
+        try {
+            if (!$model->AccessControl->isPrincipal()) {
+                $entity = $model->get($id);
+                $this->setAssigneeAsCreator($entity);
+                $model->save($entity);
+
+            }
+        } catch (RecordNotFoundException $e) {
+            // Do nothing
+        }
+    }
+
     private function triggerUpdateAssigneeShell($registryAlias, $id = null, $statusId = null, $groupId = null, $userId = null, $roleId = null)
     {
         $args = '';
-        $args .= !is_null($id) ? ' '.$id : '';
-        $args .= !is_null($statusId) ? ' '.$statusId : '';
-        $args .= !is_null($groupId) ? ' '.$groupId : '';
-        $args .= !is_null($userId) ? ' '.$userId : '';
-        $args .= !is_null($roleId) ? ' '.$roleId : '';
+        $args .= !is_null($id) ? ' ' . $id : '';
+        $args .= !is_null($statusId) ? ' ' . $statusId : '';
+        $args .= !is_null($groupId) ? ' ' . $groupId : '';
+        $args .= !is_null($userId) ? ' ' . $userId : '';
+        $args .= !is_null($roleId) ? ' ' . $roleId : '';
 
-        $cmd = ROOT . DS . 'bin' . DS . 'cake UpdateAssignee '.$registryAlias.$args;
+        $cmd = ROOT . DS . 'bin' . DS . 'cake UpdateAssignee ' . $registryAlias . $args;
         $logs = ROOT . DS . 'logs' . DS . 'UpdateAssignee.log & echo $!';
         $shellCmd = $cmd . ' >> ' . $logs;
 
@@ -204,7 +225,7 @@ class WorkflowBehavior extends Behavior
             $pid = exec($shellCmd);
             Log::write('debug', $shellCmd);
         } catch (\Exception $ex) {
-            Log::write('error', __METHOD__ . ' exception when update assignee : '. $ex);
+            Log::write('error', __METHOD__ . ' exception when update assignee : ' . $ex);
         }
     }
 
@@ -269,7 +290,7 @@ class WorkflowBehavior extends Behavior
         $model = $this->_table;
         $value = '';
         if (empty($entity->assignee_id)) {
-            $value = '<span>&lt;'.$model->getMessage('general.unassigned').'&gt;</span>';
+            $value = '<span>&lt;' . $model->getMessage('general.unassigned') . '&gt;</span>';
         }
 
         return $value;
@@ -304,7 +325,7 @@ class WorkflowBehavior extends Behavior
                 'class' => 'btn btn-xs btn-default',
                 'data-toggle' => 'tooltip',
                 'data-placement' => 'bottom',
-                'escape' => false
+                'escape' => false,
             ];
 
             $this->setToolbarButtons($toolbarButtons, $toolbarAttr, $action);
@@ -346,7 +367,7 @@ class WorkflowBehavior extends Behavior
             ->find('list', ['keyField' => 'id', 'valueField' => 'id'])
             ->matching('WorkflowModels', function ($q) use ($WorkflowModels, $registryAlias) {
                 return $q->where([
-                    $WorkflowModels->aliasField('model') => $registryAlias
+                    $WorkflowModels->aliasField('model') => $registryAlias,
                 ]);
             })
             ->all();
@@ -365,7 +386,7 @@ class WorkflowBehavior extends Behavior
                 $extra['elements'] = $elements;
             } else {
                 $toolbarElements = [
-                    ['name' => 'Workflow.controls', 'data' => [], 'options' => []]
+                    ['name' => 'Workflow.controls', 'data' => [], 'options' => []],
                 ];
                 $this->controller->set('toolbarElements', $toolbarElements);
             }
@@ -389,7 +410,7 @@ class WorkflowBehavior extends Behavior
                     $session = $this->controller->request->session();
                     if ($session->check('Institution.Institutions.id')) {
                         $params = [
-                            'institution_id' => $session->read('Institution.Institutions.id')
+                            'institution_id' => $session->read('Institution.Institutions.id'),
                         ];
                     }
                 }
@@ -435,7 +456,7 @@ class WorkflowBehavior extends Behavior
             $filterKey = Inflector::underscore(Inflector::singularize($base)) . '_id';
             if ($selectedFilter != -1) {
                 $query->where([
-                    $this->_table->aliasField($filterKey) => $selectedFilter
+                    $this->_table->aliasField($filterKey) => $selectedFilter,
                 ]);
             }
         }
@@ -511,10 +532,10 @@ class WorkflowBehavior extends Behavior
                     ->contain(['CreatedUser'])
                     ->where([
                         $this->WorkflowTransitions->aliasField('workflow_model_id') => $workflow->workflow_model_id,
-                        $this->WorkflowTransitions->aliasField('model_reference') => $entity->id
+                        $this->WorkflowTransitions->aliasField('model_reference') => $entity->id,
                     ])
                     ->order([
-                        $this->WorkflowTransitions->aliasField('created ASC')
+                        $this->WorkflowTransitions->aliasField('created ASC'),
                     ])
                     ->all();
                 if (!$transitionResults->isEmpty()) {
@@ -545,7 +566,7 @@ class WorkflowBehavior extends Behavior
                     'override' => true,
                     'rowClass' => 'transition-container',
                     'tableHeaders' => $tableHeaders,
-                    'tableCells' => $tableCells
+                    'tableCells' => $tableCells,
                 ]);
                 // End
 
@@ -558,8 +579,8 @@ class WorkflowBehavior extends Behavior
                     }
                 }
                 ksort($fieldOrder);
-                array_unshift($fieldOrder, 'assignee_id');  // Set workflow_status to second
-                array_unshift($fieldOrder, 'workflow_status');  // Set workflow_status to first
+                array_unshift($fieldOrder, 'assignee_id'); // Set workflow_status to second
+                array_unshift($fieldOrder, 'workflow_status'); // Set workflow_status to first
                 $fieldOrder[] = 'workflow_transitions'; // Set workflow_transitions to last
                 $ControllerAction->setFieldOrder($fieldOrder);
                 // End
@@ -579,7 +600,7 @@ class WorkflowBehavior extends Behavior
     {
         $model = $this->isCAv4() ? $this->_table : $this->_table->ControllerAction;
         $model->field('assignee_id', [
-            'entity' => $entity
+            'entity' => $entity,
         ]);
         $this->setFilterNotEditable($entity);
     }
@@ -613,7 +634,7 @@ class WorkflowBehavior extends Behavior
                 $fieldOrder = [];
                 $fields = $model->fields;
                 uasort($fields, function ($a, $b) {
-                    return $a['order']-$b['order'];
+                    return $a['order'] - $b['order'];
                 });
 
                 foreach ($fields as $fieldName => $fieldAttr) {
@@ -644,7 +665,7 @@ class WorkflowBehavior extends Behavior
                     'data-toggle' => 'tooltip',
                     'data-placement' => 'bottom',
                     'escape' => false,
-                    'title' => 'Back'
+                    'title' => 'Back',
                 ];
                 $backBtn['url'] = $model->url('view');
                 $extra['toolbarButtons']['back'] = $backBtn;
@@ -673,69 +694,68 @@ class WorkflowBehavior extends Behavior
         // visible fields
         $model->field('workflow_information_header', [
             'type' => 'section',
-            'title' => __('Status')
+            'title' => __('Status'),
         ]);
         $model->field('current_step', [
             'type' => 'readonly',
-            'fieldName' => $alias.'.prev_workflow_step_name',
+            'fieldName' => $alias . '.prev_workflow_step_name',
             'value' => $workflowStep->name,
-            'attr' => ['value' => $workflowStep->name]
+            'attr' => ['value' => $workflowStep->name],
         ]);
         $model->field('action', [
             'type' => 'readonly',
-            'fieldName' => $alias.'.workflow_action_name',
+            'fieldName' => $alias . '.workflow_action_name',
             'value' => $actionAttr['name'],
-            'attr' => ['value' => $actionAttr['name']]
+            'attr' => ['value' => $actionAttr['name']],
         ]);
         $model->field('description', [
             'type' => 'readonly',
-            'attr' => ['value' => $actionAttr['description']]
+            'attr' => ['value' => $actionAttr['description']],
         ]);
         $model->field('next_step', [
             'type' => 'readonly',
-            'fieldName' => $alias.'.workflow_step_name',
+            'fieldName' => $alias . '.workflow_step_name',
             'value' => $actionAttr['next_step_name'],
-            'attr' => ['value' => $actionAttr['next_step_name']]
+            'attr' => ['value' => $actionAttr['next_step_name']],
         ]);
         $model->field('workflow_assignee_id', [
             'type' => 'select',
-            'entity' => $actionAttr
+            'entity' => $actionAttr,
         ]);
         $model->field('workflow_comments', [
             'type' => 'text',
-            'fieldName' => $alias.'.comment'
+            'fieldName' => $alias . '.comment',
         ]);
-
 
         // hidden fields
         $model->field('prev_workflow_step_id', [
             'type' => 'hidden',
-            'fieldName' => $alias.'.prev_workflow_step_id',
-            'value' => $workflowStep->id
+            'fieldName' => $alias . '.prev_workflow_step_id',
+            'value' => $workflowStep->id,
         ]);
         $model->field('workflow_step_id', [
             'type' => 'hidden',
-            'fieldName' => $alias.'.workflow_step_id',
-            'value' => $actionAttr['next_step_id']
+            'fieldName' => $alias . '.workflow_step_id',
+            'value' => $actionAttr['next_step_id'],
         ]);
         $model->field('workflow_action_id', [
             'type' => 'hidden',
-            'fieldName' => $alias.'.workflow_action_id',
-            'value' => $actionAttr['id']
+            'fieldName' => $alias . '.workflow_action_id',
+            'value' => $actionAttr['id'],
         ]);
         $model->field('workflow_model_id', [
             'type' => 'hidden',
-            'fieldName' => $alias.'.workflow_model_id',
-            'value' => $workflow->workflow_model_id
+            'fieldName' => $alias . '.workflow_model_id',
+            'value' => $workflow->workflow_model_id,
         ]);
         $model->field('model_reference', [
             'type' => 'hidden',
-            'fieldName' => $alias.'.model_reference',
-            'value' => $entity->id
+            'fieldName' => $alias . '.model_reference',
+            'value' => $entity->id,
         ]);
         $model->field('validate_approve', [
             'type' => 'hidden',
-            'value' => 1
+            'value' => 1,
         ]);
     }
 
@@ -761,7 +781,7 @@ class WorkflowBehavior extends Behavior
         // check line by line, whether to show / hide the action buttons
         if ($this->attachWorkflow) {
             $model = $this->_table;
-            if (!$model->AccessControl->isAdmin()) {
+            if (!$model->AccessControl->isPrincipal()) {
                 $buttons = $model->onUpdateActionButtons($event, $entity, $buttons);
 
                 $workflowStep = $this->getWorkflowStep($entity);
@@ -861,10 +881,10 @@ class WorkflowBehavior extends Behavior
                 $assigneeEntity = $this->getAssigneeEntity($assigneeId);
                 $assigneeName = $assigneeEntity->name_with_id;
             } else {
-                $assigneeName = '<'.__('Unassigned').'>';
+                $assigneeName = '<' . __('Unassigned') . '>';
                 $assigneeId = 0;
             }
-            
+
             $attr['type'] = 'readonly';
             $attr['value'] = $assigneeId;
             $attr['attr']['value'] = $assigneeName;
@@ -879,7 +899,7 @@ class WorkflowBehavior extends Behavior
     {
         $params = [
             'is_school_based' => $isSchoolBased,
-            'workflow_step_id' => $stepId
+            'workflow_step_id' => $stepId,
         ];
 
         if ($isSchoolBased) {
@@ -912,7 +932,7 @@ class WorkflowBehavior extends Behavior
             })
             ->contain(['SecurityRoles'])
             ->where([
-                $model->Statuses->aliasField('category') => WorkflowSteps::TO_DO
+                $model->Statuses->aliasField('category') => WorkflowSteps::TO_DO,
             ])
             ->first();
 
@@ -936,7 +956,7 @@ class WorkflowBehavior extends Behavior
                 $params = [
                     'is_school_based' => $actionAttr['is_school_based'],
                     'workflow_step_id' => $actionAttr['next_step_id'],
-                    'institution_id' => $institutionId
+                    'institution_id' => $institutionId,
                 ];
 
                 $assigneeOptions = $SecurityGroupUsers->getAssigneeList($params);
@@ -953,7 +973,7 @@ class WorkflowBehavior extends Behavior
         $fieldOrder = [];
         $fields = $this->_table->fields;
         uasort($fields, function ($a, $b) {
-            return $a['order']-$b['order'];
+            return $a['order'] - $b['order'];
         });
 
         foreach ($fields as $fieldName => $fieldAttr) {
@@ -967,8 +987,8 @@ class WorkflowBehavior extends Behavior
         }
 
         ksort($fieldOrder);
-        array_unshift($fieldOrder, 'assignee_id');  // Set Status to second
-        array_unshift($fieldOrder, 'status_id');    // Set Status to first
+        array_unshift($fieldOrder, 'assignee_id'); // Set Status to second
+        array_unshift($fieldOrder, 'status_id'); // Set Status to first
 
         if ($this->isCAv4()) {
             $this->_table->setFieldOrder($fieldOrder);
@@ -981,11 +1001,11 @@ class WorkflowBehavior extends Behavior
     {
         if (is_null($this->workflowSetup)) {
             $workflowModel = $this->WorkflowModels
-                    ->find()
-                    ->where([
-                        $this->WorkflowModels->aliasField('model') => $registryAlias
-                    ])
-                    ->first();
+                ->find()
+                ->where([
+                    $this->WorkflowModels->aliasField('model') => $registryAlias,
+                ])
+                ->first();
 
             $this->workflowSetup = $workflowModel;
         } else {
@@ -1004,7 +1024,7 @@ class WorkflowBehavior extends Behavior
             $workflowIdsQuery = $this->Workflows
                 ->find('list', ['keyField' => 'id', 'valueField' => 'id'])
                 ->where([
-                    $this->Workflows->aliasField('workflow_model_id') => $workflowModel->id
+                    $this->Workflows->aliasField('workflow_model_id') => $workflowModel->id,
                 ]);
 
             $excludedModels = $this->Workflows->getExcludedModels();
@@ -1012,7 +1032,7 @@ class WorkflowBehavior extends Behavior
                 $workflowRuleId = $entity->workflow_rule_id;
                 $workflowIdsQuery->matching('WorkflowRules', function ($q) use ($workflowRuleId) {
                     return $q->where([
-                        'WorkflowRules.id' => $workflowRuleId
+                        'WorkflowRules.id' => $workflowRuleId,
                     ]);
                 });
             }
@@ -1025,7 +1045,7 @@ class WorkflowBehavior extends Behavior
 
             if (empty($workflowModel->filter)) {
                 $workflowQuery->where([
-                    $this->Workflows->aliasField('id IN') => $workflowIds
+                    $this->Workflows->aliasField('id IN') => $workflowIds,
                 ]);
             } else {
                 // Filter key
@@ -1052,8 +1072,8 @@ class WorkflowBehavior extends Behavior
                     // Use Workflow with filter if found otherwise use Workflow that Apply To All
                     if ($workflowFilterResults->isEmpty()) {
                         $filterQuery
-                        ->where($conditions, [], true)
-                        ->where([$this->WorkflowsFilters->aliasField('filter_id') => 0]);
+                            ->where($conditions, [], true)
+                            ->where([$this->WorkflowsFilters->aliasField('filter_id') => 0]);
 
                         $workflowResults = $filterQuery->all();
                     } else {
@@ -1066,7 +1086,7 @@ class WorkflowBehavior extends Behavior
                 }
 
                 $workflowQuery->where([
-                    $this->Workflows->aliasField('id') => $workflowId
+                    $this->Workflows->aliasField('id') => $workflowId,
                 ]);
             }
 
@@ -1120,14 +1140,14 @@ class WorkflowBehavior extends Behavior
                     ->find()
                     ->matching('Workflows.WorkflowModels')
                     ->contain(['WorkflowActions' => function ($q) {
-                            return $q
-                                ->find('visible')
-                                ->where(['next_workflow_step_id !=' => 0]);
-                    }
+                        return $q
+                            ->find('visible')
+                            ->where(['next_workflow_step_id !=' => 0]);
+                    },
                     ])
                     ->contain('WorkflowActions.NextWorkflowSteps')
                     ->where([
-                        $this->WorkflowSteps->aliasField('id') => $workflowStepId // Latest Workflow Step
+                        $this->WorkflowSteps->aliasField('id') => $workflowStepId, // Latest Workflow Step
                     ]);
 
                 return $query->first();
@@ -1138,7 +1158,7 @@ class WorkflowBehavior extends Behavior
                         ->find()
                         ->where([
                             $this->WorkflowStepsRoles->aliasField('workflow_step_id') => $workflowStepId,
-                            $this->WorkflowStepsRoles->aliasField('security_role_id IN') => $roleIds
+                            $this->WorkflowStepsRoles->aliasField('security_role_id IN') => $roleIds,
                         ])
                         ->all();
 
@@ -1149,17 +1169,17 @@ class WorkflowBehavior extends Behavior
                                 ->find()
                                 ->matching('Workflows.WorkflowModels')
                                 ->contain(['WorkflowActions' => function ($q) {
-                                        return $q
-                                            ->find('visible')
-                                            ->where([
-                                                'next_workflow_step_id !=' => 0,
-                                                'allow_by_assignee' => 1
-                                            ]);
-                                }
+                                    return $q
+                                        ->find('visible')
+                                        ->where([
+                                            'next_workflow_step_id !=' => 0,
+                                            'allow_by_assignee' => 1,
+                                        ]);
+                                },
                                 ])
                                 ->contain('WorkflowActions.NextWorkflowSteps')
                                 ->where([
-                                    $this->WorkflowSteps->aliasField('id') => $workflowStepId // Latest Workflow Step
+                                    $this->WorkflowSteps->aliasField('id') => $workflowStepId, // Latest Workflow Step
                                 ]);
 
                             return $query->first();
@@ -1170,20 +1190,20 @@ class WorkflowBehavior extends Behavior
                             ->find()
                             ->matching('Workflows.WorkflowModels')
                             ->contain(['WorkflowActions' => function ($q) {
-                                    return $q
-                                        ->find('visible')
-                                        ->where(['next_workflow_step_id !=' => 0]);
-                            }
+                                return $q
+                                    ->find('visible')
+                                    ->where(['next_workflow_step_id !=' => 0]);
+                            },
                             ])
                             ->contain('WorkflowActions.NextWorkflowSteps')
                             ->where([
-                                $this->WorkflowSteps->aliasField('id') => $workflowStepId // Latest Workflow Step
+                                $this->WorkflowSteps->aliasField('id') => $workflowStepId, // Latest Workflow Step
                             ])
                             ->innerJoin(
                                 [$this->WorkflowStepsRoles->alias() => $this->WorkflowStepsRoles->table()],
                                 [
                                     $this->WorkflowStepsRoles->aliasField('workflow_step_id = ') . $this->WorkflowSteps->aliasField('id'),
-                                    $this->WorkflowStepsRoles->aliasField('security_role_id IN') => $roleIds
+                                    $this->WorkflowStepsRoles->aliasField('security_role_id IN') => $roleIds,
                                 ]
                             );
 
@@ -1209,7 +1229,7 @@ class WorkflowBehavior extends Behavior
             $assigneeName = $assigneeEntity->name_with_id;
             $assigneeId = $assigneeEntity->id;
         } else {
-            $assigneeName = '<'.__('Unassigned').'>';
+            $assigneeName = '<' . __('Unassigned') . '>';
             $assigneeId = 0;
         }
 
@@ -1219,8 +1239,8 @@ class WorkflowBehavior extends Behavior
             $fields = [
                 'id' => [
                     'type' => 'hidden',
-                    'value' => $entity->id
-                ]
+                    'value' => $entity->id,
+                ],
             ];
 
             $contentFields = new ArrayObject([
@@ -1229,28 +1249,28 @@ class WorkflowBehavior extends Behavior
                     'type' => 'string',
                     'readonly' => 'readonly',
                     'disabled' => 'disabled',
-                    'class'=> 'workflow-reassign-status',
-                    'value' => $entity->status->name
+                    'class' => 'workflow-reassign-status',
+                    'value' => $entity->status->name,
                 ],
                 'current_assignee_name' => [
                     'label' => __('Current Assignee'),
                     'type' => 'string',
                     'readonly' => 'readonly',
                     'disabled' => 'disabled',
-                    'class'=> 'workflow-reassign-current-assignee-name',
-                    'value' => $assigneeName
+                    'class' => 'workflow-reassign-current-assignee-name',
+                    'value' => $assigneeName,
                 ],
                 'current_assignee_id' => [
                     'type' => 'hidden',
-                    'class'=> 'workflow-reassign-current-assignee-id',
-                    'value' => $assigneeId
+                    'class' => 'workflow-reassign-current-assignee-id',
+                    'value' => $assigneeId,
                 ],
                 'assignee_id' => [
                     'label' => __('New Assignee'),
                     'type' => 'select',
-                    'class'=> 'workflow-reassign-new-assignee',
-                    'assignee-url' => $assigneeUrl
-                ]
+                    'class' => 'workflow-reassign-new-assignee',
+                    'assignee-url' => $assigneeUrl,
+                ],
             ]);
 
             // $model->dispatchEvent('Workflow.addCustomModalFields', [$entity, $contentFields, $alias], $this);
@@ -1258,14 +1278,14 @@ class WorkflowBehavior extends Behavior
             $content = '';
             $content = '<style type="text/css">.modal-footer { clear: both; } .modal-body textarea { width: 60%; }</style>';
             $content .= '<div class="input string"><span class="button-label"></span>';
-                $content .= '<div class="workflow-reassign-assignee-loading">' . __('Loading') . '</div>';
-                $content .= '<div class="workflow-reassign-assignee-no_options">' . __('No options') . '</div>';
-                $content .= '<div class="workflow-reassign-assignee-error">' . __('This field cannot be left empty') . '</div>';
-                $content .= '<div class="workflow-reassign-assignee-same-error">' . __('New Assignee cannot be the same as Current Assignee') . '</div>';
+            $content .= '<div class="workflow-reassign-assignee-loading">' . __('Loading') . '</div>';
+            $content .= '<div class="workflow-reassign-assignee-no_options">' . __('No options') . '</div>';
+            $content .= '<div class="workflow-reassign-assignee-error">' . __('This field cannot be left empty') . '</div>';
+            $content .= '<div class="workflow-reassign-assignee-same-error">' . __('New Assignee cannot be the same as Current Assignee') . '</div>';
             $content .= '</div>';
-            $content .= '<div class="input string"><span class="button-label"></span><div class="workflow-reassign-assignee-sql-error error-message">' .$model->getMessage('general.error'). '</div></div>';
+            $content .= '<div class="input string"><span class="button-label"></span><div class="workflow-reassign-assignee-sql-error error-message">' . $model->getMessage('general.error') . '</div></div>';
             $buttons = [
-                '<button id="reassign-submit" type="submit" class="btn btn-default" onclick="return Workflow.onSubmit(\'reassign\');">' . __('Reassign') . '</button>'
+                '<button id="reassign-submit" type="submit" class="btn btn-default" onclick="return Workflow.onSubmit(\'reassign\');">' . __('Reassign') . '</button>',
             ];
 
             $modal = [
@@ -1278,12 +1298,12 @@ class WorkflowBehavior extends Behavior
                     'formOptions' => [
                         'class' => 'form-horizontal',
                         'url' => $this->isCAv4() ? $model->url('processReassign') : $model->ControllerAction->url('processReassign'),
-                        'onSubmit' => 'document.getElementById("reassign-submit").disabled=true;'
+                        'onSubmit' => 'document.getElementById("reassign-submit").disabled=true;',
                     ],
-                    'fields' => $fields
+                    'fields' => $fields,
                 ],
                 'buttons' => $buttons,
-                'cancelButton' => true
+                'cancelButton' => true,
             ];
 
             return $modal;
@@ -1305,100 +1325,100 @@ class WorkflowBehavior extends Behavior
             $alias = $this->WorkflowTransitions->alias();
             // workflow_step_id is needed for afterSave logic in WorkflowTransitions
             $fields = [
-                $alias.'.prev_workflow_step_id' => [
+                $alias . '.prev_workflow_step_id' => [
                     'type' => 'hidden',
-                    'value' => $step->id
+                    'value' => $step->id,
                 ],
-                $alias.'.prev_workflow_step_name' => [
+                $alias . '.prev_workflow_step_name' => [
                     'type' => 'hidden',
-                    'value' => $step->name
+                    'value' => $step->name,
                 ],
-                $alias.'.workflow_step_id' => [
+                $alias . '.workflow_step_id' => [
                     'type' => 'hidden',
                     'value' => 0,
                     'class' => 'workflowtransition-step-id',
-                    'unlockField' => true
+                    'unlockField' => true,
                 ],
-                $alias.'.workflow_step_name' => [
+                $alias . '.workflow_step_name' => [
                     'type' => 'hidden',
                     'value' => '',
                     'class' => 'workflowtransition-step-name',
-                    'unlockField' => true
+                    'unlockField' => true,
                 ],
-                $alias.'.workflow_action_id' => [
+                $alias . '.workflow_action_id' => [
                     'type' => 'hidden',
                     'value' => 0,
                     'class' => 'workflowtransition-action-id',
-                    'unlockField' => true
+                    'unlockField' => true,
                 ],
-                $alias.'.workflow_action_name' => [
+                $alias . '.workflow_action_name' => [
                     'type' => 'hidden',
                     'value' => '',
                     'class' => 'workflowtransition-action-name',
-                    'unlockField' => true
+                    'unlockField' => true,
                 ],
-                $alias.'.workflow_action_description' => [
+                $alias . '.workflow_action_description' => [
                     'type' => 'hidden',
                     'value' => '',
                     'class' => 'workflowtransition-action-description',
-                    'unlockField' => true
+                    'unlockField' => true,
                 ],
-                $alias.'.workflow_model_id' => [
+                $alias . '.workflow_model_id' => [
                     'type' => 'hidden',
-                    'value' => $workflow->workflow_model_id
+                    'value' => $workflow->workflow_model_id,
                 ],
-                $alias.'.model_reference' => [
+                $alias . '.model_reference' => [
                     'type' => 'hidden',
-                    'value' => $entity->id
+                    'value' => $entity->id,
                 ],
-                $alias.'.assignee_required' => [
+                $alias . '.assignee_required' => [
                     'type' => 'hidden',
                     'value' => 1,
                     'class' => 'workflowtransition-assignee-required',
-                    'unlockField' => true
+                    'unlockField' => true,
                 ],
-                $alias.'.comment_required' => [
+                $alias . '.comment_required' => [
                     'type' => 'hidden',
                     'value' => 0,
                     'class' => 'workflowtransition-comment-required',
-                    'unlockField' => true
-                ]
+                    'unlockField' => true,
+                ],
             ];
 
             $contentFields = new ArrayObject(
                 [
-                    $alias.'.action_name' => [
+                    $alias . '.action_name' => [
                         'label' => __('Action'),
                         'type' => 'string',
                         'readonly' => 'readonly',
                         'disabled' => 'disabled',
-                        'class'=> 'workflowtransition-action-name'
+                        'class' => 'workflowtransition-action-name',
                     ],
-                    $alias.'.action_description' => [
+                    $alias . '.action_description' => [
                         'label' => __('Description'),
                         'type' => 'textarea',
                         'readonly' => 'readonly',
                         'disabled' => 'disabled',
-                        'class'=> 'workflowtransition-action-description'
+                        'class' => 'workflowtransition-action-description',
                     ],
-                    $alias.'.step_name' => [
+                    $alias . '.step_name' => [
                         'label' => __('Next Step'),
                         'type' => 'string',
                         'readonly' => 'readonly',
                         'disabled' => 'disabled',
-                        'class'=> 'workflowtransition-step-name'
+                        'class' => 'workflowtransition-step-name',
                     ],
-                    $alias.'.assignee_id' => [
+                    $alias . '.assignee_id' => [
                         'label' => __('Assignee'),
                         'type' => 'select',
-                        'class'=> 'workflowtransition-assignee-id',
-                        'assignee-url' => $assigneeUrl
+                        'class' => 'workflowtransition-assignee-id',
+                        'assignee-url' => $assigneeUrl,
                     ],
-                    $alias.'.comment' => [
+                    $alias . '.comment' => [
                         'label' => __('Comment'),
                         'type' => 'textarea',
-                        'class'=> 'workflowtransition-comment'
-                    ]
+                        'class' => 'workflowtransition-comment',
+                    ],
                 ]);
 
             $model->dispatchEvent('Workflow.addCustomModalFields', [$entity, $contentFields, $alias], $this);
@@ -1406,15 +1426,15 @@ class WorkflowBehavior extends Behavior
             $content = '';
             $content = '<style type="text/css">.modal-footer { clear: both; } .modal-body textarea { width: 60%; }</style>';
             $content .= '<div class="input string"><span class="button-label"></span>';
-                $content .= '<div class="workflowtransition-assignee-loading">' . __('Loading') . '</div>';
-                $content .= '<div class="workflowtransition-assignee-no_options">' . __('No options') . '</div>';
-                $content .= '<div class="workflowtransition-assignee-error">' . __('This field cannot be left empty') . '</div>';
+            $content .= '<div class="workflowtransition-assignee-loading">' . __('Loading') . '</div>';
+            $content .= '<div class="workflowtransition-assignee-no_options">' . __('No options') . '</div>';
+            $content .= '<div class="workflowtransition-assignee-error">' . __('This field cannot be left empty') . '</div>';
             $content .= '</div>';
             $content .= '<div class="input string"><span class="button-label"></span><div class="workflowtransition-comment-error error-message">' . __('This field cannot be left empty') . '</div></div>';
-            $content .= '<div class="input string"><span class="button-label"></span><div class="workflowtransition-assignee-sql-error error-message">' .$model->getMessage('general.error'). '</div></div>';
+            $content .= '<div class="input string"><span class="button-label"></span><div class="workflowtransition-assignee-sql-error error-message">' . $model->getMessage('general.error') . '</div></div>';
             $content .= '<div class="input string"><span class="button-label"></span><div class="workflowtransition-event-description error-message"></div></div>';
             $buttons = [
-                '<button id="workflow-submit" type="submit" class="btn btn-default" onclick="return Workflow.onSubmit();">' . __('Save') . '</button>'
+                '<button id="workflow-submit" type="submit" class="btn btn-default" onclick="return Workflow.onSubmit();">' . __('Save') . '</button>',
             ];
 
             $modal = [
@@ -1427,12 +1447,12 @@ class WorkflowBehavior extends Behavior
                     'formOptions' => [
                         'class' => 'form-horizontal',
                         'url' => $this->isCAv4() ? $model->url('processWorkflow') : $model->ControllerAction->url('processWorkflow'),
-                        'onSubmit' => 'document.getElementById("workflow-submit").disabled=true;'
+                        'onSubmit' => 'document.getElementById("workflow-submit").disabled=true;',
                     ],
-                    'fields' => $fields
+                    'fields' => $fields,
                 ],
                 'buttons' => $buttons,
-                'cancelButton' => true
+                'cancelButton' => true,
             ];
 
             return $modal;
@@ -1450,7 +1470,7 @@ class WorkflowBehavior extends Behavior
 
         if (!empty($this->workflowIds)) {
             $query->where([
-                $this->WorkflowSteps->aliasField('workflow_id IN') => $this->workflowIds
+                $this->WorkflowSteps->aliasField('workflow_id IN') => $this->workflowIds,
             ]);
         }
 
@@ -1498,7 +1518,7 @@ class WorkflowBehavior extends Behavior
                         $isSuperAdmin = $model->Auth->user('super_admin');
                         $assigneeId = $entity->assignee_id;
 
-                        if ($isSuperAdmin || $userId == $assigneeId) {
+                        if ($isSuperAdmin || $userId == $assigneeId || $model->AccessControl->isPrincipal()) {
                             $reassignJsonObject = [
                                 'step_id' => $workflowStep->id,
                                 'is_school_based' => $isSchoolBased,
@@ -1510,9 +1530,9 @@ class WorkflowBehavior extends Behavior
                             $reassignButtonAttr = [
                                 'escapeTitle' => false,
                                 'escape' => true,
-                                'onclick' => 'Workflow.init();Workflow.copy('.$json.', "reassign");return false;',
+                                'onclick' => 'Workflow.init();Workflow.copy(' . $json . ', "reassign");return false;',
                                 'data-toggle' => 'modal',
-                                'data-target' => '#workflowReassign'
+                                'data-target' => '#workflowReassign',
                             ];
                             $reassignButtonAttr = array_merge($attr, $reassignButtonAttr);
                             $reassignButton = [];
@@ -1549,6 +1569,11 @@ class WorkflowBehavior extends Behavior
                             $actionObj->assignee_required = 1;
                             foreach ($events as $eventKey) {
                                 // assignee is required by default unless onAssignBack event is added
+
+                                if ($eventKey == 'Workflow.onAssignPrincipal' && $this->_table->AccessControl->isPrincipal()) {
+                                    $actionObj->assignee_required = 0;
+                                }
+
                                 if ($eventKey == 'Workflow.onAssignBack') {
                                     $actionObj->assignee_required = 0;
                                 }
@@ -1585,7 +1610,7 @@ class WorkflowBehavior extends Behavior
                                 'event_description' => $eventDescription,
                                 'is_school_based' => $isSchoolBased,
                                 'auto_assign_assignee' => $autoAssignAssignee,
-                                'modal_visible_field' => $visibleField
+                                'modal_visible_field' => $visibleField,
                             ];
 
                             $json = json_encode($button, JSON_NUMERIC_CHECK);
@@ -1593,7 +1618,7 @@ class WorkflowBehavior extends Behavior
                             $buttonAttr = [
                                 'escapeTitle' => false,
                                 'escape' => true,
-                                'onclick' => 'Workflow.init();Workflow.copy('.$json.');return false;',
+                                'onclick' => 'Workflow.init();Workflow.copy(' . $json . ');return false;',
                                 'data-toggle' => 'modal',
                                 'data-target' => '#workflowTransition',
 
@@ -1665,15 +1690,15 @@ class WorkflowBehavior extends Behavior
                             'id' => 'action-menu',
                             'class' => 'btn btn-default action-toggle outline-btn',
                             'data-toggle' => 'dropdown',
-                            'aria-expanded' => true
-                        ]
+                            'aria-expanded' => true,
+                        ],
                     ];
 
                     $moreButton = [];
                     $moreButton['type'] = 'element';
                     $moreButton['element'] = 'Workflow.buttons';
                     $moreButton['data'] = [
-                        'buttons' => $actionButtons
+                        'buttons' => $actionButtons,
                     ];
                     $moreButton['options'] = [];
 
@@ -1716,7 +1741,7 @@ class WorkflowBehavior extends Behavior
                     ->find()
                     ->where([
                         $this->WorkflowSteps->aliasField('workflow_id') => $workflowId,
-                        $this->WorkflowSteps->aliasField('category') => 1  // Open
+                        $this->WorkflowSteps->aliasField('category') => 1, // Open
                     ])
                     ->first();
                 $statusId = $workflowStep->id;
@@ -1745,7 +1770,7 @@ class WorkflowBehavior extends Behavior
             'is_school_based' => $isSchoolBased,
             'workflow_step_id' => $stepId,
             'category' => $category,
-            'created_user_id' => $createdUserId
+            'created_user_id' => $createdUserId,
         ];
 
         if ($entity->has('institution_id')) {
@@ -1816,7 +1841,7 @@ class WorkflowBehavior extends Behavior
 
         $this->WorkflowTransitions->deleteAll([
             $this->WorkflowTransitions->aliasField('workflow_model_id') => $workflowModel->id,
-            $this->WorkflowTransitions->aliasField('model_reference') => $entity->id
+            $this->WorkflowTransitions->aliasField('model_reference') => $entity->id,
         ]);
     }
 
@@ -1908,10 +1933,10 @@ class WorkflowBehavior extends Behavior
                 ->find()
                 ->contain(['Assignees', 'Statuses'])
                 ->where([
-                    $model->aliasField('id') => $requestData['id']
+                    $model->aliasField('id') => $requestData['id'],
                 ])
                 ->first();
-                
+
             $this->WorkflowTransitions->trackChanges($workflowModelEntity, $entity, $assigneeId);
 
             $entity->assignee_id = $assigneeId;
@@ -1935,7 +1960,7 @@ class WorkflowBehavior extends Behavior
                 $Users->aliasField('middle_name'),
                 $Users->aliasField('third_name'),
                 $Users->aliasField('last_name'),
-                $Users->aliasField('preferred_name')
+                $Users->aliasField('preferred_name'),
             ])
             ->where([$Users->aliasField('id') => $userId])
             ->first();
@@ -1996,11 +2021,11 @@ class WorkflowBehavior extends Behavior
 
         $count = $model
             ->find()
-             ->matching('Statuses', function ($q) use ($doneStatus) {
+            ->matching('Statuses', function ($q) use ($doneStatus) {
                 return $q->where(['category <> ' => $doneStatus]);
-             })
+            })
             ->where([
-                $model->aliasField($institutionKey) => $institutionId
+                $model->aliasField($institutionKey) => $institutionId,
             ])
             ->count();
 
@@ -2038,7 +2063,7 @@ class WorkflowBehavior extends Behavior
         $value = $this->WorkflowStepsParams->find()
             ->where([
                 $this->WorkflowStepsParams->aliasField('workflow_step_id') => $workflowStepId,
-                $this->WorkflowStepsParams->aliasField('name') => $name
+                $this->WorkflowStepsParams->aliasField('name') => $name,
             ])
             ->extract('value')
             ->first();

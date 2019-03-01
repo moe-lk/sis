@@ -231,7 +231,6 @@ class AppController extends Controller
             $colour = $themes['colour'];
             $secondaryColour = $this->darkenColour($colour);
             $customPath = ROOT . DS . 'plugins' . DS . 'OpenEmis' . DS . 'webroot' . DS . 'css' . DS . 'themes' . DS . 'custom' . DS;
-            Log::error($customPath);
             $basePath = Router::url(['controller' => false, 'action' => 'index', 'plugin' => false]) === '/' ? '/' : Router::url(['controller' => false, 'action' => 'index', 'plugin' => false]) . '/';
             $loginBackground = $basePath . Configure::read('App.imageBaseUrl') . $themes['login_page_image'];
             $file = new File($customPath . 'layout.core.template.css');
@@ -241,10 +240,9 @@ class AppController extends Controller
             $template = str_replace('${secondColor}', $secondaryColour, $template);
             $template = str_replace('${prodColor}', "#f6b03e", $template);
             $customPath = WWW_ROOT . 'css' . DS . 'themes' . DS;
-            Log::error($customPath);
-            // $file = new File($customPath . 'layout.min.css', true);
-            // $file->write($template);
-            // $file->close();
+            $file = new File($customPath . 'layout.min.css', true);
+            $file->write($template);
+            $file->close();
             $themes['timestamp'] = TableRegistry::get('Configuration.ConfigItems')->value('themes');
             Cache::write('themes', $themes);
         }
