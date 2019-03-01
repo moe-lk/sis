@@ -1,0 +1,1 @@
+delete  FROM openemis.import_mapping where id = 23;
