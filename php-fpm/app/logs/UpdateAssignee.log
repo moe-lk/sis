@@ -6023,3 +6023,96 @@ End Processing Update Assignee Shell of Staff > Career > Appraisals
 Initialize Update Assignee Shell of Administration > Scholarships > Applications
 Administration > Scholarships > Applications - Unassigned Records : 0
 End Processing Update Assignee Shell of Administration > Scholarships > Applications
+
+Welcome to CakePHP v3.3.16 Console
+---------------------------------------------------------------
+App : src
+Path: /var/www/myapp/src/
+PHP : 7.1.26-1+ubuntu16.04.1+deb.sury.org+1
+---------------------------------------------------------------
+Initialize Update Assignee Shell of Institutions > Students > Student Admission
+Institutions > Students > Student Admission - Unassigned Records : 13
+Institutions > Students > Student Admission : Affected Record Id: 3; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 5; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 6; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 7; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 9; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 10; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 12; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 13; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 14; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 20; Assignee Id: 163
+Institutions > Students > Student Admission : Affected Record Id: 36; Assignee Id: 163
+Institutions > Students > Student Admission : Affected Record Id: 39; Assignee Id: 190
+Institutions > Students > Student Admission : Affected Record Id: 40; Assignee Id: 190
+End Processing Update Assignee Shell of Institutions > Students > Student Admission
+
+Welcome to CakePHP v3.3.16 Console
+---------------------------------------------------------------
+App : src
+Path: /var/www/myapp/src/
+PHP : 7.1.26-1+ubuntu16.04.1+deb.sury.org+1
+---------------------------------------------------------------
+Initialize Update Assignee Shell of Institutions > Students > Student Admission
+Institutions > Students > Student Admission - Unassigned Records : 14
+Institutions > Students > Student Admission : Affected Record Id: 3; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 5; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 6; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 7; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 9; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 10; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 12; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 13; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 14; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 20; Assignee Id: 168
+Institutions > Students > Student Admission : Affected Record Id: 36; Assignee Id: 168
+Institutions > Students > Student Admission : Affected Record Id: 37; Assignee Id: 168
+Institutions > Students > Student Admission : Affected Record Id: 39; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 40; Set to unassigned.
+End Processing Update Assignee Shell of Institutions > Students > Student Admission
+
+Welcome to CakePHP v3.3.16 Console
+---------------------------------------------------------------
+App : src
+Path: /var/www/myapp/src/
+PHP : 7.1.26-1+ubuntu16.04.1+deb.sury.org+1
+---------------------------------------------------------------
+Initialize Update Assignee Shell of Institutions > Students > Student Admission
+Institutions > Students > Student Admission - Unassigned Records : 13
+Institutions > Students > Student Admission : Affected Record Id: 3; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 5; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 6; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 7; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 9; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 10; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 12; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 13; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 14; Assignee Id: 91
+Institutions > Students > Student Admission : Affected Record Id: 36; Assignee Id: 163
+Institutions > Students > Student Admission : Affected Record Id: 37; Assignee Id: 163
+Institutions > Students > Student Admission : Affected Record Id: 39; Assignee Id: 190
+Institutions > Students > Student Admission : Affected Record Id: 40; Assignee Id: 190
+End Processing Update Assignee Shell of Institutions > Students > Student Admission
+
+Welcome to CakePHP v3.3.16 Console
+---------------------------------------------------------------
+App : src
+Path: /var/www/myapp/src/
+PHP : 7.1.26-1+ubuntu16.04.1+deb.sury.org+1
+---------------------------------------------------------------
+Initialize Update Assignee Shell of Institutions > Students > Student Admission
+Institutions > Students > Student Admission - Unassigned Records : 13
+Institutions > Students > Student Admission : Affected Record Id: 3; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 5; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 6; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 7; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 9; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 10; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 12; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 13; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 14; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 36; Assignee Id: 168
+Institutions > Students > Student Admission : Affected Record Id: 37; Assignee Id: 168
+Institutions > Students > Student Admission : Affected Record Id: 39; Set to unassigned.
+Institutions > Students > Student Admission : Affected Record Id: 40; Set to unassigned.
+End Processing Update Assignee Shell of Institutions > Students > Student Admission
