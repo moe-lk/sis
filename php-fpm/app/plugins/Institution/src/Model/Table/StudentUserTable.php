@@ -205,6 +205,8 @@ class StudentUserTable extends ControllerActionTable
         $this->field('username', ['visible' => false]);
         $this->field('first_name', ['attr' => ['label'=> 'Full Name']]);
         $this->field('last_name', ['attr' => ['label' => 'Name with initials']]);
+        $this->field('last_name', ['attr' => ['label' => 'Name with initials']]);
+        $this->field('openemis_no', ['attr' => ['label' => 'Student ID']]);
         $this->field('username', ['visible' => false]);
         $this->field('middle_name', ['visible' => false]);
         $this->field('third_name', ['visible' => false]);

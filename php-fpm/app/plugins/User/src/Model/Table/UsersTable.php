@@ -200,6 +200,7 @@ class UsersTable extends AppTable
     {
         $this->field('first_name', ['attr' => ['label' => 'Full Name']]);
         $this->field('last_name', ['attr' => ['label' => 'Name with initials']]);
+        $this->field('gender', ['attr' => ['label' => 'Sex']]);
         $this->field('username', ['visible' => false]);
         $this->field('middle_name', ['visible' => false]);
         $this->field('third_name', ['visible' => false]);
@@ -295,7 +296,7 @@ class UsersTable extends AppTable
                 $this->aliasField('preferred_name'),
             ])
             ->group([$this->aliasField('id')])
-            ->order([$this->aliasField('first_name', 'last_name')]) // POCOR-2547 sort list of staff and student by name
+            ->order([$this->aliasField('first_name')]) // POCOR-2547 sort list of staff and student by name
             ->formatResults(function ($results) use ($institutionClassId, $institutionId) {
                 $arrReturn = [];
                 foreach ($results as $result) {
