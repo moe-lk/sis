@@ -96,7 +96,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
                     <label><?= __('Filter') ?></label>
                 </div>
                 <div class="text">
-                    <label><?= __('User ID') ?></label>
+                    <label><?= __('Staff ID') ?></label>
                     <input ng-model="InstitutionStaffController.internalFilterOpenemisNo" ng-keyup="$event.keyCode == 13 ? InstitutionStaffController.reloadInternalDatasource(true) : null" type="text" id="" maxlength="150">
                 </div>
                 <div class="text">
@@ -172,7 +172,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
         <div class="step-pane sample-pane" data-step="3" data-name="createUser">
             <form class="form-horizontal ng-pristine ng-valid" accept-charset="utf-8" method="post">
                 <div class="input string required">
-                    <label><?= __('User ID') ?></label>
+                    <label><?= __('Staff ID') ?></label>
                     <input ng-model="InstitutionStaffController.selectedStaffData.openemis_no" type="string" ng-disabled="true">
                     <div ng-if="InstitutionStaffController.postResponse.error.openemis_no" class="error-message">
                         <p ng-repeat="error in InstitutionStaffController.postResponse.error.openemis_no">{{ error }}</p>
@@ -279,7 +279,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
         <div class="step-pane sample-pane" data-step="4" data-name="addStaff">
             <form class="form-horizontal ng-pristine ng-valid" accept-charset="utf-8" method="post" >
                 <div class="input string required">
-                    <label><?= __('User ID') ?></label>
+                    <label><?= __('Staff ID') ?></label>
                     <input ng-model="InstitutionStaffController.selectedStaffData.openemis_no" type="string" ng-disabled="true">
                     <div ng-if="InstitutionStaffController.postResponse.error.openemis_no" class="error-message">
                         <p ng-repeat="error in InstitutionStaffController.postResponse.error.openemis_no">{{ error }}</p>
@@ -452,7 +452,7 @@ $this->Html->script('ControllerAction.../plugins/datepicker/js/bootstrap-datepic
         <div class="step-pane sample-pane" data-step="5" data-name="transferStaff" ng-show="InstitutionStaffController.step == 'transfer_staff';">
             <form class="form-horizontal ng-pristine ng-valid" accept-charset="utf-8" method="post" >
                 <div class="input string">
-                    <label><?= __('User ID') ?></label>
+                    <label><?= __('Staff ID') ?></label>
                     <input type="string" ng-model="InstitutionStaffController['selectedStaffData']['openemis_no']" disabled="disabled">
                 </div>
                 <div class="input string">
