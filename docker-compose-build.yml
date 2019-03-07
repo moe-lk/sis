@@ -41,3 +41,34 @@ services:
     links:
       - openemis-mailhog
       - openemis-mysql
+  cadvisor:
+    image: google/cadvisor:latest
+    volumes:
+       - /:/rootfs
+       - /var/run:/var/run
+       - /sys:/sys
+       - /var/lib/docker:/var/lib/docker
+    container_name: influxdb
+    links:
+      - influxdb
+    ports:
+      - "8080:8080"
+    command: -storage_driver=influxdb -storage_driver_db=ca -storage_driver_host=influxdb:8084 -storage_driver_secure=True -storage_driver_password=influxdb4ever
+  influxdb:
+    image: influxdb:latest
+    environment:
+      INFLUXDB_RETENTION_ENABLED: "true"
+      INFLUXDB_RETENTION_CHECK_INTERVAL: 30m0s
+      INFLUXDB_MONITOR_STORE_DATABASE: _internal
+    ports:
+      - "8084:8084"
+      - "8083:8083"
+      - "8086:8086"
+    expose:
+      - "8090"
+      - "8099"
+  grafana:
+    image: grafana/grafana
+    ports:
+      - "3000:3000"
+    
