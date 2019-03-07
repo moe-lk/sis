@@ -335,11 +335,7 @@ class SecurityGroupUsersTable extends AppTable
 
                         // School based assignee
                         $where = [
-<<<<<<< HEAD
                             $SecurityGroupUsers->aliasField('security_group_id IN') => $SecurityGroupInstitutionsIds,
-=======
-                            $SecurityGroupUsers->aliasField('security_group_id') => $securityGroupId,
->>>>>>> Hot-Fixes
                             $SecurityGroupUsers->aliasField('security_role_id IN ') => $stepRoles,
                         ];
                         $schoolBasedAssigneeQuery = $SecurityGroupUsers
