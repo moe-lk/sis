@@ -173,14 +173,6 @@ class UserGroupsTable extends ControllerActionTable
 
         $securityGroupId = $this->request->data[$this->alias()]['security_group_id'];
 
-        if (!$this->AccessControl->isZonalCoordinator()) {
-            $this->field('areas', [
-                'type' => 'area_table',
-                'valueClass' => 'table-full-width',
-                'visible' => ['index' => false, 'view' => true, 'edit' => true],
-            ]);
-
-        }
         $this->field('institutions', [
             'type' => 'institution_table',
             'valueClass' => 'table-full-width',
@@ -194,6 +186,15 @@ class UserGroupsTable extends ControllerActionTable
             'roleOptions' => $roleOptions,
             'visible' => ['index' => false, 'view' => true, 'edit' => true],
         ]);
+
+        if (!$this->AccessControl->isZonalCoordinator()) {
+            $this->field('areas', [
+                'type' => 'area_table',
+                'valueClass' => 'table-full-width',
+                'visible' => ['index' => false, 'view' => true, 'edit' => true],
+            ]);
+
+        }
 
         $this->setFieldOrder([
             'name', 'areas', 'institutions', 'users',
