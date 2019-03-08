@@ -11,6 +11,7 @@ use Cake\Utility\Inflector;
 use Cake\Validation\Validator;
 use App\Model\Table\ControllerActionTable;
 use Cake\Core\Configure;
+use Cake\Log\Log;
 
 class DirectoriesTable extends ControllerActionTable
 {
@@ -244,12 +245,19 @@ class DirectoriesTable extends ControllerActionTable
             ]);
         }
 
-        $conditions = [];
+        $userId = $this->Session->read('Auth.User.id');
+
+        $conditions = [$this->aliasField('created_user_id') => $userId];
 
         $notSuperAdminCondition = [
             $this->aliasField('super_admin') => 0
         ];
+
+        $modifiedUser = [
+            $this->aliasField('modified_user_id') => $userId
+        ];
         $conditions = array_merge($conditions, $notSuperAdminCondition);
+        // $conditions = array_merge($conditions,$modifiedUser);
 
         // POCOR-2547 sort list of staff and student by name
         $orders = [];
@@ -696,7 +704,7 @@ class DirectoriesTable extends ControllerActionTable
         $this->Session->write('Directory.Directories.name', $entity->name);
 
         if (!$this->AccessControl->isAdmin()) {
-            $institutionIds = $this->AccessControl->getInstitutionsByUser();
+            $users = $this->AccessControll->getUsersByInstitutions();
             $this->Session->write('AccessControl.Institutions.ids', $institutionIds);
         }
 

@@ -393,6 +393,25 @@ class AccessControlComponent extends Component
         return $superAdmin == 1;
     }
 
+
+    public function getRolesByUser($userId = null)
+    {
+        if (is_null($userId)) {
+            $userId = $this->Auth->user('id');
+        }
+
+        $SecurityGroupUsers = TableRegistry::get('Security.SecurityGroupUsers');
+        $data = $SecurityGroupUsers
+            ->find()
+            ->contain(['SecurityRoles', 'SecurityGroups'])
+            ->where([$SecurityGroupUsers->aliasField('security_user_id') => $userId])
+            ->group([$SecurityGroupUsers->aliasField('security_group_id'), $SecurityGroupUsers->aliasField('security_role_id')])
+            ->all();
+
+        return $data;
+    }
+
+
     public function isPrincipal()
     {
 
@@ -431,23 +450,6 @@ class AccessControlComponent extends Component
             ])
             ->first();
         return $userRole->security_role->code == 'ZONAL_COORDINATOR';
-    }
-
-    public function getRolesByUser($userId = null)
-    {
-        if (is_null($userId)) {
-            $userId = $this->Auth->user('id');
-        }
-
-        $SecurityGroupUsers = TableRegistry::get('Security.SecurityGroupUsers');
-        $data = $SecurityGroupUsers
-            ->find()
-            ->contain(['SecurityRoles', 'SecurityGroups'])
-            ->where([$SecurityGroupUsers->aliasField('security_user_id') => $userId])
-            ->group([$SecurityGroupUsers->aliasField('security_group_id'), $SecurityGroupUsers->aliasField('security_role_id')])
-            ->all();
-
-        return $data;
     }
 
     public function getInstitutionsByUser($userId = null)

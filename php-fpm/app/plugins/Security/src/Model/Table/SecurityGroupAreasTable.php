@@ -25,6 +25,13 @@ class SecurityGroupAreasTable extends AppTable
         return $events;
     }
 
+
+    public function beforeAction(){
+        if($this->AccessControl->isZonalCoordinator()){
+            
+        }
+    }
+
     public function institutionAfterSave(Event $event, Entity $entity)
     {
         // check if security group id is dirty instead of new entity as the security group id is save

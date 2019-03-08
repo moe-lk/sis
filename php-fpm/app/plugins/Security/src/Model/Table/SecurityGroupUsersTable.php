@@ -169,6 +169,42 @@ class SecurityGroupUsersTable extends AppTable
         }
     }
 
+    public function getUsersByInstitutions($userId = 0)
+    {
+        $groupIds = $this
+            ->find('list', ['keyField' => 'id', 'valueField' => 'security_group_id'])
+            ->where([$this->aliasField('security_user_id') => $userId])
+            ->toArray();
+
+        if (!empty($groupIds)) {
+            $SecurityUser = TableRegistry::get('Security.Users');
+            $Users = $SecurityUser
+                ->find('list', ['keyField' => 'id', 'valueField' => 'id'])
+                ->where([$SecurityGroupInstitutions->aliasField('modified_user_id') => $userId])
+                ->toArray();
+
+            // $SecurityGroupAreas = TableRegistry::get('Security.SecurityGroupAreas');
+            // $areaInstitutions = $SecurityGroupAreas
+            //     ->find('list', ['keyField' => 'Institutions.id', 'valueField' => 'Institutions.id'])
+            //     ->select(['Institutions.id'])
+            //     ->innerJoin(['AreaAll' => 'areas'], ['AreaAll.id = SecurityGroupAreas.area_id'])
+            //     ->innerJoin(['Areas' => 'areas'], [
+            //         'Areas.lft >= AreaAll.lft',
+            //         'Areas.rght <= AreaAll.rght',
+            //     ])
+            //     ->innerJoin(['Institutions' => 'institutions'], ['Institutions.area_id = Areas.id'])
+            //     ->where([$SecurityGroupAreas->aliasField('security_group_id') . ' IN ' => $groupIds])
+            //     ->toArray();
+
+            // $institutionIds = $institutionIds + $areaInstitutions;
+
+            return $Users;
+        } else {
+            return [];
+        }
+
+    }
+
     public function getInstitutionsByUser($userId = 0)
     {
 
