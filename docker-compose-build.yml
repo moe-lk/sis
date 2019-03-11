@@ -41,6 +41,7 @@ services:
     links:
       - openemis-mailhog
       - openemis-mysql
+    restart: always
   cadvisor:
     image: google/cadvisor:latest
     volumes:
