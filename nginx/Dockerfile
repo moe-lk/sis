@@ -1,8 +1,9 @@
-FROM phpearth/php:7.2-nginx
+FROM imkulikov/nginx-sticky
 
 ADD ./app /var/www/myapp
 
 ADD ./nginx.conf /etc/nginx/conf.d/default.conf
+ADD ./nginx.main.conf /etc/nginx/conf.d/nginx.conf
 
 RUN sed -ri 's/^www-data:x:82:82:/www-data:x:1000:50:/' /etc/passwd
 
