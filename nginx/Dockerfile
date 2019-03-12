@@ -1,81 +1,9 @@
-# FROM imkulikov/nginx-sticky
+FROM phpearth/php:7.2-nginx
 
+ADD ./app /var/www/myapp
 
-# ADD ./app /var/www/myapp
+ADD ./nginx.conf /etc/nginx/conf.d/default.conf
 
-# ADD ./nginx.conf /etc/nginx/conf.d/default.conf
-# ADD ./nginx.conf /etc/nginx/conf.d/01-basic.conf
-# ADD ./nginx.conf /etc/nginx/conf.d/03-default.conf
+RUN sed -ri 's/^www-data:x:82:82:/www-data:x:1000:50:/' /etc/passwd
 
-# RUN sed -ri 's/^www-data:x:82:82:/www-data:x:1000:50:/' /etc/passwd
-
-# EXPOSE 80
-
-FROM ubuntu:14.04
-
-RUN \
-    sed -i 's/# \(.*multiverse$\)/\1/g' /etc/apt/sources.list && \
-    apt-get update && \
-    apt-get -y upgrade && \
-    apt-get install -y build-essential && \
-    apt-get install -y software-properties-common && \
-    apt-get install -y wget git unzip && \
-    rm -rf /var/lib/apt/lists/*
-
-ENV NPS_VERSION 1.10.33.4
-
-ENV NGINX 1.11.10
-
-RUN \
-    add-apt-repository -y ppa:nginx/stable && \
-    apt-get update && \
-    apt-get install -y libpcre3-dev libpcrecpp0 libssl-dev zlib1g-dev && \
-    rm -rf /var/lib/apt/lists/* 
-
-RUN \
-    mkdir ~/sources && \
-    cd ~/sources && \
-    #wget https://github.com/pagespeed/ngx_pagespeed/archive/release-${NPS_VERSION}-beta.zip -O release-${NPS_VERSION}-beta.zip && \
-    #unzip release-${NPS_VERSION}-beta.zip && \ 
-    #cd ~/sources/ngx_pagespeed-release-${NPS_VERSION}-beta/ && \ 
-    #wget https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}.tar.gz && \ 
-    #tar -xzvf ${NPS_VERSION}.tar.gz && \
-    wget http://nginx.org/download/nginx-$NGINX.tar.gz && \
-    tar -zxvf nginx-$NGINX.tar.gz && \
-    git clone https://bitbucket.org/nginx-goodies/nginx-sticky-module-ng.git && \
-    git clone https://github.com/yaoweibin/nginx_upstream_check_module.git && \
-    cd nginx-$NGINX && \
-    patch -p0 < /root/sources/nginx_upstream_check_module/check_1.11.5+.patch && \
-    ./configure \
-    --prefix=/etc/nginx \
-    --conf-path=/etc/nginx/nginx.conf \
-    --sbin-path=/usr/sbin/nginx \
-    --pid-path=/var/log/nginx/nginx.pid \
-    --error-log-path=/var/log/nginx/error.log \
-    --http-log-path=/var/log/nginx/access.log \
-    --with-http_ssl_module \
-    --with-http_gzip_static_module \
-    --with-http_stub_status_module \
-    --with-http_realip_module \
-    --with-http_v2_module \
-    --add-module=/root/sources/nginx-sticky-module-ng \
-    --add-module=/root/sources/nginx_upstream_check_module && \
-    make && \
-    make install && \
-    rm -rf ~/sources
-
-RUN useradd nginx
-
-VOLUME ["/etc/nginx/sites-enabled", "/etc/nginx/certs", "/etc/nginx/conf.d", "/var/log/nginx"]
-
-WORKDIR /etc/nginx
-
-# forward request and error logs to docker log collector
-RUN ln -sf /dev/stdout /var/log/nginx/access.log \
-    && ln -sf /dev/stderr /var/log/nginx/error.log
-
-CMD ["/usr/sbin/nginx", "-g", "daemon off;"]
-
-ADD ./nginx.conf /etc/nginx/nginx.conf
-
-EXPOSE 80 443
+EXPOSE 80
