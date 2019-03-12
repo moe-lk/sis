@@ -13,6 +13,7 @@ RUN apt-get update \
 
 ADD ./app /src
 ADD ./php-ini-overrides.ini /etc/php/7.1/fpm/conf.d/99-overrides.ini
+ADD ./overrides.conf /etc/php/7.1/fpm/pool.d/z-overrides.conf
 
 WORKDIR /var/www
 RUN mkdir myapp
