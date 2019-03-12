@@ -1,4 +1,5 @@
-FROM phpearth/php:7.2-nginx
+FROM imkulikov/nginx-sticky
+
 
 ADD ./app /var/www/myapp
 
