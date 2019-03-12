@@ -29,10 +29,27 @@ services:
     container_name: openemis-nginx-2
     ports:
     - "8180:80"
-    links:
-      - openemis-php-fpm
     restart: always
-  openemis-php-fpm:
+  openemis-php-fpm-5:
+    build: ./php-fpm
+    volumes:
+       - ./php-fpm/app:/var/www/myapp
+       - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+    container_name: openemis-php-fpm-5
+    links:
+      - openemis-mailhog
+      - openemis-mysql
+  openemis-php-fpm-1:
+    build: ./php-fpm
+    volumes:
+       - ./php-fpm/app:/var/www/myapp
+       - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+    container_name: openemis-php-fpm-1
+    links:
+      - openemis-mailhog
+      - openemis-mysql
+    restart: always
+  penemis-php-fpm-2:
     build: ./php-fpm
     volumes:
        - ./php-fpm/app:/var/www/myapp
@@ -41,7 +58,24 @@ services:
     links:
       - openemis-mailhog
       - openemis-mysql
-    restart: always
+  openemis-php-fpm-3:
+    build: ./php-fpm
+    volumes:
+       - ./php-fpm/app:/var/www/myapp
+       - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+    container_name: openemis-php-fpm-3
+    links:
+      - openemis-mailhog
+      - openemis-mysql
+  openemis-php-fpm-4:
+    build: ./php-fpm
+    volumes:
+       - ./php-fpm/app:/var/www/myapp
+       - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
+    container_name: openemis-php-fpm-4
+    links:
+      - openemis-mailhog
+      - openemis-mysql    
   cadvisor:
     image: google/cadvisor:latest
     volumes:
