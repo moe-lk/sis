@@ -13,23 +13,66 @@ services:
     container_name: openemis-mailhog-2
     ports:
       - "8125:8025"
+  # openemis-mysql:
+  #   build: ./mysql
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: secret
+  #     MYSQL_DATABASE: openemis
+  #     MYSQL_USER: openeuser
+  #     MYSQL_PASSWORD: openepass
+  #   command:  'max_allowed_packet=32505856'
+  #   ports:
+  #     - "8106:3306"
+  #   restart: always
   openemis-mysql:
-    build: ./mysql
+    build: ./mysql2
     environment:
       MYSQL_ROOT_PASSWORD: secret
       MYSQL_DATABASE: openemis
-      MYSQL_USER: openeuser
-      MYSQL_PASSWORD: openepass
-    command:  '--sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION --max_allowed_packet=32505856'
+      MYSQL_USERNAME: openuser
+      MYSQL_PASSWORD: openpass
+    command:  '--sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION  --max_allowed_packet=32505856'
     ports:
-      - "8106:3306"
+      - "8108:3306"
     restart: always
+  certbot:
+    image: certbot/certbot
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+  # openemis-mysql-2:
+  #   build: ./mysql3
+  #   environment:
+  #     MYSQL_ROOT_PASSWORD: secret
+  #     MYSQL_DATABASE: openemis
+  #     MYSQL_USER: openeuser
+  #     MYSQL_PASSWORD: openepass
+  #     MYSQL_SERVER_CONTAINER: openemis-mysql
+  #   command:  '--sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION  --max_allowed_packet=32505856'
+  #   ports:
+  #     - "8106:3306"
+  #   restart: always
   openemis-nginx:
     build: ./nginx
     container_name: openemis-nginx-2
     ports:
-    - "8180:80"
+      - "8180:80"
     restart: always
+    volumes:
+      - ./data/certbot/conf:/etc/letsencrypt
+      - ./data/certbot/www:/var/www/certbot
+  # mysql-sync:
+  #   image: 'klsmith/mysql-sync:latest'
+  #   environment:
+  #     - SRC_HOST=openemis-mysql
+  #     - SRC_NAME=openemis
+  #     - SRC_PASS=secret
+  #     - SRC_USER=root
+  #     - DEST_HOST=openemis-mysql-2
+  #     - DEST_NAME=openemis
+  #     - DEST_PASS=openepass
+  #     - DEST_USER=openeuser
+  #   restart: always
   openemis-php-fpm-5:
     build: ./php-fpm
     volumes:
