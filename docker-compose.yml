@@ -1,45 +1,54 @@
 ###############################################################################
 #                          Generated on phpdocker.io                          #
 ###############################################################################
+version: '2'
 
-myapp-mailhog:
-  image: phpdockerio/mailhog:latest
-  container_name: myapp-mailhog
-  ports:
-    - "8125:8025"
+services:
+  sis-mysql:
+    build: ./mysql
+    user : mysql
+    container_name: sis-mysql
+    volumes:
+        - ./mysql/my.cnf:/etc/mysql/my.cnf
+        - ./mysql/Dump20190123-2:/docker-entrypoint-initdb.d
+    ports:
+      - "8106:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret
+      - MYSQL_DATABASE=openemis
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=secret
+    command:  '--sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION --max_allowed_packet=32505856'
 
-myapp-mysql:
-  image: mysql:5.7
-  container_name: myapp-mysql
-  volumes:
-      - ../mysql:/var/lib/mysql
-      - ./mysql/my.cnf:/etc/mysql/my.cnf
-  ports:
-    - "8106:3306"
-  environment:
-    - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
-    - MYSQL_DATABASE=${MYSQL_DATABASE}
-    - MYSQL_USER=${MYSQL_USER}
-    - MYSQL_PASSWORD=${MYSQL_PASSWORD}
 
-myapp-nginx:
-  image: phpdockerio/nginx:latest
-  container_name: myapp-nginx
-  volumes:
-      - ../cakephp:/var/www/myapp
-      - ./nginx/nginx.conf:/etc/nginx/conf.d/default.conf
-  ports:
-   - "8180:80"
-  links:
-   - myapp-php-fpm
+  sis:
+      build: ./sis-php
+      container_name: sis-php
+      volumes:
+          - ./sis-php/app:/var/www/apachephp
+      ports:
+          - "8180:80"
+      environment:
+        - REDIS_URL=redis://cache
+  redis:
+      image: redis
+      container_name: redis
+      ports:
+        - "6379:6379"
 
-myapp-php-fpm:
-  build: .
-  dockerfile: php-fpm/Dockerfile
-  container_name: myapp-php-fpm
-  volumes:
-    - ../cakephp:/var/www/myapp
-    - ./php-fpm/php-ini-overrides.ini:/etc/php/7.1/fpm/conf.d/99-overrides.ini
-  links:
-    - myapp-mailhog
-    - myapp-mysql
+  sis-bulk-upload:
+      tty: true
+      image: bitnami/laravel:5-debian-9
+      environment:
+        - DB_HOST=sis-mysql
+        - DB_USERNAME=root
+        - DB_DATABASE=openemis
+        - DB_PASSWORD=secret
+      depends_on:
+        - sis-mysql
+      ports:
+        - 3001:3000
+      volumes:
+        - ./bulk-upload:/app
+      restart: always
+      # command : php artisan key:generate

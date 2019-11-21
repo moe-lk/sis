@@ -1,0 +1,3 @@
+[submodule "bulk-upload"]
+	path = bulk-upload
+	url = https://github.com/moe-lk/bulk-upload.git
