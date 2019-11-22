@@ -5,6 +5,7 @@ This package have three componants
 2. SIS bulk upload application
 3. SIS Dashborad
 
+Dependencies 
 1. Docker
 2. Docker Compose
 
