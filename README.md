@@ -10,4 +10,4 @@ Dependencies
 2. Docker Compose
 
 
-To run the application do run docker-composer build && docker-compose run
+To run the application do run docker-composer build && docker-compose up
