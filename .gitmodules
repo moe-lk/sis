@@ -1,0 +1,6 @@
+[submodule "sis-php/app"]
+	path = sis-php/app
+	url = https://github.com/moe-lk/sis-php.git
+[submodule "bulk-upload"]
+	path = bulk-upload
+	url = https://github.com/moe-lk/bulk-upload.git
