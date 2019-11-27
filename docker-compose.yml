@@ -10,7 +10,7 @@ services:
     container_name: sis-mysql
     volumes:
       - ./mysql/my.cnf:/etc/mysql/my.cnf
-      - ./mysql/Dump20190123-2:/docker-entrypoint-initdb.d
+      - ./mysql/Dump20190205-1:/docker-entrypoint-initdb.d
     ports:
       - "8106:3306"
     environment:
@@ -29,10 +29,12 @@ services:
     ports:
       - "8180:80"
     environment:
-      - REDIS_URL=redis://cache
+      - CACHE_CAKECORE_URL=redis://cache
+    links:
+      - redis
   redis:
     image: redis
-    container_name: redis
+    container_name: cache
     ports:
       - "6379:6379"
 

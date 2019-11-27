@@ -4,6 +4,7 @@ This package have three componants
 1. SIS applications
 2. SIS bulk upload application
 3. SIS Dashborad
+4. Redis for Cache
 
 
 Dependencies
@@ -12,3 +13,5 @@ Dependencies
 
 
 To run the application do run docker-composer build && docker-compose up
+
+We have configured the Redis cache server for Experiment of the production envirenment. 
