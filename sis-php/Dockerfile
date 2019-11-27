@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -yq --no-install-recommends \
     php7.2-zip \
     php7.2-intl \
     php-imagick \
-    php-redis
+    php-redis \
     # Install tools
     openssl \
     nano \
