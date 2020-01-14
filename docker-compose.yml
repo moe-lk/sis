@@ -10,14 +10,14 @@ services:
     container_name: sis-mysql
     volumes:
       - ./mysql/my.cnf:/etc/mysql/my.cnf
-      - ./mysql/Dump20190205-1:/docker-entrypoint-initdb.d
-    ports:
-      - "8106:3306"
+      - ./mysql/init-db/docker-entrypoint-initdb.d
+    ports:          
+      - "8107:3306"
     environment:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_DATABASE=openemis
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=secret
+      # - MYSQL_USER=root
+      # - MYSQL_PASSWORD=secret
     command:  '--sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION --max_allowed_packet=32505856'
 
 
