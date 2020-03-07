@@ -12,6 +12,9 @@ Dependencies
 2. Docker Compose
 
 
-To run the application do run docker-composer build && docker-compose up
-
+To run the application do run:
+```
+$ docker-composer build 
+$ docker-compose up
+```
 We have configured the Redis cache server for Experiment of the production envirenment. 
