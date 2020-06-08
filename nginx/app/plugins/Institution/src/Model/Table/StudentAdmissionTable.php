@@ -71,10 +71,11 @@ class StudentAdmissionTable extends ControllerActionTable
             ->add('start_date', [
                 'ruleCompareDate' => [
                     'rule' => ['compareDate', 'end_date', false]
-                ],
-                'ruleCheckProgrammeEndDateAgainstStudentStartDate' => [
-                    'rule' => ['checkProgrammeEndDateAgainstStudentStartDate', 'start_date']
                 ]
+                // ,
+                // 'ruleCheckProgrammeEndDateAgainstStudentStartDate' => [
+                //     'rule' => ['checkProgrammeEndDateAgainstStudentStartDate', 'start_date']
+                // ]
             ])
             ->add('student_id', [
                 'ruleCheckPendingAdmissionExist' => [
