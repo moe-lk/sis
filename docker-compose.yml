@@ -10,7 +10,7 @@ services:
     container_name: sis-mysql
     volumes:
       - ./mysql/my.cnf:/etc/mysql/my.cnf
-      - ./mysql/init-db/docker-entrypoint-initdb.d
+#      - ./mysql/init-db/docker-entrypoint-initdb.d
     ports:          
       - "8107:3306"
     environment:
@@ -40,7 +40,7 @@ services:
 
   sis-bulk-upload:
     tty: true
-    image: bitnami/laravel:5-debian-9
+    image: bitnami/laravel:latest
     environment:
       - DB_HOST=sis-mysql
       - DB_USERNAME=root
