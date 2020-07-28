@@ -54,3 +54,19 @@ services:
       - ./bulk-upload:/app
     restart: always
     # command : php artisan key:generate
+
+  sis-dashboard:
+    tty: true
+    image: bitnami/laravel:latest
+    environment:
+      - DB_HOST=sis-mysql
+      - DB_USERNAME=root
+      - DB_DATABASE=openemis
+      - DB_PASSWORD=secret
+    depends_on:
+      - sis-mysql
+    ports:
+      - 3002:3000
+    volumes:
+      - ./bulk-upload:/app
+    restart: always
