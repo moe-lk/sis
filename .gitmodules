@@ -4,3 +4,6 @@
 [submodule "bulk-upload"]
 	path = bulk-upload
 	url = https://github.com/moe-lk/bulk-upload.git
+[submodule "sis-dashboard"]
+	path = sis-dashboard
+	url = https://github.com/moe-lk/sis-dashboard.git

@@ -68,5 +68,5 @@ services:
     ports:
       - 3002:3000
     volumes:
-      - ./bulk-upload:/app
+      - ./sis-dashboard/Script:/app
     restart: always
