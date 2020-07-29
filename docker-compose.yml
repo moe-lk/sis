@@ -37,10 +37,9 @@ services:
     container_name: cache
     ports:
       - "6379:6379"
-
+      
   sis-bulk-upload:
-    tty: true
-    image: bitnami/laravel:latest
+    build:  ./bulk-upload
     environment:
       - DB_HOST=sis-mysql
       - DB_USERNAME=root
@@ -53,11 +52,9 @@ services:
     volumes:
       - ./bulk-upload:/app
     restart: always
-    # command : php artisan key:generate
 
   sis-dashboard:
-    tty: true
-    image: bitnami/laravel:latest
+    build:  ./sis-dashboard
     environment:
       - DB_HOST=sis-mysql
       - DB_USERNAME=root
@@ -68,5 +65,5 @@ services:
     ports:
       - 3002:3000
     volumes:
-      - ./bulk-upload:/app
+      - ./sis-dashboard:/app
     restart: always
