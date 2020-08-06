@@ -68,5 +68,5 @@ services:
     ports:
       - 3002:3000
     volumes:
-      - ./sis-dashboard/Script:/app
+      - ./sis-dashboard/dashboard-app:/app
     restart: always
