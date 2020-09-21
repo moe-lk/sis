@@ -17,7 +17,7 @@ services:
       - MYSQL_ROOT_PASSWORD=secret
       - MYSQL_DATABASE=openemis
       - MYSQL_PASSWORD=secret
-    command:  '--sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION --max_allowed_packet=32505856'
+    command:  '--sql_mode=NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION --max_allowed_packet=32505856 '
 
 
   sis:
@@ -51,4 +51,5 @@ services:
     volumes:
       - ./bulk-upload:/app
     restart: always
+    mem_limit: 1024m
     # command : php artisan key:generate

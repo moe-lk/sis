@@ -556,6 +556,11 @@ class StudentsTable extends ControllerActionTable
             $event->stopPropagation();
             return false;
         }
+
+        if ($entity->updated_from == 'doe'){
+            $event->stopPropagation();
+            return false;
+        }
     }
 
     public function indexBeforeAction(Event $event, ArrayObject $extra)

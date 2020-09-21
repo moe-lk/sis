@@ -59,7 +59,7 @@ RUN a2enmod rewrite && \
 RUN rm -rf /var/www/apachephp
 ADD ./app /var/www/apachephp
 WORKDIR /var/www/apachephp
-RUN mkdir logs tmp
+RUN mkdir -p logs tmp
 
 # Copy the app.php file
 # Inject some non random salt for this example
@@ -69,6 +69,9 @@ RUN	sed -i -e "s/__SALT__/somerandomsalt/" config/app.php && \
 	# Set write permissions for webserver
 	chgrp -R www-data logs tmp && \
 	chmod -R g+rw logs tmp
+    
+RUN composer install
+RUN composer dumpautoload
 
 ####################################################
 # Expose port and run Apache webserver             #
