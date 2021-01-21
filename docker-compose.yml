@@ -35,7 +35,7 @@ services:
     image: redis
     container_name: cache
     ports:
-      - "6379:6379"
+      - "0379:6379"
 
   sis-bulk-upload:
     build:  ./bulk-upload
@@ -47,9 +47,9 @@ services:
     depends_on:
       - sis-mysql
     ports:
-      - 3001:3000
+      - 8000:80
     volumes:
-      - ./bulk-upload:/app
+      - ./bulk-upload:/var/www/html
     restart: always
     mem_limit: 1024m
     # command : php artisan key:generate
